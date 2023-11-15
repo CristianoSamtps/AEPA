@@ -8,6 +8,8 @@ body {
   color: #444444;
   margin: 0 auto;
   max-width: 1440px;
+  position: relative;
+  box-shadow: 0 0 5px grey; 
 }
 
 /*--------------------------------------------------------------
@@ -25,7 +27,7 @@ header#header a{
 div.navbar-nav{
   position: absolute;
   right: 0;
-  margin-right: 70px;
+
 }
 
 main{
@@ -44,10 +46,41 @@ nav.navbar {
   margin-top:20px
 }
 
+header.fixed-top{
+  position: absolute !important;  
+}
+.navbar-nav button{
+  margin-right: 50px
+}
+
+
+@media only screen and (max-width: 991px) {
+  div.navbar-nav{
+  position: inherit;
+  }
+  div.show{
+    background-color: #178351;
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 0px;
+  }
+  div.navbar-nav .nav-item{
+    background-color: #178351;
+
+  }
+  .navbar-nav button{
+  margin-right: 0px;
+}
+.navbar-toggler{
+margin-right: 50px;
+}
+}
+
 
 /*--------------------------------------------------------------
 # Index - Hero
 --------------------------------------------------------------*/
+
 section#indexHero h1{
   color: #263238;
   font-size: 40px;
