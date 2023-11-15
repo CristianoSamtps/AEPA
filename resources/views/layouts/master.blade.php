@@ -29,6 +29,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset ('/css/style.css') }}" rel="stylesheet">
+  @yield('styles')
 
 </head>
 
@@ -46,7 +47,7 @@
         </defs>
     </svg>
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand"><img src="{{ asset('img/logo_green.svg')}}" alt="AEPABrandLogo" width="200" height="50"></a>
+        <a href="{{route('index')}}" class="navbar-brand"><img src="{{ asset('img/logo_green.svg')}}" alt="AEPABrandLogo" width="200" height="50"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
