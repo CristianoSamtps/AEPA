@@ -37,20 +37,15 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-<svg width="997" height="155" viewBox="0 0 997 155" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M119.832 113.279C-29.3934 71.3393 2.95979 0 2.95979 0H994.286C994.286 0 1000.39 45.1112 994.286 80.6988C988.18 116.287 961.653 149.869 893.329 154.38C825.004 158.892 759.739 137.86 704.671 120.798C631.704 98.1888 580.461 124.359 509.895 137.338C353.709 166.065 269.058 155.219 119.832 113.279Z" fill="url(#paint0_linear_214_4)"/>
-<defs>
-<linearGradient id="paint0_linear_214_4" x1="469.614" y1="5.13046e-08" x2="469.614" y2="546.799" gradientUnits="userSpaceOnUse">
-<stop stop-color="#125D35"/>
-<stop offset="0.244792" stop-color="#1B9861"/>
-</linearGradient>
-</defs>
-</svg>
-
-
-
-
-
+      <svg width="997" height="155" viewBox="0 0 997 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M119.832 113.279C-29.3934 71.3393 2.95979 0 2.95979 0H994.286C994.286 0 1000.39 45.1112 994.286 80.6988C988.18 116.287 961.653 149.869 893.329 154.38C825.004 158.892 759.739 137.86 704.671 120.798C631.704 98.1888 580.461 124.359 509.895 137.338C353.709 166.065 269.058 155.219 119.832 113.279Z" fill="url(#paint0_linear_214_4)"/>
+      <defs>
+      <linearGradient id="paint0_linear_214_4" x1="469.614" y1="5.13046e-08" x2="469.614" y2="546.799" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#125D35"/>
+      <stop offset="0.244792" stop-color="#1B9861"/>
+      </linearGradient>
+      </defs>
+      </svg>
 
     <nav class="navbar navbar-expand-lg stroke">
         <a href="{{route('index')}}" class="navbar-brand"><img src="{{ asset('img/logo_green.svg')}}" alt="AEPABrandLogo" width="200" height="50"></a>

@@ -9,6 +9,35 @@ body {
   margin: 0 auto;
   max-width: 1920px;
   position: relative;
+
+}
+
+.hidden{
+  opacity: 0;
+  transition: all 1s;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition-delay: 0.3s;
+}
+
+.hidden2{
+  opacity: 0;
+  transition: all 1s;
+  filter: blur(5px);
+  transform: translateX(+100%);
+  transition-delay: 0.3s;
+}
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+
+@media(prefers-reduced-motion){
+  .hidden{
+    transition: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -31,7 +60,6 @@ header#header a{
 div.navbar-nav{
   position: absolute;
   right: 0;
-
 }
 
 .navbar-nav button{
@@ -124,7 +152,7 @@ section#indexHero h5{
   margin-bottom: 40px;
 }
 
-section#indexHero button.hero-btn1{
+button.green-btn1{
   width: 238px;
   height: 50px;
   border-radius: 40px;
@@ -195,7 +223,29 @@ div.indexContentwrapper {
   background-image: url(../img/backgroundeffect1.svg);
   background-repeat: repeat-x;
   background-position: 50% 0;
+  height: 600px;
 }
+
+
+/*--------------------------------------------------------------
+# projectssection 
+--------------------------------------------------------------*/
+
+
+p.sectionIndicator{
+  color: #709C82;
+  font-size: 30px;
+  font-weight: 400;
+}
+section#projectssection h1{
+  color: #263238;
+font-size: 40px;
+font-weight: 400;
+margin-bottom: 40px
+}
+
+
+
 
 
 /*--------------------------------------------------------------
