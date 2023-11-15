@@ -37,16 +37,19 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-    <svg width="917" height="187" viewBox="0 0 917 187" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M127.464 142.481C-18.8682 100.644 0.893703 0 0.893703 0H917V110.26C917 110.26 882.165 151.607 846.389 169.149C807.823 188.058 772.382 192.615 731.058 179.59C659.506 157.037 592.19 144.09 522.991 157.037C369.833 185.693 273.796 184.317 127.464 142.481Z" fill="url(#paint0_linear_164_2)"/>
-        <defs>
-            <linearGradient id="paint0_linear_164_2" x1="458.5" y1="0" x2="458.5" y2="545.452" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#125D35"/>
-                <stop offset="0.244792" stop-color="#1B9861"/>
-            </linearGradient>
-        </defs>
+    <svg width="965" height="192" viewBox="0 0 965 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M127.464 142.481C-18.8682 100.644 0.893704 0 0.893704 0H938.5C938.5 0 965 37 965 82.5C965 128 935 176.5 865.5 187.5C823.076 194.215 772.382 192.615 731.058 179.59C659.506 157.037 592.19 144.09 522.991 157.037C369.833 185.693 273.796 184.317 127.464 142.481Z" fill="url(#paint0_linear_213_3)"/>
+    <defs>
+    <linearGradient id="paint0_linear_213_3" x1="458.5" y1="0" x2="458.5" y2="545.452" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#125D35"/>
+    <stop offset="0.244792" stop-color="#1B9861"/>
+    </linearGradient>
+    </defs>
     </svg>
-    <nav class="navbar navbar-expand-lg">
+
+
+
+    <nav class="navbar navbar-expand-lg stroke">
         <a href="{{route('index')}}" class="navbar-brand"><img src="{{ asset('img/logo_green.svg')}}" alt="AEPABrandLogo" width="200" height="50"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,11 +57,12 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav text-center">
                 <!-- Add the "ml-auto" class to align items to the right -->
-                <a class="nav-item nav-link active" href="#">Associação</a>
-                <a class="nav-item nav-link" href="{{ route('topDonates')}}">Doações</a>
-                <a class="nav-item nav-link" href="#">Eventos</a>
-                <a class="nav-item nav-link" href="#">Voluntariado</a>
-                <a><button class="btn">Login</button></a>
+                <a class="nav-item nav-link active" href="#">ASSOCIAÇÃO</a>
+                <a class="nav-item nav-link" href="{{ route('topDonates')}}">DOAÇÕES</a>
+                <a class="nav-item nav-link" href="#">EVENTOS</a>
+                <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
+                <a class="nav-item nav-link" href="#">PROJETOS</a>
+                <a><button class="btn">LOGIN</button></a>
             </div>
         </div>
     </nav>

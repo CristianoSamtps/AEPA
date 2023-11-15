@@ -9,7 +9,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 heroinfo">
           <h1>Já conheces a missão da nossa associação AEPA?</h1>
           <h5>Com mais de 14 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
           </h5>
@@ -51,6 +51,10 @@
 </div>
 </section>
 </div> 
+
+
+
+</section>
 </main><!-- End #main -->
 
 @endsection

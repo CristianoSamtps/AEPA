@@ -9,12 +9,15 @@ body {
   margin: 0 auto;
   max-width: 1920px;
   position: relative;
-  box-shadow: 0 0 5px grey; 
 }
 
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+header#header{
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
 header#header svg{
   position: absolute;
@@ -22,16 +25,13 @@ header#header svg{
 }
 header#header a{
   color:#ffff !important;
+  font-weight: bolder;
 }
 
 div.navbar-nav{
   position: absolute;
   right: 0;
 
-}
-
-main{
-  margin-top: 190px;
 }
 
 .navbar-nav button{
@@ -51,6 +51,18 @@ header.fixed-top{
 }
 .navbar-nav button{
   margin-right: 50px
+}
+
+header svg{
+  overflow: visible;
+}
+
+a.nav-item{
+  margin-right: 20px
+
+}
+a.nav-item:hover{
+  text-decoration: underline;
 }
 
 
@@ -80,6 +92,19 @@ margin-right: 50px;
 /*--------------------------------------------------------------
 # Index - Hero
 --------------------------------------------------------------*/
+
+
+main#main{
+  margin-top: 190px;
+}
+
+section#indexHero{
+  margin-bottom: 100px;
+}
+
+div.heroinfo{
+  margin-top: 100px;
+}
 
 section#indexHero h1{
   color: #263238;
@@ -166,9 +191,12 @@ div#sectionbtn{
   padding-left: 40px;
   line-height: 60px;
 }
-div.indexContentwrapper{
+div.indexContentwrapper {
   background-image: url(../img/backgroundeffect1.svg);
+  background-repeat: repeat-x;
+  background-position: 50% 0;
 }
+
 
 /*--------------------------------------------------------------
 # Top-donates 
