@@ -16,5 +16,6 @@ use App\Http\Controllers\PageController;
 
 
 Route::get('/', [PageController::class, 'index'])->name('index');
+Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonates');
 
 
