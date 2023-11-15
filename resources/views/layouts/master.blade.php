@@ -54,7 +54,7 @@
             <div class="navbar-nav text-center">
                 <!-- Add the "ml-auto" class to align items to the right -->
                 <a class="nav-item nav-link active" href="#">Associação</a>
-                <a class="nav-item nav-link" href="#">Doações</a>
+                <a class="nav-item nav-link" href="{{ route('topDonates')}}">Doações</a>
                 <a class="nav-item nav-link" href="#">Eventos</a>
                 <a class="nav-item nav-link" href="#">Voluntariado</a>
                 <a><button class="btn">Login</button></a>
