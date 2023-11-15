@@ -191,6 +191,12 @@ div.indexContentwrapper{
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   margin-left: 300px;
 }
+.top-donates #box{
+  width: 600px;
+  padding-left: 250px;
+  padding-top: 30px;  
+  border-radius: 30px;
+}
 .top-donates .box input{
   width: 0;
   outline: none;

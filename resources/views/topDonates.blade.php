@@ -10,10 +10,9 @@
         <h2>Top donates</h2>
     </div>
     <div class="filtros">
-        <div class="box">
-            <input type="text" placeholder="Pesquisar" class="Pesquisar">            
+        <div class="input-group mb-3" id="box">
+        <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Recipient's username" aria-describedby="button-addon2">
         </div>
-
     </div>
 
     <div class="donates">
