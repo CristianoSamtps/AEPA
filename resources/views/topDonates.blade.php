@@ -19,7 +19,7 @@
     <div class="donates">
         <div class="card">
             <img src="img/ana.jpg" alt="" class="profile-image">
-            <h2 class="name">Joel Loureiro</h2>
+            <h2 class="name">Joana Bastos</h2>
             <button class="btn">1361€</button>
         </div>
         <div class="card">
