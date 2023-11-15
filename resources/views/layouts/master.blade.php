@@ -51,7 +51,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav text-center">
                 <!-- Add the "ml-auto" class to align items to the right -->
                 <a class="nav-item nav-link active" href="#">Associação</a>
                 <a class="nav-item nav-link" href="{{ route('topDonates')}}">Doações</a>
