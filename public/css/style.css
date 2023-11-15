@@ -165,7 +165,7 @@ div.info-row{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 25px;
   border: 1px solid #ccc;
   border-radius: 20px;
   max-width: 900px;
@@ -198,7 +198,7 @@ div.info-row{
 
 .top-donates .btn {
   padding: 10px 20px;
-  background-color: #4FCD8B;
+  background-color: #3A8262;
   color: white;
   border: none;
   border-radius: 30px;
@@ -208,7 +208,7 @@ div.info-row{
 }
 
 .top-donates .btn:hover {
-  background-color: #45a049;
+  background-color: #019E59;
 }
 
 
