@@ -57,6 +57,7 @@
                 <!-- Add the "ml-auto" class to align items to the right -->
                 <a class="nav-item nav-link active" href="#">ASSOCIAÇÃO</a>
                 <a class="nav-item nav-link" href="{{ route('topDonates')}}">DOAÇÕES</a>
+                <a class="nav-item nav-link" href="{{ route('patrocinadores')}}">Patrocinadores</a>
                 <a class="nav-item nav-link" href="#">EVENTOS</a>
                 <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                 <a class="nav-item nav-link" href="#">PROJETOS</a>

@@ -12,4 +12,7 @@ class PageController extends Controller
     public function topDonates(){
     	return view('topDonates');
     }
+    public function patrocinadores(){
+    	return view('patrocinadores');
+    }
 }
