@@ -135,14 +135,14 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input wide">
                         <input type="text" required />
-                        <label>Nome</label>
+                        <label>*Nome</label>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input wide">
                         <input type="text" required />
-                        <label>Email</label>
+                        <label>*Email</label>
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input wide" style="float:right;">
                         <textarea required></textarea>
-                        <label>Mensagem</label>
+                        <label>*Mensagem</label>
                     </div>
                 </div>
 
