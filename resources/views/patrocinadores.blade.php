@@ -15,7 +15,7 @@
 
         <div class="container" id="section1">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
 
                     <div id="imgsecion1">
                         <img src="{{asset ('img/planetpatroc.svg')}}" alt="index_animation">
@@ -23,7 +23,7 @@
 
                 </div>
 
-                <div class="col-md-6" id="texto">
+                <div class="col-md-6 col-sm-12" id="texto">
 
                     <h1 class"titulo">AEPA Convida-vos a serem <span>nossos parceiros</span></h1>
 
