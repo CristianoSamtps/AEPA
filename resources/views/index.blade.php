@@ -3,7 +3,7 @@
 @section('title', 'AEPA')
 
 @section('styles')
-  <link href="{{ asset ('/css/styleIndex.css') }}" rel="stylesheet">
+<link href="{{ asset ('/css/styleIndex.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -54,43 +54,59 @@
 
 <!-- Projetos -->
 
-<section class="container " id="projectssection">
+<section class="container" id="projectssection">
   <div class="container">
     <div class="row">
       <div class="col-md-6 hidden">
         <p class="sectionIndicator">Projetos</p>
-        <h1>Estamos a construir um mundo melhor, com um futuro sustentável e duradouro.
-        </h1>
+        <h1>Estamos a construir um mundo melhor, com um futuro sustentável e duradouro.</h1>
         <a><button class="btn green-btn1">Ver mais Projetos</button></a>
       </div>
-
       <div class="col-md-6 hidden2">
         <div class="d-flex projects carousel-track" id="carouselTrack">
           <div class="item projimg">
             <div class="item-info">
-              <p class="projshowtile">1</p><span>Pinhal de Leiria</span>
+              <div class="item-info-container">
+                <p class="projshowtile"><span>1</span> Pinhal de Leiria</p>
+                <p class="proj-info">A reconstrução do pinhal de Leiria é dos projetos mais ambiciosos da AEPA.</p>
+              </div>
             </div>
-            <img src="{{asset ('img/projLeiria.png')}}" alt="Pinhal de Leiria">
-          </div> 
-          <div class="item projimg">
-            <div class="item-info">
-              <p class="projshowtile">2</p><span>Caranguejeira</span>
-            </div>
-            <img src="{{asset ('img/projCaranguejeira.png')}}" alt="Caranguejeira">
+              <img src="{{asset ('img/projLeiria.png')}}" alt="projLeiria">
+              <p class="projarrow">Saber mais -></p>
           </div>
+
           <div class="item projimg">
             <div class="item-info">
-              <p class="projshowtile">3</p><span>Pedrogão Grande</span>
+              <div class="item-info-container">
+                <p class="projshowtile"><span>2</span> Caranguejeira</p>
+                <p class="proj-info">Os piores acontecimentos dos últimos anos, o processo de recuperação precisa da tua ajuda.</p>
+              </div>
             </div>
-            <img src="{{asset ('img/projPedrograoG.png')}}" alt="Pedrogão Grande">
+            <div>
+              <img src="{{asset ('img/projCaranguejeira.png')}}" alt="projCaranguejeira">
+               <p class="projarrow">Saber mais -></p>
+            </div>
+          </div>
+
+          <div class="item projimg">
+            <div class="item-info">
+              <div class="item-info-container">
+                <p class="projshowtile"><span>3</span> Pedrogão Grande</p>
+                <p class="proj-info">A evolução da recomposição dos pinhais de Pedrógão Grande tem alcançado números extraordinários.</p>
+                <span class="projarrow"> <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i> </span>
+              </div>
+            </div>
+            <div>
+              <img src="{{asset ('img/projPedrograoG.png')}}" alt="projPedrograoG">
+               <p class="projarrow">Saber mais -></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-</section>
 </main><!-- End #main -->
 
-@endsection
+
+        @endsection
