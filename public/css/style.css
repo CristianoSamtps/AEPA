@@ -1,5 +1,3 @@
-
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -12,7 +10,7 @@ body {
 
 }
 
-.hidden{
+.hidden {
   opacity: 0;
   transition: all 1s;
   filter: blur(5px);
@@ -20,22 +18,23 @@ body {
   transition-delay: 0.3s;
 }
 
-.hidden2{
+.hidden2 {
   opacity: 0;
   transition: all 1s;
   filter: blur(5px);
   transform: translateX(+100%);
   transition-delay: 0.3s;
 }
-.show{
+
+.show {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
 }
 
 
-@media(prefers-reduced-motion){
-  .hidden{
+@media(prefers-reduced-motion) {
+  .hidden {
     transition: none;
   }
 }
@@ -43,77 +42,83 @@ body {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-header#header{
+header#header {
   max-width: 1440px;
   margin: 0 auto;
 }
 
-header#header svg{
+header#header svg {
   position: absolute;
   right: 0;
 }
-header#header a{
-  color:#ffff !important;
+
+header#header a {
+  color: #ffff !important;
   font-weight: bolder;
 }
 
-div.navbar-nav{
+div.navbar-nav {
   position: absolute;
   right: 0;
 }
 
-.navbar-nav button{
+.navbar-nav button {
   width: 125px;
   height: 39px;
   border-radius: 50px;
-  background: #FFF; 
+  background: #FFF;
   color: #208C5B;
 }
 
 nav.navbar {
-  margin-top:20px
+  margin-top: 20px
 }
 
-header.fixed-top{
-  position: absolute !important;  
+header.fixed-top {
+  position: absolute !important;
 }
-.navbar-nav button{
+
+.navbar-nav button {
   margin-right: 50px
 }
 
-header svg{
+header svg {
   overflow: visible;
 }
 
-a.nav-item{
+a.nav-item {
   margin-right: 20px
-
 }
-a.nav-item:hover{
+
+a.nav-item:hover {
   text-decoration: underline;
 }
 
 
 @media only screen and (max-width: 991px) {
-  div.navbar-nav{
-  position: inherit;
+  div.navbar-nav {
+    position: inherit;
   }
-  div.show{
+
+  div.show {
     background-color: #178351;
     text-align: center;
     padding-bottom: 20px;
     margin: 0px;
   }
-  div.navbar-nav .nav-item{
+
+  div.navbar-nav .nav-item {
     background-color: #178351;
 
   }
-  .navbar-nav button{
-  margin-right: 0px;
-}
-.navbar-toggler{
-margin-right: 50px;
-}
+
+  .navbar-nav button {
+    margin-right: 0px;
+  }
+
+  .navbar-toggler {
+    margin-right: 50px;
+  }
 }
 
 
@@ -122,19 +127,19 @@ margin-right: 50px;
 --------------------------------------------------------------*/
 
 
-main#main{
+main#main {
   margin-top: 190px;
 }
 
-section#indexHero{
+section#indexHero {
   margin-bottom: 100px;
 }
 
-div.heroinfo{
+div.heroinfo {
   margin-top: 100px;
 }
 
-section#indexHero h1{
+section#indexHero h1 {
   color: #263238;
   font-size: 40px;
   font-style: normal;
@@ -142,7 +147,7 @@ section#indexHero h1{
   line-height: normal;
 }
 
-section#indexHero h5{
+section#indexHero h5 {
   color: #203347;
   font-size: 30px;
   font-style: normal;
@@ -152,14 +157,15 @@ section#indexHero h5{
   margin-bottom: 40px;
 }
 
-button.green-btn1{
+button.green-btn1 {
   width: 238px;
   height: 50px;
   border-radius: 40px;
   background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
-  color:#ffff;
+  color: #ffff;
 }
-section#indexHero button.hero-btn2{
+
+section#indexHero button.hero-btn2 {
   width: 238px;
   height: 50px;
   border-radius: 40px;
@@ -167,10 +173,12 @@ section#indexHero button.hero-btn2{
   background-color: #ffff;
   color: #3A8262;
 }
-div#herosvg{
+
+div#herosvg {
   text-align: center;
 }
-div#herosvg img{
+
+div#herosvg img {
   width: 80%;
 }
 
@@ -179,35 +187,39 @@ div#herosvg img{
 # Index - Info Sections
 --------------------------------------------------------------*/
 
-div.info-row{
+div.info-row {
   margin: 0 auto;
   display: flex;
   width: 996px;
   height: 124px;
   border-radius: 100px;
   background: linear-gradient(180deg, #36985D 0%, #6A9B7E 100%);
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset; 
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
-section#indexContent{
+
+section#indexContent {
   max-width: 900px;
   position: relative;
 }
-div.mid-section-info{
+
+div.mid-section-info {
   padding: 30px;
   color: #ffff;
 }
-div.contentimg img{
+
+div.contentimg img {
   margin-left: 40px;
 }
 
-.section-btn1{
+.section-btn1 {
   width: 199px;
   height: 50px;
   border-radius: 40px;
   background: #FFF;
   color: #53AD87;
 }
-.section-btn2{
+
+.section-btn2 {
   width: 199px;
   height: 50px;
   border-radius: 40px;
@@ -215,10 +227,11 @@ div.contentimg img{
   color: #ffff;
 }
 
-div#sectionbtn{
+div#sectionbtn {
   padding-left: 40px;
   line-height: 60px;
 }
+
 div.indexContentwrapper {
   background-image: url(../img/backgroundeffect1.svg);
   background-repeat: repeat-x;
@@ -232,16 +245,17 @@ div.indexContentwrapper {
 --------------------------------------------------------------*/
 
 
-p.sectionIndicator{
+p.sectionIndicator {
   color: #709C82;
   font-size: 30px;
   font-weight: 400;
 }
-section#projectssection h1{
+
+section#projectssection h1 {
   color: #263238;
-font-size: 40px;
-font-weight: 400;
-margin-bottom: 40px
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 40px
 }
 
 
@@ -252,12 +266,13 @@ margin-bottom: 40px
 # Top-donates 
 --------------------------------------------------------------*/
 
-.top-donates .titulo h2{
+.top-donates .titulo h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 400;
 }
-.top-donates .box{
+
+.top-donates .box {
   height: 30px;
   width: 200px;
   display: flex;
@@ -266,16 +281,18 @@ margin-bottom: 40px
   background: #fff;
   border-radius: 30px;
   align-items: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   margin-left: 300px;
 }
-.top-donates #box{
+
+.top-donates #box {
   width: 600px;
   padding-left: 250px;
-  padding-top: 30px;  
+  padding-top: 30px;
   border-radius: 30px;
 }
-.top-donates .box input{
+
+.top-donates .box input {
   width: 0;
   outline: none;
   border: none;
@@ -284,6 +301,7 @@ margin-bottom: 40px
   background: transparent;
   color: black;
 }
+
 .top-donates .donates .card {
   display: flex;
   flex-direction: row;
@@ -294,20 +312,22 @@ margin-bottom: 40px
   border-radius: 20px;
   max-width: 900px;
   margin: 50px auto;
-  box-shadow: 0px 2px 20px rgba(0,0,0,0.5);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
   position: relative;
-  
+
 }
-.top-donates .donates .card{
+
+.top-donates .donates .card {
   position: relative;
 }
+
 .top-donates .profile-image {
   border-radius: 50%;
   position: absolute;
   width: 94px;
   height: 94px;
   left: -30px;
-  top:0;
+  top: 0;
   z-index: 10;
   border: 4px solid #D9D9D9;
 }
@@ -340,11 +360,126 @@ margin-bottom: 40px
 --------------------------------------------------------------*/
 
 
+.patrocinadores div#section1 {
+  margin-top: 210px !important;
+}
+
+#section1 div#imgsecion1 img {
+  width: 695px;
+  height: 635px;
+  flex-shrink: 0;
+  margin-left: -70px;
+}
+
+#section1 h1 {
+  color: hsl(0, 0%, 0%);
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#section1 span {
+  color: #009C10;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
 
+.patrocinadores p {
+  color: #000;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  /* 162.5% */
+}
 
+button.green-btnpatroc {
+  width: 138px;
+  height: 50px;
+  border-radius: 40px;
+  background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+  color: #ffff;
+}
 
+#texto {
+  margin-top: 120px;
+}
 
+div#section2 {
+  margin: 200px;
+  padding: 0px 360px 0px 360px;
+}
 
+div#section2 h1 {
+  color: #1D8F00;
+  text-align: center;
+  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 
+div#section2 p {
+  margin-top: 30px;
+  color: #7E7E7E;
+  text-align: center;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  /* 175% */
+}
 
+div#section3 .texto {
+  margin: 200px;
+  padding: 0px 360px 0px 360px;
+}
+
+div#section3 h1 {
+  color: black;
+  text-align: center;
+  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+div#section3 p {
+  margin-top: 30px;
+  color: #7E7E7E;
+  text-align: center;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  /* 175% */
+}
+
+div#section3 .row{
+
+}
+
+div#section3 .row .col-3 {
+  width: 283px;
+  height: 405px;
+  flex-shrink: 0;
+  border-radius: 21px;
+  background: #E0E0E0;
+  box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+}
