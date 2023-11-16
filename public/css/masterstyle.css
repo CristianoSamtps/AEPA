@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   max-width: 1920px;
   position: relative;
-
+  overflow-x: hidden;
 }
 
 .hidden {
@@ -37,6 +37,12 @@ body {
   .hidden {
     transition: none;
   }
+}
+
+p.sectionIndicator{
+  color: #709C82;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 /*--------------------------------------------------------------

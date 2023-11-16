@@ -28,7 +28,7 @@
   <link href="{{ asset ('/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset ('/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset ('/css/masterstyle.css') }}" rel="stylesheet">
   @yield('styles')
 
 </head>
@@ -55,9 +55,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav text-center">
                 <!-- Add the "ml-auto" class to align items to the right -->
-                <a class="nav-item nav-link active" href="#">ASSOCIAÇÃO</a>
                 <a class="nav-item nav-link" href="{{ route('topDonates')}}">DOAÇÕES</a>
-                <a class="nav-item nav-link" href="{{ route('patrocinadores')}}">Patrocinadores</a>
+                <a class="nav-item nav-link" href="{{ route('patrocinadores')}}">PATROCIONADORES</a>
                 <a class="nav-item nav-link" href="#">EVENTOS</a>
                 <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                 <a class="nav-item nav-link" href="#">PROJETOS</a>
