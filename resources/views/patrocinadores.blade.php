@@ -2,7 +2,12 @@
 
 @section('title', 'AEPA')
 
+@section ('styles')
+<link href="{{ asset ('/css/stylepatrocinadores.css') }}" rel="stylesheet">
+@endsection
+
 @section('main')
+
 
 <main id="main">
 
@@ -61,7 +66,7 @@
                 Agradecemos por fazerem parte da nossa jornada e por ajudarem a moldar o futuro com visão e inovação.
             </p>
         </div>
-        
+
         <div class="container">
 
             <div class="row">

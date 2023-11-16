@@ -1,0 +1,128 @@
+/*--------------------------------------------------------------
+# Patrocinadores
+--------------------------------------------------------------*/
+
+
+.patrocinadores div#section1 {
+    margin-top: 210px !important;
+  }
+  
+  #section1 div#imgsecion1 img {
+    width: 695px;
+    height: 635px;
+    flex-shrink: 0;
+    margin-left: -70px;
+  }
+  
+  #section1 h1 {
+    color: hsl(0, 0%, 0%);
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  #section1 span {
+    color: #009C10;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  
+  .patrocinadores p {
+    color: #000;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    /* 162.5% */
+  }
+  
+  button.green-btnpatroc {
+    width: 138px;
+    height: 50px;
+    border-radius: 40px;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    color: #ffff;
+  }
+  
+  #texto {
+    margin-top: 120px;
+  }
+  
+  div#section2 {
+    margin: 200px;
+    padding: 0px 360px 0px 360px;
+  }
+  
+  div#section2 h1 {
+    color: #1D8F00;
+    text-align: center;
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  div#section2 p {
+    margin-top: 30px;
+    color: #7E7E7E;
+    text-align: center;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    /* 175% */
+  }
+  
+  div#section3 .texto {
+    margin: 200px;
+    padding: 0px 360px 0px 360px;
+  }
+  
+  div#section3 h1 {
+    color: black;
+    text-align: center;
+    text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  
+  div#section3 p {
+    margin-top: 30px;
+    color: #7E7E7E;
+    text-align: center;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    /* 175% */
+  }
+  
+  div#section3 .row{
+  
+  }
+  
+  div#section3 .row .col-3 {
+    width: 283px;
+    height: 405px;
+    flex-shrink: 0;
+    border-radius: 21px;
+    background: #E0E0E0;
+    box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+  }
