@@ -28,7 +28,7 @@
   <link href="{{ asset ('/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset ('/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset ('/css/masterstyle.css') }}" rel="stylesheet">
   @yield('styles')
 
 </head>
