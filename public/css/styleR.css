@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+body {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.tornateMembro {
+  margin: 100px 131px;
+}
+
+.descricaoMembro {
+  color: #565656;
+  font-family: Lexend Deca;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 26px;
+}
+
+.titleMembro {
+  margin-top: 100px;
+  color: #208c5b;
+  font-family: Lexend Deca;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.butaoMembro {
+  width: 248px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #019e59;
+  border: none;
+  color: #fff;
+  font-family: Lexend Deca;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 26px;
+}
+
+.membro {
+  color: #218366;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.imgMembro {
+  width: 600px;
+  padding-bottom: 30px;
+}
+
+.preco {
+  border-radius: 20px 20px 0px 0px;
+  background: #208c5b;
+  padding-bottom: 100px;
+}
+
+.titlePreco {
+  color: #ffffff;
+  text-align: center;
+  font-family: Lexend Deca;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 100px 0;
+  padding-top: 100px;
+}
+
+.card-title {
+  flex-shrink: 0;
+  color: #141414;
+  font-family: Lexend Deca;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-top: 10px;
+}
+
+.card-title .pricing-card-title {
+  text-align: center;
+}
+
+.pormes {
+  flex-shrink: 0;
+  color: #141414;
+  font-family: Lexend Deca;
+  font-size: 25px;
+  font-style: normal;
+  line-height: normal;
+  border: none;
+}
+
+#header1 {
+  height: 73px;
+  border-radius: 20px 20px 0px 0px;
+  background: #1c1c1c;
+  color: #dae49d;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  border: none;
+}
+
+#header2 {
+  height: 73px;
+  border-radius: 20px 20px 0px 0px;
+  background: #4cb691;
+  color: #ffffff;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  border: none;
+}
+
+#header3 {
+  height: 73px;
+  border-radius: 20px 20px 0px 0px;
+  background: #dae49d;
+  color: #208c5b;
+  font-family: Lexend Deca;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  justify-content: center;
+}
+
+.card {
+  padding-bottom: 20px;
+  border-radius: 20px;
+  border: none;
+}
+.card-body {
+  padding-left: 20px;
+}
+
+.vantagens {
+  margin-top: 30px;
+}
+
+.subtitulo,
+.titulo {
+  text-decoration: underline;
+}
+
+.lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lista li {
+  margin-bottom: 10px;
+}
+
+.titleVan {
+  color: #019e59;
+  text-align: center;
+  font-family: Lexend Deca;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 50px 0;
+  padding-top: 10px;
+}
+
+.tituloNormal {
+  color: #141414;
+
+  font-family: Lexend Deca;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.subtituloMembro {
+  color: #208c5b;
+
+  font-family: Lexend Deca;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.vantagens {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 1440px;
+  height: 1060px;
+  flex-shrink: 0;
+}
+
+.listaNormal {
+  color: #000;
+
+  text-align: center;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  list-style-type: none;
+}
+
+.listaNormal li {
+  padding: 20px;
+}
+
+.listaMembro {
+  color: #019e59;
+
+  text-align: center;
+  font-family: Lexend Deca;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  list-style-type: none;
+}
+
+.listaMembro li {
+  padding: 20px;
+}
+
