@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-<<<<<<< Updated upstream
+
 @section('title', 'AEPA')
-=======
+
 @section('title', 'AEPA | Membro')
->>>>>>> Stashed changes
+
 
 @section('styles')
     <link href="{{ asset('/css/styleR.css') }}" rel="stylesheet">
