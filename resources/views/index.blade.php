@@ -212,8 +212,11 @@
           </div>
             <a href=""><span class="more text-white">Saber mais</span></a>
         </div>
-
         </div>
+        <div class="col-md-12 d-flex justify-content-center">
+        <a class="link-light" href=""><button class="btn green-btn1">Tornar membro</button></a>
+        <a><button class="btn hero-btn2">Sugestões</button></a>
+      </div>
       </div>
     </div>
   </section>
