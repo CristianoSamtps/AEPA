@@ -67,7 +67,8 @@
         <div class="col-md-6 hidden">
           <p class="sectionIndicator">Projetos</p>
           <h1>Estamos a construir um mundo melhor, com um futuro sustentável e duradouro.</h1>
-          <a><button class="btn green-btn1">Ver mais Projetos</button></a>
+          <a class="link-light" href="{{route('projects')}}"><button class="btn green-btn1">Ver mais Projetos</button></a>
+
         </div>
         <div class="col-md-6 hidden2">
           <div class="d-flex projects carousel-track" id="carouselTrack">

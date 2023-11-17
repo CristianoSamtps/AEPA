@@ -20,7 +20,7 @@
         <div class="projects-list">
 
             <!-- Primeira fila de Projetos -->
-            <div class="project-row project-row-1">
+            <div class="project-row project-row-1 hidden">
 
                 <!-- Projeto 1 -->
                 <div class="project">
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Segunda fila de Projetos -->
-            <div class="project-row project-row-2">
+            <div class="project-row project-row-2 hidden2">
 
                 <!-- Projeto 4 -->
                 <div class="project">
@@ -83,7 +83,7 @@
             </div>
 
             <!-- Terceira fila de Projetos -->
-            <div class="project-row project-row-3">
+            <div class="project-row project-row-3 hidden2">
 
                 <!-- Projeto 7 -->
                 <div class="project">

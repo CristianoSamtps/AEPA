@@ -72,6 +72,10 @@ body {
     height: 30px;
 }
 
+.project-row-4 h2 {
+    height: 30px;
+}
+
 .project img {
     margin-top: 25px;
     transition: transform 0.3s ease-in-out;
