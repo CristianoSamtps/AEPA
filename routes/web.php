@@ -21,3 +21,4 @@ Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonat
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
+Route::get('/projects', [PageController::class, 'projects'])->name('projects');

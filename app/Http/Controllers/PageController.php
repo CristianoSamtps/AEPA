@@ -15,4 +15,8 @@ class PageController extends Controller
     public function patrocinadores(){
     	return view('patrocinadores');
     }
+
+    public function projects(){
+        return view('projects');        
+    }
 }
