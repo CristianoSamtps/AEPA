@@ -1,3 +1,5 @@
+/* Versão Desktop (1440px)*/
+
 body {
     max-width: 1440px;
     font-family: 'Lexend Deca', sans-serif;
@@ -82,11 +84,9 @@ body {
 div#MoreBtn {
     display: flex;
     justify-content: center;
-    /* Centraliza horizontalmente */
 }
 
 button#showMoreBtn {
-    margin-top: 50px;
     margin-bottom: 100px;
     padding: 0;
     width: 248px;
@@ -95,4 +95,62 @@ button#showMoreBtn {
     border: 0;
     background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%);
     color: #ffff;
+}
+
+/* Versão Desktop (393px)*/
+
+@media screen and (max-width: 393px) {
+    body {
+        max-width: 393px;
+        padding-top: 155px;
+    }
+
+    .projects-section h1 {
+        font-size: 35px;
+        padding: 50px 0;
+        height: 144px;
+    }
+
+    .projects-list {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .project-row {
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+
+    .project {
+        width: 100%;
+        margin-bottom: 33px;
+    }
+
+    .project h3 {
+        margin-top: 7px;
+        font-size: 10px;
+        height: 13px;
+    }
+
+    .project p {
+        margin-top: 4px;
+    }
+
+    .project h2 {
+        margin-top: 7px;
+        font-size: 16px;
+        height: 20px;
+    }
+
+    .project img {
+        margin-top: 18px;
+        width: 343px;
+    }
+
+    button#showMoreBtn {
+        font-size: 12px;
+        margin-bottom: 50px;
+        width: 140px;
+        height: 30px;
+    }
 }
