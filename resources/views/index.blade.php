@@ -8,20 +8,20 @@
 
 @section('main')
 
-<main id="main"> 
+<main id="main">
   <section class="container" id="indexHero">
     <div class="container">
       <div class="row">
         <div class="col-md-6 heroinfo">
           <h1>Já conheces a missão da nossa associação?</h1>
-          <h5>Com mais de 12 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
+          <h5>Com mais de 14 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
           </h5>
           <a><button class="btn green-btn1">Associação</button></a>
           <a><button class="btn hero-btn2">Doações</button></a>
         </div>
         <div class="col-md-6">
           <div id="herosvg">
-            
+
             <object data="{{asset ('img/heroanimation1.svg')}}" type="image/svg+xml"></object>
           </div>
         </div>
@@ -43,7 +43,7 @@
       <div class="col-md-12 info-row mid-section-info">
         <div>
           <h3>Faça um dia em família</h3>
-          <p>apoie esta causa e crie momentos para relembrar</p> 
+          <p>apoie esta causa e crie momentos para relembrar</p>
         </div>
         <div id="sectionbtn">
           <a><button class="btn section-btn1">Associação</button></a>
@@ -52,7 +52,7 @@
       </div>
     </div>
   </section>
-</div> 
+</div>
 
 <!-- Projetos -->
 
