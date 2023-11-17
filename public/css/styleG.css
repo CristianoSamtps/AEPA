@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Top-donates 
+# Top-donates
 --------------------------------------------------------------*/
 .top-donates {
     margin-top: 180px;
@@ -13,6 +13,31 @@
 
 .top-donates .filtros {
     display: flex;
+    padding: 30px;
+    justify-content: center;
+}
+.top-donates .filtros .search-box{
+    height: 35px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.top-donates .filtros .search-box input{
+    width: 400px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+.top-donates .filtros .search-box img{
+    width: 25px;
 }
 
 .top-donates .box {
@@ -79,11 +104,6 @@
     content: "Mais recente";
     right: -90px;
 }
-
-.top-donates .switch input:checked{
-    background: #019E59;
-}
-
 .top-donates .switch label{
     z-index: 1;
     position: absolute;
@@ -94,11 +114,15 @@
 
 .top-donates .switch input:checked::after,
 .top-donates .switch input:checked::before{
+    color: #1E1E1E;
+    transition: color 0.5s;
+}
+.top-donates .switch input:checked::after{
     color: #fff;
     transition: color 0.5s;
 }
 
-.top-donates .switch input:checked+label{
+.top-donates .switch input:not(checked) +label{
     left: 4px;
     right: 21px;
     background: #019E59;
@@ -106,14 +130,14 @@
 }
 
 .top-donates .switch input:not(:checked)::before{
-    color: #1E1E1E;
+    color: #fff;
     transition: color 0.5s;
 }
 .top-donates .switch input:not(:checked)::after{
-    color: #fff;
+    color: #1E1E1E;
     transition: color 0.5s 0.2s;
 }
-.top-donates .switch input:not(:checked) +label{
+.top-donates .switch input:checked +label{
     left: 180px;
     right: -100px;
     background: #019E59;
@@ -160,7 +184,7 @@
 
 .top-donates .btn {
     padding: 5px 40px;
-    background-color: #3A8262;
+    background-color: #019E59;
     color: white;
     border: none;
     border-radius: 30px;
@@ -169,6 +193,37 @@
     letter-spacing: 1px;
 }
 
-.top-donates .btn:hover {
-    background-color: #019E59;
+
+@media screen and (max-width: 900px) {
+    .top-donates .filtros {
+        flex-direction: column;
+        align-items: center;
+    }
+    .top-donates .switch{
+        margin-right: 150px;
+    }
 }
+@media screen and (max-width: 990px) {
+    .top-donates .donates .card{
+        max-width: 650px;
+    }
+}
+@media screen and (max-width: 760px) {
+    .top-donates .donates .card{
+        max-width: 500px;
+    }
+    .top-donates .filtros .search-box input{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 580px) {
+    .top-donates .donates .card{
+        max-width: 350px;
+        padding: 23px;
+    }
+    .top-donates .filtros .search-box input{
+        width: 200px;
+    }
+
+}
+
