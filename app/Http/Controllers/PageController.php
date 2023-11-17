@@ -17,6 +17,11 @@ class PageController extends Controller
     }
 
     public function projects(){
-        return view('projects');        
+        return view('projects');
+    }
+
+    public function tornarMembro(){
+        return view('tornarMembro');
     }
 }
+

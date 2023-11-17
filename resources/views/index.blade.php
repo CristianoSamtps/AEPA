@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-6 heroinfo">
           <h1>Já conheces a missão da nossa associação?</h1>
-          <h5>Com mais de 14 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
+          <h5>Com mais de 12 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
           </h5>
           <a><button class="btn green-btn1">Associação</button></a>
           <a><button class="btn hero-btn2">Doações</button></a>
@@ -214,7 +214,7 @@
         </div>
         </div>
         <div class="col-md-12 d-flex justify-content-center">
-        <a class="link-light" href=""><button class="btn green-btn1">Tornar membro</button></a>
+        <a class="link-light" href="{{route('tornarMembro')}}"><button class="btn green-btn1">Tornar membro</button></a>
         <a><button class="btn hero-btn2">Sugestões</button></a>
       </div>
       </div>
