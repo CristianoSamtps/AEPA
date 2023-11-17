@@ -192,7 +192,28 @@
     font-size: 16px;
     letter-spacing: 1px;
 }
+.top-donates .background {
+    position: absolute;
+    margin-top: 80PX;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Isso coloca a div abaixo de outras camadas */
+  }
 
+  .top-donates .background svg {
+    width: 1920px;
+    height: 1080px;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+
+@media screen and (max-width: 990px) {
+    .top-donates .donates .card{
+        max-width: 650px;
+    }
+}
 
 @media screen and (max-width: 900px) {
     .top-donates .filtros {
@@ -203,11 +224,7 @@
         margin-right: 150px;
     }
 }
-@media screen and (max-width: 990px) {
-    .top-donates .donates .card{
-        max-width: 650px;
-    }
-}
+
 @media screen and (max-width: 760px) {
     .top-donates .donates .card{
         max-width: 500px;
@@ -215,6 +232,7 @@
     .top-donates .filtros .search-box input{
         width: 300px;
     }
+
 }
 @media screen and (max-width: 580px) {
     .top-donates .donates .card{
