@@ -1,0 +1,174 @@
+/*--------------------------------------------------------------
+# Top-donates 
+--------------------------------------------------------------*/
+.top-donates {
+    margin-top: 180px;
+}
+
+.top-donates .titulo h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.top-donates .filtros {
+    display: flex;
+}
+
+.top-donates .box {
+    height: 30px;
+    width: 200px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-left: 300px;
+}
+
+.top-donates #box {
+    width: 600px;
+    padding-left: 250px;
+    padding-top: 30px;
+    border-radius: 30px;
+}
+
+.top-donates .box input {
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+    color: black;
+}
+
+.top-donates .switch {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px 30px;
+}
+
+.top-donates .switch input {
+    appearance: none;
+    width: 300px;
+    height: 60px;
+    border-radius: 25px;
+    outline: none;
+}
+
+.top-donates .switch input::before,
+.top-donates .switch input::after{
+    z-index: 2;
+    position: absolute;
+    top: 56%;
+    transform: translateY(-50%);
+    font-weight: bolder;
+}
+
+.top-donates .switch input::before{
+    content: "Maior contribuidor";
+    left: 20px;
+}
+
+.top-donates .switch input::after{
+    content: "Mais recente";
+    right: -90px;
+}
+
+.top-donates .switch input:checked{
+    background: #019E59;
+}
+
+.top-donates .switch label{
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 4px;
+    border-radius: 20px;
+}
+
+.top-donates .switch input:checked::after,
+.top-donates .switch input:checked::before{
+    color: #fff;
+    transition: color 0.5s;
+}
+
+.top-donates .switch input:checked+label{
+    left: 4px;
+    right: 21px;
+    background: #019E59;
+    transition: left 0.5s, right 0.4s 0.2s;
+}
+
+.top-donates .switch input:not(:checked)::before{
+    color: #1E1E1E;
+    transition: color 0.5s;
+}
+.top-donates .switch input:not(:checked)::after{
+    color: #fff;
+    transition: color 0.5s 0.2s;
+}
+.top-donates .switch input:not(:checked) +label{
+    left: 180px;
+    right: -100px;
+    background: #019E59;
+    transition: left 0.4s 0.2s, right 0.5s, background 0.35s;
+}
+
+.top-donates .donates .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+}
+
+.top-donates .donates .card {
+    position: relative;
+}
+
+.top-donates .profile-image {
+    border-radius: 50%;
+    position: absolute;
+    width: 94px;
+    height: 94px;
+    left: -30px;
+    top: 0;
+    z-index: 10;
+    border: 4px solid #D9D9D9;
+}
+
+
+.top-donates .name {
+    flex-grow: 1;
+    margin: 0 20px;
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+.top-donates .btn {
+    padding: 5px 40px;
+    background-color: #3A8262;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.top-donates .btn:hover {
+    background-color: #019E59;
+}
