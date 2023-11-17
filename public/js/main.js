@@ -2,7 +2,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     console.log(entry);
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.classList.add('showed');
     }
   });
 });
@@ -12,16 +12,27 @@ const hiddenElements2 = document.querySelectorAll('.hidden2');
 hiddenElements.forEach((el) => observer.observe(el));
 hiddenElements2.forEach((el) => observer.observe(el));
 
+//Carrousel index
 
-
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector("#carouselTrack");
   const items = document.querySelectorAll(".item");
 
-  items.forEach((item, index) => {
+  items[0].querySelector(".item-info").classList.add("projactive");
+
+  items.forEach((item) => {
     item.addEventListener("click", function () {
       // Move the clicked item to the beginning
       track.insertBefore(item, track.firstChild);
+
+      // Remove 'projactive' class from all items
+      items.forEach((item) => {
+        item.querySelector(".item-info").classList.remove("projactive");
+      });
+
+      // Add 'projactive' class to the clicked item
+      item.querySelector(".item-info").classList.add("projactive");
     });
   });
 });
+

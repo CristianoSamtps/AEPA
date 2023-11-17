@@ -12,7 +12,6 @@
   /* Garanta que essas divs apareçam acima da div de background */
 }
 
-
 .background {
   position: absolute;
   margin-top: 80PX;
@@ -45,6 +44,68 @@
   overflow: visible;
 }
 
+@media only screen and (max-width: 765px) {
+
+  .background {
+    margin-top: 765px;
+  }
+  
+  .background svg {
+    width: 690px;
+  }
+  
+  .background2 {
+    margin-top: 1200px !important;
+  }
+  
+  .background2 svg {
+    width: 690px;
+  }
+}
+@media only screen and (max-width: 1699px) {
+  
+  .background {
+    margin-top: 65px;
+  }
+  
+  .background svg {
+    width: 1700px;
+  }
+  
+
+  .background2 {
+    margin-top: 640PX;
+  }
+  
+  .background2 svg {
+    width: 1700px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  
+  .background {
+    margin-top: 165px;
+  }
+  
+  .background svg {
+    width: 1000px;
+  }
+  
+
+  .background2 {
+    margin-top: 840PX;
+  }
+  
+  .background2 svg {
+    width: 1000px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section 1
+--------------------------------------------------------------*/
+
 .patrocinadores div#section1 {
   margin-top: 210px !important;
 }
@@ -57,7 +118,7 @@
 }
 
 #section1 h1 {
-  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.096);
+  text-shadow: 0px 8px 14px rgba(0, 0, 0, 0.096);
   color: hsl(0, 0%, 0%);
   font-size: 40px;
   font-style: normal;
@@ -95,6 +156,107 @@ button.green-btnpatroc {
   margin-top: 120px;
 }
 
+@media only screen and (max-width: 765px) {
+
+  .container{
+    max-width: 1200px;
+  }
+
+  .patrocinadores div#section1 {
+    margin-top: 50PX !important;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #section1 div#imgsecion1 img {
+    width: 395px;
+    margin-left: 0px;
+    margin-top: 00px;
+    margin-bottom: -140px !important;
+  }
+  
+  #section1 h1 {
+    font-size: 32px;
+  }
+  
+  #section1 span {
+    font-size: 32px;
+  }
+  
+  
+  .patrocinadores p {
+    font-size: 18px;
+
+  }
+ 
+  #texto {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 1699px) {
+  .container{
+    max-width: 1200px;
+  }
+
+  .patrocinadores div#section1 {
+    text-align: left !important;
+    margin-top: 150px !important;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  #section1 div#imgsecion1 img {
+    width: 495px;
+    margin-left: -20px;
+    margin-top: -30px;
+    margin-bottom: -200px;
+  }
+  
+  #section1 h1 {
+    margin-top: 50px;
+    font-size: 32px;
+  }
+  
+  #section1 span {
+    font-size: 32px;
+  }
+  
+  
+  .patrocinadores p {
+    font-size: 18px;
+
+  }
+ 
+  #texto {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .container{
+    max-width: 1200px;
+  }
+
+  .patrocinadores div#section1 {
+    text-align: left !important;
+    margin-top: 150px !important;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  #section1 div#imgsecion1 img {
+    width: 425px;
+    margin-left: -20px;
+    margin-top: -30px;
+    margin-bottom: -200px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Section 2
+--------------------------------------------------------------*/
+
 div#section2 {
   margin: 200px;
   padding: 0px 360px 0px 360px;
@@ -103,7 +265,7 @@ div#section2 {
 div#section2 h1 {
   color: #1D8F00;
   text-align: center;
-  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.13);
+  text-shadow: 0px 8px 14px rgba(0, 0, 0, 0.13);
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
@@ -121,6 +283,46 @@ div#section2 p {
   /* 175% */
 }
 
+@media only screen and (max-width: 765px) {
+  div#section2 {
+    margin: 20px !important; 
+    padding: 40px !important;
+  }
+  
+  div#section2 h1 {
+    font-size: 32px;
+  }
+  
+  div#section2 p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1699px) {
+  div#section2 {
+    margin: 160px;
+    padding: 0px 200px 0px 200px;
+  }
+  
+  div#section2 h1 {
+    font-size: 32px;
+  }
+  
+  div#section2 p {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  div#section2 {
+    margin: 120px;
+    padding: 60PX;
+  }
+}
+/*--------------------------------------------------------------
+# Section 3
+--------------------------------------------------------------*/
+
 div#section3 .texto {
   margin: 200px;
   margin-bottom: 60px;
@@ -130,7 +332,7 @@ div#section3 .texto {
 div#section3 h1 {
   color: #1D8F00;
   text-align: center;
-  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 8px 14px rgba(0, 0, 0, 0.25);
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
@@ -161,6 +363,57 @@ div#section3 .row .col-3 {
   box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
 }
 
+@media only screen and (max-width: 765px) {
+  div#section3 .texto {
+    margin: 20px !important;
+    margin-top: 60px !important;
+    padding: 40px !important;
+  }
+  
+  div#section3 h1 {
+    font-size: 32px;
+  }
+  
+  div#section3 p {
+    font-size: 18px;
+  }
+  
+  div#section3 .row {
+    display: flex;
+  }
+}  
+
+@media only screen and (max-width: 1699px) {
+  div#section3 .texto {
+    margin: 160px;
+    padding: 0px 200px 0px 200px;
+    margin-bottom: 50px;
+  }
+  
+  div#section3 h1 {
+    font-size: 32px;
+  }
+  
+  div#section3 p {
+    font-size: 18px;
+  }
+  
+  div#section3 .row {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  div#section3 .texto {
+    margin: 10px;
+    padding: 20;
+    margin-bottom: 50px;
+  }
+}
+/*--------------------------------------------------------------
+# Section 4
+--------------------------------------------------------------*/
+
 div#section4 .texto {
   margin: 200px;
   margin-bottom: 60px;
@@ -171,7 +424,7 @@ div#section4 .texto {
 div#section4 h1 {
   color: #1D8F00;
   text-align: center;
-  text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 8px 14px rgba(0, 0, 0, 0.25);
   font-size: 38px;
   font-style: normal;
   font-weight: 500;
@@ -188,9 +441,58 @@ div#section4 p {
   line-height: 28px;
   /* 175% */
 }
+@media only screen and (max-width: 765px) {
+  div#section4 .texto {
+    margin-top: 100px !important;
+    margin: 20px !important;
+    padding: 40px !important;
+    margin-bottom: -70px !important;
+  }
+  
+  div#section4 h1 {
+    font-size: 32px;
+  }
+  
+  div#section4 p {
+    font-size: 18px;
+  }
+}
 
+@media only screen and (max-width: 1699px) {
+  div#section4 .texto {
+    margin: 160px;
+    padding: 0px 170px 0px 170px;
+    margin-bottom: 20px;
+  }
+  
+  div#section4 h1 {
+    font-size: 32px;
+  }
+  
+  div#section4 p {
+    font-size: 18px;
+  }
+}
 
-/* ///// inputs /////*/
+@media only screen and (max-width: 1000px) {
+  div#section4 .texto {
+    margin-top: 100px !important;
+    margin: 10px;
+    padding: 20;
+    margin-bottom: 20px;
+  }
+  
+  div#section4 h1 {
+    font-size: 32px;
+  }
+  
+  div#section4 p {
+    font-size: 18px;
+  }
+}
+/*--------------------------------------------------------------
+# Formulario
+--------------------------------------------------------------*/
 
 input:focus~label,
 textarea:focus~label,

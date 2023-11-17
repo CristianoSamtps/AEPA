@@ -4,9 +4,9 @@
 # Index - Hero
 --------------------------------------------------------------*/
 
-
 main#main{
   margin-top: 190px;
+  position: relative;
 }
 
 section#indexHero{
@@ -61,6 +61,11 @@ div#herosvg img{
 /*--------------------------------------------------------------
 # Index - Info Sections
 --------------------------------------------------------------*/
+div.backgroud{
+  position: absolute;
+  z-index: -1;
+}
+
 
 div.info-row{
   margin: 0 auto;
@@ -107,12 +112,36 @@ div.indexContentwrapper {
   background-repeat: repeat-x;
   background-position: 50% 0;
   height: 600px;
+  margin-top: 120px;
+}
+
+div.suguesectionwrapper{
+  background-image: url(../img/footersvg.svg);
+  background-repeat: repeat-x;
+  background-position: 50% 0;
+  height: 600px;
+  margin-top: 120px;
 }
 
 
 /*--------------------------------------------------------------
 # projectssection 
 --------------------------------------------------------------*/
+
+div.projimg{
+  position: relative;
+}
+
+p.projarrow{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
 
 section#projectssection h1{
   color: #263238;
@@ -124,11 +153,12 @@ section#projectssection h1{
 
 div.projects img{
   width: 268px;
-  height: 421px;
+  height: 400px;
   object-fit: cover;
   padding:15px;
   border-radius: 30px 30px 30px 70px;
 }
+
 
 div.projects{
   overflow: visible;
@@ -152,20 +182,109 @@ div.item-info{
   width: 238px;
   border-radius: 14px 14px 0px 0px;
   color: #ffff;
+  overflow: hidden;
+
 }
 
+@keyframes expandHeight {
+  from {
+    height: 50px; /* A mesma altura fixa usada anteriormente */
+  }
+  to {
+    height: 210px; /* Altura desejada durante a animação */
+  }
+}
+
+div.projactive{
+  animation: expandHeight 0.6s ease;
+  position: absolute;
+  overflow: hidden;
+  height: 210px;
+  background: linear-gradient(180deg, #407454 0%, #78C295 100%);
+  padding: 15px;
+  margin: 15px;
+  width: 238px;
+  border-radius: 14px 14px 0px 0px;
+  color: #ffff;
+}
+
+
 p.projshowtile{
-  font-size: 30px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: inline;
-  margin-right: 20px;
+  margin-bottom: 25px;
+}
+p.projshowtile span{
   text-decoration: underline;
+  font-size: 27px;
 }
 
-.item-info span{
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: 400;
+
+div.item-info-container{
+  position: relative;
+  display: flex;
+  overflow-wrap: hidden;
+  overflow: wrap;
+  flex-wrap: wrap;
+  text-wrap: wrap;
 }
+
+p.proj-info{
+  font-size: 17px;
+  font-weight: 200;
+}
+
+div.indexContentwrapperProj {
+ /* background-image: url(../img/backgroudeffectgreen.svg);*/
+  background-repeat: repeat-x;
+  background-position: -100% 18%;
+  height: 569px;
+}
+
+
+span.spanenfase{
+  color: #ffff;
+}
+
+section#suguesection{
+  margin-top: 180px;
+  margin-bottom: 180px;
+}
+
+section#suguesection img{
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+}
+
+div.sugue-box{
+  border-radius: 5px;
+  background: linear-gradient(180deg, #56926E 0%, #82CFA7 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  color: #203347;
+}
+
+div.sugue-box span.more{
+  float:right;
+}
+
+img.volillustration{
+  cursor: pointer;
+  transition: transform .2s;
+}
+img.volillustration:hover{
+  transform: scale(1.2);
+}
+
+.sugue-box{
+  cursor: pointer;
+  transition: transform .2s;
+}
+.sugue-box:hover{
+  transform: scale(1.2);
+  background: linear-gradient(180deg, #66B586 0%, #7FE9B1 100%);
+}
+

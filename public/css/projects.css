@@ -1,0 +1,98 @@
+body {
+    max-width: 1440px;
+    font-family: 'Lexend Deca', sans-serif;
+    background-image: url(../img/backgroundeffect1.svg);
+    padding-top: 155px;
+}
+
+.projects-section h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 85px 0;
+    margin: 0;
+    height: 233px;
+}
+
+.projects-list {
+    margin-left: 61px;
+    margin-right: 61px;
+}
+
+.project-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.project {
+    border-top: 1px solid #b9b6ac;
+    width: calc(33.33% - 19.28px);
+}
+
+.project:hover {
+    cursor: pointer;
+    border-top-color: #FA9333;
+}
+
+.project h3 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 11px;
+    font-weight: 300;
+    /* Light */
+    color: #019E59;
+    height: 14px;
+}
+
+.project p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    /* Regular */
+    color: #B9B6B2;
+    line-height: 15px;
+}
+
+.project h2 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 500;
+    /* Medium */
+    color: #052827;
+    height: 60px;
+}
+
+.project-row-2 h2 {
+    height: 30px;
+}
+
+.project img {
+    margin-top: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project img:hover {
+    transform: scale(1.05);
+}
+
+div#MoreBtn {
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+}
+
+button#showMoreBtn {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 0;
+    width: 248px;
+    height: 52px;
+    border-radius: 40px;
+    border: 0;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%);
+    color: #ffff;
+}
