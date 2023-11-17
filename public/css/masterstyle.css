@@ -125,7 +125,36 @@ a.nav-item:hover {
   .navbar-toggler {
     margin-right: 50px;
   }
+  
 }
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+footer#footer{
+  max-width: 1440px;
+  margin:0 auto;
+  position: relative;
+}
+
+div.footerbg{
+  background-image: url(/img/footervector.svg);
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+}
+
+@media only screen and (max-width: 1280px) {
+footer#footer{
+  max-width: 1180px;
+  margin:0 auto;
+  position: relative;
+}
+}
+
+
+
 
 /*--------------------------------------------------------------
 # Top-donates 
