@@ -4,9 +4,9 @@
 # Index - Hero
 --------------------------------------------------------------*/
 
-
 main#main{
   margin-top: 190px;
+  position: relative;
 }
 
 section#indexHero{
@@ -61,6 +61,11 @@ div#herosvg img{
 /*--------------------------------------------------------------
 # Index - Info Sections
 --------------------------------------------------------------*/
+div.backgroud{
+  position: absolute;
+  z-index: -1;
+}
+
 
 div.info-row{
   margin: 0 auto;
@@ -107,6 +112,15 @@ div.indexContentwrapper {
   background-repeat: repeat-x;
   background-position: 50% 0;
   height: 600px;
+  margin-top: 120px;
+}
+
+div.suguesectionwrapper{
+  background-image: url(../img/footersvg.svg);
+  background-repeat: repeat-x;
+  background-position: 50% 0;
+  height: 600px;
+  margin-top: 120px;
 }
 
 
@@ -169,11 +183,23 @@ div.item-info{
   border-radius: 14px 14px 0px 0px;
   color: #ffff;
   overflow: hidden;
+
+}
+
+@keyframes expandHeight {
+  from {
+    height: 50px; /* A mesma altura fixa usada anteriormente */
+  }
+  to {
+    height: 210px; /* Altura desejada durante a animação */
+  }
 }
 
 div.projactive{
+  animation: expandHeight 0.6s ease;
   position: absolute;
-  height: auto;
+  overflow: hidden;
+  height: 210px;
   background: linear-gradient(180deg, #407454 0%, #78C295 100%);
   padding: 15px;
   margin: 15px;
@@ -192,6 +218,7 @@ p.projshowtile{
 }
 p.projshowtile span{
   text-decoration: underline;
+  font-size: 27px;
 }
 
 
@@ -206,21 +233,58 @@ div.item-info-container{
 
 p.proj-info{
   font-size: 17px;
-  font-weight: light;
+  font-weight: 200;
+}
+
+div.indexContentwrapperProj {
+ /* background-image: url(../img/backgroudeffectgreen.svg);*/
+  background-repeat: repeat-x;
+  background-position: -100% 18%;
+  height: 569px;
 }
 
 
+span.spanenfase{
+  color: #ffff;
+}
 
+section#suguesection{
+  margin-top: 180px;
+  margin-bottom: 180px;
+}
 
+section#suguesection img{
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+}
 
+div.sugue-box{
+  border-radius: 5px;
+  background: linear-gradient(180deg, #56926E 0%, #82CFA7 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  color: #203347;
+}
 
+div.sugue-box span.more{
+  float:right;
+}
 
+img.volillustration{
+  cursor: pointer;
+  transition: transform .2s;
+}
+img.volillustration:hover{
+  transform: scale(1.2);
+}
 
-
-
-
-
-
-
-
+.sugue-box{
+  cursor: pointer;
+  transition: transform .2s;
+}
+.sugue-box:hover{
+  transform: scale(1.2);
+  background: linear-gradient(180deg, #66B586 0%, #7FE9B1 100%);
+}
 
