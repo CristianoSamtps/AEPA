@@ -71,7 +71,7 @@ div.info-row{
   margin: 0 auto;
   display: flex;
   width: 996px;
-  height: 124px;
+  height: auto;
   border-radius: 100px;
   background: linear-gradient(180deg, #36985D 0%, #6A9B7E 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset; 
@@ -130,6 +130,9 @@ div.suguesectionwrapper{
 
 div.projimg{
   position: relative;
+}
+div.projimg:hover{
+  cursor: pointer;
 }
 
 p.projarrow{
@@ -206,6 +209,10 @@ div.projactive{
   width: 238px;
   border-radius: 14px 14px 0px 0px;
   color: #ffff;
+}
+
+div.projactive img{
+  height: 400px;
 }
 
 
@@ -288,3 +295,78 @@ img.volillustration:hover{
   background: linear-gradient(180deg, #66B586 0%, #7FE9B1 100%);
 }
 
+
+
+@media only screen and (max-width: 750px) {
+  body{
+    text-align: center !important;
+  }
+
+div.heroinfo{
+    margin-bottom:  100px;
+}
+div#volinfo{
+  margin-left: 35px;
+}
+div.mid-section-info{
+  height:auto;
+}
+
+div.contentimg img{
+  width:  206px;
+  height:   140px;
+}
+div.mid-section-info{
+  font-size:  70%;
+  padding:  10px; 
+}
+div.mid-section-info h3{
+  font-size:  150%;
+}
+div#sectionbtn{
+  display:  flex; 
+  padding:  0px;
+  margin:   0px;
+  line-height:  normal; 
+  justify-content: space-evenly;
+}
+div#sectionbtn button{
+  height: auto;
+  width:  150px;
+}
+div.info-row{
+  display:  block;  
+}
+
+div.indexContentwrapper{
+  height: auto;
+  margin-bottom: 100px;
+  background-image: none;
+}
+main#main{
+  margin-top: 100px;
+}
+div.indexContentwrapperProj{
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+div#carouselTrack{
+  margin-top: 50px;
+}
+div.m-section{
+  display: block !important;
+}
+section#suguesection{
+  margin-top: 100px;
+}
+div.suguecards{
+  display: block !important;
+}
+div.suguesectionwrapper{
+  height: auto;
+}
+div.backgroud{
+  display: none;
+}
+}
