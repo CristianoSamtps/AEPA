@@ -23,5 +23,8 @@ class PageController extends Controller
     public function tornarMembro(){
         return view('tornarMembro');
     }
+    public function sobreNos(){
+        return view('sobreNos');
+    }
 }
 

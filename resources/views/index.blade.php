@@ -144,7 +144,7 @@
         </div>
       </div>
       <div class="col-md-12 d-flex justify-content-center">
-        <a><button class="btn green-btn1">Sobre nós</button></a>
+        <a href="{{route('sobreNos')}}"><button class="btn green-btn1">Sobre nós</button></a>
       </div>
     </div>
   </div>
