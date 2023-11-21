@@ -3,6 +3,11 @@ main#main{
   position: relative;
 }
 
+div#herosvg object{
+	width: 550px !important;
+	text-align: center;
+}
+
 div#card-box{
 	background-color: #33A76F;
 	color: #ffff;
@@ -32,3 +37,72 @@ section#indexHero{
 section#indexHero h5{
 	font-size: 25px;
 }
+p.sobreCardsInfor{
+	border-top: 1px solid white;
+	padding-top: 10px;
+}
+
+section#protecaoAmbiental{
+	margin-top: 150px;
+}
+
+div.protecaoProj{
+	transition: 0.2s;
+	padding: 30px;
+	border-radius: 20px;
+	background: #FFF;
+	box-shadow: 0px 2px 18.3px 0px rgba(0, 0, 0, 0.15);
+	margin-bottom: 20px;
+	line-height: auto;
+}
+div.protecaoProj h5{
+	margin:0px;
+}
+
+div.protecaoProj:hover{
+	scale:1.05;
+}
+div.protecaoProj span{
+	float: right;
+	display: block;
+	border-left: 1px solid black;
+	padding-left: 20px;
+}
+
+div#protecaoProjIdent1{
+	border-left: 15px solid #33A76F;
+}
+div#protecaoProjIdent2{
+	border-left: 15px solid #97A733;
+}
+div#protecaoProjIdent3{
+	border-left: 15px solid #337DA7;
+}
+
+div#impactosocialinfo{
+	padding-top: 160px;
+	line-height: 20px;
+}
+
+h4#infoinfo{
+	line-height: 35px;
+}
+
+div#protecaoAmbientalinfo{
+	margin-top: 20px;
+	text-align: -webkit-right;
+}
+div#protecaoAmbientalinfo h4{ 
+	line-height: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
