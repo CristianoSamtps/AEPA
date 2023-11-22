@@ -47,7 +47,7 @@
         </div>
         <div id="sectionbtn">
           <a><button class="btn section-btn1">Voluntariado</button></a>
-          <a><button class="btn section-btn2">Eventos</button></a>
+          <a href="{{ route('eventos') }}"><button class="btn section-btn2">Eventos</button></a>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
 
 <!-- Projetos -->
 
-<div class="backgroud">
+<div class="background">
   <img src="{{asset ('img/greenvector.svg')}}" alt="background-effects">
 </div>
 

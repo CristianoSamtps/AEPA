@@ -49,7 +49,7 @@
   </section>
   <!-- End #hero -->
 
-  <div class="backgroud">
+  <div class="background">
     <img src="{{asset ('img/greyvector.svg')}}" alt="background-effects">
   </div>
   <!-- Proteção ambietal-->

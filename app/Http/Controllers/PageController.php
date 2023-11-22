@@ -42,4 +42,9 @@ class PageController extends Controller
     {
         return view('sobreNos');
     }
+    
+    public function eventos()
+    {
+        return view('eventos');
+    }
 }
