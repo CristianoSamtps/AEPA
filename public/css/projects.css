@@ -7,6 +7,10 @@ body {
     padding-top: 155px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .projects-section h1 {
     text-align: center;
     font-size: 50px;
