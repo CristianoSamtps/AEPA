@@ -96,6 +96,21 @@ div#protecaoAmbientalinfo h4{
 	line-height: 35px;
 }
 
+section#QA{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+section#QA object{
+	width: 70%;
+	margin: 0 auto;
+}
+
+div.QAtitle{
+	text-align: -webkit-right;
+	margin-bottom: 15px;
+}
+
 
 
 
