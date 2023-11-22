@@ -24,20 +24,26 @@
 
                 <!-- Projeto 1 -->
                 <div class="project">
-                    <h3>Serra da Estrela, Portugal</h3>
-                    <p>Plantar árvores em áreas desflorestadas para promover a biodiversidade e reduzir a pegada de carbono.
-                    </p>
-                    <h2>Projeto de Reflorestação "Verdejante"</h2>
-                    <img src="{{ asset('img/Cidades/Verdejante.jpg') }}" alt="Verdejante">
+                    <a href="{{ route('project_detail1') }}">
+                        <h3>Serra da Estrela, Portugal</h3>
+                        <p>Plantar árvores em áreas desflorestadas para promover a biodiversidade e reduzir a pegada de
+                            carbono.
+                        </p>
+                        <h2>Projeto de Reflorestação "Verdejante"</h2>
+                        <img src="{{ asset('img/Cidades/Verdejante.jpg') }}" alt="Verdejante">
+                    </a>
                 </div>
 
                 <!-- Projeto 2 -->
                 <div class="project">
-                    <h3>Rio Douro, Porto, Portugal</h3>
-                    <p>Preservação dos ecossistemas aquáticos através da limpeza dos rios e sensibilização para a poluição
-                        da água.</p>
-                    <h2>Campanha “Rios Limpos”</h2>
-                    <img src="{{ asset('img/Cidades/Rios Limpos.jpg') }}" alt="Verdejante">
+                    <a href="{{ route('project_detail2') }}">
+                        <h3>Rio Douro, Porto, Portugal</h3>
+                        <p>Preservação dos ecossistemas aquáticos através da limpeza dos rios e sensibilização para a
+                            poluição
+                            da água.</p>
+                        <h2>Campanha “Rios Limpos”</h2>
+                        <img src="{{ asset('img/Cidades/Rios Limpos.jpg') }}" alt="Verdejante">
+                    </a>
                 </div>
 
                 <!-- Projeto 3 -->

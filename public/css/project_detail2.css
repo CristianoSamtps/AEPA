@@ -1,0 +1,38 @@
+body {
+    max-width: 1440px;
+    font-family: 'Lexend Deca', sans-serif;
+    background-image: url(../img/backgroundeffect1.svg);
+    padding-top: 155px;
+}
+
+#project-details {
+    padding: 50px 0;
+}
+
+.project-gallery img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.project-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-info li {
+    margin-bottom: 10px;
+}
+
+.project-donations p {
+    margin-bottom: 20px;
+}
+
+.state-badge {
+    font-size: 20px;
+    padding: 8px 16px;
+    background-color: #A3EFA1;
+    color: #008105;
+    font-weight: bold;
+    height: 38.391;
+    border-radius: 24px;
+}

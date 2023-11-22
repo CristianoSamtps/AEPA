@@ -23,7 +23,10 @@ Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('
 
 Route::get('/projects', [PageController::class, 'projects'])->name('projects');
 
+Route::get('/project_detail1', [PageController::class, 'project_detail1'])->name('project_detail1');
+
+Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name('project_detail2');
+
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
-
