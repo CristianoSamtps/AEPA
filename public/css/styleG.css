@@ -77,7 +77,6 @@
     border-radius: 25px;
     margin: 10px 30px;
 }
-
 .top-donates .switch input {
     appearance: none;
     width: 300px;
@@ -85,7 +84,6 @@
     border-radius: 25px;
     outline: none;
 }
-
 .top-donates .switch input::before,
 .top-donates .switch input::after{
     z-index: 2;
@@ -94,12 +92,10 @@
     transform: translateY(-50%);
     font-weight: bolder;
 }
-
 .top-donates .switch input::before{
     content: "Maior contribuidor";
     left: 20px;
 }
-
 .top-donates .switch input::after{
     content: "Mais recente";
     right: -90px;
