@@ -4,27 +4,31 @@ body{
 section.eventosHero{
 	background-image: url("/img/Dia-da-Arvore-representacao.jpg");
 	height: 450px;
-	border-radius: 60px;
+	border-radius: 20px;
 	padding: 0px;
 	box-shadow: 0px 4px 13px 4px rgba(0, 0, 0, 0.25);
 	z-index:2;
 	position: relative;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 div.heroBackground{
 	background-image: url("/img/vectorgreen1.png");
 	background-position: left;
 	transform: scaleY(-1);
-	height: 700px;
+	height: 900px;
 	position: absolute;
 	width: 100%;
 	z-index:-1;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
 div.eventosinfo{
 	height: 100%;
-	border-radius: 60px 0px 40px 60px;
-	background: linear-gradient(101deg, #15241D -7.1%, rgba(55, 85, 70, 0.42) 69.58%, rgba(255, 255, 255, 0.00) 93.37%);
+	border-radius: 20px 0px 0px 20px;
+	background: linear-gradient(100deg, #15241D -7.1%, rgba(55, 85, 70, 0.42) 69.58%, rgba(255, 255, 255, 0.00) 93.37%);
 	color: #FFFF;
 	height: 450px;
 }
@@ -41,6 +45,7 @@ div.eventcontent h1,div.eventcontent h5,div.eventcontent p, div.eventcontent a{
 
 section#sponsors{
 	margin-bottom: 150px;
+	margin-top: 70px;
 	line-height: 50px;
 }
 
@@ -66,3 +71,124 @@ div.sponsercell img:hover{
 section#indexHero{
 	margin-bottom: 30px;
 }
+
+div.eventoscards{
+	margin:100px 0px 0px;
+}
+
+div.eventoCard {
+  height: 384px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 13px 4px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  cursor: pointer;
+}
+div.eventoCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(64, 64, 64, 0.00) 0.01%, rgba(18, 18, 18, 0.21) 20.31%, rgba(0, 0, 0, 0.71) 55.21%, rgba(34, 34, 34, 0.92) 100%);
+  pointer-events: none;
+  opacity: 0; 
+  transition: opacity 0.3s; 
+}
+
+div.eventoCard:hover {
+  background-color: #your-hover-background-color; 
+}
+
+div.eventoCard:hover::after {
+  opacity: 1; 
+}
+
+div.eventoCard:hover {
+	color: #ffff;
+}
+div.eventoCard:hover button{
+	color: #ffff;
+}
+
+div.eventoCardImg {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0.00) 0%, rgba(34, 34, 34, 0.61) 51.98%, rgba(34, 34, 34, 0.61) 100%);
+}
+
+div.eventoCardImg img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 20px;
+}
+
+
+div.eventoCard:hover .eventoCardImg {
+  height: 100%;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+div.eventoCard:not(:hover) .eventoCardImg {
+  height: 60%;
+  transition: 0.3s linear;
+}
+
+div.cardInfo{
+	height: 100%;
+	margin-top: 235px;
+	position: relative;
+	z-index: 3;
+}
+
+div.eventosfilter a{
+	text-decoration: none;
+	color: black;
+}
+
+h4.unselected{
+	color: #999999 !important;
+}
+
+h4.selected::after {
+      content: "";
+      display: block;
+      width: 50%; /* Ajuste para a largura desejada da borda */
+      border-bottom: 2px solid green; /* Cor e estilo da borda */
+      position: absolute;
+      bottom: 0;
+      left: 0; /* Ajuste para a posição inicial da borda */
+    }
+
+div.eventosfiltersection h4 {
+  color: black;
+  position: relative;
+  text-decoration: none;
+}
+
+div.eventosfiltersection h4::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: green;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+div.eventosfiltersection h4:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
