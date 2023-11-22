@@ -31,9 +31,7 @@ Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('torn
 
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
-<<<<<<< HEAD
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
-=======
+
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
->>>>>>> 43842e142f220424a5ba29f5d67727a0e5e09488
