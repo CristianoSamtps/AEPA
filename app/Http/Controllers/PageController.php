@@ -42,9 +42,15 @@ class PageController extends Controller
     {
         return view('sobreNos');
     }
+<<<<<<< HEAD
     
     public function eventos()
     {
         return view('eventos');
+=======
+    public function galeria()
+    {
+        return view('galeria');
+>>>>>>> 43842e142f220424a5ba29f5d67727a0e5e09488
     }
 }
