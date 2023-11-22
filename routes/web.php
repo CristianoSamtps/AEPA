@@ -30,3 +30,6 @@ Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
+
+Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
+

@@ -42,4 +42,8 @@ class PageController extends Controller
     {
         return view('sobreNos');
     }
+    public function galeria()
+    {
+        return view('galeria');
+    }
 }
