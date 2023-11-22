@@ -15,7 +15,7 @@
 
         <div class="container" id="section1">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-6 col-sm-12 hidden">
 
                     <div id="imgsecion1">
                         <img src="{{asset ('img/planetpatroc.svg')}}" alt="index_animation">
@@ -23,7 +23,7 @@
 
                 </div>
 
-                <div class="col-md-6 col-sm-12" id="texto">
+                <div class="col-md-6 col-sm-12 hidden2" id="texto">
 
                     <h1 class"titulo">AEPA Convida-vos a serem <span>nossos parceiros</span></h1>
 
@@ -57,7 +57,7 @@
 
     </section>
 
-    <div id="section2">
+    <div class="hidden2" id="section2">
 
         <h1>Torne-se nosso parceiro</h1>
 
@@ -85,7 +85,7 @@
 
     </section>
 
-    <div id="section3">
+    <div class="hidden" id="section3">
 
         <div class="texto">
             <h1>Nossos Parceiros</h1>
@@ -119,7 +119,7 @@
         </div>
     </div>
 
-    <div id="section4">
+    <div class="hidden2" id="section4">
 
         <div class="texto">
             <h1>Interessado em se juntar a nós?</h1>
