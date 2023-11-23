@@ -61,7 +61,7 @@ div#herosvg img{
 /*--------------------------------------------------------------
 # Index - Info Sections
 --------------------------------------------------------------*/
-div.backgroud{
+div.background{
   position: absolute;
   z-index: -1;
 }
@@ -366,7 +366,7 @@ div.suguecards{
 div.suguesectionwrapper{
   height: auto;
 }
-div.backgroud{
+div.background{
   display: none;
 }
 }

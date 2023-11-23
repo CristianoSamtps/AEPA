@@ -63,7 +63,7 @@
                     <!-- Add the "ml-auto" class to align items to the right -->
                     <a class="nav-item nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
                     <a class="nav-item nav-link" href="{{ route('patrocinadores') }}">PATROCIONADORES</a>
-                    <a class="nav-item nav-link" href="#">EVENTOS</a>
+                    <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
                     <a><button class="btn">LOGIN</button></a>
@@ -104,7 +104,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a></li>
             </ul>
         </footer>
     </footer><!-- End Footer -->
