@@ -61,7 +61,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav text-center">
                     <!-- Add the "ml-auto" class to align items to the right -->
-                    <a class="nav-item nav-link" href="{{ route('topDonates') }}">DOAÇÕES</a>
+                    <a class="nav-item nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
                     <a class="nav-item nav-link" href="{{ route('patrocinadores') }}">PATROCIONADORES</a>
                     <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
