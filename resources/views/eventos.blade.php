@@ -13,8 +13,8 @@
 <main id="main">
   <div class="heroBackground">
   </div>
+
   <section class="container eventosHero" id="indexHero">
-    <div class="container">
       <div class="row">
         <div class="col-md-8 eventosinfo">
           <div class="eventcontent">
@@ -28,74 +28,74 @@
         <div class="col-md-6 text-center">
         </div>
       </div>
-    </div>
   </section>
 
   <section class="container">
-    <div class="eventoscards row ">
-      <div class="d-flex col-md-12 eventosfiltersection">
-        <div class="col-md-6">
-         <h2 class="text-left m-2">Outros eventos</h2>
-       </div>
-       <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-         <a href=""><h4 class="m-2 unselected">Todos</h4></a>
-         <a href=""><h4 class="m-2 selected">Recentes</h4></a>
+      <div class="eventoscards row">
+        <div class="d-flex col-md-12 eventosfiltersection">
+          <div class="col-md-6">
+           <h2 class="text-left m-2">Outros eventos</h2>
+         </div>
+         <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
+           <a href=""><h4 class="m-2 unselected">Todos</h4></a>
+           <a href=""><h4 class="m-2 selected">Recentes</h4></a>
+         </div>
        </div>
      </div>
+   </section>
 
-     <div class="d-flex flex-row col-md-12 justify-content-between">
-
-      <div class="eventoCard col-md-3 col-sm-12">
-        <div class="eventoCardImg ">
-          <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
+  <section class="container eventoslist">
+    <div class=" d-flex justify-content-between">
+        <div class="eventoCard col-md-3">
+          <div class="eventoCardImg ">
+            <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
+          </div>
+          <div class="cardInfo text-center">
+            <h4>Projeto Rios</h4>
+            <p>Limpeza e monitorização do troço adotado do rio.</p>
+            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+          </div>
         </div>
-        <div class="cardInfo text-center">
-          <h4>Projeto Rios</h4>
-          <p>Limpeza e monitorização do troço adotado do rio.</p>
-          <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+
+        <div class="eventoCard col-md-3">
+          <div class="eventoCardImg ">
+            <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
+          </div>
+          <div class="cardInfo text-center">
+            <h4>Projeto Rios</h4>
+            <p>Limpeza e monitorização do troço adotado do rio.</p>
+            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+          </div>
+        </div>
+
+        <div class="eventoCard col-md-3">
+          <div class="eventoCardImg ">
+            <img src="{{asset ('img/eventos/gogreen.png')}}" alt="Projeto Rios">
+          </div>
+          <div class="cardInfo text-center">
+            <h4>GoGreen</h4>
+            <p>Limpeza e monitorização do troço adotado do rio.</p>
+            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+          </div>
+        </div>
+
+        <div class="eventoCard col-md-3">
+          <div class="eventoCardImg ">
+            <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
+          </div>
+          <div class="cardInfo text-center">
+            <h4>Projeto Rios</h4>
+            <p>Limpeza e monitorização do troço adotado do rio.</p>
+            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+          </div>
         </div>
       </div>
-
-      <div class="eventoCard col-md-3 col-sm-12">
-        <div class="eventoCardImg ">
-          <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
-        </div>
-        <div class="cardInfo text-center">
-          <h4>Projeto Rios</h4>
-          <p>Limpeza e monitorização do troço adotado do rio.</p>
-          <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-        </div>
-      </div>
-
-
-      <div class="eventoCard col-md-3 col-sm-12">
-        <div class="eventoCardImg ">
-          <img src="{{asset ('img/eventos/gogreen.png')}}" alt="Projeto Rios">
-        </div>
-        <div class="cardInfo text-center">
-          <h4>GoGreen</h4>
-          <p>Limpeza e monitorização do troço adotado do rio.</p>
-          <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-        </div>
-      </div>
-
-      <div class="eventoCard col-md-3 col-sm-12">
-        <div class="eventoCardImg ">
-          <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
-        </div>
-        <div class="cardInfo text-center">
-          <h4>Projeto Rios</h4>
-          <p>Limpeza e monitorização do troço adotado do rio.</p>
-          <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-        </div>
-      </div>
-
-    </div>
   </section>
+
 
   <section class="container" id="sponsors">
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-between flex-md-row flex-sm-column">
        <div class="col-md-12">
         <p class="text-center text-secondary">Conhece os nossos parceiros</p>
       </div>
