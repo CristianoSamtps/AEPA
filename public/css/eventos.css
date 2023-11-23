@@ -192,3 +192,7 @@ div.eventosfiltersection h4:hover::before {
   transform: scaleX(1);
 }
 
+.col-md-3{
+	width: 22% !important;  
+}
+
