@@ -1,11 +1,11 @@
 /*--------------------------------------------------------------
 # Top-donates
 --------------------------------------------------------------*/
-.top-donates {
+.top-donates,.doacoes {
     margin-top: 180px;
 }
 
-.top-donates .titulo h2 {
+.top-donates .titulo h2,.doacoes .titulo h2 {
     text-align: center;
     font-size: 30px;
     font-weight: 600;
@@ -203,6 +203,67 @@
     flex-shrink: 0;
     overflow: visible;
   }
+  /* DOAÇÕES */
+.doacoes .banner{
+    display: flex;
+    position: relative;
+    height: 200px;
+    align-items: center;
+    width: 800px;
+    border-radius: 25px;
+    margin: 10px 30px;
+    background-color: #019E59;
+}
+.doacoes .banner .text{
+    margin-left: 10px;
+    color: white;
+    text-align: left;
+}
+.doacoes .banner .image{
+    width: 40%;
+    margin-right: 10px;
+}
+.doacoes .filtros .search-box{
+    margin: 20px  300px ;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.doacoes .filtros .search-box input{
+    width: 400px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+.doacoes .filtros .search-box img{
+    width: 25px;
+    margin-right: 10px;
+}
+.doacoes .filtros .botoes{
+    text-align: center;
+}
+.doacoes .filtros .botoes label{
+    margin: 0 20px;
+}
+.doacoes .filtros .botoes #all{
+    background-color: #019E59;
+    border-radius: 30px;
+    padding: 10px 50px;
+    color: white;
+}
+
+.doacoes .filtros .botoes #localidade:hover{
+    background-color: #019E59;
+}
+
 
 
 @media screen and (max-width: 990px) {
