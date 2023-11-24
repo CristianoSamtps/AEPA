@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,8 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
+
+Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
+
+
 

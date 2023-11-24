@@ -55,4 +55,5 @@ class PageController extends Controller
     {
         return view('galeria');
     }
+
 }
