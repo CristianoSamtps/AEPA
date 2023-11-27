@@ -36,6 +36,25 @@
                         </ul>
                     <label id="doacoes">Doações</label>
                 </div>
+
+                <div class="card">
+                    <div class="esq">
+                        <img src="{{ asset('img/praia.svg')}}" alt="">
+                    </div>
+                    <div class="dir">
+                        <h4>Limpeza da praia do Pedrogão Grande</h4>
+                            <div class="bar">
+                                <div class="per"></div>
+                                <div class="texto-per">
+                                    <span>2160 € <span id="cinza">angariados<span> </span>
+                                    <span id="cinza" class="perc">80%</span>
+                                </div>
+
+                            </div>
+
+                    </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

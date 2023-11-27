@@ -263,6 +263,48 @@
 .doacoes .filtros .botoes #localidade:hover{
     background-color: #019E59;
 }
+.doacoes .filtros .botoes li{
+    list-style: none;
+}
+.doacoes .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+}
+
+.doacoes .card {
+    position: relative;
+}
+.doacoes .card .esq img{
+    width: 100%;
+}
+.doacoes .card .dir .bar{
+    height: 14px;
+    background-color: lightgrey;
+    border-radius: 20px;
+}
+.doacoes .card .dir .per{
+    max-width: 85%;
+    height: 14px;
+    background-color: #019E59;
+    position: relative;
+    border-radius: 20px;
+}
+.doacoes .card .dir .texto-per #cinza{
+    color: lightgray;
+}
+.doacoes .card .dir .texto-per .perc{
+    text-align: right;
+}
 
 
 
