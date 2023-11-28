@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title',100);
             $table->decimal('valor', $precision = 8,$scale =2 );
             $table->enum('anonimo', ['S','N'])->default('N');
-            $table->datetime('create_at');
             $table->unsignedBigInteger('membroDoador_id');
             $table->foreign('membroDoador_id')->references('id')->on('membroDoador');
             $table->timestamps();
