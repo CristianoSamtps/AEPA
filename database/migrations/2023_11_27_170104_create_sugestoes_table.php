@@ -17,9 +17,10 @@ return new class extends Migration
             $table->enum('aprovacao', ['S','N'])->default('N');
             $table->integer('votos');
             $table->enum('listado', ['NL','L'])->default('L');
-            $table->unsignedBigInteger('membroDoador_id');
-            $table->foreign('membroDoador_id')->references('id')->on('membroDoador');
-            create_at
+
+            $table->unsignedBigInteger('member_doner_id');
+            $table->foreign('member_doner_id')->references('id')->on('members_doners');
+          
             $table->timestamps();
         });
     }

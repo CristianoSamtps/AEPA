@@ -66,7 +66,7 @@
                     <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
-                    <a><button class="btn">LOGIN</button></a>
+                    <a href="{{ route('LoginReg') }}"><button class="btn">LOGIN</button></a>
                 </div>
             </div>
         </nav>

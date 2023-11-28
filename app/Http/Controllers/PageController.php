@@ -55,5 +55,9 @@ class PageController extends Controller
     {
         return view('galeria');
     }
+      public function loginReg()
+    {
+        return view('loginReg');
+    }
 
 }

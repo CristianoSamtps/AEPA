@@ -38,6 +38,8 @@ Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
+Route::get('/Login', [PageController::class, 'LoginReg'])->name('LoginReg');
+
 Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
 

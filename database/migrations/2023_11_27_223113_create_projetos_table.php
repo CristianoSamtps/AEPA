@@ -28,8 +28,8 @@ return new class extends Migration
             $table->integer('fotografias_projetos_id');
             $table->foreign('fotografias_projetos_id')->references('id')->on('fotografia_projetos');
 
-            $table->integer('parceria_id');
-            $table->foreign('parcerias_id')->references('id')->on('parcerias');
+            $table->integer('partnership');
+            $table->foreign('partnership')->references('id')->on('partnerships');
         });
     }
 
