@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->string('metodo_pag', 250);
             $table->dateTime('proximo_pag');
             $table->timestamps();
-            $table->unsignedBigInteger('planTypes_id');
-            $table->foreign('planTypes_id')->references('id')->on('planTypes');
+            $table->unsignedBigInteger('planType_id');
+            $table->foreign('planType_id')->references('id')->on('planTypes'); // Corrected table name
         });
     }
 
