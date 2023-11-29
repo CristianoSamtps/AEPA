@@ -44,7 +44,7 @@
         <h1>{{ __('Login') }}</h1>
         <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
         <form method="POST" action="{{ route('login') }}">
-
+            @csrf
           <div class="form-group mb-2">
             <label for="name">Nome completo</label>
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -65,9 +65,9 @@
                                     </span>
                                 @enderror
           </div>
-        
+
           <div class="form-group mb-3">
-            
+
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -75,11 +75,11 @@
                         {{ __('Remember Me') }}
                     </label>
                 </div>
-        
+
         </div>
 
         <div class="form-group mb-0">
-          
+
                 <button type="submit" class="btn btn-primary">
                     {{ __('Login') }}
                 </button>
@@ -89,7 +89,7 @@
                         {{ __('Forgot Your Password?') }}
                     </a>
                 @endif
-            
+
         </div>
 
       </form>

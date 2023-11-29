@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('participant', function (Blueprint $table) {
+        Schema::create('participants', function (Blueprint $table) {
+
             $table->id();
-            $table->varchar('vagas', 255);
+            $table->string('obs', 255);
             $table->timestamps(); //created_at e updated_at
 
             //chaves estrangeiras
             $table->unsignedBigInteger('event_id');
-            $table->unsignedBigInteger('member_doner');
+            $table->unsignedBigInteger('member_doner_id');
 
             $table->foreign('event_id')->references('id')->on('events');
-            $table->foreign('member_doner')->references('id')->on('members_doners');
+            $table->foreign('member_doner_id')->references('id')->on('members_doners');
 
         });
     }

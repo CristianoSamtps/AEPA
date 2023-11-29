@@ -10,15 +10,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photo_event', function (Blueprint $table) {
+        Schema::create('photos_events', function (Blueprint $table) {
             $table->id();
             $table->string('fotografia',255);
             $table->enum('destaque', ['sim', 'não'])->default('não')->unique();
-            $table->string('descricao', 255);  
+            $table->string('descricao', 255);
             $table->timestamps(); //created_at e updated_at
 
-            $table->unsignedBigInteger('events_id');
-            $table->foreign('events_id')->references('id')->on('events');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events');
         });
     }
 

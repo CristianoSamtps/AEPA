@@ -63,5 +63,9 @@ class PageController extends Controller
     {
         return view('loginReg');
     }
+    public function dashboard()
+    {
+        return view('_admin.dashboard');
+    }
 
 }

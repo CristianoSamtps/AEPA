@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fotografia_projetos', function (Blueprint $table) {
+        Schema::create('members_doners', function (Blueprint $table) {
             $table->id();
-            $table->string('foto');
-            $table->boolean('destaque');
+            $table->enum('subscrito',['sim','não']);
+            $table->enum('metodo_pag',['Cartão de crédito', 'Transferência bancária', ' Referência e entidade']);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
-            $table->unsignedBigInteger('projeto_id');
-            $table->foreign('projeto_id')->references('id')->on('projetos');
+
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fotografia_projetos');
+        Schema::dropIfExists('members_doners');
     }
 };
