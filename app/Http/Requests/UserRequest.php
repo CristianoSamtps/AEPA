@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
            'email' =>'required|email|unique:users,email,'.
                     ($this->user?$this->user->id:''),
            'foto' =>'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
-           'tipo' => 'required|in:A,M',
+
            'genero' => 'nullable|in:F,M,O,N',
            'data_nascimento' => 'nullable|date|date_format:Y-m-d',
            'telemovel' => 'nullable|string|max:13',

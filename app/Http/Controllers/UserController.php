@@ -58,13 +58,9 @@ class UserController extends Controller
                 'public/user_fotos');
             $user->foto = basename($foto_path);
         }
+        $user->tipo='A';
         $user->save();
-        if ($user->tipo=='M'){
-            $membro=new Member_Doner();
-            $membro->fill($fields);
-            $membro->id=$user->id;
-            $membro->save();
-        }
+
         $user->sendEmailVerificationNotification();
         return redirect()->route('admin.users.index')
             ->with('success', 'Utilizador criado com sucesso');
@@ -86,10 +82,12 @@ class UserController extends Controller
         return view('_admin.users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UserRequest $request, User $user)
+    public function editperfil(User $user)
+    {
+        return view('editperfil', compact('user'));
+    }
+
+    public function updateperfil(UserRequest $request, User $user)
     {
         $fields = $request->validated();
         $user->fill($fields);
@@ -109,6 +107,30 @@ class UserController extends Controller
             $membro->fill($fields);
             $membro->save();
         }
+        return redirect()->route('users.editperfil',$user)
+            ->with('success', 'Utilizador atualizado com sucesso');
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UserRequest $request, User $user)
+    {
+        $fields = $request->validated();
+        $user->fill($fields);
+        if ($request->hasFile('foto')) {
+            if (!empty($user->foto)) {
+                Storage::disk('public')->delete('user_fotos/' .
+                    $user->foto);
+            }
+            $foto_path =
+            $request->file('foto')->store('public/user_fotos');
+            $user->foto = basename($foto_path);
+        }
+
+        $user->save();
+
         return redirect()->route('admin.users.index')
             ->with('success', 'Utilizador atualizado com sucesso');
     }

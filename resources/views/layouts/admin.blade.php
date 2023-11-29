@@ -313,6 +313,15 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
+            <div>
+                @if ($errors->any())
+                    @include ('layouts.partials.error')
+                @endif
+                @if (!empty(session('success')))
+                    @include ('layouts.partials.success')
+                @endif
+            </div>
+
             <div class="container-fluid">
                 @yield('content')
 

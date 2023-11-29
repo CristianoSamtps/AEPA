@@ -17,14 +17,24 @@
 </div>
 
 <div class="form-group">
-    <label for="inputRole">Previlégios</label>
-    <select name="tipo" id="inputRole" class="form-control">
-        <option value="A" {{old('tipo',$user->tipo)=='A'?'selected':''}}>Administrador</option>
-        <option value="N" {{old('tipo',$user->tipo)=='M'?'selected':''}}>Membro ou Doador</option>
+    <label for="inputDN">Data de nascimento</label>
+    <input type="date" class="form-control" name="data_nasc" id="inputDN" value="{{old('data_nasc',$user->data_nasc)}}" />
+</div>
+
+<div class="form-group">
+    <label for="inputTL">Telemovel</label>
+    <input type="text" class="form-control" name="telemovel" id="inputTL" value="{{old('telemovel',$user->telemovel)}}" />
+</div>
+
+<div class="form-group">
+    <label for="inputG">Género</label>
+    <select name="genero" id="inputG" class="form-control">
+        <option value=""> </option>
+        <option value="F" {{old('genero',$user->genero)=='F'?'selected':''}}>Feminino</option>
+        <option value="M" {{old('genero',$user->genero)=='M'?'selected':''}}>Maculino</option>
+        <option value="O" {{old('genero',$user->genero)=='O'?'selected':''}}>Outro</option>
+        <option value="N" {{old('genero',$user->genero)=='N'?'selected':''}}>Prefiro não dizer</option>
     </select>
 </div>
 
 
-@if ($user->tipo=='M')
-
-@endif

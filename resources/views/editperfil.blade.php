@@ -1,8 +1,22 @@
-@extends('layouts.admin')
+@extends('layouts.master')
 
-@section('content')
+@section('styles')
+<link href="{{ asset ('/css/styleIndex.css') }}" rel="stylesheet">
+@endsection
 
+@section('main')
+
+
+<main id="main">
     <div class="container-fluid">
+        <div>
+            @if ($errors->any())
+                @include ('layouts.partials.error')
+            @endif
+            @if (!empty(session('success')))
+                @include ('layouts.partials.success')
+            @endif
+        </div>
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -10,7 +24,7 @@
             </div>
             <div class="card-body">
 
-                <form method="POST" action="{{ route('admin.users.update', $user) }}" class="form-group"
+                <form method="POST" action="{{ route('users.updateperfil', $user) }}" class="form-group"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -19,6 +33,16 @@
                     @endif
                     @include('_admin.users.partials.add-edit')
 
+
+                    <div class="form-group">
+                        <label for="inputMP">Método de pagamento</label>
+                        <select name="metodo_pag" id="inputMP" class="form-control">
+                            <option value=""> </option>
+                            <option value="CC" {{old('metodo_pag',$user->metodo_pag)=='CC'?'selected':''}}>Cartão de crédito</option>
+                            <option value="TB" {{old('metodo_pag',$user->metodo_pag)=='TB'?'selected':''}}>Tranferencia Bancária</option>
+                            <option value="RE" {{old('metodo_pag',$user->metodo_pag)=='RE'?'selected':''}}>Referencia Entidade</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-success" name="ok">Guardar</button>
@@ -40,4 +64,5 @@
             </div>
         </div>
     </div>
+</main>
 @endsection

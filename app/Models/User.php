@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin()
     {
-        return $this->role == 'A';
+        return $this->tipo == 'A';
     }
 
     /*CRIAR MÉTODO SIMILAR PARA TODOS OS RELACIONAMENTOS COM A TABELA DOS USERS

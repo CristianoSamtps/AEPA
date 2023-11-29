@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('telemovel',13)->nullable();
-            $table->enum('genero', ['F', 'N', 'O', 'N'])->nullable();
+            $table->enum('genero', ['F', 'M', 'O', 'N'])->nullable();
             $table->string('email')->unique();
             $table->string('foto',255)->nullable();
             $table->date('data_nascimento')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            //$table->softDeletes();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
