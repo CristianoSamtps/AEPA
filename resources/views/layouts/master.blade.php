@@ -95,10 +95,6 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-
                                     @if (auth()->user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('admin.users.edit',auth()->user()) }}">
                                             Editar perfil
@@ -108,6 +104,10 @@
                                             Editar perfil
                                         </a>
                                     @endif
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
 
                                 </div>
                             </li>
@@ -151,7 +151,7 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="{{ route('perfil') }}" class="nav-link px-2 text-muted">Perfil</a></li>
                 <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a></li>
             </ul>
         </footer>

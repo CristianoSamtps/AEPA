@@ -24,6 +24,8 @@ Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonat
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
 
+Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
+
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
 Route::get('/projects', [PageController::class, 'projects'])->name('projects');
@@ -42,14 +44,16 @@ Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
+Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
+
 Auth::routes(['verify' => true]);
 
 Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
 
-    Route::get('/users/{user}/edit',[UserController::class,'editperfil'])->name('users.editperfil');
-    Route::put('/users/{user}',[UserController::class,'updateperfil'])->name('users.updateperfil');
+    Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
+    Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
 
     Route::group([
         'as' => 'admin.',
@@ -59,6 +63,8 @@ Route::group([
         Route::resource('eventos', EventController::class);
 
         Route::resource('users', UserController::class);
+
+        Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
@@ -74,6 +80,5 @@ Route::group([
             [UserController::class, 'destroy_foto']
         )
             ->name('users.destroyPhoto');
-
     });
 });

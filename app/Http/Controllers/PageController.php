@@ -18,6 +18,10 @@ class PageController extends Controller
     {
         return view('doacoes');
     }
+    public function sugestoes()
+    {
+        return view('sugestoes');
+    }
     public function patrocinadores()
     {
         return view('patrocinadores');
@@ -58,6 +62,10 @@ class PageController extends Controller
       public function loginReg()
     {
         return view('loginReg');
+    }
+    public function perfil()
+    {
+        return view('perfil');
     }
     public function dashboard()
     {

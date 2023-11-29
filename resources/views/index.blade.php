@@ -217,7 +217,7 @@
         <div class="col-md-12 d-flex justify-content-center">
 
         <a class="link-light" href="{{route('tornarMembro')}}"><button class="btn green-btn1">Tornar membro</button></a>
-        <a><button class="btn hero-btn2">Sugestões</button></a>
+        <a href="{{ route('sugestoes') }}"><button class="btn hero-btn2">Sugestões</button></a>
       </div>
       </div>
     </div>
