@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 
 /*
@@ -43,10 +44,16 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
+Route::resource('admin/users', UserController::class, ['as' => 'admin']);
+
+Auth::routes(['verify'=>true]);
+
 Route::get('admin', [PageController::class,'dashboard'])->name('admin.dashboard');
 
 
-
-
-Auth::routes();
-
+Route::get('admin/users/{user}/send_reactivate_mail',
+        [UserController::class, 'send_reactivate_email'])
+        ->name('admin.users.sendActivationEmail');
+    Route::delete('admin/users/{user}/destroy_photo',
+        [UserController::class, 'destroy_foto'])
+        ->name('admin.users.destroyPhoto');
