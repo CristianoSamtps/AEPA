@@ -350,7 +350,8 @@
 }
 /* Sugestões */
 .sugestoes .container-sugestoes{
-    
+    max-width: 1140px;
+    margin-inline: auto;
 }
 .sugestoes .titulo h2{
     text-align: left;
@@ -366,7 +367,7 @@
     height: 35px;
     display: flex;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 20px 20px;
     background: #fff;
     border-radius: 30px;
     align-items: center;
@@ -390,10 +391,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 40px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    max-width: 900px;
     margin: 50px auto;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
     position: relative;
@@ -414,6 +414,13 @@
     z-index: 10;
     border: 4px solid #D9D9D9;
 }
+.sugestoes .profile-name {
+    position: absolute;
+    left: -30px;
+    top: 95px;
+    z-index: 10;
+    font-weight: 600;
+}
 
 
 .sugestoes .name {
@@ -421,6 +428,16 @@
     margin: 0 20px;
     font-size: 20px;
     margin-left: 100px;
+}
+.sugestoes .btn {
+    background-color: #019E59;
+    padding: 5px 20px;
+    position: absolute;
+    top:90px;
+    left: 980px;
+}
+.sugestoes .btn img{
+    width: 40px;
 }
 @media screen and (max-width: 990px) {
     .top-donates .donates .card{

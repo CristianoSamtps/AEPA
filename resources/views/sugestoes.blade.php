@@ -26,20 +26,16 @@
                 <div class="donates">
                     <div class="card">
                         <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h2 class="name">Joana Bastos</h2>
-                        <button class="btn">1361€</button>
+                        <h6 class="profile-name">Ana Sousa</h6>
+                        <h2 class="name">Ajuda na plantação da floresta Amazónias</h2>
+                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> 132</button>
                     </div>
                     <div class="card">
                         <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h2 class="name">Joel Loureiro</h2>
-                        <button class="btn">1361€</button>
+                        <h6 class="profile-name">Ana Sousa</h6>
+                        <h2 class="name">Ajuda crianças em África</h2>
+                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> 127</button>
                     </div>
-                    <div class="card">
-                        <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h2 class="name">Joel Loureiro</h2>
-                        <button class="btn">1361€</button>
-                    </div>
-
                 </div>
 
         </section>
