@@ -22,6 +22,8 @@ Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonat
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
 
+Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
+
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
 Route::get('/projects', [PageController::class, 'projects'])->name('projects');
@@ -45,7 +47,7 @@ Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
 
 
-Auth::routes();	
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
