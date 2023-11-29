@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('telemovel',13);
-            $table->enum('genero', ['feminino', 'masculino', 'outro', 'prefiro não dizer']);
+            $table->string('telemovel',13)->nullable();
+            $table->enum('genero', ['feminino', 'masculino', 'outro', 'prefiro não dizer'])->nullable();
             $table->string('email')->unique();
-            $table->string('foto',255);
-            $table->date('data_nascimento');
-            $table->integer('idade')->nullable()->virtual('TIMESTAMPDIFF(YEAR,data_nascimento, CURDATE())');
-            $table->enum('tipo', ['Doador', 'Voluntario']);
+            $table->string('foto',255)->nullable();
+            $table->date('data_nascimento')->nullable();
+            $table->integer('idade')->nullable()->virtual('TIMESTAMPDIFF(YEAR,data_nascimento, CURDATE())')->nullable();
+            $table->enum('tipo', ['Membro_Doador','Admin'])->default('Membro_Doador');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

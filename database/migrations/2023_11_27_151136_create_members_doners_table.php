@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('member_doner', function (Blueprint $table) {
+        Schema::create('members_doners', function (Blueprint $table) {
             $table->id();
             $table->enum('subscrito',['sim','não']);
             $table->enum('metodo_pag',['Cartão de crédito', 'Transferência bancária', ' Referência e entidade']);
 
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('member_doner');
+        Schema::dropIfExists('members_doners');
     }
 };

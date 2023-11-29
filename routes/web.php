@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EventController;
@@ -42,13 +43,10 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
+Route::get('admin', [PageController::class,'dashboard'])->name('admin.dashboard');
 
 
 
-Auth::routes();	
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

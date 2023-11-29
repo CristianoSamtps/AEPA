@@ -46,7 +46,7 @@ class PageController extends Controller
     {
         return view('sobreNos');
     }
-    
+
     public function eventos()
     {
         return view('eventos');
@@ -58,6 +58,10 @@ class PageController extends Controller
       public function loginReg()
     {
         return view('loginReg');
+    }
+    public function dashboard()
+    {
+        return view('_admin.dashboard');
     }
 
 }

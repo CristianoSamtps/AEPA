@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('foto');
             $table->boolean('destaque');
             $table->timestamps();
+
+            $table->unsignedBigInteger('projeto_id');
+            $table->foreign('projeto_id')->references('id')->on('projetos');
         });
     }
 

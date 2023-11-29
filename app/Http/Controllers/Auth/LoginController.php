@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -37,4 +38,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function redirectTo() {
+        $role = Auth::user()->tipo;
+        switch ($role) {
+          case 'Admin':
+            return '/admin';
+
+            default:
+                return '/perfil/'.Auth::user()->id;
+
+        }
+      }
 }

@@ -49,12 +49,13 @@
         </form>
       </div>
     </div>
-    
+
     <div class="container p-5">
       <div class="row justify-content-center align-items-center">
         <h1>{{ __('Criar conta') }}</h1>
         <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
         <form method="POST" action="{{ route('register') }}">
+            @csrf
           <div class="form-group mb-2">
             <label for="name">Nome completo</label>
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -90,7 +91,7 @@
             <label for="password">Confirmar palavra-passe</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </div>
-        
+
         <button type="submit" class="btn btn-primary">
             {{ __('Register') }}
         </button>

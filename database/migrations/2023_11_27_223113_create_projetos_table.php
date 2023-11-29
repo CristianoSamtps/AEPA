@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projetos', function (Blueprint $table) {
+
             $table->id();
             $table->string('titulo');
             $table->string('subtitulo');
@@ -25,11 +26,8 @@ return new class extends Migration
             $table->SoftDeletes();
 
 
-            $table->integer('fotografias_projetos_id');
-            $table->foreign('fotografias_projetos_id')->references('id')->on('fotografia_projetos');
-
-            $table->integer('partnership');
-            $table->foreign('partnership')->references('id')->on('partnerships');
+            $table->unsignedBigInteger('partnership_id');
+            $table->foreign('partnership_id')->references('id')->on('partnerships');
         });
     }
 
