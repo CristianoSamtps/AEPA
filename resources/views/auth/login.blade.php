@@ -36,77 +36,77 @@
 
 <body>
 
-<div class="login">
+<div class="regbg">
   <section class="container p-5 mt-5 d-flex">
 
-  <div class="container p-5 newuser">
-    <div class="row justify-content-center align-items-center">
-      <h1>Ainda não fazes parte?</h1>
-      <p>Para obteres mais informações sobre os processos de desenvolvimento dos projetos ou visualizares o teu histórico de doações.</p>
-      <form>
-        <button type="submit" class="btn btn-primary">Criar conta</button>
+    <div class="container p-5">
+      <div class="row justify-content-center align-items-center">
+        <h1>{{ __('Login') }}</h1>
+        <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+          <div class="form-group mb-2">
+            <label for="name">Nome completo</label>
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="password">Palavra-passe</label>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          </div>
+
+          <div class="form-group mb-3">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+
+        </div>
+
+        <div class="form-group mb-0">
+
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Login') }}
+                </button>
+
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
+
+        </div>
+
       </form>
     </div>
   </div>
 
-  <div class="container p-5">
-    <div class="row justify-content-center align-items-center loginnow">
-        <img class="" src="{{ asset('img/logo_green.svg') }}"
-        alt="AEPABrandLogo" height="50">
-      <h1 class="text-right">{{ __('Iniciar secção') }}</h1>
-      <p>Utiliza o e-mail para acederes a tua conta</p>
-      <form method="POST" action="{{ route('login') }}">
-          @csrf
-        <div class="form-group mb-2">
-          <label for="name">Email</label>
-          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-          @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-          @enderror
-        </div>
-
-        <div class="form-group mb-2">
-          <label for="password">Palavra-passe</label>
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                              @error('password')
-                                  <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                              @enderror
-        </div>
-
-        <div class="form-group mb-3">
-
-              <div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                  <label class="form-check-label" for="remember">
-                      {{ __('Remember Me') }}
-                  </label>
-              </div>
-
-      </div>
-
-      <div class="form-group mb-0">
-
-              <button type="submit" class="btn btn-primary">
-                  {{ __('Login') }}
-              </button>
-
-              @if (Route::has('password.request'))
-                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                      {{ __('Forgot Your Password?') }}
-                  </a>
-              @endif
-
-      </div>
-
-    </form>
+  <div class="container p-5 wellcomeback">
+    <img class="" src="{{ asset('img/logo_green.svg') }}"
+    alt="AEPABrandLogo" height="50">
+    <div class="row justify-content-center align-items-center">
+      <h1>Bem vindo de volta</h1>
+      <p>Descobre as novidades que temos para te oferecer, continua esta jornada conosco.</p>
+      <form>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </div>
   </div>
-</div>
 </section>
 </div>
 

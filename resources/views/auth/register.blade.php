@@ -36,7 +36,7 @@
 
 <body>
 
-<div class="reg">
+<div class="regbg">
   <section class="container p-5 mt-5 d-flex">
     <div class="container p-5 wellcomeback">
       <img class="" src="{{ asset('img/logo_green.svg') }}"
@@ -50,13 +50,14 @@
       </div>
     </div>
 
-    <div class="container p-5 create-ac">
+    <div class="container p-5">
       <div class="row justify-content-center align-items-center">
         <h1>{{ __('Criar conta') }}</h1>
         <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
         <form method="POST" action="{{ route('register') }}">
             @csrf
           <div class="form-group mb-2">
+            <label for="name">Nome completo</label>
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')

@@ -12,11 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('members_doners', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
-            $table->enum('subscrito',['S','N'])->default('N');
-            $table->enum('metodo_pag',['CC', 'TB', 'RE'])->nullable();
-            $table->foreign('id')->references('id')->on('users');
+            $table->id();
+            $table->enum('subscrito',['sim','não']);
+            $table->enum('metodo_pag',['Cartão de crédito', 'Transferência bancária', ' Referência e entidade']);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+
+
         });
     }
 

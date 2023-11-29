@@ -10,12 +10,9 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link href="{{ asset('img/favicon.svg') }}" rel="icon">
-
+    
     <title>@yield('title')</title>
     <!-- Custom CSS -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel=" stylesheet" type="text/css">
-    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
     <link href="{{asset ('assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -27,7 +24,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js')}}/1.4.2/respond.min.js')}}"></script>
 <![endif]-->
-
 </head>
 
 <body>
@@ -62,7 +58,7 @@
                             <!-- Dark Logo icon -->
                             <img src="{{ asset('img/logo_green.svg') }}"
                     alt="AEPABrandLogo" width="200" height="50">
-
+                           
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
@@ -71,7 +67,7 @@
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                             <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-
+                            
                         <!-- </b> -->
                         <!--End Logo icon -->
                     </a>
@@ -98,7 +94,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Action</a>
@@ -151,8 +147,8 @@
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
                                                     <div class="m-l-10">
-                                                        <h5 class="m-b-0">Event today</h5>
-                                                        <span class="mail-desc">Just a reminder that event</span>
+                                                        <h5 class="m-b-0">Event today</h5> 
+                                                        <span class="mail-desc">Just a reminder that event</span> 
                                                     </div>
                                                 </div>
                                             </a>
@@ -161,8 +157,8 @@
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
                                                     <div class="m-l-10">
-                                                        <h5 class="m-b-0">Settings</h5>
-                                                        <span class="mail-desc">You can customize this template</span>
+                                                        <h5 class="m-b-0">Settings</h5> 
+                                                        <span class="mail-desc">You can customize this template</span> 
                                                     </div>
                                                 </div>
                                             </a>
@@ -171,8 +167,8 @@
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
                                                     <div class="m-l-10">
-                                                        <h5 class="m-b-0">Pavan kumar</h5>
-                                                        <span class="mail-desc">Just see the my admin!</span>
+                                                        <h5 class="m-b-0">Pavan kumar</h5> 
+                                                        <span class="mail-desc">Just see the my admin!</span> 
                                                     </div>
                                                 </div>
                                             </a>
@@ -181,8 +177,8 @@
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
                                                     <div class="m-l-10">
-                                                        <h5 class="m-b-0">Luanch Admin</h5>
-                                                        <span class="mail-desc">Just see the my new admin!</span>
+                                                        <h5 class="m-b-0">Luanch Admin</h5> 
+                                                        <span class="mail-desc">Just see the my new admin!</span> 
                                                     </div>
                                                 </div>
                                             </a>
@@ -314,8 +310,8 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                @yield('content')
-
+                @yield('backoffice-content')
+                
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -355,7 +351,6 @@
     <!--This page JavaScript -->
     <!-- <script src="{{('dist/js/pages/dashboards/dashboard1.js')}}"></script> -->
     <!-- Charts js Files -->
-
     <script src="{{asset('assets/libs/flot/excanvas.js')}}"></script>
     <script src="{{asset('assets/libs/flot/jquery.flot.js')}}"></script>
     <script src="{{asset('assets/libs/flot/jquery.flot.pie.js')}}"></script>
@@ -364,11 +359,6 @@
     <script src="{{asset('assets/libs/flot/jquery.flot.crosshair.js')}}"></script>
     <script src="{{asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
     <script src="{{asset('js/matrix/pages/chart/chart-page-init.js')}}"></script>
-
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    @yield('moreScripts')
 
 </body>
 
