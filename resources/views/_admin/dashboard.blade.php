@@ -2,6 +2,6 @@
 
 @section('title','Eventos')
 
-@section('backoffice-content')
+@section('content')
  ola
 @endsection
