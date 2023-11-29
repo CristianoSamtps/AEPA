@@ -45,6 +45,9 @@ Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
 Route::get('admin', [PageController::class,'dashboard'])->name('admin.dashboard');
 
+Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
+
+
 
 
 
