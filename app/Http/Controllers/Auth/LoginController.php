@@ -42,11 +42,11 @@ class LoginController extends Controller
         $role = Auth::user()->tipo;
 
         switch ($role) {
-          case 'Admin':
+          case 'A':
             return '/admin';
 
             default:
-                return '/perfil/'.Auth::user()->id;
+                return 'users/'.Auth::user()->id.'/edit';
 
         }
       }

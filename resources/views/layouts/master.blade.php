@@ -98,8 +98,20 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
+                                    @if (auth()->user()->isAdmin())
+                                        <a class="dropdown-item" href="{{ route('admin.users.edit',auth()->user()) }}">
+                                            Editar perfil
+                                        </a>
+                                        @else
+                                        <a class="dropdown-item" href="{{ route('users.editperfil',auth()->user()) }}">
+                                            Editar perfil
+                                        </a>
+                                    @endif
+
                                 </div>
                             </li>
+
                         </div>
                         @endguest
                     </ul>

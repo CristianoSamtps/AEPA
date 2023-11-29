@@ -15,16 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('telemovel',13)->nullable();
-            $table->enum('genero', ['feminino', 'masculino', 'outro', 'prefiro não dizer'])->nullable();
+            $table->enum('genero', ['F', 'M', 'O', 'N'])->nullable();
             $table->string('email')->unique();
             $table->string('foto',255)->nullable();
             $table->date('data_nascimento')->nullable();
-            $table->integer('idade')->nullable()->virtual('TIMESTAMPDIFF(YEAR,data_nascimento, CURDATE())')->nullable();
-            $table->enum('tipo', ['Membro_Doador','Admin'])->default('Membro_Doador');
+            $table->enum('tipo', ['M','A'])->default('M');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            //$table->softDeletes();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

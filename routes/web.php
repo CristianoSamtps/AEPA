@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 
 /*
@@ -43,18 +44,39 @@ Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
-Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
+Auth::routes(['verify' => true]);
 
-Route::get('admin', [PageController::class,'dashboard'])->name('admin.dashboard');
+Route::group([
+    'middleware' => ['auth', 'verified'],
+], function () {
 
-Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
+    Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
+    Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
+
+    Route::group([
+        'as' => 'admin.',
+        'prefix' => 'admin'
+    ], function () {
+
+        Route::resource('eventos', EventController::class);
+
+        Route::resource('users', UserController::class);
+
+        Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 
+        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
+        Route::get(
+            '/users/{user}/send_reactivate_mail',
+            [UserController::class, 'send_reactivate_email']
+        )
+            ->name('users.sendActivationEmail');
+        Route::delete(
+            '/users/{user}/destroy_photo',
+            [UserController::class, 'destroy_foto']
+        )
+            ->name('users.destroyPhoto');
+    });
+});
