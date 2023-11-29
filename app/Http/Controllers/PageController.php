@@ -18,6 +18,10 @@ class PageController extends Controller
     {
         return view('doacoes');
     }
+    public function sugestoes()
+    {
+        return view('sugestoes');
+    }
     public function patrocinadores()
     {
         return view('patrocinadores');
