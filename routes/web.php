@@ -38,9 +38,17 @@ Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
-Route::get('/Login', [PageController::class, 'LoginReg'])->name('LoginReg');
+Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::resource('admin/evento', EventController::class, ['as' => 'admin']);
 
 
 
+
+Auth::routes();	
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

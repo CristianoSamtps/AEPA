@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('participant', function (Blueprint $table) {
             $table->id();
-            $table->varchar('vagas'255);
+            $table->varchar('vagas', 255);
             $table->timestamps(); //created_at e updated_at
 
             //chaves estrangeiras

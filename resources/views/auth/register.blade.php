@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login/Registo</title>
+  <title>Criar conta - AEPA</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -52,29 +52,49 @@
     
     <div class="container p-5">
       <div class="row justify-content-center align-items-center">
-        <h1>Criar conta</h1>
+        <h1>{{ __('Criar conta') }}</h1>
         <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
-        <form>
+        <form method="POST" action="{{ route('register') }}">
           <div class="form-group mb-2">
-            <label for="exampleInputEmail1">Nome completo</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Indique o nome completo">
+            <label for="name">Nome completo</label>
+            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
           </div>
           <div class="form-group mb-2">
-            <label for="exampleInputPassword1">Email</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Indique o email">
+            <label for="email">Email</label>
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
           </div>
-          <div class="form-group mb-4">
-            <label for="exampleInputPassword1">Palavra-passe</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Indique a palavra-passe">
+          <div class="form-group mb-2">
+            <label for="password">Palavra-passe</label>
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
           </div>
 
-        <!-- <div class="form-group mb-4">
-          <label for="exampleInputPassword1">Validar palavra-passe</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Valide a palavra-passe">
-        </div> -->
+        <div class="form-group mb-2">
+            <label for="password">Confirmar palavra-passe</label>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+        </div>
         
-        <button type="submit" class="btn btn-primary">Registar</button>
+        <button type="submit" class="btn btn-primary">
+            {{ __('Register') }}
+        </button>
+
       </form>
     </div>
   </div>
@@ -97,3 +117,4 @@
 </body>
 
 </html>
+

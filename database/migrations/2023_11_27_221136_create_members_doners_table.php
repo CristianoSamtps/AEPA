@@ -17,7 +17,7 @@ return new class extends Migration
             $table->enum('metodo_pag',['Cartão de crédito', 'Transferência bancária', ' Referência e entidade']);
 
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users')
+            $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
 
 

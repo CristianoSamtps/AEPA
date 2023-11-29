@@ -1,0 +1,17 @@
+div.wellcomeback{
+	margin-top: 10px;
+}
+
+body{
+	position: relative;
+
+}
+div.regbg{
+	position: absolute;
+	width: 100%;
+	background-image: url(../img/regbackground.svg);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 65%;
+	
+}

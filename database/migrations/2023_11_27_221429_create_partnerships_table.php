@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('partnership', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('descricao'255);
+            $table->string('descricao',255);
             $table->timestamps();
         });
     }

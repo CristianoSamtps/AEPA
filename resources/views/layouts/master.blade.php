@@ -30,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('/css/masterstyle.css') }}" rel="stylesheet">
+
     @yield('styles')
 
 </head>
@@ -66,7 +67,42 @@
                     <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
-                    <a href="{{ route('LoginReg') }}"><button class="btn">LOGIN</button></a>
+                    <div id="login_reg">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link registo" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        </div>
+                        @endguest
+                    </ul>
                 </div>
             </div>
         </nav>

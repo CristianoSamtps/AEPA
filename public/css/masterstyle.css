@@ -48,6 +48,10 @@ p.sectionIndicator{
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+div#login_reg{
+  margin-right: 40px;
+}
+
 header#header {
   max-width: 1440px;
   margin: 0 auto;
@@ -59,9 +63,10 @@ header#header svg {
 }
 
 header#header a {
-  color: #ffff !important;
+  color: #ffff;
   font-weight: bolder;
 }
+
 
 div.navbar-nav {
   position: absolute;
@@ -247,4 +252,22 @@ footer#footer{
 
 .top-donates .btn:hover {
   background-color: #019E59;
+}
+
+
+li.nav-item a.login{
+  border: 1px solid black;
+  border-radius: 2rem;
+  width: 5rem;
+  color: #178351 !important;
+  background-color: #fff;
+  font-size: 0.8rem;
+}
+li.nav-item a.registo{
+  margin-left: 10px;
+  border: 1px solid black;
+  border-radius: 2rem;
+  color: #178351 !important;
+  background-color: #fff;
+  font-size: 0.8rem;
 }
