@@ -18,6 +18,7 @@
                 <div class="banner">
                     <div class="text">
                         <p>Com a sua ajuda podemos concretizar os nossos projetos e ajudar a nossa casa que é a Terra</p>
+                        <a href="{{ route('topDonates') }}">Ver os tops donates</a>
                     </div>
                     <div class="image">
                         <img src="{{ asset('img/banner-doacoes.svg') }}" alt="">

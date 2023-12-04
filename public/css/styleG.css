@@ -219,6 +219,20 @@
     color: white;
     text-align: left;
 }
+
+.doacoes .container-doacoes .banner .text a{
+    text-align: center;
+}
+.doacoes .container-doacoes .banner .text a:active,
+.doacoes .container-doacoes .banner .text a:visited,
+.doacoes .container-doacoes .banner .text a:checked,
+.doacoes .container-doacoes .banner .text a:link,
+.doacoes .container-doacoes .banner .text a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+
 .doacoes .container-doacoes .banner .image{
     width: 35%;
     margin-right: 60px;
