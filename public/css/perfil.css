@@ -23,15 +23,15 @@
         }
 
         #sidebar {
+            margin-left: 20px;
             width: 170px;
             background-color: transparent;
-            height: 1300px !important;
             color: #fff;
             padding: 20px;
         }
 
         #sidebar ul {
-            margin-top: 100px;
+            margin-top: 45px;
             list-style: none;
             padding: 0;
         }
@@ -52,13 +52,22 @@
         }
 
         #sidebar ul li:hover {
-            background-color: green;
-            width: 100px;
-            height: 130px;
+            cursor: pointer;
+            background-color: #019E59;
             transition: all ease-in 0.2s;
+            transform: translate(7px, -7px);
+            box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
         }
-        #sidebar ul li:hover .icon-container img.icon{
-            color: white !important;
+
+
+        #sidebar ul li .icon {
+            width: 45px;
+            margin: 0;
+            position: relative;
+        }
+
+        #sidebar ul li:hover .icon-container .icon path {
+            fill: white;
         }
 
         #sidebar ul li .icon-container {
@@ -67,46 +76,38 @@
             /* Espaço entre a imagem e o parágrafo */
         }
 
-        #sidebar ul li img {
-            width: 45px;
-            margin: 0;
-            position: relative;
-        }
-
         #sidebar ul li p {
-            margin: 0;
-            color: #6A6A6A;
             font-size: 12px;
-            font-style: normal;
             font-weight: 700;
-            line-height: normal;
             color: #6A6A6A;
-            display: none;
         }
 
-        .container {
-            max-height: 800px !important;
+        #sidebar ul li:hover p {
+            color: white;
         }
 
         #main-content {
-            margin-top: 100px;
+            margin-top: 130px;
             flex: 1;
             padding: 20px;
         }
 
         #profileresume {
-            display: flex; /* Adiciona display flex para centralizar a .imagemperfil */
+            display: flex;
+            /* Adiciona display flex para centralizar a .imagemperfil */
             justify-content: center;
             align-items: center;
             border-radius: 21px;
             background: #FFF;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
             width: 360px;
-            height: 691px;
-            flex-direction: column; /* Adiciona direção de coluna para centralizar verticalmente */
+            height: 700px;
+            flex-direction: column;
+            /* Adiciona direção de coluna para centralizar verticalmente */
         }
 
         #profileresume .imagemperfil {
+            margin-bottom: 20px;
             width: 123px;
             height: 123px;
             flex-shrink: 0;
@@ -135,18 +136,26 @@
 
         #profileresume button {
             color: #FFF;
-            text-align: center;
             font-size: 17px;
-            font-style: normal;
             font-weight: 700;
             line-height: normal;
             letter-spacing: 0.255px;
             width: 214px;
             height: 46px;
-            border-radius: 18px;
+            border-radius: 50px;
             background: #019E59;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             border-color: transparent;
+            transition: ease-in all 0.2s;
+        }
+
+        #profileresume button:hover {
+            color: #019E59;
+            border-color: #019E59;
+            background: transparent;
+            width: 220px;
+            height: 50px;
+            transition: ease-in all 0.2s;
         }
 
         #profileresume .caixa-detalhes {
@@ -185,9 +194,23 @@
             width: 31%;
             height: 164px;
             border-radius: 25px;
-            background: #FFF;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
         }
+
+        #exprojeto img {
+            width: 107%;
+            margin-left: -10px;
+            height: 100%;
+            object-fit: cover;
+            /* Para manter as proporções da imagem */
+            border-radius: 25px;
+            /* Manter a borda, se desejado */
+        }
+
+        #exprojeto button {
+            display: none;
+        }
+
 
         .row {
             padding: 10px;
@@ -195,10 +218,85 @@
 
 
         #resumedoacoes {
+            position: relative;
             height: 486px;
             flex-shrink: 0;
-            width: 100% ;
+            width: 100%;
             border-radius: 22px;
             background: #FFF;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        #resumedoacoes h2 {
+            margin-left: 20px;
+            margin-top: 15px;
+            color: #000;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            width: 218px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        #resumedoacoes span {
+            position: absolute;
+            width: 1022px;
+            height: 3px;
+            background: #DEDEDE;
+            border-radius: 20px;
+        }
+
+        #resumedoacoes span.x {
+            margin-left: 20px;
+            position: absolute;
+            width: 150px;
+            height: 3px;
+            background: #01b838;
+            border-radius: 20px;
+        }
+
+        #resumedoacoes .resumo {
+            margin: 30px 50px 0px 50px;
+        }
+
+        #resumedoacoes .nome h1 {
+            color: #000;
+            font-size: 18px !important;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+
+        #resumedoacoes h1 {
+            color: #000;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        #resumedoacoes p {
+            color: #A6A6A6;
+            font-size: 13px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+        }
+
+
+        #resumedoacoes button.info {
+            width: 133px;
+            height: 31px;
+            flex-shrink: 0;
+            border-color: transparent;
+            border-radius: 13px;
+            background: rgba(235, 209, 142, 0.59);
+            color: #C30000;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
         }
