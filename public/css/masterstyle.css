@@ -130,7 +130,7 @@ a.nav-item:hover {
   .navbar-toggler {
     margin-right: 50px;
   }
-  
+
 }
 
 
@@ -162,7 +162,7 @@ footer#footer{
 
 
 /*--------------------------------------------------------------
-# Top-donates 
+# Top-donates
 --------------------------------------------------------------*/
 
 .top-donates .titulo h2 {
@@ -256,18 +256,30 @@ footer#footer{
 
 
 li.nav-item a.login{
-  border: 1px solid black;
+  border: 1px solid;
   border-radius: 2rem;
   width: 5rem;
   color: #178351 !important;
   background-color: #fff;
   font-size: 0.8rem;
 }
+li.nav-item a.login:hover{
+    width: 5rem;
+    color: #ffff !important;
+    font-size: 0.8rem;
+    background-color: #178351 !important;
+  }
+
 li.nav-item a.registo{
   margin-left: 10px;
-  border: 1px solid black;
   border-radius: 2rem;
   color: #178351 !important;
   background-color: #fff;
   font-size: 0.8rem;
 }
+
+li.nav-item a.registo:hover{
+    color: #ffff !important;
+    background-color: #178351 !important;
+    border: 1px solid white;
+  }
