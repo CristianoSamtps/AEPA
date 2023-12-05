@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class PartnerShipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,6 @@ class EventController extends Controller
     public function index()
     {
         //
-        $events = Event::all();
-        return view('_admin.evento.index', compact('events'));
     }
 
     /**
@@ -22,7 +20,7 @@ class EventController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -36,18 +34,15 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(PartnerShip $partnerShip)
     {
-        $event= Event::find($id);
-        if($event){
-            return view('_admin.evento.show', compact('event'));
-        }
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit(PartnerShip $partnerShip)
     {
         //
     }
@@ -55,7 +50,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, PartnerShip $partnerShip)
     {
         //
     }
@@ -63,7 +58,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event)
+    public function destroy(PartnerShip $partnerShip)
     {
         //
     }

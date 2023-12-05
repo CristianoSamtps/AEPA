@@ -48,6 +48,7 @@ Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 Auth::routes(['verify' => true]);
 
+
 Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
@@ -61,6 +62,7 @@ Route::group([
     ], function () {
 
         Route::resource('eventos', EventController::class);
+
 
         Route::resource('users', UserController::class);
 
