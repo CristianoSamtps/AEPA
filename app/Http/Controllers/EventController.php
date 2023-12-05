@@ -22,7 +22,9 @@ class EventController extends Controller
      */
     public function create()
     {
-
+        $event = new Event;
+        $events = Event::all();
+        return view('_admin.evento.create', compact('events','events'));
     }
 
     /**
@@ -30,16 +32,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validated();
+
+        $event = new Event();
+        $event->fill($fields);
+        $event->save();
+
+        return redirect()->route('admin.eventos.index')
+            ->with('success', 'Evento criado com sucesso');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        $event= Event::find($id);
-        if($event){
+        if($event) {
             return view('_admin.evento.show', compact('event'));
         }
     }
@@ -49,7 +57,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+
     }
 
     /**
