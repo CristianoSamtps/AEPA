@@ -43,52 +43,22 @@
        </div>
      </div>
    </section>
-
   <section class="container eventoslist">
+
     <div class=" d-flex justify-content-between">
+
+    @foreach($events as $event)
         <div class="eventoCard col-md-3">
           <div class="eventoCardImg ">
             <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
           </div>
           <div class="cardInfo text-center">
-            <h4>Projeto Rios</h4>
-            <p>Limpeza e monitorização do troço adotado do rio.</p>
+            <h4>{{$event->name}}</h4>
+            <p>{{$event->descricao}}</p>
             <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
           </div>
         </div>
-
-        <div class="eventoCard col-md-3">
-          <div class="eventoCardImg ">
-            <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
-          </div>
-          <div class="cardInfo text-center">
-            <h4>Projeto Rios</h4>
-            <p>Limpeza e monitorização do troço adotado do rio.</p>
-            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-          </div>
-        </div>
-
-        <div class="eventoCard col-md-3">
-          <div class="eventoCardImg ">
-            <img src="{{asset ('img/eventos/gogreen.png')}}" alt="Projeto Rios">
-          </div>
-          <div class="cardInfo text-center">
-            <h4>GoGreen</h4>
-            <p>Limpeza e monitorização do troço adotado do rio.</p>
-            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-          </div>
-        </div>
-
-        <div class="eventoCard col-md-3">
-          <div class="eventoCardImg ">
-            <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios">
-          </div>
-          <div class="cardInfo text-center">
-            <h4>Projeto Rios</h4>
-            <p>Limpeza e monitorização do troço adotado do rio.</p>
-            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
-          </div>
-        </div>
+        @endforeach
       </div>
   </section>
 
