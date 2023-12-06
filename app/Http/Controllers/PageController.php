@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Sugestao;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -22,7 +23,8 @@ class PageController extends Controller
     }
     public function sugestoes()
     {
-        return view('sugestoes');
+        $sugestoes = Sugestao::all();
+        return view('sugestoes',compact('sugestoes'));
     }
     public function patrocinadores()
     {

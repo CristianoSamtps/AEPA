@@ -20,7 +20,7 @@ body {
     margin: 0px 10px;
 }
 .card:hover {
-    border: solid 2px rgb(87, 149, 87);
+    border: solid 1px rgb(87, 149, 87);
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
@@ -65,7 +65,7 @@ body {
 }
 
 .feature-item {
-    padding: 40px;
+    padding: 5px 40px 40px 40px;
     text-align: center;
 }
 
@@ -88,6 +88,70 @@ body {
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-.fa-solid{
+.fa-solid {
     padding-bottom: 20px;
+    padding: 20px;
+}
+
+.cardTwo {
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 30px 0px 30px 0px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 0px 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardTwo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        #a1d8bf 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transition: all 0.3s ease;
+    pointer-events: none;
+    cursor: crosshair;
+}
+
+.cardTwo:hover::before {
+    left: 100%; /
+}
+
+.cardTwo:hover {
+    border: solid 1px rgb(255, 255, 255);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.stats {
+    border-top: solid 1px white;
+    padding: 40px;
+    border-bottom: solid 1px white;
+    margin: 0px 75px 40px 75px;
+    padding-bottom: 60px;
+}
+
+.stats .hhhh{
+    color: rgb(255, 255, 255);
+}
+
+.questions{
+    padding: 75px 0px;
+}
+
+.list-group-item{
+    padding: 10px
+}
+
+.list-group-item:hover{
+    cursor: pointer;
+    background-color: #17694412;
 }
