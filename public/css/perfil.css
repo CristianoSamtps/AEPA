@@ -28,6 +28,7 @@
             background-color: transparent;
             color: #fff;
             padding: 20px;
+            margin-top: 70px;
         }
 
         #sidebar ul {
@@ -87,7 +88,7 @@
         }
 
         #main-content {
-            margin-top: 130px;
+            margin-top: 170px;
             flex: 1;
             padding: 20px;
         }
