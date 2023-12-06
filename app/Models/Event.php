@@ -12,5 +12,6 @@ class Event extends Model
     public function PhotoEvent(){
         return $this->hasMany(PhotoEvent::class);
     }
+    protected $fillable = [ 'name' ];
 
 }

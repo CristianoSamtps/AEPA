@@ -38,7 +38,7 @@ class EventController extends Controller
         $event->fill($fields);
         $event->save();
 
-        return redirect()->route('admin.eventos.index')
+        return redirect()->route('admin.evento.index')
             ->with('success', 'Evento criado com sucesso');
     }
 
@@ -57,7 +57,9 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-
+        if($event) {
+            return view('_admin.evento.edit', compact('event'));
+        }
     }
 
     /**
