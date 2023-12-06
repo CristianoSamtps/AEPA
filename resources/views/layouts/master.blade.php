@@ -91,22 +91,27 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
 
                                         @if (auth()->user()->isAdmin())
-                                            <a class="dropdown-item" href="{{ route('admin.users.edit', auth()->user()) }}">
+                                            <a class="dropdown-item" href="{{ route('admin.users.editperfil', auth()->user()) }}">
                                                 Editar perfil
                                             </a>
                                         @else
+                                        <a class="dropdown-item"
+                                                href="{{ route('users.indexperfil', auth()->user()) }}">
+                                                Perfil
+                                            </a>
                                             <a class="dropdown-item"
                                                 href="{{ route('users.editperfil', auth()->user()) }}">
                                                 Editar perfil
                                             </a>
                                         @endif
+
+                                        <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none">

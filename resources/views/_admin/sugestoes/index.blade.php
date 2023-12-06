@@ -7,7 +7,7 @@
     <link href="{{ asset('/css/styleG.css') }}" rel="stylesheet">
 @endsection
 
-@section('main')
+@section('backoffice-content')
     <div class="table">
         <table>
             <thead>

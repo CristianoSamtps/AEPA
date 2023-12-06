@@ -53,6 +53,7 @@ Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
 
+    Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
     Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
     Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
 

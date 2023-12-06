@@ -105,6 +105,13 @@ a.nav-item:hover {
   text-decoration: underline;
 }
 
+#login_reg .navbar-nav .nav-item .dropdown-menu a.dropdown-item{
+    color: green ;
+}
+
+#login_reg .navbar-nav .nav-item .dropdown-menu a#logout{
+    color: red;
+}
 
 @media only screen and (max-width: 991px) {
   div.navbar-nav {
