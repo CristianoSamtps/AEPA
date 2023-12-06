@@ -53,7 +53,7 @@
     <div class="row justify-content-center align-items-center loginnow">
         <img class="" src="{{ asset('img/logo_green.svg') }}"
         alt="AEPABrandLogo" height="50">
-      <h1 class="text-right">{{ __('Iniciar secção') }}</h1>
+      <h1 class="text-right">{{ __('Iniciar sessão') }}</h1>
       <p>Utiliza o e-mail para acederes a tua conta</p>
       <form method="POST" action="{{ route('login') }}">
           @csrf

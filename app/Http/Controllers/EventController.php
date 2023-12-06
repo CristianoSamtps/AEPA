@@ -13,7 +13,8 @@ class EventController extends Controller
     public function index()
     {
         //
-        return view('_admin.evento.evento');
+        $events = Event::all();
+        return view('_admin.evento.index', compact('events'));
     }
 
     /**
@@ -21,7 +22,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $event = new Event;
+        $events = Event::all();
+        return view('_admin.evento.create', compact('events','events'));
     }
 
     /**
@@ -29,7 +32,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validated();
+
+        $event = new Event();
+        $event->fill($fields);
+        $event->save();
+
+        return redirect()->route('admin.evento.index')
+            ->with('success', 'Evento criado com sucesso');
     }
 
     /**
@@ -37,7 +47,9 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        if($event) {
+            return view('_admin.evento.show', compact('event'));
+        }
     }
 
     /**
@@ -45,7 +57,9 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        if($event) {
+            return view('_admin.evento.edit', compact('event'));
+        }
     }
 
     /**

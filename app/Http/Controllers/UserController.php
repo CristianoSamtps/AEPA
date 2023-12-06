@@ -87,6 +87,11 @@ class UserController extends Controller
         return view('editperfil', compact('user'));
     }
 
+    public function indexperfil(User $user)
+    {
+        return view('indexperfil', compact('user'));
+    }
+
     public function updateperfil(UserRequest $request, User $user)
     {
         $fields = $request->validated();

@@ -48,10 +48,12 @@ Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 Auth::routes(['verify' => true]);
 
+
 Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
 
+    Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
     Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
     Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
 
@@ -60,7 +62,8 @@ Route::group([
         'prefix' => 'admin'
     ], function () {
 
-        Route::resource('eventos', EventController::class);
+        Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
+
 
         Route::resource('users', UserController::class);
 

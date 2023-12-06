@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Event;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Sugestao;
 use Illuminate\Http\Request;
@@ -55,7 +57,8 @@ class PageController extends Controller
 
     public function eventos()
     {
-        return view('eventos');
+        $events = Event::all();
+        return view('eventos', compact('events'));
     }
     public function galeria()
     {

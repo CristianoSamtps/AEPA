@@ -11,102 +11,87 @@
 @endsection
 
 @section('main')
-    <section class="tornateMembro">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2 class="titleMembro">Torna te Membro</h2>
-                    <p class="descricaoMembro">Junta te a nós e torna te membro da Comunidade da AEPA.
-                        <span class="membro">“ Membro ”</span> é uma subscrição mensal onde todos os lucros vão financiar os
-                        eventos da AEPA.
-                    </p>
-                    <button class="butaoMembro btn-success">Tornar Membro</button>
+    <div class="container">
+        <div class="pricing-header">
+            <h1>Torna-te Membro</h1>
+            <div class="pricing-switch">
+                <small>Poupa 10% com o plano anual</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Mensal</h5>
+                        <p class="price text-center">4.99<span class="currency">€</span></p>
+                        <p class="features text-center">4.99€/mês<br></p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                        </div>
+                        <br>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img class="imgMembro" src="{{asset ('img/vetormembro.png')}}" alt="Imagem" class="img-fluid" />
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">3 Meses</h5>
+                        <p class="price text-center">12.99<span class="currency">€</span></p>
+                        <p class="features text-center">4.33€/mês<br></p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Anual</h5>
+                        <p class="price text-center">34.99<span class="currency">€</span></p>
+                        <p class="features text-center">2.91€/mês<br></p>
+                        <div class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                        </div>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="preco">
-        <h2 class="titlePreco">Subscrição</h2>
+    <section class="features-section">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header" id="header1">
-                            <h4 class="my-0 font-weight-normal">MAIS POPULAR</h4>
-                        </div>
-                        <div class="card-body text-center">
-                            <h1>Mensal</h1>
-                            <h1 class="card-title pricing-card-title">4.99€</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="pormes">4.99€ <small class="text-muted">/ mês</small></li>
-                            </ul>
-                        </div>
-                    </div>
+            <h2>Vantagens</h2>
+            <div class="row " data-aos="fade-left">
+                <!-- Feature 1 -->
+                <div class="col-md-4 feature-item">
+                    <i class="fa-solid fa-2x fa-globe" style="color: #ffffff; width: 300px;"></i>
+                    <h3>Comunidade</h3>
+                    <p>Faz comentários e sugestões na nossa comunidade e ajuda-nos a tornar o Mundo num lugar Melhor.</p>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header" id="header2">
-
-                        </div>
-                        <div class="card-body text-center">
-                            <h1>3 Meses</h1>
-                            <h1 class="card-title pricing-card-title">12.99€</h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="pormes">$25 <small class="text-muted">/ mês</small></li>
-                            </ul>
-                        </div>
-                    </div>
+                <!-- Feature 2 -->
+                <div class="col-md-4  feature-item">
+                    <i class="fa-solid fa-2x fa-calendar-days" style="color: #ffffff;"></i>
+                    <h3>Eventos</h3>
+                    <p>Recebe notificações antecipadas sobre eventos e projetos.</p>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-header" id="header3">
-                            <h4 class="my-0 font-weight-normal">MELHOR OFERTA</h4>
-                        </div>
-                        <div class="card-body text-center">
-                            <h1>Anual</h1>
-                            <h1 class="card-title pricing-card-title">34.99€</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="pormes">$25 <small class="text-muted">/ mês</small></li>
-                            </ul>
-                        </div>
-                    </div>
+                <!-- Feature 3 -->
+                <div class="col-md-4 feature-item">
+                    <i class="fa-solid fa-2x fa-bag-shopping" style="color: #ffffff;"></i>
+                    <h3>Loja Online</h3>
+                    <p>Recebe um Cupão Mensal na Loja Online da AEPA.</p>
                 </div>
             </div>
+
         </div>
     </section>
-    <section class="vantagens">
-        <h1 class="titleVan">Vantagens</h1>
-        <div class="container">
-            <div class="row vantagens">
-                <div class="col-md-6">
-                    <h2 class="tituloNormal">Normal</h2>
-                    <ul class="listaNormal">
-                        <li>Fazer Doações</li>
-                        <li>Inscrição em Voluntariado</li>
-                        <li>Visualizar sugestões e <br> votar na comunidade</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h2 class="subtituloMembro">Membro</h2>
-                    <ul class="listaNormal">
-                        <li>Fazer Doações</li>
-                        <li>Inscrição em Voluntariado</li>
-                        <li>Visualizar sugestões e <br> votar na comunidade</li>
-                    </ul>
-                    <ul class="listaMembro">
-                        <li>Aviso antecipado sobre eventos</li>
-                        <li>Submeter sugestões <br> na comunidade</li>
-                        <li>Cupão mensal na <br> Loja Online</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <script>
+        AOS.init();
+    </script>
 @endsection
-

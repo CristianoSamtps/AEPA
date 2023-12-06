@@ -1,243 +1,93 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 body {
-  font-family: "Lexend Deca", sans-serif;
+    font-family: "Lexend Deca", sans-serif;
+    padding-top: 230px;
 }
 
-.tornateMembro {
-  margin: 100px 131px;
+.pricing-header {
+    text-align: center;
+    margin: 2em 0;
+}
+.pricing-switch {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.card {
+    border: solid 1px rgb(87, 149, 87);
+    border-radius: 30px 0px 30px 0px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 0px 10px;
+}
+.card:hover {
+    border: solid 2px rgb(87, 149, 87);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+.pricing {
+    margin-bottom: 1.5em;
+}
+.price {
+    font-size: 2.5em;
+    margin: 0.5em 0;
+}
+.currency {
+    font-size: 0.6em;
+    position: relative;
+    top: -10px;
+}
+.features {
+    margin: 1em 0;
+}
+.btn-custom {
+    border-radius: 20px;
+    padding: 10px 25px;
 }
 
-.descricaoMembro {
-  color: #565656;
-  font-family: Lexend Deca;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-top: 26px;
+.row {
+    justify-content: center;
+    padding-top: 20px;
 }
 
-.titleMembro {
-  margin-top: 100px;
-  color: #208c5b;
-  font-family: Lexend Deca;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.features-section {
+    margin-top: 100px;
+    padding: 25px;
+    background-color: #208c5b;
+    justify-content: space-between;
 }
 
-.butaoMembro {
-  width: 248px;
-  height: 52px;
-  flex-shrink: 0;
-  border-radius: 40px;
-  background: #019e59;
-  border: none;
-  color: #fff;
-  font-family: Lexend Deca;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: 26px;
+.features-section h2 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    font-size: 30pt;
 }
 
-.membro {
-  color: #218366;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.feature-item {
+    padding: 40px;
+    text-align: center;
 }
 
-.imgMembro {
-  width: 600px;
-  padding-bottom: 30px;
+.feature-item h3 {
+    color: rgb(240, 240, 240);
 }
 
-.preco {
-  border-radius: 20px 20px 0px 0px;
-  background: #208c5b;
-  padding-bottom: 100px;
-}
-
-.titlePreco {
-  color: #ffffff;
-  text-align: center;
-  font-family: Lexend Deca;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin: 100px 0;
-  padding-top: 100px;
-}
-
-.card-title {
-  flex-shrink: 0;
-  color: #141414;
-  font-family: Lexend Deca;
-  font-size: 60px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  padding-top: 10px;
-}
-
-.card-title .pricing-card-title {
-  text-align: center;
-}
-
-.pormes {
-  flex-shrink: 0;
-  color: #141414;
-  font-family: Lexend Deca;
-  font-size: 25px;
-  font-style: normal;
-  line-height: normal;
-  border: none;
-}
-
-#header1 {
-  height: 73px;
-  border-radius: 20px 20px 0px 0px;
-  background: #1c1c1c;
-  color: #dae49d;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  border: none;
-}
-
-#header2 {
-  height: 73px;
-  border-radius: 20px 20px 0px 0px;
-  background: #4cb691;
-  color: #ffffff;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  border: none;
-}
-
-#header3 {
-  height: 73px;
-  border-radius: 20px 20px 0px 0px;
-  background: #dae49d;
-  color: #208c5b;
-  font-family: Lexend Deca;
-  font-size: 100px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-align: center;
-  justify-content: center;
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .card {
-  padding-bottom: 20px;
-  border-radius: 20px;
-  border: none;
-}
-.card-body {
-  padding-left: 20px;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
-.vantagens {
-  margin-top: 30px;
+.fa-solid{
+    padding-bottom: 20px;
 }
-
-.subtitulo,
-.titulo {
-  text-decoration: underline;
-}
-
-.lista {
-  list-style-type: none;
-  padding: 0;
-}
-
-.lista li {
-  margin-bottom: 10px;
-}
-
-.titleVan {
-  color: #019e59;
-  text-align: center;
-  font-family: Lexend Deca;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin: 50px 0;
-  padding-top: 10px;
-}
-
-.tituloNormal {
-  color: #141414;
-
-  font-family: Lexend Deca;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.subtituloMembro {
-  color: #208c5b;
-
-  font-family: Lexend Deca;
-  font-size: 64px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.vantagens {
-  text-align: center;
-  margin-bottom: 20px;
-  width: 1440px;
-  height: 1060px;
-  flex-shrink: 0;
-}
-
-.listaNormal {
-  color: #000;
-
-  text-align: center;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  list-style-type: none;
-}
-
-.listaNormal li {
-  padding: 20px;
-}
-
-.listaMembro {
-  color: #019e59;
-
-  text-align: center;
-  font-family: Lexend Deca;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  list-style-type: none;
-}
-
-.listaMembro li {
-  padding: 20px;
-}
-

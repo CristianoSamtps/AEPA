@@ -68,52 +68,61 @@
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
                     <div id="login_reg">
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                                </li>
-                            @endif
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                    </li>
+                                @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link registo" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link registo"
+                                            href="{{ route('register') }}">{{ __('Criar conta') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
 
-                                    @if (auth()->user()->isAdmin())
-                                        <a class="dropdown-item" href="{{ route('admin.users.edit',auth()->user()) }}">
-                                            Editar perfil
-                                        </a>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                        @if (auth()->user()->isAdmin())
+                                            <a class="dropdown-item" href="{{ route('admin.users.editperfil', auth()->user()) }}">
+                                                Editar perfil
+                                            </a>
                                         @else
-                                        <a class="dropdown-item" href="{{ route('users.editperfil',auth()->user()) }}">
-                                            Editar perfil
+                                        <a class="dropdown-item"
+                                                href="{{ route('users.indexperfil', auth()->user()) }}">
+                                                Perfil
+                                            </a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('users.editperfil', auth()->user()) }}">
+                                                Editar perfil
+                                            </a>
+                                        @endif
+
+                                        <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
                                         </a>
-                                    @endif
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
 
-                                </div>
-                            </li>
+                                    </div>
+                                </li>
 
                         </div>
-                        @endguest
+                    @endguest
                     </ul>
                 </div>
             </div>
@@ -151,8 +160,10 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="{{ route('perfil') }}" class="nav-link px-2 text-muted">Perfil</a></li>
-                <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a></li>
+                <li class="nav-item"><a href="{{ route('perfil') }}" class="nav-link px-2 text-muted">Perfil</a>
+                </li>
+                <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a>
+                </li>
             </ul>
         </footer>
     </footer><!-- End Footer -->
@@ -165,6 +176,11 @@
     <script src="{{ asset('/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('/vendor/waypoints/noframework.waypoints.js') }}"></script>
     <script src="{{ asset('/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://kit.fontawesome.com/a441b233b6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('/js/main.js') }}"></script>
