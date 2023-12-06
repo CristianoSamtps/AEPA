@@ -61,7 +61,7 @@ Route::group([
         'prefix' => 'admin'
     ], function () {
 
-        Route::resource('eventos', EventController::class);
+        Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
 
         Route::resource('users', UserController::class);
