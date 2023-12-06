@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\DonationsController;
-
+use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\FotografiaProjetoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +58,6 @@ Route::group([
     Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
     Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
     Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
-    Route::get('/users/{user}/donations', [DonationsController::class, 'userDonations'])->name('donations.user');
 
     Route::group([
         'as' => 'admin.',
@@ -67,6 +66,9 @@ Route::group([
 
         Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
+        Route::resource('projeto', EventController::class);
+
+        Route::resource('FotografiaProjeto', EventController::class);
 
         Route::resource('users', UserController::class);
 
