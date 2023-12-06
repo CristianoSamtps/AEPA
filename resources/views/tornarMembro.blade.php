@@ -67,7 +67,7 @@
     <section class="features-section">
         <div class="container">
             <h2>Vantagens</h2>
-            <div class="row">
+            <div class="row " data-aos="fade-left">
                 <!-- Feature 1 -->
                 <div class="col-md-4 feature-item">
                     <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
@@ -91,5 +91,7 @@
         </div>
     </section>
 
-
+    <script>
+        AOS.init();
+    </script>
 @endsection

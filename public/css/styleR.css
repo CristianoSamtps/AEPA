@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
 body {
     font-family: "Lexend Deca", sans-serif;
-    padding-top: 250px;
+    padding-top: 230px;
 }
 
 .pricing-header {
@@ -44,18 +44,19 @@ body {
     padding: 10px 25px;
 }
 
-.row{
+.row {
     justify-content: center;
+    padding-top: 20px;
 }
 
-.features-section{
+.features-section {
     margin-top: 100px;
     padding: 25px;
-    background-color: #208C5B;
+    background-color: #208c5b;
     justify-content: space-between;
 }
 
-.features-section h2{
+.features-section h2 {
     color: rgb(255, 255, 255);
     text-align: center;
     margin-bottom: 35px;
@@ -63,11 +64,26 @@ body {
     font-size: 30pt;
 }
 
-.feature-item{
+.feature-item {
     padding: 40px;
     margin-top: 30px;
 }
 
-.feature-item h3{
-    color: rgb(255, 255, 255);
+.feature-item h3 {
+    color: rgb(240, 240, 240);
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
