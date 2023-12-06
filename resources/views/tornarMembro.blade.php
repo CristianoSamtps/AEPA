@@ -89,7 +89,69 @@
             </div>
 
         </div>
+
+        <div class="stats">
+            <div class="container">
+                <div class="row" data-aos="fade-right">
+                    <div class="col-md-3">
+                        <div class="cardTwo row">
+                            <div class="col-md-4">
+                                <i class="fa-solid fa-2x fa-user"
+                                    style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
+                            </div>
+                            <div class="col-md-6" style="text-align: left;">
+                                <h4 class="hhhh">Membros</h4>
+                                <h4>+ 2500</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cardTwo row">
+                            <div class="col-md-4">
+                                <i class="fa-solid fa-2x fa-money-check-dollar"
+                                    style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="hhhh">Angariado</h4>
+                                <h4>+ 2500€</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="cardTwo row">
+                            <div class="col-md-4">
+                                <i class="fa-solid fa-2x fa-comment"
+                                    style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="hhhh">Sugestões</h4>
+                                <h4>+150</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <div class="questions">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Perguntas Frequentes</h2>
+                </div>
+                <div class="col-md-5">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item ">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item">A fourth item</li>
+                        <li class="list-group-item">And a fifth one</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         AOS.init();
