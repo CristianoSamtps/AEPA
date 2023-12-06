@@ -110,25 +110,25 @@
                         <div id="profileresume" class="col-4">
                             <div class="imagemperfil">
                             </div>
-                            <h2>Nome do Utilizador</h2>
+                            <h2> {{ $user->name }} </h2>
 
-                            <p>Doador</p>
+                            <p>{{ $user->tipo }}</p>
 
                             <button>Torne-se Membro</button>
 
                             <div class="caixa-detalhes">
                                 <span>Email</span>
-                                <p>exemplo@dominio.com</p></span>
+                                <p> {{ $user->email }} </p></span>
                             </div>
 
                             <div class="caixa-detalhes">
                                 <span>Número de Telemóvel</span>
-                                <p>+351 123 456 789</p>
+                                <p>{{ $user->telemovel }}</p>
                             </div>
 
                             <div class="caixa-detalhes">
                                 <span>Género</span>
-                                <p>Masculino</p>
+                                <p>{{ $user->genero }}</p>
                             </div>
                         </div>
 
