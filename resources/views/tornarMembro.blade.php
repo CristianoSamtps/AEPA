@@ -70,19 +70,19 @@
             <div class="row " data-aos="fade-left">
                 <!-- Feature 1 -->
                 <div class="col-md-4 feature-item">
-                    <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-2x fa-globe" style="color: #ffffff; width: 300px;"></i>
                     <h3>Comunidade</h3>
                     <p>Faz comentários e sugestões na nossa comunidade e ajuda-nos a tornar o Mundo num lugar Melhor.</p>
                 </div>
                 <!-- Feature 2 -->
-                <div class="col-md-4 feature-item">
-                    <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
+                <div class="col-md-4  feature-item">
+                    <i class="fa-solid fa-2x fa-calendar-days" style="color: #ffffff;"></i>
                     <h3>Eventos</h3>
                     <p>Recebe notificações antecipadas sobre eventos e projetos.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="col-md-4 feature-item">
-                    <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-2x fa-bag-shopping" style="color: #ffffff;"></i>
                     <h3>Loja Online</h3>
                     <p>Recebe um Cupão Mensal na Loja Online da AEPA.</p>
                 </div>
