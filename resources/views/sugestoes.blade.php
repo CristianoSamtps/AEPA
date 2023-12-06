@@ -24,18 +24,15 @@
                     </div>
                 </div>
                 <div class="donates">
+                    @foreach ($sugestoes as $sugestao)
                     <div class="card">
                         <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h6 class="profile-name">Ana Sousa</h6>
-                        <h2 class="name">Ajuda na plantação da floresta Amazónias</h2>
-                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> 132</button>
+                        <h6 class="profile-name">{{$sugestao->member_doner_id}}</h6>
+                        <h2 class="name">{{$sugestao->sugestao}}</h2>
+                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> {{$sugestao->votos}}</button>
                     </div>
-                    <div class="card">
-                        <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h6 class="profile-name">Ana Sousa</h6>
-                        <h2 class="name">Ajuda crianças em África</h2>
-                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> 127</button>
-                    </div>
+                    @endforeach
+
                 </div>
 
         </section>

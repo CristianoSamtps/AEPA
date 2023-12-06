@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('title',100);
             $table->decimal('valor', $precision = 8,$scale =2 );
             $table->enum('anonimo', ['S','N'])->default('N');
-            $table->unsignedBigInteger('member_doner_id');
+            $table->unsignedBigInteger('member_doner_id')->nullable();
             $table->foreign('member_doner_id')->references('id')->on('members_doners');
+            $table->unsignedBigInteger('projeto_id')->nullable();
+            $table->foreign('projeto_id')->references('id')->on('projects');
             $table->timestamps();
         });
     }
