@@ -78,8 +78,11 @@
                         </div>
                         <p>Configurações</p>
                     </li>
-                    <li>
+                    <li id="logout" class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
                         <div class="icon-container">
+
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="33"
                                 viewBox="0 0 30 33" fill="none">
                                 <path
@@ -96,6 +99,10 @@
                                     fill="#FF0000" />
                             </svg>
                         </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
                         <p>Sair</p>
                     </li>
                 </ul>
@@ -112,7 +119,7 @@
                             </div>
                             <h2> {{ $user->name }} </h2>
 
-                            <p>{{ $user->tipo }}</p>
+                            <p>Utilizador</p>
 
                             <button>Torne-se Membro</button>
 
