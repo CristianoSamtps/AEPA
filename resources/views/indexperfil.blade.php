@@ -149,15 +149,6 @@
                                         <path d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z" fill="white" />
                                     </svg></button>
                             </div>
-                            <h2> {{ $user->name }} </h2>
-
-                            <p>Utilizador</p>
-
-                            <button>Torne-se Membro</button>
-
-                            <div class="caixa-detalhes">
-                                <span>Email</span>
-                                <p> {{ $user->email }} </p></span>
                             <div id="exprojeto" class="col-4">
                                 <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
                                 <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
