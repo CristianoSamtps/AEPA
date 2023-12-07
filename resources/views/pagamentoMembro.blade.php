@@ -32,7 +32,7 @@
                             <button class="btn">MBWay</button>
                             <button class="btn">PayPal</button>
                         </div>
-                        <div class="card">
+                        <div class="card" data-aos="fade-up">
                             <div class="card-body">
                                 <!-- Form -->
                                 <form>
