@@ -27,12 +27,7 @@
                 <td>{{$event->descricao}}</td>
                 <td>{{$event->localizacao}}</td>
                 <td>{{$event->vagas}}</td>
-                <td>
-                @foreach ($event->partnerships as $partner)
-                {{$partner->name}}
-                <br>
-                @endforeach
-                </td>
+                <td>{{$event->partnership_id}}</td>
               </tr>
             </tbody>
           </table>

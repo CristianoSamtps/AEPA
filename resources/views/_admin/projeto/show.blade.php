@@ -2,7 +2,7 @@
 
 
 @section("title")
-    Informação do Evento
+    Informação do Projeto
 @endsection
 
 @section('backoffice-content')
@@ -37,6 +37,6 @@
             </tbody>
           </table>
 	</div>
-    <a href="{{route('admin.eventos.index')}}" class="btn btn-default">Voltar</a>
+    <a href="{{route('admin.projeto.index')}}" class="btn btn-default">Voltar</a>
 </div>
 @endsection

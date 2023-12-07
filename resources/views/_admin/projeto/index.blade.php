@@ -2,18 +2,18 @@
 
 
 @section("title")
-    Eventos
+    Projetos
 @endsection
 
 @section('backoffice-content')
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a class="btn btn-primary" href="{{route('admin.eventos.create')}}">
-        <i class="fas fa-plus"></i> Novo evento
+      <a class="btn btn-primary" href="{{route('admin.projeto.create')}}">
+        <i class="fas fa-plus"></i> Novo Projeto
       </a>
     </div>
     <div class="card-body">
-      @if (count($events))
+      @if (count($projeto))
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -40,8 +40,8 @@
                 @endforeach
             </td>
               <td nowrap class="d-flex">
-                <a class="btn btn-xs btn-primary btn-p" href="{{route('admin.eventos.show',$event)}}"><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="{{route('admin.eventos.edit',$event)}}"><i class="fas fa-pen fa-xs"></i></a>
+                <a class="btn btn-xs btn-primary btn-p" href="{{route('admin.projeto.show',$event)}}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{route('admin.projeto.edit',$event)}}"><i class="fas fa-pen fa-xs"></i></a>
                 <form method="POST" action="" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                   @csrf
                   @method("DELETE")

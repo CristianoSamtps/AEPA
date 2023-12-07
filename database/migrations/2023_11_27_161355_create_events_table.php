@@ -18,11 +18,6 @@ return new class extends Migration
             $table->integer('vagas');
             $table->string('name', 255)->unique();
             $table->datetime('data');
-            $table->unsignedBigInteger('partnership_id');
-
-            //Chaves estrangeiras
-            $table->foreign('partnership_id')->references('id')->on('partnerships');
-
             $table->softDeletes(); //deleted_at
             $table->timestamps(); //created_at e updated_at
         });

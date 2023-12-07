@@ -55,10 +55,11 @@ class UserController extends Controller
         $user->password = Hash::make('password');
         if ($request->hasFile('foto')) {
             $foto_path = $request->file('foto')->store(
-                'public/user_fotos');
+                'public/user_fotos'
+            );
             $user->foto = basename($foto_path);
         }
-        $user->tipo='A';
+        $user->tipo = 'A';
         $user->save();
 
         $user->sendEmailVerificationNotification();
@@ -86,11 +87,13 @@ class UserController extends Controller
     {
         return view('editperfil', compact('user'));
     }
-
+    
     public function indexperfil(User $user)
     {
-        return view('indexperfil', compact('user'));
+        $donations = $user->donations;
+        return view('indexperfil', compact('user', 'donations'));
     }
+
 
     public function updateperfil(UserRequest $request, User $user)
     {
@@ -102,17 +105,17 @@ class UserController extends Controller
                     $user->foto);
             }
             $foto_path =
-            $request->file('foto')->store('public/user_fotos');
+                $request->file('foto')->store('public/user_fotos');
             $user->foto = basename($foto_path);
         }
 
         $user->save();
-        if ($user->tipo=='M'){
-            $membro= Member_Doner::findOrFail($user->id);
+        if ($user->tipo == 'M') {
+            $membro = Member_Doner::findOrFail($user->id);
             $membro->fill($fields);
             $membro->save();
         }
-        return redirect()->route('users.editperfil',$user)
+        return redirect()->route('users.editperfil', $user)
             ->with('success', 'Utilizador atualizado com sucesso');
     }
 
@@ -130,7 +133,7 @@ class UserController extends Controller
                     $user->foto);
             }
             $foto_path =
-            $request->file('foto')->store('public/user_fotos');
+                $request->file('foto')->store('public/user_fotos');
             $user->foto = basename($foto_path);
         }
 
@@ -146,22 +149,29 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index')->with('success',
-            'Utilizador eliminado com sucesso');
-
+        return redirect()->route('admin.users.index')->with(
+            'success',
+            'Utilizador eliminado com sucesso'
+        );
     }
     public function destroy_foto(User $user)
     {
         Storage::disk('public')->delete('user_fotos/' . $user->foto);
         $user->foto = null;
         $user->save();
-        return redirect()->route('admin.users.edit', $user)->with('success',
-            'A foto do utilizador foi apagada com sucesso.');
+        return redirect()->route('admin.users.edit', $user)->with(
+            'success',
+            'A foto do utilizador foi apagada com sucesso.'
+        );
     }
     public function send_reactivate_email(User $user)
     {
         $user->sendEmailVerificationNotification();
-        return redirect()->route('admin.users.edit', $user)->with('success',
-            'O email foi enviado com sucesso para o utilizador');
+        return redirect()->route('admin.users.edit', $user)->with(
+            'success',
+            'O email foi enviado com sucesso para o utilizador'
+        );
     }
+
+    
 }
