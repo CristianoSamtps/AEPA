@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\PhotoEvent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,10 +11,13 @@ class Event extends Model
 
     protected $fillable = [ 'name','descricao','data','vagas','localizacao' ];
 
-    public function PhotoEvent(){
+    public function photos(){
         return $this->hasMany(PhotoEvent::class);
     }
     public function partnerships(){
         return $this->belongsToMany(PartnerShip::class,'events_partnerships','event_id','partnership_id');
+    }
+    public function participants(){
+        return $this->hasMany(Participant::class);
     }
 }

@@ -74,10 +74,9 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
-    public function doacoes()
+    public function member_doner()
     {
-        return $this->hasMany(Doacao::class, 'member_doner_id');
-        return $this->hasMany('App\Models\Donation', 'member_doner_id');
+        return $this->hasOne(Member_Doner::class,'id','id');
 
     }
 

@@ -35,14 +35,13 @@
               <td>{{$event->vagas}}</td>
               <td>
                 @foreach ($event->partnerships as $partner)
-                {{$partner->name}}
-                <br>
+                    {{$partner->name}}{{ $loop->last ? '' : ',' }}
                 @endforeach
             </td>
               <td nowrap class="d-flex">
                 <a class="btn btn-xs btn-primary btn-p" href="{{route('admin.eventos.show',$event)}}"><i class="fas fa-eye fa-xs"></i></a>
                 <a class="btn btn-xs btn-warning btn-p" href="{{route('admin.eventos.edit',$event)}}"><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
+                <form method="POST" action="{{route('admin.eventos.destroy',$event)}}" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                   @csrf
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>

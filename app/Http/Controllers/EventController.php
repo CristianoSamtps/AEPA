@@ -83,6 +83,11 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        if (count($event->partnerships)){
+            return redirect()->route('admin.eventos.index')->withErrors(['delete'=>'O evento que pretende apagar tem parceiros associaoos'] );
+        }
+        $event->delete();
+        return redirect()->route('admin.eventos.index')->with('success',
+        'Evento eliminado com sucesso');
     }
 }
