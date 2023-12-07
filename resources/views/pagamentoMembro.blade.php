@@ -74,8 +74,6 @@
         </div>
     </div>
 
-@endsection
+    <script src="{{ asset('js/payment.js') }}"></script>
 
-@section('scripts')
-<script src="{{ asset('js/member.js') }}"></script>
 @endsection
