@@ -119,7 +119,12 @@
                         </div>
                         <h2> {{ $user->name }} </h2>
 
-                        <p>{{ $user->tipo }}</p>
+                        <p>@if($user->tipo == 'M')
+                            Membro
+                            @elseif($user->tipo == 'A')
+                            Admin
+                            @endif
+                        </p>
 
                         <button>Torne-se Membro</button>
 
@@ -135,7 +140,18 @@
 
                         <div class="caixa-detalhes">
                             <span>Género</span>
-                            <p>{{ $user->genero }}</p>
+                            <p id="genero">
+                                @if($user->genero == 'M')
+                                    Masculino
+                                @elseif($user->genero == 'F')
+                                    Feminino
+                                @elseif($user->genero == 'O')
+                                    Outro
+                                @else
+                                    <!-- Adicione uma mensagem padrão ou lógica adicional, se necessário -->
+                                    {{$user->genero}}
+                                @endif
+                            </p>
                         </div>
                     </div>
 
@@ -165,12 +181,12 @@
 
                         <!-- Coluna inferior preenchendo todo o espaço -->
                         <div class="row">
-                            <div id="resumedoacoes" class="col-6">
+                            <div id="resumedoacoes" class="col-6 ">
                                 <h2>Últimas Doações</h2>
                                 <span><span class="x"></span></span>
-
+                                <div class="espacamento"></div>
                                 @if($user->doacoes && count($user->doacoes) > 0)
-                                @foreach($user->doacoes as $doacao)
+                                @foreach($user->doacoes->sortByDesc('created_at')->take(7) as $doacao)
                                 <div class="resumo d-flex justify-content-between">
                                     <div class="data">
                                         <h1>{{ $doacao->created_at->day }}</h1>
@@ -180,13 +196,25 @@
                                         <h1>{{ $doacao->title }}</h1>
                                         <p>{{ $doacao->created_at->format('h:iA') }}</p>
                                     </div>
-                                    <button class="info">{{ $doacao->status }}</button>
+                                    <button class="info @if($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
+
+                                        @if($doacao->anonimo == 'N')
+                                        Visivel
+                                        @elseif($doacao->anonimo == 'S')
+                                        Anonimo
+                                        @endif
+
+                                    </button>
+
                                     <h1>{{ $doacao->valor }}€</h1>
+
                                 </div>
                                 @endforeach
+
                                 @else
                                 <p>Nenhuma doação encontrada.</p>
                                 @endif
+
                             </div>
                         </div>
                     </div>
