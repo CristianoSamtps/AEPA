@@ -126,7 +126,7 @@
                             @endif
                         </p>
 
-                        <button>Torne-se Membro</button>
+                        <button href="{{ route('tornarMembro') }}">Torne-se Membro</button>
 
                         <div class="caixa-detalhes">
                             <span>Email</span>
