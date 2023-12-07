@@ -8,15 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class FotografiaProjeto extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'foto',
-        'destaque',
-        'projeto_id',
-    ];
-
-    public function projeto()
-    {
-        return $this->belongsTo(Projeto::class);
-    }
 }

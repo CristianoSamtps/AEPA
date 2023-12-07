@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
-use App\Http\Requests\EventRequest;
 
 class EventController extends Controller
 {
@@ -25,13 +24,13 @@ class EventController extends Controller
     {
         $event = new Event;
         $events = Event::all();
-        return view('_admin.evento.create', compact('event','events'));
+        return view('_admin.evento.create', compact('events','events'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EventRequest $request)
+    public function store(Request $request)
     {
         $fields = $request->validated();
 
@@ -39,7 +38,7 @@ class EventController extends Controller
         $event->fill($fields);
         $event->save();
 
-        return redirect()->route('admin.eventos.index')
+        return redirect()->route('admin.evento.index')
             ->with('success', 'Evento criado com sucesso');
     }
 
@@ -58,24 +57,17 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-
+        if($event) {
             return view('_admin.evento.edit', compact('event'));
-
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(EventRequest $request, Event $event)
+    public function update(Request $request, Event $event)
     {
-
-        $fields = $request->validated();
-
-        $event->fill($fields);
-        $event->save();
-
-        return redirect()->route('admin.eventos.index')
-            ->with('success', 'Evento atualizado com sucesso');
+        //
     }
 
     /**

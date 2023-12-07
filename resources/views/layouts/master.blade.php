@@ -62,9 +62,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav text-center">
                     <!-- Add the "ml-auto" class to align items to the right -->
-                    <a class="nav-item nav-link" href="{{ route('index') }}">ÍNICIO</a>
-                    <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
+                    <a class="nav-item nav-link" href="{{ route('patrocinadores') }}">PATROCIONADORES</a>
+                    <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
                     <div id="login_reg">
@@ -158,9 +158,9 @@
 
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja Online</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="{{ route('patrocinadores') }}" class="nav-link px-2 text-muted">Patrocinadores</a></li>
+                <li class="nav-item"><a href="{{ route('perfil') }}" class="nav-link px-2 text-muted">Perfil</a>
                 </li>
                 <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a>
                 </li>

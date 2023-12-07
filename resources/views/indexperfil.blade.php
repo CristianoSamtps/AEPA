@@ -3,15 +3,15 @@
 @section('title', 'AEPA')
 
 @section('styles')
-<link href="{{ asset('/css/perfil.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/perfil.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
 
 
-<main id="main">
+    <main id="main">
 
-    <div id="container">
+        <div id="container">
 
             <div id="sidebar">
                 <ul>
@@ -78,11 +78,8 @@
                         </div>
                         <p>Configurações</p>
                     </li>
-                    <li id="logout" class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
+                    <li>
                         <div class="icon-container">
-
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="30" height="33"
                                 viewBox="0 0 30 33" fill="none">
                                 <path
@@ -99,145 +96,118 @@
                                     fill="#FF0000" />
                             </svg>
                         </div>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                        <p>Logout</p>
+                        <p>Sair</p>
                     </li>
                 </ul>
             </div>
 
-        <div id="main-content">
+            <div id="main-content">
 
-            <div class="container-fluid">
+                <div class="container-fluid">
 
-                <div class="row justify-content-center">
-                    <!-- Coluna à esquerda -->
-                    <div id="profileresume" class="col-4">
-                        <div class="imagemperfil">
-                        </div>
-                        <h2> {{ $user->name }} </h2>
-
-                        <p>@if($user->tipo == 'M')
-                            Membro
-                            @elseif($user->tipo == 'A')
-                            Admin
-                            @endif
-                        </p>
-
-                        <button>Torne-se Membro</button>
-
-                        <div class="caixa-detalhes">
-                            <span>Email</span>
-                            <p> {{ $user->email }} </p></span>
-                        </div>
-
-                        <div class="caixa-detalhes">
-                            <span>Número de Telemóvel</span>
-                            <p>{{ $user->telemovel }}</p>
-                        </div>
-
-                        <div class="caixa-detalhes">
-                            <span>Género</span>
-                            <p id="genero">
-                                @if($user->genero == 'M')
-                                    Masculino
-                                @elseif($user->genero == 'F')
-                                    Feminino
-                                @elseif($user->genero == 'O')
-                                    Outro
-                                @else
-                                    <!-- Adicione uma mensagem padrão ou lógica adicional, se necessário -->
-                                    {{$user->genero}}
-                                @endif
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Colunas à direita -->
-                    <div class="col-8">
-                        <!-- Subdivisão superior em 3 colunas -->
-                        <div class="row">
-                            <div id="exprojeto" class="col-4">
-                                <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                                        <path d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z" fill="white" />
-                                    </svg></button>
+                    <div class="row justify-content-center">
+                        <!-- Coluna à esquerda -->
+                        <div id="profileresume" class="col-4">
+                            <div class="imagemperfil">
                             </div>
-                            <div id="exprojeto" class="col-4">
-                                <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                                        <path d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z" fill="white" />
-                                    </svg></button>
+                            <h2> {{ $user->name }} </h2>
+
+                            <p>{{ $user->tipo }}</p>
+
+                            <button>Torne-se Membro</button>
+
+                            <div class="caixa-detalhes">
+                                <span>Email</span>
+                                <p> {{ $user->email }} </p></span>
                             </div>
-                            <div id="exprojeto" class="col-4">
-                                <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                                        <path d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z" fill="white" />
-                                    </svg></button>
+
+                            <div class="caixa-detalhes">
+                                <span>Número de Telemóvel</span>
+                                <p>{{ $user->telemovel }}</p>
+                            </div>
+
+                            <div class="caixa-detalhes">
+                                <span>Género</span>
+                                <p>{{ $user->genero }}</p>
                             </div>
                         </div>
 
-                        <!-- Coluna inferior preenchendo todo o espaço -->
-                        <div class="row">
-                            <div id="resumedoacoes" class="col-6 ">
-                                <h2>Últimas Doações</h2>
-                                <span><span class="x"></span></span>
-                                <div class="espacamento"></div>
-                                @if($user->doacoes && count($user->doacoes) > 0)
-                                @foreach($user->doacoes->sortByDesc('created_at')->take(7) as $doacao)
-                                <div class="resumo d-flex justify-content-between">
-                                    <div class="data">
-                                        <h1>{{ $doacao->created_at->day }}</h1>
-                                        <p>{{ $doacao->created_at->translatedFormat('M') }}</p>
-                                    </div>
-                                    <div class="nome">
-                                        <h1>{{ $doacao->title }}</h1>
-                                        <p>{{ $doacao->created_at->format('h:iA') }}</p>
-                                    </div>
-                                    <button class="info @if($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
-
-                                        @if($doacao->anonimo == 'N')
-                                        Visivel
-                                        @elseif($doacao->anonimo == 'S')
-                                        Anonimo
-                                        @endif
-
-                                    </button>
-
-                                    <h1>{{ $doacao->valor }}€</h1>
-
+                        <!-- Colunas à direita -->
+                        <div class="col-8">
+                            <!-- Subdivisão superior em 3 colunas -->
+                            <div class="row">
+                                <div id="exprojeto" class="col-4">
+                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                            viewBox="0 0 19 18" fill="none">
+                                            <path
+                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                fill="white" />
+                                        </svg></button>
                                 </div>
-                                @endforeach
+                                <div id="exprojeto" class="col-4">
+                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                            viewBox="0 0 19 18" fill="none">
+                                            <path
+                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                fill="white" />
+                                        </svg></button>
+                                </div>
+                                <div id="exprojeto" class="col-4">
+                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                            viewBox="0 0 19 18" fill="none">
+                                            <path
+                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                fill="white" />
+                                        </svg></button>
+                                </div>
+                            </div>
 
-                                @else
-                                <p>Nenhuma doação encontrada.</p>
-                                @endif
-
+                            <!-- Coluna inferior preenchendo todo o espaço -->
+                            <div class="row">
+                                <div id="resumedoacoes" class="col-6">
+                                    <h2>Últimas Doações</h2>
+                                    <span><span class="x"></span></span>
+                                    <div class="resumo d-flex justify-content-between">
+                                        <div class="data">
+                                            <h1>20</h1>
+                                            <p>Set</p>
+                                        </div>
+                                        <div class="nome">
+                                            <h1>Projeto - Proteção com a camada Ozono</h1>
+                                            <p>11:00Pm</p>
+                                        </div>
+                                        <button class="info">Cancelado</button>
+                                        <h1>50€</h1>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
+    </main>
+    <section class="background2">
 
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1439 621" fill="none">
+            <path
+                d="M160 91C81 71.5 -1 0 -1 0V279.5C-1 279.5 88.5 384.5 180 384.5C271.5 384.5 367 283 496 337.5C625 392 775 597 967.5 543C1160 489 1217 471.5 1305 489.5C1393 507.5 1439 620.5 1439 620.5V384.5C1439 384.5 1454 275.5 1318.5 211.5C1183 147.5 1022.5 275 917.5 266C812.5 257 632 74 511.5 48.5C391 23 239 110.5 160 91Z"
+                fill="url(#paint0_linear_15_69)" fill-opacity="0.29" />
+            <defs>
+                <linearGradient id="paint0_linear_15_69" x1="719.246" y1="0" x2="719.246" y2="620.5"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0.0625" stop-color="#4FCD8B" />
+                    <stop offset="0.651042" stop-color="#11492B" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+        </svg>
 
-</main>
-<section class="background2">
-
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1439 621" fill="none">
-        <path d="M160 91C81 71.5 -1 0 -1 0V279.5C-1 279.5 88.5 384.5 180 384.5C271.5 384.5 367 283 496 337.5C625 392 775 597 967.5 543C1160 489 1217 471.5 1305 489.5C1393 507.5 1439 620.5 1439 620.5V384.5C1439 384.5 1454 275.5 1318.5 211.5C1183 147.5 1022.5 275 917.5 266C812.5 257 632 74 511.5 48.5C391 23 239 110.5 160 91Z" fill="url(#paint0_linear_15_69)" fill-opacity="0.29" />
-        <defs>
-            <linearGradient id="paint0_linear_15_69" x1="719.246" y1="0" x2="719.246" y2="620.5" gradientUnits="userSpaceOnUse">
-                <stop offset="0.0625" stop-color="#4FCD8B" />
-                <stop offset="0.651042" stop-color="#11492B" stop-opacity="0" />
-            </linearGradient>
-        </defs>
-    </svg>
-
-</section>
+    </section>
 
 
 @endsection

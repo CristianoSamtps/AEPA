@@ -27,7 +27,7 @@
                     @foreach ($sugestoes as $sugestao)
                     <div class="card">
                         <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                        <h6 class="profile-name">{{$sugestao->member_doner->user->name}}</h6>
+                        <h6 class="profile-name">{{$sugestao->member_doner_id}}</h6>
                         <h2 class="name">{{$sugestao->sugestao}}</h2>
                         <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> {{$sugestao->votos}}</button>
                     </div>
