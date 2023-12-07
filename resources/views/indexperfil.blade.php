@@ -45,7 +45,9 @@
                         </div>
                         <p>Doações</p>
                     </li>
-                    <li>
+
+                    <li class="active">
+
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
                                 viewBox="0 0 34 34" fill="none">
@@ -55,6 +57,7 @@
                             </svg>
                         </div>
                         <p>Perfil</p>
+
                     </li>
                     <li>
                         <div class="icon-container">
