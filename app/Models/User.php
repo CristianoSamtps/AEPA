@@ -74,6 +74,13 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+    public function doacoes()
+    {
+        return $this->hasMany(Doacao::class, 'member_doner_id');
+        return $this->hasMany('App\Models\Donation', 'member_doner_id');
+
+    }
+
     public function isAdmin()
     {
         return $this->tipo == 'A';
@@ -87,5 +94,4 @@ class User extends Authenticatable implements MustVerifyEmail
            //return $this->hasMany(Project::class,'user_id','id');
        }
        */
-
 }

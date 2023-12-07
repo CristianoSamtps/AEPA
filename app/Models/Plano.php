@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PartnerShip extends Model
+class Plano extends Model
 {
     use HasFactory;
-    protected $table = 'partnerships';
-    public $timestamps=false;
-    protected $fillable = [ 'name' ];
 
+    public function member_doner(){
+        return $this->belongsTo(Member_Doner::class,'member_doner_id','id');
+    }
 }
