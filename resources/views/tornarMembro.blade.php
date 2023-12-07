@@ -7,7 +7,7 @@
 
 
 @section('styles')
-    <link href="{{ asset('/css/styleR.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/styleTornarMembro.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -27,7 +27,7 @@
                         <p class="price text-center">4.99<span class="currency">€</span></p>
                         <p class="features text-center">4.99€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
@@ -41,7 +41,7 @@
                         <p class="price text-center">12.99<span class="currency">€</span></p>
                         <p class="features text-center">4.33€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
@@ -55,7 +55,7 @@
                         <p class="price text-center">34.99<span class="currency">€</span></p>
                         <p class="features text-center">2.91€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
