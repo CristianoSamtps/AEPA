@@ -103,7 +103,7 @@
                             @csrf
                         </form>
 
-                        <p>Sair</p>
+                        <p>Logout</p>
                     </li>
                 </ul>
             </div>
