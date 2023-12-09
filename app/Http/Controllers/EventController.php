@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
+use App\Models\PhotoEvent;
 
 class EventController extends Controller
 {
@@ -15,8 +16,9 @@ class EventController extends Controller
     public function index()
     {
         //
+        $photos_events = PhotoEvent::all();
         $events = Event::all();
-        return view('_admin.evento.index', compact('events'));
+        return view('_admin.evento.index', compact('events','photos_events'));
     }
 
     /**
@@ -39,6 +41,11 @@ class EventController extends Controller
         $event = new Event();
         $event->fill($fields);
         $event->save();
+        $event->partnerships()->attach($request->partnerships);
+
+        $img_path = $request->file('image')->store(
+            'public/events_images' );
+        $event->image = basename($img_path);
 
         return redirect()->route('admin.eventos.index')
             ->with('success', 'Evento criado com sucesso');
@@ -59,8 +66,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-
-            return view('_admin.evento.edit', compact('event'));
+        $partnerships = PartnerShip::all();
+        return view('_admin.evento.edit', compact('event','partnerships'));
 
     }
 
@@ -73,6 +80,7 @@ class EventController extends Controller
         $fields = $request->validated();
 
         $event->fill($fields);
+        $event->partnerships()->attach($request->partnerships);
         $event->save();
 
         return redirect()->route('admin.eventos.index')
@@ -85,7 +93,9 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         if (count($event->partnerships)){
-            return redirect()->route('admin.eventos.index')->withErrors(['delete'=>'O evento que pretende apagar tem parceiros associaoos'] );
+            return redirect()->route('admin.eventos.index')->withErrors(['delete'=>'O evento que pretende apagar tem parceiros associados'] );
+        }else if(count($event->participants)){
+            return redirect()->route('admin.eventos.index')->withErrors(['delete'=>'O evento que pretende apagar tem participantes associados'] );
         }
         $event->delete();
         return redirect()->route('admin.eventos.index')->with('success',
