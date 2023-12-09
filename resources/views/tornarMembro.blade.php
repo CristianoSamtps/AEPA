@@ -7,7 +7,7 @@
 
 
 @section('styles')
-    <link href="{{ asset('/css/styleR.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/styleTornarMembro.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -27,7 +27,7 @@
                         <p class="price text-center">4.99<span class="currency">€</span></p>
                         <p class="features text-center">4.99€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
@@ -41,7 +41,7 @@
                         <p class="price text-center">12.99<span class="currency">€</span></p>
                         <p class="features text-center">4.33€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
@@ -55,7 +55,7 @@
                         <p class="price text-center">34.99<span class="currency">€</span></p>
                         <p class="features text-center">2.91€/mês<br></p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-success btn-custom">Subscrever</a>
+                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
                         </div>
                         <br>
                     </div>
@@ -108,8 +108,7 @@
                     <div class="col-md-3">
                         <div class="cardTwo row">
                             <div class="col-md-4">
-                                <i class="fa-solid fa-2x fa-money-check-dollar"
-                                    style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
+                                <i class="fa-solid fa-2x fa-money-check-dollar" style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
                             </div>
                             <div class="col-md-8">
                                 <h4 class="hhhh">Angariado</h4>
@@ -137,23 +136,54 @@
     <div class="questions">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 faq">
                     <h2>Perguntas Frequentes</h2>
                 </div>
-                <div class="col-md-5">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item ">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="faq-question" data-target="#faq1">
+                            How do I sign up for the free plan?
+                            <i class="fas fa-chevron-down"></i>
+                        </li>
+                        <div id="faq1" class="faq-answer collapse">
+                            When your trial account meets the free plan's requirements, you can sign up for the free version
+                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
+                            version link below the plan options.
+                        </div>
+                        <li class="faq-question" data-target="#faq2">
+                            How do I sign up for the free plan?
+                            <i class="fas fa-chevron-down"></i>
+                        </li>
+                        <div id="faq2" class="faq-answer collapse">
+                            When your trial account meets the free plan's requirements, you can sign up for the free version
+                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
+                            version link below the plan options.
+                        </div>
+                        <li class="faq-question" data-target="#faq3">
+                            How do I sign up for the free plan?
+                            <i class="fas fa-chevron-down"></i>
+                        </li>
+                        <div id="faq3" class="faq-answer collapse">
+                            When your trial account meets the free plan's requirements, you can sign up for the free version
+                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
+                            version link below the plan options.
+                        </div>
+                        <li class="faq-question" data-target="#faq4">
+                            How do I sign up for the free plan?
+                            <i class="fas fa-chevron-down"></i>
+                        </li>
+                        <div id="faq4" class="faq-answer collapse">
+                            When your trial account meets the free plan's requirements, you can sign up for the free version
+                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
+                            version link below the plan options.
+                        </div>
+                    </ul>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        AOS.init();
-    </script>
+    <script src="{{ asset('js/member.js') }}"></script>
+
 @endsection

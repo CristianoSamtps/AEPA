@@ -50,6 +50,12 @@ class PageController extends Controller
     {
         return view('tornarMembro');
     }
+
+    public function pagamentoMembro()
+    {
+        return view('pagamentoMembro');
+    }
+
     public function sobreNos()
     {
         return view('sobreNos');
