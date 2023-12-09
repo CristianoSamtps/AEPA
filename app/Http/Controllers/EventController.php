@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
 
@@ -24,8 +25,8 @@ class EventController extends Controller
     public function create()
     {
         $event = new Event;
-        $events = Event::all();
-        return view('_admin.evento.create', compact('event','events'));
+        $partnerships = PartnerShip::all();
+        return view('_admin.evento.create', compact('event', 'partnerships'));
     }
 
     /**
