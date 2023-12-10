@@ -72,6 +72,8 @@ Route::group([
 
         Route::resource('users', UserController::class);
 
+        Route::resource('sugestoes', EventController::class);
+
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 
