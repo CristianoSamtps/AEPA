@@ -52,9 +52,9 @@
                                         <a class="btn btn-xs btn-warning btn-p ml-1"
                                             href="{{ route('admin.eventos.edit', $event) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-info btn-p ml-1" href=""><i
+                                        <a class="btn btn-xs btn-primary btn-p ml-1" href=""><i
                                                 class="fas fa-users fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.FotografiasEvento.create')}}"><i
+                                        <a class="btn btn-xs btn-primary btn-p ml-1" href=""><i
                                                 class="fas fa-image fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.eventos.destroy', $event) }}"
                                             role="form" class="inline"

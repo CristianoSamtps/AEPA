@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\FotografiaProjetoController;
+use App\Http\Controllers\PhotoEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
+Route::get('/pagamentoMembro', [PageController::class, 'pagamentoMembro'])->name('pagamentoMembro');
+
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
@@ -65,6 +68,8 @@ Route::group([
     ], function () {
 
         Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
+
+        Route::resource('FotografiasEvento', PhotoEventController::class);
 
         Route::resource('projeto', EventController::class);
 

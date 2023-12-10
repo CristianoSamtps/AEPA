@@ -18,7 +18,6 @@ class Projeto extends Model
         'objetivos',
         'data_final',
         'voluntariado',
-        'partnership_id',
     ];
 
     public function fotografias()
@@ -26,8 +25,18 @@ class Projeto extends Model
         return $this->hasMany(FotografiaProjeto::class, 'projeto_id');
     }
 
-    public function partnership()
+    public function partnerships()
     {
-        return $this->belongsTo(Partnership::class);
+        return $this->belongsToMany(Partnership::class,'projects_partnerships','projeto_id','partnership_id');
     }
+
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
+
 }

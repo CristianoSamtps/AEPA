@@ -155,3 +155,26 @@ body {
     cursor: pointer;
     background-color: #17694412;
 }
+
+.faq-question {
+    cursor: pointer;
+    padding: 20px;
+    background-color: #e2e2e241;
+}
+
+  .faq-question:not(:last-child) {
+    border-bottom: 1px solid #ccc;
+}
+
+  .faq-answer {
+    padding: 20px 1rem;
+    background-color: #a1d8bf57;
+}
+
+.faq-question:hover{
+    background-color: #a1d8bf8c;
+}
+
+.faq{
+    text-align: center;
+}

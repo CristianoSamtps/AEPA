@@ -26,8 +26,7 @@ class EventRequest extends FormRequest
             "name" => 'required|min:3|max:80|unique:events,name,' . $currentId . '|regex:/^[A-ZÀ-úa-z\s]+$/',
             "descricao" => 'required|min:3',
             "localizacao" => 'min:3|max:20|regex:/^[A-ZÀ-úa-z\s]+$/',
-            "data" => 'date|after_or_equal:now|date_format:"Y-m-d"',
-            "vagas" => 'integer|min:3|max:200',
+            "data" => 'date|after_or_equal:now|date_format:"Y-m-d"'
         ];
     }
     public function messages()
@@ -35,8 +34,7 @@ class EventRequest extends FormRequest
         return [
             'name.regex' => 'O nome deve conter apenas letras e espaços',
             'localizacao.regex' => 'A localização deve conter apenas letras e espaços',
-            'data.regex' => 'A data tem de der maior ou igual á atual',
-            'vagas.regex' => 'O número minimo de vagas é 3 e máximo é 200'
+            'data.regex' => 'A data tem de der maior ou igual á atual'
         ];
     }
 }

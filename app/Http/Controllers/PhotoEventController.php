@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\PhotoEvent;
+use App\Models\Event;
+use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 
 class PhotoEventController extends Controller
@@ -12,7 +14,7 @@ class PhotoEventController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -20,7 +22,9 @@ class PhotoEventController extends Controller
      */
     public function create()
     {
-        //
+        $event = Event::all();
+        $photos_events = new PhotoEvent;
+        return view('_admin.fotografiasEvento.create', compact('event','photos_events'));
     }
 
     /**
@@ -36,7 +40,7 @@ class PhotoEventController extends Controller
      */
     public function show(PhotoEvent $photoEvent)
     {
-        //
+
     }
 
     /**
