@@ -2,13 +2,11 @@
 
 @section('title', 'AEPA')
 
-
 @section('styles')
     <link href="{{ asset('/css/styleG.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
-
     <main id="main">
         <section class="sugestoes">
             <div class="container-sugestoes">
