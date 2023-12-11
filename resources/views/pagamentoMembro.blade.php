@@ -32,7 +32,7 @@
                             <button class="btn">MBWay</button>
                             <button class="btn">PayPal</button>
                         </div>
-                        <div class="card" data-aos="fade-up">
+                        <div class="card" id="cartao" data-aos="fade-up">
                             <div class="card-body">
                                 <!-- Form -->
                                 <form>
@@ -58,6 +58,78 @@
                                         </div>
                                     </div>
 
+                                    <!-- Price Details -->
+                                    <div class="mt-4">
+                                        <p>Total: 4.99€</p>
+                                    </div>
+
+                                    <!-- Checkout Button -->
+                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card" id="applePay" data-aos="fade-up">
+                            <div class="card-body">
+                                <!-- Form -->
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="nameOnCard" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="nameOnCard"
+                                            placeholder="Nome Apelido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Apple ID</label>
+                                        <input type="text" class="form-control" id="cardNumber"
+                                            placeholder="exemplo@email.com">
+                                    </div>
+                                    <!-- Price Details -->
+                                    <div class="mt-4">
+                                        <p>Total: 4.99€</p>
+                                    </div>
+
+                                    <!-- Checkout Button -->
+                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card" id="mbWay" data-aos="fade-up">
+                            <div class="card-body">
+                                <!-- Form -->
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="nameOnCard" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="nameOnCard"
+                                            placeholder="Nome Apelido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Nº Telémovel</label>
+                                        <input type="text" class="form-control" id="cardNumber"
+                                            placeholder="999999999">
+                                    </div>
+                                    <!-- Price Details -->
+                                    <div class="mt-4">
+                                        <p>Total: 4.99€</p>
+                                    </div>
+
+                                    <!-- Checkout Button -->
+                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card" id="payPal" data-aos="fade-up">
+                            <div class="card-body">
+                                <!-- Form -->
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="nameOnCard" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="nameOnCard"
+                                            placeholder="Nome Apelido">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="cardNumber"
+                                            placeholder="exemplo@email.com">
+                                    </div>
                                     <!-- Price Details -->
                                     <div class="mt-4">
                                         <p>Total: 4.99€</p>

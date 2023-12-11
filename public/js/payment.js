@@ -1,16 +1,53 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Selecione todos os botões dentro do div com a classe 'text-center mb-3'
-    var buttons = document.querySelectorAll('.text-center.mb-3 button');
+    // Esconde todos os cartões exceto o cartão de crédito
+    hideAllPaymentCards();
+    document.getElementById('cartao').style.display = 'block';
 
-    // Adicione um evento 'click' a cada botão
-    buttons.forEach(function(button) {
+    // Seleciona todos os botões de método de pagamento
+    document.querySelectorAll('.pagamento .btn').forEach(function(button) {
         button.addEventListener('click', function() {
-            // Remova a classe 'btn-success' de todos os botões
-            buttons.forEach(function(btn) {
+            // Remove a classe 'btn-success' de todos os botões
+            document.querySelectorAll('.pagamento .btn').forEach(function(btn) {
                 btn.classList.remove('btn-success');
             });
-            // Adicione a classe 'btn-success' ao botão clicado
+            // Adiciona a classe 'btn-success' ao botão clicado
             this.classList.add('btn-success');
+
+            // Esconde todos os cartões
+            hideAllPaymentCards();
+
+            // Mostra o cartão correspondente ao botão clicado
+            const method = this.textContent.trim(); // 'Cartão', 'Apple Pay', 'MBWay', 'PayPal'
+            showPaymentCard(method);
         });
     });
+
+    function hideAllPaymentCards() {
+        document.querySelectorAll('.pagamento .card').forEach(function(card) {
+            card.style.display = 'none';
+        });
+    }
+
+    function showPaymentCard(method) {
+        let cardId = '';
+        switch(method) {
+            case 'Cartão':
+                cardId = 'cartao';
+                break;
+            case 'Apple Pay':
+                cardId = 'applePay';
+                break;
+            case 'MBWay':
+                cardId = 'mbWay';
+                break;
+            case 'PayPal':
+                cardId = 'payPal';
+                break;
+        }
+        if (cardId) {
+            document.getElementById(cardId).style.display = 'block';
+        }
+    }
+
+
 });
