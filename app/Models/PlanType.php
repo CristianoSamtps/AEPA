@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanType extends Model
 {
-    use HasFactory;
+    protected $table = 'plantypes';
 
-    protected $table = 'planTypes';
-    public function plan(){
-        return $this-> hasMany(Plan::class,'planType_id','id');
+    protected $fillable = [
+        'name',
+        'duracao',
+        'valor',
+        'proximo_pag'
+    ];
+
+    public function plans()
+    {
+        return $this->hasMany(Plan::class, 'planType_id');
     }
 }

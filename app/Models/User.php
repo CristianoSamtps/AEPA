@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function member_doner()
     {
-        return $this->hasOne(Member_Doner::class,'id','id');
+        return $this->hasOne(Member_Doner::class, 'id', 'id');
 
     }
 
@@ -84,6 +84,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->tipo == 'A';
     }
+
+    public function voluntariados()
+    {
+        return $this->hasMany(Voluntariado::class);
+    }
+
 
     /*CRIAR MÉTODO SIMILAR PARA TODOS OS RELACIONAMENTOS COM A TABELA DOS USERS
        public function projects()

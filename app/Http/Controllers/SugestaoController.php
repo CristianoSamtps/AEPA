@@ -62,3 +62,4 @@ class SugestaoController extends Controller
     {
         //
     }
+}

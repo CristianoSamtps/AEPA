@@ -27,7 +27,7 @@ class Projeto extends Model
 
     public function partnerships()
     {
-        return $this->belongsToMany(Partnership::class,'projects_partnerships','projeto_id','partnership_id');
+        return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
     }
 
     public function volunteers()
@@ -37,6 +37,11 @@ class Projeto extends Model
     public function donations()
     {
         return $this->hasMany(Donation::class);
+    }
+
+    public function voluntariados()
+    {
+        return $this->hasMany(Voluntariado::class);
     }
 
 }
