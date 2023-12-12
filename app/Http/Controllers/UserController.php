@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\Donation;
 use App\Models\Member_Doner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -87,7 +88,7 @@ class UserController extends Controller
     {
         return view('editperfil', compact('user'));
     }
-    
+
     public function indexperfil(User $user)
     {
         $donations = $user->donations;
@@ -173,5 +174,5 @@ class UserController extends Controller
         );
     }
 
-    
+
 }

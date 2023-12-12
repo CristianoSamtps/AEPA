@@ -76,8 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function member_doner()
     {
-        return $this->hasOne(Member_Doner::class,'id','id');
-
+        return $this->hasOne(Member_Doner::class, 'id', 'id');
     }
 
     public function isAdmin()
@@ -93,4 +92,8 @@ class User extends Authenticatable implements MustVerifyEmail
            //return $this->hasMany(Project::class,'user_id','id');
        }
        */
+      public function donation()
+      {
+          return $this->hasMany(Donation::class, 'member_doner_id'); // Usar "Donation" com "D" maiúsculo
+      }
 }

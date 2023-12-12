@@ -36,7 +36,7 @@ class Projeto extends Model
     }
     public function donations()
     {
-        return $this->hasMany(Donation::class);
+        return $this->hasMany(Donation::class,'projeto_id');
     }
 
 }
