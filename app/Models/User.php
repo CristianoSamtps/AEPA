@@ -84,6 +84,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->tipo == 'A';
     }
 
+    public function voluntariados()
+    {
+        return $this->hasMany(Voluntariado::class);
+    }
+
+
     /*CRIAR MÉTODO SIMILAR PARA TODOS OS RELACIONAMENTOS COM A TABELA DOS USERS
        public function projects()
        {
