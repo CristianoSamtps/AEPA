@@ -10,7 +10,7 @@ use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\FotografiaProjetoController;
-use App\Http\Controllers\PhotoEventController;
+
 
 /*
 |--------------------------------------------------------------------------
