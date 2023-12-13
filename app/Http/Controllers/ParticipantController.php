@@ -12,7 +12,8 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        //
+        $participant = Participant::all();
+        return view ('_admin.participants.index', compact('participant'));
     }
 
     /**
