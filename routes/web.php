@@ -37,7 +37,9 @@ Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes'
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
-Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+// Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+
+Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
 
 Route::get('/project_detail1', [PageController::class, 'project_detail1'])->name('project_detail1');
 
@@ -60,7 +62,6 @@ Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 Auth::routes(['verify' => true]);
 
-
 Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
@@ -80,22 +81,20 @@ Route::group([
 
         Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
 
-        Route::resource('projeto', EventController::class);
+        Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('FotografiaProjeto', EventController::class);
+        Route::resource('FotografiaProjeto', FotografiaProjetoController::class);
 
         Route::resource('users', UserController::class);
-
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
 
         Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
+
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
-
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-
 
         Route::get(
             '/users/{user}/send_reactivate_mail',
@@ -107,6 +106,5 @@ Route::group([
             '/users/{user}/destroy_photo',
             [UserController::class, 'destroy_foto']
         )->name('users.destroyFoto');
-
     });
 });

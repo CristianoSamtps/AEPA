@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projeto;
+use App\Models\FotografiaProjeto;
+use App\Models\PartnerShip;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProjetoRequest;
+use App\Models\Donation;
+use App\Models\Volunteer;
 
 class ProjetoController extends Controller
 {
@@ -12,7 +17,9 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        //
+        $fotografias_projetos = FotografiaProjeto::all();
+        $projetos = Projeto::all();
+        return view('_admin.projeto.index', compact('projetos', 'fotografias_projetos'));
     }
 
     /**
@@ -20,15 +27,26 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        //
+        $projetos = new Projeto;
+        $partnerships = PartnerShip::all();
+        return view('_admin.projeto.create', compact('projetos', 'partnerships'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjetoRequest $request)
     {
-        //
+        $fields = $request->validated();
+
+        $projetos = new Projeto();
+        $projetos->fill($fields);
+        $projetos->estado = $request->input('estado');
+        $projetos->save();
+
+        return redirect()
+            ->route('admin.projeto.index')
+            ->with('success', 'Projeto criado com sucesso');
     }
 
     /**
@@ -36,7 +54,7 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
-        //
+        return view('_admin.projeto.show', compact('projeto'));
     }
 
     /**
@@ -44,15 +62,25 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        //
+        $partnerships = PartnerShip::all();
+        // $volunteer = Volunteer::all();
+        // $donation = Donation::all();
+        return view('_admin.projeto.edit', compact('projeto'));
+        // return view('_admin.projeto.edit', compact('projetos', 'partnerships', 'volunteer', 'donation'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Projeto $projeto)
+    public function update(ProjetoRequest $request, Projeto $projeto)
     {
-        //
+        $fields = $request->validated();
+        $projeto->estado = $request->input('estado');
+        $projeto->update($fields);
+
+        return redirect()
+            ->route('admin.projeto.index')
+            ->with('success', 'Projeto atualizado com sucesso');
     }
 
     /**
@@ -60,6 +88,17 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-        //
+        $projeto->delete();
+
+        return redirect()
+            ->route('admin.projeto.index')
+            ->with('success', 'Projeto eliminado com sucesso');
+    }
+
+    public function indexFrontOffice()
+    {
+        $projetos = Projeto::all();
+
+        return view('projects', compact('projetos'));
     }
 }

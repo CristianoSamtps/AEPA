@@ -16,8 +16,7 @@ class Projeto extends Model
         'estado',
         'localidade',
         'objetivos',
-        'data_final',
-        'voluntariado',
+        // 'data_final',
     ];
 
     public function fotografias()
@@ -25,23 +24,27 @@ class Projeto extends Model
         return $this->hasMany(FotografiaProjeto::class, 'projeto_id');
     }
 
-    public function partnerships()
-    {
-        return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
-    }
+    // public function partnerships()
+    // {
+    //     return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
+    // }
 
-    public function volunteers()
-    {
-        return $this->hasMany(Volunteer::class);
-    }
-    public function donations()
-    {
-        return $this->hasMany(Donation::class,'projeto_id');
-    }
+    // public function volunteer()
+    // {
+    //     return $this->hasMany(Volunteer::class);
+    // }
+    // public function donations()
+    // {
+    //     return $this->hasMany(Donation::class, 'projeto_id');
+    // }
 
-    public function voluntariados()
+    public static function estado_opcoes()
     {
-        return $this->hasMany(Voluntariado::class);
+        return [
+            'concluido' => 'Concluído',
+            'em andamento' => 'Em Andamento',
+            'cancelado' => 'Cancelado',
+            'indisponivel' => 'Indisponível',
+        ];
     }
-
 }
