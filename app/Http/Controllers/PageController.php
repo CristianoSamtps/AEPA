@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Event;
+use App\Models\PlanType;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Sugestao;
@@ -24,7 +26,7 @@ class PageController extends Controller
     public function sugestoes()
     {
         $sugestoes = Sugestao::all();
-        return view('sugestoes',compact('sugestoes'));
+        return view('sugestoes', compact('sugestoes'));
     }
     public function patrocinadores()
     {
@@ -48,7 +50,8 @@ class PageController extends Controller
 
     public function tornarMembro()
     {
-        return view('tornarMembro');
+        $planTypes = PlanType::all();
+        return view('tornarMembro', compact('planTypes'));
     }
 
     public function pagamentoMembro()
@@ -70,7 +73,7 @@ class PageController extends Controller
     {
         return view('galeria');
     }
-      public function loginReg()
+    public function loginReg()
     {
         return view('loginReg');
     }

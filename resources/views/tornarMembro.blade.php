@@ -20,49 +20,29 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Mensal</h5>
-                        <p class="price text-center">4.99<span class="currency">€</span></p>
-                        <p class="features text-center">4.99€/mês<br></p>
-                        <div class="d-flex justify-content-center">
-                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
+            @foreach ($planTypes as $planType)
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ $planType->name }}</h5>
+                            <p class="price text-center">{{ number_format($planType->valor, 2) }}<span class="currency">€</span></p>
 
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">3 Meses</h5>
-                        <p class="price text-center">12.99<span class="currency">€</span></p>
-                        <p class="features text-center">4.33€/mês<br></p>
-                        <div class="d-flex justify-content-center">
-                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
+                            @php
+                                // Aqui assumimos que a duração está armazenada em meses.
+                                // Se for armazenada de forma diferente, ajuste conforme necessário.
+                                $valorPorMes = $planType->duracao > 0 ? $planType->valor / $planType->duracao : $planType->valor;
+                            @endphp
 
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Anual</h5>
-                        <p class="price text-center">34.99<span class="currency">€</span></p>
-                        <p class="features text-center">2.91€/mês<br></p>
-                        <div class="d-flex justify-content-center">
-                            <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
+                            <p class="features text-center">{{ number_format($valorPorMes, 2) }}€/mês<br></p>
+                            <div class="d-flex justify-content-center">
+                                <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
+                            </div>
+                            <br>
                         </div>
-                        <br>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-    </div>
 
     <section class="features-section">
         <div class="container">
