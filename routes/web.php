@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\FotografiaProjetoController;
 use App\Http\Controllers\PhotoEventController;
+use App\Http\Controllers\SugestaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Route::group([
 
         Route::resource('users', UserController::class);
 
-        Route::resource('sugestoes', EventController::class);
+        Route::resource('sugestoes', SugestaoController::class);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
