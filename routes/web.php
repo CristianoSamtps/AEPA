@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
-use App\Http\Controllers\FotografiaProjetoController;
+use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
-use App\Http\Controllers\SugestaoController;
+use App\Http\Controllers\FotografiaProjetoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +54,7 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
+
 Auth::routes(['verify' => true]);
 
 
@@ -78,7 +81,10 @@ Route::group([
 
         Route::resource('users', UserController::class);
 
+
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
+
+        Route::resource('sugestoes', EventController::class);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
@@ -91,10 +97,11 @@ Route::group([
             [UserController::class, 'send_reactivate_email']
         )
             ->name('users.sendActivationEmail');
+
         Route::delete(
             '/users/{user}/destroy_photo',
             [UserController::class, 'destroy_foto']
-        )
-            ->name('users.destroyPhoto');
+        )->name('users.destroyFoto');
+
     });
 });

@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PlanTable;
+use App\Models\Member_Doner;
 use App\Models\PlanType;
 use Illuminate\Http\Request;
 
-class PlanTypeController extends Controller
+class PlanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.index', compact('plantypes'));
+        $plans = PlanTable::all();
+        return view('_admin.plans.index', compact('plans'));
     }
 
     /**
@@ -21,8 +23,9 @@ class PlanTypeController extends Controller
      */
     public function create()
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.create', compact('plantypes'));
+        $plans = PlanTable::all();
+        $planTypes=PlanType::all();
+        return view('_admin.plans.create', compact('plans','planTypes'));
     }
 
     /**
@@ -36,25 +39,26 @@ class PlanTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PlanType $planType)
+    public function show(string $id)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.show', compact('plantypes'));
+        $plans = PlanTable::all();
+        return view('_admin.plans.show', compact('plans'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PlanType $planType)
+    public function edit(string $id)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.edit', compact('plantypes'));
+        $plans = PlanTable::all();
+        $planTypes=PlanType::all();
+        return view('_admin.plans.edit', compact('plans', 'planTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PlanType $planType)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -62,7 +66,7 @@ class PlanTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PlanType $planType)
+    public function destroy(string $id)
     {
         //
     }
