@@ -90,6 +90,7 @@
             margin-top: 130px;
             flex: 1;
             padding: 20px;
+            margin-left: -80px;
         }
 
         #profileresume {
@@ -188,18 +189,36 @@
             margin-left: 20px;
             text-align: left;
         }
-        p#genero{
+
+        p#genero {
             text-transform: capitalize;
         }
 
-        div#exprojeto {
+
+        #exprojeto {
             position: relative !important;
-            margin: 9px;
-            width: 28%;
             height: 164px;
+            width: 370px;
             border-radius: 25px;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
             transition: all ease-in 0.2s;
+            overflow: hidden; /* Adicionado para ocultar qualquer conteúdo que ultrapasse as bordas */
+        }
+
+        .fundo-projeto {
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente o fundo */
+            background-position: center; /* Centraliza a imagem no plano de fundo */
+            background-repeat: no-repeat; /* Evita a repetição da imagem no plano de fundo */
+        }
+
+        #exprojeto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
         }
 
         #exprojeto:hover {
@@ -213,17 +232,6 @@
             display: block;
             transition: all ease-in 0.2s;
             opacity: 1;
-
-        }
-
-        #exprojeto img {
-            width: 100%;
-            margin-left: -10px;
-            height: 100%;
-            object-fit: cover;
-            /* Para manter as proporções da imagem */
-            border-radius: 25px;
-            /* Manter a borda, se desejado */
         }
 
         #exprojeto button {
@@ -243,6 +251,7 @@
             transform: scale(1.3);
         }
 
+
         .row {
             padding: 10px;
         }
@@ -250,9 +259,9 @@
 
         #resumedoacoes {
             position: relative;
-            height: 486px;
+            height: 508px;
             flex-shrink: 0;
-            width: 90%;
+            width: 100%;
             border-radius: 22px;
             background: #FFF;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
@@ -302,7 +311,6 @@
             line-height: normal;
         }
 
-
         #resumedoacoes h1 {
             color: #000;
             font-size: 22px;
@@ -333,16 +341,48 @@
             line-height: normal;
         }
 
-        #resumedoacoes button.info.anonimo{
+        #resumedoacoes button.info.anonimo {
             background: rgba(202, 202, 202, 0.59);
             color: #000000;
 
         }
-        #resumedoacoes button.info.nao-anonimo{
+
+        #resumedoacoes button.info.nao-anonimo {
             background: #019E59;
             color: white;
         }
-.espacamento
-{
-    height: 20px;
-}
+
+        .projeto svg path{
+            fill: rgb(214, 214, 214);
+        }
+
+        .projeto:hover svg path{
+            fill: #d86a03 ;
+        }
+
+        .projeto span.tooltip {
+            visibility: hidden;
+            width: 300px !important;
+            height: 30px !important;
+            background-color: #d86a03 !important;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            z-index: 1;
+            margin-top: -1px !important;
+            margin-left: 25px; /* Center the tooltip above the text */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .projeto:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .espacamento {
+            height: 20px;
+        }
+
+

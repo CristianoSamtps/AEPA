@@ -156,64 +156,123 @@
                             </div>
                         </div>
 
-                        <!-- Colunas à direita -->
                         <div class="col-8">
-                            <!-- Subdivisão superior em 3 colunas -->
+
                             <div class="row">
+
                                 <div id="exprojeto" class="col-4">
-                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                            viewBox="0 0 19 18" fill="none">
-                                            <path
-                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                                fill="white" />
-                                        </svg></button>
+
+                                    <div class="fundo-projeto">
+                                        <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    </div>
+
+                                    <div class="info-projeto">
+
+                                        <h1>Titulo projeto</h1>
+
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                viewBox="0 0 19 18" fill="none">
+                                                <path
+                                                    d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
+
+                                    </div>
+
                                 </div>
+
                                 <div id="exprojeto" class="col-4">
-                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                            viewBox="0 0 19 18" fill="none">
-                                            <path
-                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                                fill="white" />
-                                        </svg></button>
+
+                                    <div class="fundo-projeto">
+                                        <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    </div>
+
+                                    <div class="info-projeto">
+
+                                        <h1>Titulo projeto</h1>
+
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                viewBox="0 0 19 18" fill="none">
+                                                <path
+                                                    d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
+
+                                    </div>
+
                                 </div>
+
                                 <div id="exprojeto" class="col-4">
-                                    <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
-                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                            viewBox="0 0 19 18" fill="none">
-                                            <path
-                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                                fill="white" />
-                                        </svg></button>
+
+                                    <div class="fundo-projeto">
+                                        <img src="{{ asset('/img/exprojeto.jpg') }}" alt="Imagem do projeto">
+                                    </div>
+
+                                    <div class="info-projeto">
+
+                                        <h1>Titulo projeto</h1>
+
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                viewBox="0 0 19 18" fill="none">
+                                                <path
+                                                    d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
+
+                                    </div>
+
                                 </div>
+
                             </div>
 
                             <div class="row">
-                                <div id="resumedoacoes" class="col-6">
+                                <div id="resumedoacoes" class="col-8">
                                     <h2>Últimas Doações</h2>
                                     <span><span class="x"></span></span>
                                     <div class="espacamento"></div>
                                     @if ($user->donation && count($user->donation) > 0)
                                         {{-- dd($user->donation); --}}
                                         @foreach ($user->donation->sortByDesc('created_at')->take(7) as $doacao)
-                                            <div class="resumo d-flex justify-content-between">
-                                                <div class="data">
+                                            <div class="resumo d-flex">
+
+                                                <div class="data col-1">
                                                     <h1>{{ $doacao->created_at->day }}</h1>
                                                     <p>{{ $doacao->created_at->translatedFormat('M') }}</p>
                                                 </div>
-                                                <div class="nome">
+
+                                                <div class="nome col-7">
                                                     <h1>{{ $doacao->title }}</h1>
                                                     <p>{{ $doacao->created_at->format('h:iA') }}</p>
                                                 </div>
-                                                <button class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
-                                                    @if ($doacao->anonimo == 'N')
-                                                        Visivel
-                                                    @elseif($doacao->anonimo == 'S')
-                                                        Anonimo
-                                                    @endif
-                                                </button>
-                                                <h1>{{ $doacao->valor }}€</h1>
+
+                                                <div class="projeto col-1">
+                                                    <span class="tooltip">Clique para ver detalhes do projeto</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                        viewBox="0 0 19 18" fill="none">
+                                                        <path
+                                                            d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                            fill="gray" />
+                                                    </svg>
+                                                </div>
+
+                                                <div class="estado col-2">
+                                                    <button
+                                                        class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
+                                                        @if ($doacao->anonimo == 'N')
+                                                            Visivel
+                                                        @elseif($doacao->anonimo == 'S')
+                                                            Anonimo
+                                                        @endif
+                                                    </button>
+                                                </div>
+
+                                                <div class="valor col-1">
+                                                    <h1>{{ $doacao->valor }}€</h1>
+                                                </div>
+
                                             </div>
                                         @endforeach
                                     @else
