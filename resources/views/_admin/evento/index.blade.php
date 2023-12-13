@@ -40,10 +40,11 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        @foreach ($photos_events as $eventphoto)
-                                            <img src="{{ asset('storage/events_images/' . $photos_events->destaque) }}"
+                                        @if (count($event->photos))
+                                            <img width="100" src="{{ asset('storage/event_photos/' . $event->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}"
                                                 class="img-post" alt="Event image">
-                                        @endforeach
+                                        @endif
+
                                     </td>
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-primary btn-p"
@@ -54,7 +55,7 @@
                                                 class="fas fa-pen fa-xs"></i></a>
                                         <a class="btn btn-xs btn-info btn-p ml-1" href=""><i
                                                 class="fas fa-users fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.FotografiasEvento.create')}}"><i
+                                        <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.fotografias.index',$event)}}"><i
                                                 class="fas fa-image fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.eventos.destroy', $event) }}"
                                             role="form" class="inline"

@@ -16,7 +16,8 @@ class Member_Doner extends Model
 
     protected $fillable = [
         'subscrito',
-        'metodo_pag'
+        'metodo_pag',
+        'id'
     ];
 
     public function user(){

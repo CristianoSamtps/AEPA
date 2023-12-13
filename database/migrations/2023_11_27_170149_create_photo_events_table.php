@@ -13,7 +13,7 @@ return new class extends Migration
         Schema::create('photos_events', function (Blueprint $table) {
             $table->id();
             $table->string('fotografia',255);
-            $table->enum('destaque', ['sim', 'não'])->default('não')->unique();
+            $table->enum('destaque', ['sim', 'não'])->default('não');
             $table->string('descricao', 255);
             $table->timestamps(); //created_at e updated_at
 

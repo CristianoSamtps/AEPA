@@ -2,61 +2,43 @@
 
 
 @section('title')
-    Eventos
+  Evento: {{$event->name}}
 @endsection
 
 @section('backoffice-content')
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a class="btn btn-primary" href="{{ route('admin.eventos.create') }}">
-                <i class="fas fa-plus"></i> Novo evento
+            <a class="btn btn-primary" href="{{ route('admin.fotografias.create',$event) }}">
+                <i class="fas fa-plus"></i> Nova fotografia
             </a>
         </div>
         <div class="card-body">
-            @if (count($events))
+            @if (count($photos))
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Descriçao</th>
-                                <th>Localização</th>
-                                <th>Vagas</th>
-                                <th>Parceiros</th>
-                                <th>Galeria</th>
-                                <th>Funções</th>
+                                <th>Foto</th>
+                                <th>Destaque</th>
+                                <th>Descrição</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($events as $event)
+                            @foreach ($photos as $photo)
                                 <tr>
-                                    <td>{{ $event->name }}</td>
-                                    <td>{{ $event->descricao }}</td>
-                                    <td>{{ $event->localizacao }}</td>
-                                    <td>{{ $event->vagas }}</td>
-                                    <td>
-                                        @foreach ($event->partnerships as $partner)
-                                            {{ $partner->name }}{{ $loop->last ? '' : ',' }}
-                                        @endforeach
-                                    </td>
-                                    <td>
-                                        @foreach ($photos_events as $eventphoto)
-                                            <img src="{{ asset('storage/events_images/' . $photos_events->destaque) }}"
-                                                class="img-post" alt="Event image">
-                                        @endforeach
-                                    </td>
+                                    <td><img width="100" src="{{asset('storage/event_photos/'.$photo->fotografia)}}" alt="Photo"></td>
+                                     <td>{{ $photo->destaque }}</td>
+                                     <td>{{ $photo->descricao }}</td>
+
                                     <td nowrap class="d-flex">
-                                        <a class="btn btn-xs btn-primary btn-p"
-                                            href="{{ route('admin.eventos.show', $event) }}"><i
-                                                class="fas fa-eye fa-xs"></i></a>
+
                                         <a class="btn btn-xs btn-warning btn-p ml-1"
-                                            href="{{ route('admin.eventos.edit', $event) }}"><i
+                                            href="{{ route('admin.fotografias.edit', [$event,$photo]) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-primary btn-p ml-1" href=""><i
-                                                class="fas fa-users fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-primary btn-p ml-1" href=""><i
-                                                class="fas fa-image fa-xs"></i></a>
-                                        <form method="POST" action="{{ route('admin.eventos.destroy', $event) }}"
+
+                                        <form method="POST" action="{{ route('admin.fotografias.destroy', [$event,$photo]) }}"
                                             role="form" class="inline"
                                             onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                                             @csrf
@@ -72,7 +54,7 @@
                     </table>
                 </div>
             @else
-                <h6>Não existem categorias registadas</h6>
+                <h6>Não existem photos registadas para o evento</h6>
             @endif
         </div>
     </div>
@@ -84,13 +66,17 @@
         $('#dataTable').dataTable({
             destroy: true,
             "order": [
-                [0, 'asc']
+                [2, 'asc']
             ],
             "columns": [
+                {
+                    "orderable": false
+                },
+                null,
                 null,
                 {
                     "orderable": false
-                }
+                },
             ]
         });
     </script>

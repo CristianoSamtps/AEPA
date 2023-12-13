@@ -69,7 +69,7 @@ Route::group([
 
         Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
-        Route::resource('FotografiasEvento', PhotoEventController::class);
+        Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
         Route::resource('projeto', EventController::class);
 
