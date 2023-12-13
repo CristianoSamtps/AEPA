@@ -91,6 +91,10 @@ Route::group([
 
         Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
+        Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
+
+        Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
+
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
