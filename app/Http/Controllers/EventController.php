@@ -43,10 +43,6 @@ class EventController extends Controller
         $event->save();
         $event->partnerships()->attach($request->partnerships);
 
-        $img_path = $request->file('image')->store(
-            'public/events_images' );
-        $event->image = basename($img_path);
-
         return redirect()->route('admin.eventos.index')
             ->with('success', 'Evento criado com sucesso');
     }

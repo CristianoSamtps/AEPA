@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('localizacao', 255);
             $table->string('descricao', 255);
             $table->string('name', 255)->unique();
+            $table->integer('vagas');
             $table->datetime('data');
             $table->softDeletes(); //deleted_at
             $table->timestamps(); //created_at e updated_at

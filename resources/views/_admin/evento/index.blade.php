@@ -53,7 +53,7 @@
                                         <a class="btn btn-xs btn-warning btn-p ml-1"
                                             href="{{ route('admin.eventos.edit', $event) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-info btn-p ml-1" href=""><i
+                                        <a class="btn btn-xs btn-info btn-p ml-1" href="{{route('admin.participantes.index',$event)}}"><i
                                                 class="fas fa-users fa-xs"></i></a>
                                         <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.fotografias.index',$event)}}"><i
                                                 class="fas fa-image fa-xs"></i></a>

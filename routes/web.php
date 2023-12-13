@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParticipantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -75,6 +76,8 @@ Route::group([
         Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
+
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
 
         Route::resource('projeto', EventController::class);
 
