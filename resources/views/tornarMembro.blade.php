@@ -28,8 +28,6 @@
                             <p class="price text-center">{{ number_format($planType->valor, 2) }}<span class="currency">€</span></p>
 
                             @php
-                                // Aqui assumimos que a duração está armazenada em meses.
-                                // Se for armazenada de forma diferente, ajuste conforme necessário.
                                 $valorPorMes = $planType->duracao > 0 ? $planType->valor / $planType->duracao : $planType->valor;
                             @endphp
 
@@ -43,6 +41,7 @@
                 </div>
             @endforeach
         </div>
+    </div>
 
     <section class="features-section">
         <div class="container">
