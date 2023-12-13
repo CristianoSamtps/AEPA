@@ -20,8 +20,8 @@ return new class extends Migration
             $table->enum('estado', ['concluido', 'em andamento', 'cancelado', 'indisponivel']);
             $table->text('localidade');
             $table->decimal('objetivos', $precision = 10, $scale = 2);
-            $table->date('data_final');
-            $table->boolean('voluntariado');
+            // $table->date('data_final');
+            // $table->boolean('voluntariado');
             $table->timestamps();
             $table->SoftDeletes();
 
