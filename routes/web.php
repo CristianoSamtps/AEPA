@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\PlanTypeController;
@@ -88,6 +89,7 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
 
+        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 

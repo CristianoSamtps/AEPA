@@ -21,6 +21,11 @@
                         </a>
                     </div>
                 </div>
+                <div class="card-header py-3">
+                    <a class="btn btn-primary" href="">
+                      <i class="fas fa-plus"></i> Nova sugestão
+                    </a>
+                  </div>
                 <div class="donates">
                     @foreach ($sugestoes as $sugestao)
                     <div class="card">

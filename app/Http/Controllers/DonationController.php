@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donation;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\DoacaoRequest;
 
 
 class DonationController extends Controller
@@ -14,7 +15,8 @@ class DonationController extends Controller
      */
     public function index()
     {
-        //
+        $doacoes = Doacao::all();
+        return view('_admin.doacoes.index', compact('doacoes'));
     }
 
     public function userDonations(User $user)
@@ -35,7 +37,8 @@ class DonationController extends Controller
      */
     public function create()
     {
-        //
+        $doacao = new Doacao;
+        return view('_admin.doacoes.create', compact('doacao'));
     }
 
     /**
@@ -49,9 +52,11 @@ class DonationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Donation $donation)
+    public function show(Doacao $doacao)
     {
-        //
+        if($doacao) {
+            return view('_admin.doacoes.show', compact('doacao'));
+        }
     }
 
     /**

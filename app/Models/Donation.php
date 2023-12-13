@@ -19,4 +19,7 @@ class Donation extends Model
     {
         return $this->hasOne(Projeto::class, 'projeto_id');
     }
+    protected $fillable = [
+        'title'
+    ];
 }
