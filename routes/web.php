@@ -10,6 +10,7 @@ use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\FotografiaProjetoController;
+use App\Http\Controllers\PhotoEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,11 +81,7 @@ Route::group([
 
         Route::resource('users', UserController::class);
 
-        Route::resource('sugestoes', SugestaoController::class);
-
-        Route::resource('plans', PlanController::class)->parameters(['PlansController' => 'phPlanControlleroto']);
-
-        Route::resource('plantypes', PlanTypeController::class);
+        Route::resource('sugestoes', EventController::class);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
@@ -97,10 +94,11 @@ Route::group([
             [UserController::class, 'send_reactivate_email']
         )
             ->name('users.sendActivationEmail');
+
         Route::delete(
             '/users/{user}/destroy_photo',
             [UserController::class, 'destroy_foto']
-        )
-            ->name('users.destroyPhoto');
+        )->name('users.destroyFoto');
+
     });
 });

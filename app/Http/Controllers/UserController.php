@@ -100,25 +100,30 @@ class UserController extends Controller
     {
         $fields = $request->validated();
         $user->fill($fields);
+
         if ($request->hasFile('foto')) {
+            // Verifica se já existe uma foto e exclui a anterior
             if (!empty($user->foto)) {
-                Storage::disk('public')->delete('user_fotos/' .
-                    $user->foto);
+                Storage::disk('public')->delete('user_fotos/' . $user->foto);
             }
-            $foto_path =
-                $request->file('foto')->store('public/user_fotos');
+
+            // Salva a nova foto
+            $foto_path = $request->file('foto')->store('public/user_fotos');
             $user->foto = basename($foto_path);
         }
 
         $user->save();
+
         if ($user->tipo == 'M') {
             $membro = Member_Doner::findOrFail($user->id);
             $membro->fill($fields);
             $membro->save();
         }
+
         return redirect()->route('users.editperfil', $user)
             ->with('success', 'Utilizador atualizado com sucesso');
     }
+
 
 
     /**
@@ -173,6 +178,4 @@ class UserController extends Controller
             'O email foi enviado com sucesso para o utilizador'
         );
     }
-
-
 }

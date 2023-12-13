@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Projeto;
+use App\Models\Sugestao;
 use Illuminate\Http\Request;
+use App\Http\Requests\SugestaoRequest;
 
 class SugestaoController extends Controller
 {
@@ -12,7 +13,8 @@ class SugestaoController extends Controller
      */
     public function index()
     {
-        //
+        $sugestoes = Sugestao::all();
+        return view('_admin.sugestoes.index', compact('sugestoes'));
     }
 
     /**
@@ -20,15 +22,16 @@ class SugestaoController extends Controller
      */
     public function create()
     {
-        //
+        $sugestao = new Sugestao;
+        return view('_admin.sugestoes.create', compact('sugestao'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SugestaoRequest $request)
     {
-        //
+
     }
 
     /**
@@ -36,7 +39,9 @@ class SugestaoController extends Controller
      */
     public function show(Sugestao $sugestao)
     {
-        //
+        if($sugestao) {
+            return view('_admin.sugestoes.show', compact('sugestao'));
+        }
     }
 
     /**
@@ -44,15 +49,17 @@ class SugestaoController extends Controller
      */
     public function edit(Sugestao $sugestao)
     {
-        //
+        return view('_admin.sugestoes.edit', compact('sugestao'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Sugestao $sugestao)
+    public function update(SugestaoRequest $request, Sugestao $sugestao)
     {
-        //
+
+
     }
 
     /**
@@ -60,6 +67,6 @@ class SugestaoController extends Controller
      */
     public function destroy(Sugestao $sugestao)
     {
-        //
+
     }
 }
