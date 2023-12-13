@@ -126,7 +126,7 @@
                             <div class="imagemperfil">
                                 @if($user->foto)
 
-                                
+
                                     <img src="{{ asset('storage/user_fotos/'.$user->foto) }}" alt="Imagem de perfil">
                                 @else
                                     <img src="{{ asset('img/default_user.jpg') }}" alt="Imagem de perfil padrão">
