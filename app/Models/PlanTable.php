@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanTable extends Model
 {
-    protected $table = 'plans_table';
+    protected $table = 'plans';
 
     protected $fillable = [
         'date',

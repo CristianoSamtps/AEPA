@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
     <div class="container-fluid">
 
         <div class="card shadow mb-4">
@@ -15,7 +14,8 @@
                     @csrf
                     @method('PUT')
                     @if ($user->foto)
-                        <img src="{{ asset('storage/user_fotos/' . $user->foto) }}" alt="User foto" width="200" class="mt-1 mb-3">
+                        <img src="{{ asset('storage/user_fotos/' . $user->foto) }}" alt="User foto" width="200"
+                            class="mt-1 mb-3">
                     @endif
                     @include('_admin.users.partials.add-edit')
 
