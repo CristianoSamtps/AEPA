@@ -24,5 +24,6 @@
         @foreach ($partnerships as $p)
             <option value="{{ $p->id }}">{{ $p->name }}</option>
         @endforeach
+        <option value="">Nenhum</option>
     </select>
 </div>

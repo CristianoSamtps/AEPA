@@ -67,7 +67,8 @@ class PageController extends Controller
     public function eventos()
     {
         $events = Event::all();
-        return view('eventos', compact('events'));
+        $topevent = Event::orderBy('data', 'desc')->first();
+        return view('eventos', compact('events','topevent'));
     }
     public function galeria()
     {
