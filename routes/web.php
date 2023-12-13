@@ -91,10 +91,11 @@ Route::group([
             [UserController::class, 'send_reactivate_email']
         )
             ->name('users.sendActivationEmail');
+
         Route::delete(
             '/users/{user}/destroy_photo',
             [UserController::class, 'destroy_foto']
-        )
-            ->name('users.destroyPhoto');
+        )->name('users.destroyFoto');
+
     });
 });

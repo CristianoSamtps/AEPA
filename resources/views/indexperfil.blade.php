@@ -47,7 +47,8 @@
                         </div>
                         <p>Doações</p>
                     </li>
-                    <li>
+
+                    <li class="active">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
                                 viewBox="0 0 34 34" fill="none">
@@ -110,6 +111,7 @@
 
                         <p>Logout</p>
                     </li>
+
                 </ul>
             </div>
 
@@ -120,8 +122,15 @@
                     <div class="row justify-content-center">
                         <!-- Coluna à esquerda -->
                         <div id="profileresume" class="col-4">
+
                             <div class="imagemperfil">
+                                @if($user->foto)
+                                    <img src="{{ asset($user->foto) }}" alt="Imagem de perfil">
+                                @else
+                                    <img src="{{ asset('') }}" alt="Imagem de perfil padrão">
+                                @endif
                             </div>
+
                             <h2> {{ $user->name }} </h2>
 
                             <p>

@@ -51,6 +51,22 @@
             transition: all ease-in 0.2s;
         }
 
+        #sidebar ul li.active {
+            cursor: pointer;
+            background-color: #019E59;
+            transition: all ease-in 0.2s;
+            transform: translate(-7px, 7px);
+            box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+        }
+
+        #sidebar ul li.active .icon-container .icon path {
+            fill: white;
+        }
+
+        #sidebar ul li.active p {
+            color: white;
+        }
+
         #sidebar ul li:hover {
             cursor: pointer;
             background-color: #019E59;
@@ -190,6 +206,24 @@
             text-align: left;
         }
 
+        .imagemperfil {
+            width: 100%;
+            height: 200px;
+            /* Defina a altura desejada para a imagem de perfil */
+            overflow: hidden;
+            border-radius: 10px;
+            /* Ajuste conforme necessário */
+        }
+
+        .imagemperfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Garante que a imagem cubra completamente o contêiner */
+            border-radius: 10px;
+            /* Ajuste conforme necessário para combinar com o contêiner */
+        }
+
         p#genero {
             text-transform: capitalize;
         }
@@ -202,16 +236,20 @@
             border-radius: 25px;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
             transition: all ease-in 0.2s;
-            overflow: hidden; /* Adicionado para ocultar qualquer conteúdo que ultrapasse as bordas */
+            overflow: hidden;
+            /* Adicionado para ocultar qualquer conteúdo que ultrapasse as bordas */
         }
 
         .fundo-projeto {
             width: 100%;
             height: 100%;
             border-radius: 25px;
-            background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente o fundo */
-            background-position: center; /* Centraliza a imagem no plano de fundo */
-            background-repeat: no-repeat; /* Evita a repetição da imagem no plano de fundo */
+            background-size: cover;
+            /* Ajusta o tamanho da imagem para cobrir completamente o fundo */
+            background-position: center;
+            /* Centraliza a imagem no plano de fundo */
+            background-repeat: no-repeat;
+            /* Evita a repetição da imagem no plano de fundo */
         }
 
         #exprojeto img {
@@ -352,12 +390,12 @@
             color: white;
         }
 
-        .projeto svg path{
+        .projeto svg path {
             fill: rgb(214, 214, 214);
         }
 
-        .projeto:hover svg path{
-            fill: #d86a03 ;
+        .projeto:hover svg path {
+            fill: #d86a03;
         }
 
         .projeto span.tooltip {
@@ -371,7 +409,8 @@
             padding: 5px;
             z-index: 1;
             margin-top: -1px !important;
-            margin-left: 25px; /* Center the tooltip above the text */
+            margin-left: 25px;
+            /* Center the tooltip above the text */
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -384,5 +423,3 @@
         .espacamento {
             height: 20px;
         }
-
-
