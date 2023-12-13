@@ -78,7 +78,7 @@ Route::group([
 
         Route::resource('users', UserController::class);
 
-        Route::resource('sugestoes', SugestaoController::class);
+        Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 

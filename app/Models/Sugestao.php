@@ -13,4 +13,8 @@ class Sugestao extends Model
     public function member_doner(){
         return $this->belongsTo(Member_Doner::class,'member_doner_id','id');
     }
+    protected $fillable = [
+        'aprovacao',
+        'listado'
+    ];
 }

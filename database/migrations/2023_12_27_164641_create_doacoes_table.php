@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('doacoes', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
+            $table->string('title', 100)->nullable();
             $table->decimal('valor', $precision = 8, $scale = 2);
             $table->enum('anonimo', ['S', 'N'])->default('N');
             $table->unsignedBigInteger('member_doner_id')->nullable();

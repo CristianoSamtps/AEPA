@@ -1,5 +1,4 @@
-@extends('layouts.master')
-
+@extends('layouts.admin')
 @section("title")
     Sugestões
 @endsection
@@ -12,9 +11,6 @@
 @section('backoffice-content')
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a class="btn btn-primary" href="{{route('admin.sugestoes.create')}}">
-        <i class="fas fa-plus"></i> Novo evento
-      </a>
     </div>
     <div class="card-body">
       @if (count($sugestoes))
@@ -39,8 +35,8 @@
               <td>{{$sugestao->listado}}</td>
               <td nowrap class="d-flex">
                 <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href=""><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
+                <a class="btn btn-xs btn-warning btn-p" href="{{ route('admin.sugestoes.edit', $sugestao) }}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{ route('admin.sugestoes.destroy', $sugestao) }}" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                   @csrf
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>

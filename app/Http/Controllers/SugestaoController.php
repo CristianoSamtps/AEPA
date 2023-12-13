@@ -58,8 +58,13 @@ class SugestaoController extends Controller
      */
     public function update(SugestaoRequest $request, Sugestao $sugestao)
     {
+        $fields = $request->validated();
 
+        $sugestao->fill($fields);
+        $sugestao->save();
 
+        return redirect()->route('admin.sugestoes.index')
+            ->with('success', 'Sugestão atualizada com sucesso');
     }
 
     /**
@@ -67,6 +72,8 @@ class SugestaoController extends Controller
      */
     public function destroy(Sugestao $sugestao)
     {
-
+        $sugestao->delete();
+        return redirect()->route('admin.sugestoes.index')->with('success',
+        'Sugestão eliminada com sucesso');
     }
 }
