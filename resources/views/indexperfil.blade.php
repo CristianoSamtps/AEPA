@@ -15,6 +15,7 @@
 
             <div id="sidebar">
                 <ul>
+
                     <li>
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 45">
@@ -31,6 +32,7 @@
                         </div>
                         <p>Projetos</p>
                     </li>
+
                     <li>
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="37" height="36"
@@ -56,6 +58,7 @@
                         </div>
                         <p>Perfil</p>
                     </li>
+
                     <li>
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="35" height="34"
@@ -67,6 +70,7 @@
                         </div>
                         <p>Comunidade</p>
                     </li>
+
                     <li>
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="33"
@@ -78,6 +82,7 @@
                         </div>
                         <p>Configurações</p>
                     </li>
+
                     <li id="logout" class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
