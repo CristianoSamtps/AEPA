@@ -21,8 +21,8 @@ class PlanTypeController extends Controller
      */
     public function create()
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.create', compact('plantypes'));
+        $planType = PlanType::all();
+        return view('_admin.plantypes.create', compact('planType'));
     }
 
     /**
@@ -38,8 +38,8 @@ class PlanTypeController extends Controller
      */
     public function show(PlanType $planType)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.show', compact('plantypes'));
+
+        return view('_admin.plantypes.show', compact('planType'));
     }
 
     /**
@@ -47,8 +47,8 @@ class PlanTypeController extends Controller
      */
     public function edit(PlanType $planType)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.edit', compact('plantypes'));
+
+        return view('_admin.plantypes.edit', compact('planType'));
     }
 
     /**
