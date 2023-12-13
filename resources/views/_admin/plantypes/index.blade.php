@@ -26,17 +26,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($plantypes as $plantype)
+                            @foreach ($planTypes as $planType)
                                 <tr>
-                                    <td>{{ $plantype->name }}</td>
-                                    <td>{{ $plantype->duracao }}</td> {{-- Ajuste conforme o formato da sua data --}}
-                                    <td>{{ number_format($plantype->valor, 2, ',', '.') }}€</td>
-                                    <td>{{ $plantypes->proximo_pag->format('d/m/Y') }}</td>
+                                    <td>{{ $planType->name }}</td>
+                                    <td>{{ $planType->duracao }}</td> {{-- Ajuste conforme o formato da sua data --}}
+                                    <td>{{ number_format($planType->valor, 2, ',', '.') }}€</td>
+                                    <td>{{ $planType->proximo_pag->format('d/m/Y') }}</td>
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.plantype.show', $plantype) }}">Ver</a>
+                                            href="{{ route('admin.plantypes.show', $planType) }}">Ver</a>
                                         <a class="btn btn-xs btn-warning ml-1"
-                                            href="{{ route('admin.plantype.edit', $plantype) }}">Editar</a>
+                                            href="{{ route('admin.plantypes.edit', $planType) }}">Editar</a>
                                         <form method="POST" action="{{ route('admin.plantypes.destroy', $planType) }}"
                                             onsubmit="return confirm('Tem certeza que deseja excluir este tipo de plano?');">
                                             @csrf

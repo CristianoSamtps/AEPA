@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\PlanType;
 use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 
@@ -49,8 +48,7 @@ class PageController extends Controller
 
     public function tornarMembro()
     {
-        $planTypes = PlanType::all();
-        return view('tornarMembro', compact('planTypes'));
+        return view('tornarMembro');
     }
 
     public function pagamentoMembro()
@@ -84,4 +82,5 @@ class PageController extends Controller
     {
         return view('_admin.dashboard');
     }
+
 }

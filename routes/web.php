@@ -60,13 +60,8 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 
-
-<<<<<<< Updated upstream
-=======
-
 Auth::routes(['verify' => true]);
 
->>>>>>> Stashed changes
 Route::group([
     'middleware' => ['auth', 'verified'],
 ], function () {
