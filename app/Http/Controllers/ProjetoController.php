@@ -94,4 +94,11 @@ class ProjetoController extends Controller
             ->route('admin.projeto.index')
             ->with('success', 'Projeto eliminado com sucesso');
     }
+
+    public function indexFrontOffice()
+    {
+        $projetos = Projeto::all();
+
+        return view('projects', compact('projetos'));
+    }
 }

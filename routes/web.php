@@ -36,7 +36,9 @@ Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes'
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
-Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+// Route::get('/projects', [PageController::class, 'projects'])->name('projects');
+
+Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
 
 Route::get('/project_detail1', [PageController::class, 'project_detail1'])->name('project_detail1');
 
