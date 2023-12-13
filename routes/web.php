@@ -9,6 +9,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
+use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\FotografiaProjetoController;
 
 
@@ -84,7 +85,6 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
 
-        Route::resource('sugestoes', EventController::class);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 

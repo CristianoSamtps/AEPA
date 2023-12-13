@@ -31,8 +31,11 @@
               <td>{{$sugestao->member_doner->user->name}}</td>
               <td>{{$sugestao->sugestao}}</td>
               <td>{{$sugestao->votos}}</td>
-              <td>{{$sugestao->aprovacao}}</td>
-              <td>{{$sugestao->listado}}</td>
+              <td>@if ($sugestao->aprovacao == 'S') Aprovado
+                @elseif ($sugestao->aprovacao == 'N') Não aprovado @endif
+
+              <td>@if ($sugestao->listado == 'L') Listado
+                @elseif ($sugestao->listado == 'NL') Não listado @endif</td>
               <td nowrap class="d-flex">
                 <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-eye fa-xs"></i></a>
                 <a class="btn btn-xs btn-warning btn-p" href="{{ route('admin.sugestoes.edit', $sugestao) }}"><i class="fas fa-pen fa-xs"></i></a>
@@ -41,7 +44,6 @@
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>
                 </form>
-                <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-users fa-xs"></i></a>
               </td>
             </tr>
             @endforeach

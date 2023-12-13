@@ -37,6 +37,7 @@
                     </div>
 
                     <div class="card">
+
                         <div class="esq">
                             <img src="{{ asset('img/praia.svg') }}" alt="">
                         </div>
@@ -52,6 +53,7 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div>
             </div>
