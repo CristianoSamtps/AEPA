@@ -2,15 +2,13 @@ body{
 	position: relative;
 }
 section.eventosHero{
-	background-image: url("/img/Dia-da-Arvore-representacao.jpg");
+    background-size: cover;
 	height: 450px;
 	border-radius: 20px;
 	padding: 0px;
 	box-shadow: 0px 4px 13px 4px rgba(0, 0, 0, 0.25);
 	z-index:2;
 	position: relative;
-	background-repeat: no-repeat;
-	background-size: 100%;
 }
 
 div.heroBackground{
@@ -36,7 +34,7 @@ div.eventcontent{
 	padding: 40px;
 	margin-top: 70px;
 	color: #FFFF;
-	max-width: 600px;
+	/* max-width: 600px; */
 }
 div.eventcontent h1,div.eventcontent h5,div.eventcontent p, div.eventcontent a{
 	color: #FFFF !important;
@@ -44,8 +42,8 @@ div.eventcontent h1,div.eventcontent h5,div.eventcontent p, div.eventcontent a{
 
 
 section#sponsors{
-	margin-bottom: 150px;
-	margin-top: 70px;
+	margin-bottom: 180px;
+	margin-top: 180px;
 	line-height: 50px;
 }
 
@@ -95,16 +93,12 @@ div.eventoCard::after {
   left: 0;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(64, 64, 64, 0.00) 0.01%, rgba(18, 18, 18, 0.21) 20.31%, rgba(0, 0, 0, 0.71) 55.21%, rgba(34, 34, 34, 0.92) 100%);
   pointer-events: none;
-  opacity: 0; 
-  transition: opacity 0.3s; 
-}
-
-div.eventoCard:hover {
-  background-color: #your-hover-background-color; 
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 div.eventoCard:hover::after {
-  opacity: 1; 
+  opacity: 1;
 }
 
 div.eventoCard:hover {
@@ -113,6 +107,7 @@ div.eventoCard:hover {
 div.eventoCard:hover button{
 	color: #ffff;
 }
+
 
 div.eventoCardImg {
   width: 100%;
@@ -170,10 +165,16 @@ div.eventosfiltersection h4.unselected{
 }
 
 .col-md-3{
-	width: 22% !important;  
+	width: 22% !important;
 }
 
 .eventosfiltersection{
 	margin-bottom: 3rem;
 }
 
+section#second-section{
+    margin-bottom: 100px;
+}
+section#third-section{
+    margin-bottom: 200px;
+}

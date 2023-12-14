@@ -11,7 +11,7 @@
 @section('main')
 
 <main id="main">
-  <section class="container" id="indexHero">
+  <section class="container hidden" id="indexHero">
     <div class="container">
       <div class="row">
         <div class="col-md-6 heroinfo">
@@ -26,13 +26,13 @@
               <p class="sobreCardsInfor">Reconstruir o ambiente ao nosso redor e manter as florestas limpas</p>
             </div>
             <div id="card-box">
-              <h4>5000 
+              <h4>5000
                 produtos
               reciclados</h4>
               <p class="sobreCardsInfor">Reconstruir o ambiente ao nosso redor e manter as florestas limpas</p>
             </div>
             <div id="card-box">
-              <h4>+3000 
+              <h4>+3000
                 voluntários
               anuais</h4>
               <p class="sobreCardsInfor">Reconstruir o ambiente ao nosso redor e manter as florestas limpas</p>
@@ -54,7 +54,7 @@
   </div>
   <!-- Proteção ambietal-->
 
-  <section class="container" id="protecaoAmbiental">
+  <section class="container hidden2" id="protecaoAmbiental">
     <div class="row">
       <div class="col-md-6">
         <div class="protecaoProj" id="protecaoProjIdent1">
@@ -80,7 +80,7 @@
 
 
 <!-- Impacto social -->
-<section class="container" id="impactosocial">
+<section class="container hidden" id="impactosocial">
   <div class="row">
     <div class="col-md-6" id="impactosocialinfo">
       <h1>Impacto social</h1>
@@ -95,7 +95,7 @@
 </section>
 
 <!-- End Impacto social -->
-<section class="container" id="QA">
+<section class="container hidden2" id="QA">
   <div class="row">
     <div class="col-md-6">
       <object data="{{asset ('img/QA.svg')}}" type="image/svg+xml"></object>
@@ -121,7 +121,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Como é que posso participar num evento? 
+                Como é que posso participar num evento?
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
