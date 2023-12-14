@@ -67,6 +67,7 @@ class EventController extends Controller
 
     }
 
+
     /**
      * Update the specified resource in storage.
      */
@@ -76,7 +77,12 @@ class EventController extends Controller
         $fields = $request->validated();
 
         $event->fill($fields);
-        $event->partnerships()->attach($request->partnerships);
+
+        $event->partnerships()->detach();
+        if ($request->partnerships){
+            $event->partnerships()->attach($request->partnerships);
+        }
+
         $event->save();
 
         return redirect()->route('admin.eventos.index')

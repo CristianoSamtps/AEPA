@@ -35,8 +35,8 @@
            <h2 class="text-left m-2">Outros eventos</h2>
          </div>
          <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-           <a href=""><h4 class="m-2 unselected">Todos</h4></a>
-           <a href=""><h4 class="m-2 selected">Recentes</h4></a>
+           <a href=""><button class="all">Todos</button></a>
+           <a href=""><button class="newest">Os mais recentes</button></a>
          </div>
        </div>
      </div>

@@ -160,8 +160,31 @@ div.eventosfiltersection h4 {
   background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
 }
 
-div.eventosfiltersection h4.unselected{
-	background: linear-gradient(91deg, #9E9801 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+button.all{
+    border: solid 1px #019E59;
+    border-radius: 20px;
+    background-color: white;
+    color: #019E59;
+    width: 7rem;
+    margin-left: 10px;
+    height: 2.3rem;
+}
+button.all:hover{
+    scale: 1.1;
+    transition: 0.5s ease-in-out;
+}
+button.newest{
+    border: solid 1px #019E59;
+    border-radius: 20px;
+    background-color: #019E59;
+    color: #ffff;
+    width: 10rem;
+    margin-left: 10px;
+    height: 2.3rem;
+}
+button.newest:hover{
+    scale: 1.1;
+    transition: 0.5s ease-in-out;
 }
 
 .col-md-3{
@@ -179,15 +202,13 @@ section#third-section{
     margin-bottom: 200px;
 }
 
-
 button.CardBtn{
     border-radius: 40px;
     border: 1px solid #579B74;
     color: #579B74;
 }
 
-
 div.cardInfo:hover{
     transition: all 0.2s;
-    margin-top: 170px;
+    margin-top: 180px;
 }

@@ -22,8 +22,18 @@
     <label for="inputLoc">Parceiros</label>
     <select name="partnerships[]" multiple>
         @foreach ($partnerships as $p)
-            <option value="{{ $p->id }}">{{ $p->name }}</option>
+            <option id="partner" value="{{ $p->id }}" {{$event->partnerships->where('id',$p->id)->first()?'selected':''}}>{{ $p->name }}</option>
         @endforeach
-        <option value="">Nenhum</option>
     </select>
+    <button onclick ="remove()">Remover todos os parceiros</button>
+    <script>
+        function remove(){
+        $("#partner").empty();
+        }
+    </script>
 </div>
+
+
+
+
+
