@@ -30,7 +30,7 @@
                     @foreach ($sugestoes as $sugestao)
                     <div class="card">
                         @if($sugestao->member_doner->user->foto)
-                        <img src="{{asset('img/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
+                        <img src="{{asset('storage/user_fotos/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
                         @else
                         <img src="{{asset('img/default_user.jpg')}}" alt="Foto de perfil" class="profile-image">
                         @endif
