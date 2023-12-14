@@ -73,7 +73,7 @@
                     </li>
 
                     <li>
-                        <div class="icon-container">
+                        <div class="icon-container" href=>
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="33"
                                 viewBox="0 0 32 33" fill="none">
                                 <path
@@ -330,42 +330,3 @@
 
 
 @endsection
-<!--<div class="col-3" id="profile-summary">
-
-                        Primeira secção do perfil
-                        <img src="caminho/para/imagem-de-perfil.jpg" alt="Imagem de Perfil">
-
-                        <h2>Nome do Utilizador</h2>
-
-                        <p>Doador</p>
-
-                        <button>Torne-se Membro</button>
-
-                        <div class="caixa-detalhes">
-                            <span>Email</span>
-                            <p>exemplo@dominio.com</p></span>
-                        </div>
-
-                        <div class="caixa-detalhes">
-                            <span>Número de Telemóvel</span>
-                            <p>+351 123 456 789</p>
-                        </div>
-
-                        <div class="caixa-detalhes">
-                            <span>Género</span>
-                            <p>Masculino</p>
-                        </div>
-
-                    </div>
-
-
-                    <div lass="col-3"id="projects">
-
-                        <h2>Projetos</h2>
-                        <p>Aqui são listados os principais projetos associados ao utilizador.</p>
-                    </div>
-                    <div id="donations">
-                        <h2>Últimas Doações</h2>
-                        <p>Aqui são apresentadas as informações relacionadas às últimas doações efetuadas pelo utilizador.</p>
-                    </div>
-                </div>-->
