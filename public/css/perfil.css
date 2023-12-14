@@ -263,6 +263,7 @@
             border-radius: 25px;
             transition: all ease-in 0.2s;
         }
+
         #exprojeto:hover img {
             opacity: 30%;
             transition: all ease-in 0.2s;
@@ -297,7 +298,7 @@
             transform: scale(1.3);
         }
 
-        #exprojeto .info-projeto h1{
+        #exprojeto .info-projeto h1 {
             font-size: 24px;
             color: white;
             font-weight: 600;
@@ -306,7 +307,7 @@
             transition: all ease-in 0.2s;
         }
 
-        #exprojeto:hover .info-projeto h1{
+        #exprojeto:hover .info-projeto h1 {
             opacity: 1;
             transition: all ease-in 0.2s;
         }
@@ -320,7 +321,6 @@
             position: relative;
             height: 508px;
             flex-shrink: 0;
-            width: 100%;
             border-radius: 22px;
             background: #FFF;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
@@ -443,4 +443,43 @@
 
         .espacamento {
             height: 20px;
+        }
+
+        @media only screen and (max-width: 1920px) {
+            #sidebar {
+                margin-top: 60px;
+                margin-right: 0px;
+                margin-left: 50px;
+                transform: scale(0.95);
+                transform-origin: top left;
+            }
+
+
+            #main-content {
+                margin-top: 150px;
+                
+            }
+
+            #profileresume {
+                transform: scale(0.95);
+                transform-origin: top left;
+            }
+
+            #exprojeto {
+                transform: scale(0.97);
+                transform-origin: top left;
+                width: 32%;
+
+            }
+
+            .row {
+                padding: 0px;
+            }
+
+            #resumedoacoes {
+                margin-top: 10px;
+                height: 508px;
+                transform: scale(0.97);
+                transform-origin: top left;
+            }
         }

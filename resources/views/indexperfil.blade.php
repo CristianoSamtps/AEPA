@@ -121,7 +121,7 @@
 
                     <div class="row justify-content-center">
                         <!-- Coluna à esquerda -->
-                        <div id="profileresume" class="col-4">
+                        <div id="profileresume" class="col-lg-4">
 
                             <div class="imagemperfil">
                                 @if($user->foto)
@@ -172,11 +172,11 @@
                             </div>
                         </div>
 
-                        <div class="col-8">
+                        <div class="col-lg-8">
 
                             <div class="row">
 
-                                <div id="exprojeto" class="col-4" style="">
+                                <div id="exprojeto" class="col-lg-4">
 
                                     <div class="fundo-projeto">
                                         <img src="{{ asset('/img/incendio.jpg') }}" alt="Imagem do projeto">
@@ -198,7 +198,7 @@
 
                                 </div>
 
-                                <div id="exprojeto" class="col-4">
+                                <div id="exprojeto" class="col-lg-4">
 
                                     <div class="fundo-projeto">
                                         <img src="{{ asset('/img/pobreza.avif') }}" alt="Imagem do projeto">
@@ -220,7 +220,7 @@
 
                                 </div>
 
-                                <div id="exprojeto" class="col-4">
+                                <div id="exprojeto" class="col-lg-4">
 
                                     <div class="fundo-projeto">
                                         <img src="{{ asset('/img/lixo.jpg') }}" alt="Imagem do projeto">
@@ -245,7 +245,7 @@
                             </div>
 
                             <div class="row">
-                                <div id="resumedoacoes" class="col-8">
+                                <div id="resumedoacoes" class="col-lg-12">
                                     <h2>Últimas Doações</h2>
                                     <span><span class="x"></span></span>
                                     <div class="espacamento"></div>
@@ -254,18 +254,18 @@
                                         @foreach ($user->donation->sortByDesc('created_at')->take(7) as $doacao)
                                             <div class="resumo d-flex">
 
-                                                <div class="data col-1">
+                                                <div class="data col-lg-1">
                                                     <h1>{{ $doacao->created_at->day }}</h1>
                                                     <p>{{ $doacao->created_at->translatedFormat('M') }}</p>
                                                 </div>
 
-                                                <div class="nome col-7">
+                                                <div class="nome col-lg-7">
                                                     <h1>{{ $doacao->title }}</h1>
                                                     <p>{{ $doacao->created_at->format('h:iA') }}</p>
                                                 </div>
 
                                                 @if ($doacao->projeto_id)
-                                                    <div class="projeto col-1">
+                                                    <div class="projeto col-lg-1">
                                                         <span href="{{ route('index', ['id' => $doacao->projeto_id]) }}"
                                                             class="tooltip">Clique para ver detalhes do projeto</span>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="19"
@@ -277,10 +277,10 @@
                                                         </a>
                                                     </div>
                                                 @else
-                                                    <div class="projeto col-1"></div>
+                                                    <div class="projeto col-lg-1"></div>
                                                 @endif
 
-                                                <div class="estado col-2">
+                                                <div class="estado col-lg-2">
                                                     <button
                                                         class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
                                                         @if ($doacao->anonimo == 'N')
@@ -291,7 +291,7 @@
                                                     </button>
                                                 </div>
 
-                                                <div class="valor col-1">
+                                                <div class="valor col-lg-1">
                                                     <h1>{{ $doacao->valor }}€</h1>
                                                 </div>
 
