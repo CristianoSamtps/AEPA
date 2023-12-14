@@ -76,7 +76,8 @@ class ProjetoController extends Controller
     {
         $fields = $request->validated();
         $projeto->estado = $request->input('estado');
-        $projeto->update($fields);
+        $projeto->fill($fields);
+        $projeto->save();
 
         return redirect()
             ->route('admin.projeto.index')
