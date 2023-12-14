@@ -15,7 +15,6 @@ return new class extends Migration
 
             $table->id();
             $table->string('obs', 255);
-            $table->integer('vagas');
             $table->timestamps(); //created_at e updated_at
 
             //chaves estrangeiras
