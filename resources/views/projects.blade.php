@@ -28,14 +28,14 @@
                     @foreach ($projetos as $projeto)
                         <div class="project">
                             <h3>{{ $projeto->localidade }}</h3>
-                            <p>{{ $projeto->subtitulo }}</p>
-                            <h2>{{ $projeto->titulo }}</h2>
                             @foreach ($fotografias as $fotografia)
                                 @if ($fotografia->projeto_id === $projeto->id)
                                     <img src="{{ asset($fotografia->foto) }}" alt="{{ $projeto->titulo }}">
                                 @break
                             @endif
                         @endforeach
+                        <h2>{{ $projeto->titulo }}</h2>
+                        <p>{{ $projeto->subtitulo }}</p>
                     </div>
                 @endforeach
             @endif
