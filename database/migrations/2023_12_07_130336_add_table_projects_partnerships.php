@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('projects_partnerships', function (Blueprint $table) {
             $table->unsignedBigInteger('projeto_id');
             $table->unsignedBigInteger('partnership_id');
+
             $table->primary(['projeto_id','partnership_id']);
+
             //Chaves estrangeiras
             $table->foreign('partnership_id')->references('id')->on('partnerships');
             $table->foreign('projeto_id')->references('id')->on('projetos');
