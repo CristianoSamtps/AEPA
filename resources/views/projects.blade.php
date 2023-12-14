@@ -30,17 +30,22 @@
                             <h3>{{ $projeto->localidade }}</h3>
                             <p>{{ $projeto->subtitulo }}</p>
                             <h2>{{ $projeto->titulo }}</h2>
-                            <img src="{{ asset('img/Cidades/' . $projeto->imagem) }}" alt="{{ $projeto->titulo }}">
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-
+                            @foreach ($fotografias as $fotografia)
+                                @if ($fotografia->projeto_id === $projeto->id)
+                                    <img src="{{ asset($fotografia->foto) }}" alt="{{ $projeto->titulo }}">
+                                @break
+                            @endif
+                        @endforeach
+                    </div>
+                @endforeach
+            @endif
         </div>
-    </div>
 
-    <!-- Ficheiros JavaScript !-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/projects.js') }}"></script>
+    </div>
+</div>
+
+<!-- Ficheiros JavaScript !-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('js/projects.js') }}"></script>
 
 @endsection
