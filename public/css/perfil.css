@@ -163,16 +163,14 @@
             background: #019E59;
             margin-bottom: 50px;
             border-color: transparent;
-            transition: ease-in all 0.2s;
+            transition: ease-in all 0.1s;
         }
 
         #profileresume button:hover {
             color: #019E59;
             border-color: #019E59;
             background: transparent;
-            width: 220px;
-            height: 50px;
-            transition: ease-in all 0.2s;
+            transition: ease-in all 0.1s;
         }
 
         #profileresume .caixa-detalhes {
@@ -230,13 +228,19 @@
 
 
         #exprojeto {
+            cursor: pointer;
             position: relative !important;
+            margin: 4px;
+            text-align: center;
+            align-items: center;
+            padding: 0px;
+            margin-bottom: -5px;
             height: 164px;
             width: 370px;
+            border-bottom: 0px solid rgb(4, 131, 0);
             border-radius: 25px;
             box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
             transition: all ease-in 0.2s;
-            overflow: hidden;
             /* Adicionado para ocultar qualquer conteúdo que ultrapasse as bordas */
         }
 
@@ -257,29 +261,33 @@
             height: 100%;
             object-fit: cover;
             border-radius: 25px;
+            transition: all ease-in 0.2s;
+        }
+        #exprojeto:hover img {
+            opacity: 30%;
+            transition: all ease-in 0.2s;
         }
 
         #exprojeto:hover {
-            border: 2px solid rgb(4, 131, 0);
+            border-bottom: 6px solid rgb(4, 131, 0);
             transition: all ease-in 0.2s;
             background-color: #019e5a75;
             z-index: 1;
+            box-shadow: 0px 2px 7px 4px rgba(0, 0, 0, 0.267);
         }
 
         #exprojeto:hover button {
-            display: block;
-            transition: all ease-in 0.2s;
+            transform: translateY(-120px);
             opacity: 1;
+            transition: all ease-in 0.2s;
         }
 
         #exprojeto button {
-            position: absolute !important;
             height: 50px;
             width: 50px;
             border-radius: 100%;
-            background-color: green;
-            border: 2px solid white;
-            transform: translate(210px, -60px);
+            background-color: transparent;
+            border: none;
             opacity: 0;
             transition: all ease-in 0.2s;
         }
@@ -289,6 +297,19 @@
             transform: scale(1.3);
         }
 
+        #exprojeto .info-projeto h1{
+            font-size: 24px;
+            color: white;
+            font-weight: 600;
+            transform: translate(0px, -110px);
+            opacity: 0;
+            transition: all ease-in 0.2s;
+        }
+
+        #exprojeto:hover .info-projeto h1{
+            opacity: 1;
+            transition: all ease-in 0.2s;
+        }
 
         .row {
             padding: 10px;
