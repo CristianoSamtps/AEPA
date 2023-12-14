@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('planTypes', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->dateTime('duracao');
+            $table->integer('duracao');
             $table->decimal('valor', 10, 2);
             $table->dateTime('proximo_pag');
             $table->timestamps();
