@@ -12,7 +12,7 @@
 
 <main id="main">
 @if($topevent)
-  <section class="container hidden eventosHero" style="background-image:url('{{ asset('storage/event_photos/' . $topevent->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}')" id="indexHero">
+  <section class="container eventosHero" style="background-image:url('{{ asset('storage/event_photos/' . $topevent->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}')" id="indexHero">
       <div class="row">
         <div class="col-md-9 eventosinfo">
           <div class="eventcontent">
@@ -28,7 +28,7 @@
 @endif
 <div class="heroBackground">
 </div>
-  <section class="container hidden2">
+  <section class="container">
       <div class="eventoscards row">
         <div class="d-flex col-md-12 eventosfiltersection">
           <div class="col-md-6">
@@ -43,7 +43,7 @@
    </section>
   <section class="container hidden2 eventoslist">
     <div class=" d-flex justify-content-between ">
-    @foreach($events as $event)
+        @foreach($events->take(4) as $event)
         <div class="eventoCard col-md-3">
           <div class="eventoCardImg ">
             @if (count($event->photos))
@@ -56,14 +56,11 @@
             {{-- <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios"> --}}
           </div>
           <div class="cardInfo text-center">
-            <h4>{{$event->name}}</h4>
-            <p>{{\Illuminate\Support\Str::limit($event->descricao, 60)}}</p>
+            <h5 class="">{{$event->name}}</h5>
+            <p class="cardDescription">{{($event->descricao)}}</p>
             <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
           </div>
         </div>
-        @if($loop->iteration % 4 == 0)
-                </div><div class="mt-5">
-            @endif
         @endforeach
       </div>
   </section>
@@ -132,8 +129,11 @@
 </section>
 <!-- Proteção ambietal-->
 
-
-
-
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        var cardDescription = $('.cardDescription');
+        cardDescription.text(cardDescription.text().substring(0, 60));
+    });
+</script>
 @endsection

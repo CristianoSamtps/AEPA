@@ -290,3 +290,30 @@ li.nav-item a.registo:hover{
     background-color: #178351 !important;
     border: 1px solid white;
   }
+
+
+  .loginRegBtns{
+    border-radius: 40px;
+    background: #029F5A;
+    width: 10rem;
+    color:white;
+  }
+
+  .forgotbtn{
+    color: #029F5A;
+  }
+  .forgotbtn:hover{
+    color: black;
+  }
+
+  .RegBtn{
+    border-radius: 40px;
+    background: #FFF;
+    width: 10rem;
+    color: #019E59;
+  }
+  .RegBtn:hover{
+    border-radius: 40px;
+    background: #ffffff;
+    color: #019E59;
+  }

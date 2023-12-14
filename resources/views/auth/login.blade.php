@@ -43,23 +43,23 @@
     <div class="row justify-content-center align-items-center">
       <h1>Ainda não fazes parte?</h1>
       <p>Para obteres mais informações sobre os processos de desenvolvimento dos projetos ou visualizares o teu histórico de doações.</p>
-      <form>
-        <button type="submit" class="btn btn-primary">Criar conta</button>
-      </form>
+
+        @if (Route::has('register'))
+         <a href="{{route('register')}}"><button type="submit" class="btn RegBtn">Criar conta</button></a>
+        @endif
     </div>
   </div>
 
   <div class="container p-5">
-    <div class="row justify-content-center align-items-center loginnow">
+    <div class="row loginnow">
         <img class="" src="{{ asset('img/logo_green.svg') }}"
         alt="AEPABrandLogo" height="50">
       <h1 class="text-right">{{ __('Iniciar sessão') }}</h1>
       <p>Utiliza o e-mail para acederes a tua conta</p>
       <form method="POST" action="{{ route('login') }}">
           @csrf
-        <div class="form-group mb-2">
-          <label for="email">Email</label>
-          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <div class="form-group mb-4">
+          <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
           @error('email')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -67,9 +67,8 @@
           @enderror
         </div>
 
-        <div class="form-group mb-2">
-          <label for="password">Palavra-passe</label>
-          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <div class="form-group mb-4">
+          <input id="password" type="password" placeholder="Palavra-passe" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                               @error('password')
                                   <span class="invalid-feedback" role="alert">
@@ -92,12 +91,12 @@
 
       <div class="form-group mb-0">
 
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" class="btn loginRegBtns">
                   {{ __('Login') }}
               </button>
 
               @if (Route::has('password.request'))
-                  <a class="btn btn-link" href="{{ route('password.request') }}">
+                  <a class="btn forgotbtn" href="{{ route('password.request') }}">
                       {{ __('Forgot Your Password?') }}
                   </a>
               @endif

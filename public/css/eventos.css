@@ -178,3 +178,16 @@ section#second-section{
 section#third-section{
     margin-bottom: 200px;
 }
+
+
+button.CardBtn{
+    border-radius: 40px;
+    border: 1px solid #579B74;
+    color: #579B74;
+}
+
+
+div.cardInfo:hover{
+    transition: all 0.2s;
+    margin-top: 170px;
+}
