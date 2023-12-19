@@ -26,7 +26,9 @@ class PageController extends Controller
     public function sugestoes()
     {
         $sugestoes = Sugestao::all();
-        return view('sugestoes', compact('sugestoes'));
+        $sugestoesList = Sugestao::where('listado', 'L')->get();
+        return view('sugestoes', compact('sugestoes','sugestoesList'));
+
     }
     public function patrocinadores()
     {

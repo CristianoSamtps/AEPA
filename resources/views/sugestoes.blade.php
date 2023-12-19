@@ -27,7 +27,7 @@
                     </a>
                   </div>
                 <div class="donates">
-                    @foreach ($sugestoes as $sugestao)
+                    @foreach ($sugestoesList as $sugestao)
                     <div class="card">
                         @if($sugestao->member_doner->user->foto)
                         <img src="{{asset('storage/user_fotos/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
@@ -39,10 +39,7 @@
                         <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> {{$sugestao->votos}}</button>
                     </div>
                     @endforeach
-
                 </div>
-
         </section>
     </main>
-
 @endsection
