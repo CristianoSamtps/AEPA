@@ -92,20 +92,14 @@
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                        @if (auth()->user()->isAdmin())
-                                            <a class="dropdown-item" href="{{ route('admin.users.editperfil', auth()->user()) }}">
-                                                Editar perfil
-                                            </a>
-                                        @else
                                         <a class="dropdown-item"
-                                                href="{{ route('users.indexperfil', auth()->user()) }}">
-                                                Perfil
-                                            </a>
-                                            <a class="dropdown-item"
-                                                href="{{ route('users.editperfil', auth()->user()) }}">
-                                                Editar perfil
-                                            </a>
-                                        @endif
+                                            href="{{ route('indexperfil', auth()->user()) }}">
+                                            Perfil
+                                        </a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('editperfil', auth()->user()) }}">
+                                            Editar perfil
+                                        </a>
 
                                         <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

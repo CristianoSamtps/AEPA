@@ -95,7 +95,6 @@ class UserController extends Controller
         return view('indexperfil', compact('user', 'donations'));
     }
 
-
     public function updateperfil(UserRequest $request, User $user)
     {
         $fields = $request->validated();

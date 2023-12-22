@@ -61,54 +61,53 @@ Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 
 Auth::routes(['verify' => true]);
+Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
+Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
+Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
 
 Route::group([
-    'middleware' => ['auth', 'verified'],
+    'middleware' => ['admin', 'auth', 'verified'],
+    'as' => 'admin.',
+    'prefix' => 'admin'
 ], function () {
 
-    Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
-    Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
-    Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
+    // Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
+    // Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
+    // Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
 
-    Route::group([
-        'as' => 'admin.',
-        'prefix' => 'admin'
-    ], function () {
+    Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
-        Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
+    Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
+    Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
+    Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('projeto', ProjetoController::class);
+    Route::resource('FotografiaProjeto', FotografiaProjetoController::class);
 
-        Route::resource('FotografiaProjeto', FotografiaProjetoController::class);
+    Route::resource('users', UserController::class);
 
-        Route::resource('users', UserController::class);
+    Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
 
-        Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
+    Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
-        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+    Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
-        Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
-
-        Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
+    Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
 
 
-        Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
+    Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
-        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
+    Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
-        Route::get(
-            '/users/{user}/send_reactivate_mail',
-            [UserController::class, 'send_reactivate_email']
-        )
-            ->name('users.sendActivationEmail');
+    Route::get(
+        '/users/{user}/send_reactivate_mail',
+        [UserController::class, 'send_reactivate_email']
+    )
+        ->name('users.sendActivationEmail');
 
-        Route::delete(
-            '/users/{user}/destroy_photo',
-            [UserController::class, 'destroy_foto']
-        )->name('users.destroyFoto');
-    });
+    Route::delete(
+        '/users/{user}/destroy_photo',
+        [UserController::class, 'destroy_foto']
+    )->name('users.destroyFoto');
 });

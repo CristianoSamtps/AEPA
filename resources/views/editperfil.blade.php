@@ -24,7 +24,7 @@
             </div>
             <div class="card-body">
 
-                <form method="POST" action="{{ route('users.updateperfil', $user) }}" class="form-group"
+                <form method="POST" action="{{ route('updateperfil', $user) }}" class="form-group"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

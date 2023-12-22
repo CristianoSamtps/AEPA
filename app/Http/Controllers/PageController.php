@@ -78,10 +78,10 @@ class PageController extends Controller
     {
         return view('loginReg');
     }
-    public function perfil()
-    {
-        return view('perfil');
-    }
+    // public function perfil()
+    // {
+    //     return view('perfil');
+    // }
     public function dashboard()
     {
         return view('_admin.dashboard');
