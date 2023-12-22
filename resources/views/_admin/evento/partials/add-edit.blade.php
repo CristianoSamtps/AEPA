@@ -18,6 +18,13 @@
     <input type="text" class="form-control" name="localizacao" id="inputLoc"
         value="{{ old('localizacao', $event->localizacao) }}" />
 </div>
+
+<div class="form-group">
+    <label for="inputVag">Vagas</label>
+    <input type="text" class="form-control" name="vagas" id="inputVag"
+        value="{{ old('vagas', $event->vagas) }}" />
+</div>
+
 <div class="form-group">
     <label for="inputLoc">Parceiros</label>
     <select name="partnerships[]" multiple>

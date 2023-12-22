@@ -47,7 +47,6 @@ class LoginController extends Controller
 
             default:
                 return 'users/'.Auth::user()->id.'/index';
-
         }
       }
 }

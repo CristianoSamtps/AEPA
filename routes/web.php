@@ -59,7 +59,6 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
-
 Auth::routes(['verify' => true]);
 Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
 Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
