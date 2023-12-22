@@ -25,6 +25,12 @@
         </div>
       </div>
   </section>
+  @else
+  <section class="container eventosHero" style="background-image:url('{{ asset('storage/event_photos/' . $topevent->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}')" id="indexHero">
+    <div class="row">
+        <h4>Ainda não existem eventos disponiveis.</h4>
+    </div>
+</section>
 @endif
 <div class="heroBackground">
 </div>

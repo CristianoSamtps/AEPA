@@ -34,6 +34,11 @@
     <input type="number" class="form-control" name="objetivos" id="inputObjetivos" step="0.01"
         value="{{ old('objetivos', isset($projeto) ? $projeto->objetivos : '') }}" />
 </div>
+<div class="form-group">
+    <label for="inputFotografia">Fotografia</label>
+    <input type="file" class="form-control" name="fotografias" id="inputFotografia"/>
+</div>
+
 {{-- <div class="form-group">
     <label for="inputDataFinal">Data Final</label>
     <input type="date" class="form-control" name="data" id="inputDataFinal"

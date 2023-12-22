@@ -11,6 +11,11 @@
 @section('backoffice-content')
   <div class="card shadow mb-4">
     <div class="card-header py-3">
+        <a class="btn btn-primary" href="{{ route('admin.doacoes.create') }}">
+            <i class="fas fa-plus"></i> Nova doação
+        </a>
+    </div>
+    <div class="card-header py-3">
     </div>
     <div class="card-body">
       @if (count($sugestoes))

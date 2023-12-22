@@ -27,19 +27,19 @@
                     </a>
                   </div>
                 <div class="donates">
-                    @foreach ($sugestoes as $sugestao)
+                    @foreach ($sugestoesList as $sugestao)
                     <div class="card">
-                        <img src="{{asset('img/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
-
+                        @if($sugestao->member_doner->user->foto)
+                        <img src="{{asset('storage/user_fotos/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
+                        @else
+                        <img src="{{asset('img/default_user.jpg')}}" alt="Foto de perfil" class="profile-image">
+                        @endif
                         <h6 class="profile-name">{{ $sugestao->member_doner->user->name }}</h6>
                         <h2 class="name">{{$sugestao->sugestao}}</h2>
                         <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> {{$sugestao->votos}}</button>
                     </div>
                     @endforeach
-
                 </div>
-
         </section>
     </main>
-
 @endsection

@@ -42,6 +42,14 @@ class ProjetoController extends Controller
         $projetos = new Projeto();
         $projetos->fill($fields);
         $projetos->estado = $request->input('estado');
+        if ($request->hasFile('foto')) {
+            $imagePath = $request->file('foto')->store('img/Cidades', 'public');
+
+            $projetos->fotografias()->create([
+                'foto' => $imagePath,
+                'destaque' => true,
+            ]);
+        }
         $projetos->save();
 
         return redirect()
@@ -99,7 +107,8 @@ class ProjetoController extends Controller
     public function indexFrontOffice()
     {
         $projetos = Projeto::all();
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
 
-        return view('projects', compact('projetos'));
+        return view('projects', compact('projetos', 'fotografias'));
     }
 }

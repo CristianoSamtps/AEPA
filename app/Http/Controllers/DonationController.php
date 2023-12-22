@@ -15,7 +15,7 @@ class DonationController extends Controller
      */
     public function index()
     {
-        $doacoes = Doacao::all();
+        $doacoes = Donation::all();
         return view('_admin.doacoes.index', compact('doacoes'));
     }
 

@@ -28,6 +28,7 @@ class ProjetoRequest extends FormRequest
             'descricao' => 'required|string|min:3',
             'localidade' => 'required|string|max:50',
             'objetivos' => 'required|string|max:10',
+            'fotografias' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
             // "titulo" => 'required|min:3|max:80|unique:projetos,titulo,' . $currentId . '|regex:/^[A-ZÀ-úa-z\s]+$/',
             // "subtitulo" => 'required|min:3|max:80|regex:/^[A-ZÀ-úa-z\s]+$/',
             // "descricao" => 'required|min:25',

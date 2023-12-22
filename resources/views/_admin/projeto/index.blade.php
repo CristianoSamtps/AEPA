@@ -24,7 +24,8 @@
                                 <th>Estado</th>
                                 <th>Localidade</th>
                                 <th>Objetivos</th>
-                                <th>Data Final</th>
+                                <th>Destaque</th>
+                                {{-- <th>Data Final</th> --}}
                                 {{-- <th>Voluntariado</th>
                                 <th>Parceiros</th> --}}
                                 <th>Funções</th>
@@ -39,7 +40,8 @@
                                     <td>{{ $projeto->estado }}</td>
                                     <td>{{ $projeto->localidade }}</td>
                                     <td>{{ $projeto->objetivos }}</td>
-                                    <td>{{ $projeto->data_final }}</td>
+                                    <td>{{ $projeto->fotografias }}</td>
+                                    {{-- <td>{{ $projeto->data_final }}</td> --}}
                                     {{-- <td>{{ $projeto->voluntariado }}</td> --}}
                                     {{-- <td>
                                         @foreach ($projeto->partnerships as $partner)
