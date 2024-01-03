@@ -5,13 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Projeto;
-<<<<<<< Updated upstream
 use App\Models\Donation;
-
-=======
-
-use App\Models\Donation;
->>>>>>> Stashed changes
 use App\Models\PlanType;
 use App\Models\Sugestao;
 use App\Models\PhotoEvent;
