@@ -33,10 +33,10 @@ class Projeto extends Model
     // {
     //     return $this->hasMany(Volunteer::class);
     // }
-    // public function donations()
-    // {
-    //     return $this->hasMany(Donation::class, 'projeto_id');
-    // }
+     public function donations()
+     {
+         return $this->hasMany(Donation::class, 'projeto_id');
+     }
 
     public static function estado_opcoes()
     {

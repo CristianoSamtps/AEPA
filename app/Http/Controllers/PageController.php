@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Models\PlanType;
-use Illuminate\Support\Facades\DB;
+use App\Models\Projeto;
+use App\Models\Donation;
 
+use App\Models\PlanType;
 use App\Models\Sugestao;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -21,7 +23,10 @@ class PageController extends Controller
     }
     public function doacoes()
     {
-        return view('doacoes');
+
+        $projetos = Projeto::has('donations')->get();
+        $doacoes = Donation::whereNull('projeto_id')->get();
+        return view('doacoes', compact('projetos','doacoes'));
     }
     public function sugestoes()
     {
