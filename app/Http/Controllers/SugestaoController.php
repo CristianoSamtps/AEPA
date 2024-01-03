@@ -14,26 +14,10 @@ class SugestaoController extends Controller
     public function index()
     {
         $sugestoes = Sugestao::all();
-        
+
         return view('_admin.sugestoes.index', compact('sugestoes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $sugestao = new Sugestao;
-        return view('_admin.sugestoes.create', compact('sugestao'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(SugestaoRequest $request)
-    {
-
-    }
 
     /**
      * Display the specified resource.

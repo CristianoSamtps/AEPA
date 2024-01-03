@@ -37,8 +37,7 @@ class DonationController extends Controller
      */
     public function create()
     {
-        $doacao = new Doacao;
-        return view('_admin.doacoes.create', compact('doacao'));
+
     }
 
     /**
@@ -52,11 +51,10 @@ class DonationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Doacao $doacao)
+    public function show(Donation $doacao)
     {
-        if($doacao) {
             return view('_admin.doacoes.show', compact('doacao'));
-        }
+
     }
 
     /**
@@ -78,8 +76,10 @@ class DonationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Donation $donation)
+    public function destroy(Donation $doacao)
     {
-        //
+        $doacao->delete();
+        return redirect()->route('admin.doacoes.index')->with('success',
+        'Doação eliminada com sucesso');
     }
 }

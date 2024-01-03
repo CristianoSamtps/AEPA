@@ -25,7 +25,6 @@ class PageController extends Controller
     }
     public function doacoes()
     {
-
         $projetos = Projeto::has('donations')->get();
         $doacoes = Donation::whereNull('projeto_id')->get();
         return view('doacoes', compact('projetos','doacoes'));

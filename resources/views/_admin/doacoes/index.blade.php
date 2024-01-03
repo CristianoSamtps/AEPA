@@ -18,26 +18,24 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Title</th>
-              <th>Valor</th>
-              <th>Utilizador</th>
-              <th>Projeto</th>
+                <th>Id</th>
+              <th>Titulo</th>
+              <th>Valor doado</th>
+              <th>Membro</th>
+              <th>Projeto associado</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             @foreach($doacoes as $doacao)
             <tr>
-              <td>{{$doacao->id}}</td>
-              <td>{{$doacao->title}}</td>
-              <td>{{$doacao->valor}}</td>
-              <td> @if ($doacao->anonimo == 'S') Anonimo
-                @else {{ $doacao->member_doner->user->name}}
-                @endif</td>
-              <td>{{$doacao->projeto_id}}</td>
+            <td>{{ $doacao->id }}</td>
+              <td>{{ $doacao->title }}</td>
+              <td>{{$doacao->valor}} €</td>
+              <td>{{ $doacao->member_doner?$doacao->member_doner->user->name : 'Anónimo'}}</td>
+              <td>{{ $doacao->projeto->titulo ?? 'Não tem' }}</td>
               <td nowrap class="d-flex">
-                <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="{{ route('admin.doacoes.edit', $doacao) }}"><i class="fas fa-pen fa-xs"></i></a>
+                <a class="btn btn-xs btn-primary btn-p" href="{{route('admin.doacoes.show',$doacao)}}"><i class="fas fa-eye fa-xs"></i></a>
                 <form method="POST" action="{{ route('admin.doacoes.destroy', $doacao) }}" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                   @csrf
                   @method("DELETE")
@@ -56,3 +54,23 @@
   </div>
 </div>
 @endsection
+
+@section("moreScripts")
+<script>
+
+	$('#dataTable').dataTable( {
+		destroy: true,
+		"order": [[ 1, 'asc' ]],
+		"columns": [
+		null,
+		null,
+		null,
+		null,
+        null,
+		{ "orderable": false }
+		]
+	} );
+
+</script>
+@endsection
+

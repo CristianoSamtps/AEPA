@@ -11,11 +11,6 @@
 @section('backoffice-content')
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="btn btn-primary" href="{{ route('admin.doacoes.create') }}">
-            <i class="fas fa-plus"></i> Nova doação
-        </a>
-    </div>
-    <div class="card-header py-3">
     </div>
     <div class="card-body">
       @if (count($sugestoes))
@@ -28,6 +23,7 @@
               <th>Votos</th>
               <th>Aprovação</th>
               <th>Listado</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -42,7 +38,7 @@
               <td>@if ($sugestao->listado == 'L') Listado
                 @elseif ($sugestao->listado == 'NL') Não listado @endif</td>
               <td nowrap class="d-flex">
-                <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-primary btn-p" href="{{ route('admin.sugestoes.show', $sugestao) }}"><i class="fas fa-eye fa-xs"></i></a>
                 <a class="btn btn-xs btn-warning btn-p" href="{{ route('admin.sugestoes.edit', $sugestao) }}"><i class="fas fa-pen fa-xs"></i></a>
                 <form method="POST" action="{{ route('admin.sugestoes.destroy', $sugestao) }}" role="form" class="inline" onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                   @csrf
@@ -61,4 +57,23 @@
     </div>
   </div>
 </div>
+@endsection
+
+@section("moreScripts")
+<script>
+
+	$('#dataTable').dataTable( {
+		destroy: true,
+		"order": [[ 0, 'asc' ]],
+		"columns": [
+		null,
+		null,
+		null,
+		null,
+        null,
+		{ "orderable": false }
+		]
+	} );
+
+</script>
 @endsection
