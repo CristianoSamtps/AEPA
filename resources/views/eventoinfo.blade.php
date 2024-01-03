@@ -8,62 +8,70 @@
 @endsection
 
 @section('main')
-
     <main id="main">
         <section class="container eventosHero" style="background-image:url('{{ asset('storage/event_photos/' . $event->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}')" id="indexHero">
             <div class="">
-                <div class="col-md-9 eventosinfo">
-                    <div class="eventcontent">
-                        <h1>{{$event->name}}</h1>
-                        <h5>Dia {{ date_format(date_create($event->data), 'd-m-Y') }}</h5>
-                        <p>{{$event->descricao}}</p>
+                <div class="col-md-12 eventosinfo">
+                    <div class="eventcontent" style="text-align: center;padding-top:100px;">
+                        <h1 style="font-weight: 700;font-size:40px;">{{$event->name}}</h1>
+                        <h5 style="font-weight: 400;font-size:30px;">Dia {{ date_format(date_create($event->data), 'd-m-Y') }}</h5>
+                        <h4 style="padding: 0px 150px;font-weight:400;font-size:20px;">{{$event->descricao}}</h4>
                     </div>
                 </div>
             </div>
             <div class="container-fluid d-flex mt-5 col-md-10" id="eventform">
                 <div class="forminfo col-md-6">
-                    <h4>Titulo exemplo</h4>
-                    <p>Data</p>
-                    <p>Localizacao</p>
-                    <p>Compartilhe com os seus amigos e familiares</p>
-                    <div class="socialicons">
-                        <img src="">
+                    <h4>{{$event->name}}</h4>
+                    <p>{{ date_format(date_create($event->data), 'd-m-Y') }}</p>
+                    <p>{{$event->localizacao}}</p>
+                    <div class="socialicons mt-5">
+                        <h5 class="shortinfo">Compartilhe com os seus amigos e familiares</h5>
+                        <img src="{{ asset('img/Ícones/Twitter.svg')}}">
+                        <img src="{{ asset('img/Ícones/Whatsapp.svg')}}">
+                        <img src="{{ asset('img/Ícones/Facebook.svg')}}">
+                        <img src="{{ asset('img/Ícones/Instagram.svg')}}">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form action="">
+                    <form method="POST" action="{{ route('admin.eventos.store',$event)}}" id="eventform">
+                        @csrf
+                        @method("PUT")
                         <h4>Participe já</h4>
                         <input type="text" name="name" placeholder="Nome completo">
                         <br><br>
                         <input type="email" name="email" placeholder="Email">
                         <br><br>
-                        <a href=""><button class="newest" style="float: right">Participar</button></a>
+                        <a href=""><button type="submit" class="newest" style="float: right">Participar</button></a>
                     </form>
-                </div>
-            </div>
-            <div class="container d-flex justify-content-center col-md-12">
-                <div class="col-md-6">
-                    <h4>Detalhes do evento</h4>
-                </div>
-                <div class="col-md-6">
-                    <h4>Contactos</h4>
-                    <p>Telemóvel</p>
-                    <p>+351 961235123</p>
-                    <br>
-                    <p>Email</p>
-                    <p>aepa.eventos@aepa.pt</p>
-                    <br>
-                    <p>Organizador</p>
-                    <p>Cristiano Miguel Gomes dos Santos</p>
+                    <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores dimensões <a href="">aqui</a>.</p>
                 </div>
             </div>
         </section>
 
+        <div class="container d-flex col-md-7 text-justify eventinfo">
+            <div class="col-md-6 p-4">
+                <h4 class="mb-4">Detalhes do evento</h4>
+                <ul>
+                    <li>{{$event->descricao}}</li>
+                </ul>
+            </div>
+            <div class="col-md-6 p-4">
+                <h4 class="mb-4">Contactos</h4>
+                <p class="infolabel">Telemóvel</p>
+                <p>+351 961235123</p>
+
+                <p class="infolabel">Email</p>
+                <p>aepa.eventos@aepa.pt</p>
+
+                <p class="infolabel">Organizador</p>
+                <p>Cristiano Miguel Gomes dos Santos</p>
+            </div>
+        </div>
 
         <div class="heroBackground">
         </div>
         <section class="container">
-            <div class="eventoscards row" style="margin-top: 350px">
+            <div class="eventoscards row" style="margin-top: 80px">
                 <div class="d-flex col-md-12 eventosfiltersection">
                     <div class="col-md-6">
                         <h2 class="text-left m-2">Outros eventos</h2>
@@ -76,7 +84,7 @@
             </div>
         </section>
 
-        <section class="container hidden2 eventoslist">
+        <section class="container eventoslist" style="margin-bottom: 200px;">
             <div class=" d-flex justify-content-between ">
                 @foreach ($events->take(4) as $event)
                     <div class="eventoCard col-md-3">
