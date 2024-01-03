@@ -12,7 +12,7 @@ class Donation extends Model
 
     public function member_doner()
     {
-        return $this->belongsTo(User::class, 'member_doner_id');
+        return $this->belongsTo(Member_doner::class, 'member_doner_id');
     }
 
     public function projeto()

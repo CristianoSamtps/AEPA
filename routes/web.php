@@ -86,7 +86,7 @@ Route::group([
 
     Route::resource('users', UserController::class);
 
-    Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao']);
+    Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create','store']);
 
     Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 

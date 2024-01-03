@@ -11,16 +11,20 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th>Id</th>
                 <th>Membro</th>
                 <th>Sugestão</th>
+                <th>Votos</th>
                 <th>Listado</th>
                 <th>Aprovado</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{{$sugestao->nome}}</td>
+                <td>{{$sugestao->id}}</td>
+                <td>{{$sugestao->member_doner->user->name}}</td>
                 <td>{{$sugestao->sugestao}}</td>
+                <td>{{$sugestao->votos}}</td>
                 <td>{{$sugestao->listado}}</td>
                 <td>{{$sugestao->aprovacao}}</td>
               </tr>

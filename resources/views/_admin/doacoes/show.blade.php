@@ -12,21 +12,19 @@
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Valor</th>
-                <th>Utilizador</th>
-                <th>Projeto</th>
+              <th>Titulo</th>
+              <th>Valor doado</th>
+              <th>Membro</th>
+              <th>Projeto associado</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{{$doacao->id}}</td>
-              <td>{{$doacao->title}}</td>
-              <td>{{$doacao->valor}}</td>
-              <td> @if ($doacao->anonimo == 'S') Anonimo
-                @else {{ $doacao->member_doner->user->name}}
-                @endif</td>
-              <td>{{$doacao->projeto_id}}</td>
+                <td>{{ $doacao->id }}</td>
+              <td>{{ $doacao->title }}</td>
+              <td>{{$doacao->valor}} €</td>
+              <td>{{ $doacao->member_doner->user->name ?? 'Anónimo'}}</td>
+              <td>{{ $doacao->projeto->titulo ?? 'Não tem' }}</td>
               </tr>
             </tbody>
           </table>
