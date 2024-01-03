@@ -19,7 +19,7 @@
             <h1>{{$topevent->name}}</h1>
             <h5>Dia {{ date_format(date_create($topevent->data), 'd-m-Y') }}</h5>
             <p>{{$topevent->descricao}}</p>
-            <a href="{{ route('eventoinfo',['event'=> $topevent])}}"><button class="btn section-btn1">Participar</button></a>
+            <a><button class="btn section-btn1">Participar</button></a>
             <a href="{{ route('eventos') }}"><button class="btn section-btn2">Saber mais</button></a>
           </div>
         </div>

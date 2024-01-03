@@ -41,8 +41,7 @@
                                     </td>
                                     <td>
                                         @if (count($event->photos))
-                                            <img width="100"
-                                                src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
+                                            <img width="100" src="{{ asset('storage/event_photos/' . $event->photos()->orderBy('destaque','asc')->orderBy('created_at','desc')->first()->fotografia) }}"
                                                 class="img-post" alt="Event image">
                                         @endif
 
@@ -54,11 +53,9 @@
                                         <a class="btn btn-xs btn-warning btn-p ml-1"
                                             href="{{ route('admin.eventos.edit', $event) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-info btn-p ml-1"
-                                            href="{{ route('admin.participantes.index', $event) }}"><i
+                                        <a class="btn btn-xs btn-info btn-p ml-1" href="{{route('admin.participantes.index',$event)}}"><i
                                                 class="fas fa-users fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-success btn-p ml-1"
-                                            href="{{ route('admin.fotografias.index', $event) }}"><i
+                                        <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.fotografias.index',$event)}}"><i
                                                 class="fas fa-image fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.eventos.destroy', $event) }}"
                                             role="form" class="inline"
@@ -83,44 +80,19 @@
     </div>
 @endsection
 
-@section('moreScripts')
+@section('scripts')
     <script>
         $('#dataTable').dataTable({
-            "lengthMenu": [5, 10, 15, 20],
             destroy: true,
             "order": [
                 [0, 'asc']
             ],
             "columns": [
                 null,
-                null,
-                null,
-                null,
-                {
-                    "orderable": false
-                },
-                {
-                    "orderable": false
-                },
                 {
                     "orderable": false
                 }
-            ],
-            "language": {
-                "lengthMenu": "Mostrar _MENU_ registos por página",
-                "zeroRecords": "Não existem registos",
-                "info": "Página _PAGE_ de _PAGES_",
-                "infoEmpty": "Sem registos associados",
-                "infoFiltered": "(Pesquisa efetuada em _MAX_  registos)",
-                "search": "Procura:",
-
-                "paginate": {
-                    "first": "Primeiro",
-                    "last": "Último",
-                    "next": "Seguinte",
-                    "previous": "Anterior"
-                },
-            }
+            ]
         });
     </script>
 @endsection
