@@ -21,8 +21,7 @@ class PlanTypeController extends Controller
      */
     public function create()
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.create', compact('plantypes'));
+        return view('_admin.plantypes.create');
     }
 
     /**
@@ -30,7 +29,15 @@ class PlanTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'duracao' => 'required|numeric',
+            'valor' => 'required|numeric',
+        ]);
+
+        $planType = PlanType::create($validatedData);
+
+        return redirect()->route('admin.plantypes.index');
     }
 
     /**
@@ -45,25 +52,41 @@ class PlanTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PlanType $planType)
+    public function edit($id)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.edit', compact('plantypes'));
+        $planType = PlanType::findOrFail($id);
+        return view('_admin.plantypes.edit', compact('planType'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PlanType $planType)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $planType = PlanType::findOrFail($id);
 
+        // Validação dos dados
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'duracao' => 'required|numeric',
+            'valor' => 'required|numeric',
+        ]);
+
+        // Atualização dos dados
+        $planType->update($validated);
+
+        // Redirecionamento
+        return redirect()->route('admin.plantypes.index');
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PlanType $planType)
+    public function destroy($id)
     {
-        //
+        $planType = PlanType::findOrFail($id);
+        $planType->delete();
+
+        return redirect()->route('admin.plantypes.index');
     }
+
 }

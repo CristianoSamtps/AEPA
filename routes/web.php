@@ -53,6 +53,8 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
+Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
+
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
@@ -93,6 +95,8 @@ Route::group([
     Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
     Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
+
+
 
 
     Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');

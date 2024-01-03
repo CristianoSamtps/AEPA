@@ -46,7 +46,7 @@ class LoginController extends Controller
             return '/admin';
 
             default:
-                return 'users/'.Auth::user()->id.'/index';
+                return 'perfil/'.Auth::user()->id;
         }
       }
 }
