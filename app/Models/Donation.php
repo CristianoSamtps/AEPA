@@ -17,7 +17,7 @@ class Donation extends Model
 
     public function projeto()
     {
-        return $this->hasOne(Projeto::class, 'projeto_id');
+        return $this->belongsTo(Projeto::class, 'projeto_id');
     }
     protected $fillable = [
         'title'

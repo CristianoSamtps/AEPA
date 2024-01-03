@@ -21,17 +21,15 @@
                                 <th>Nome</th>
                                 <th>Duração</th>
                                 <th>Valor</th>
-                                <th>Próximo Pagamento</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($planTypes as $planType)
+                            @foreach ($plantypes as $planType)
                                 <tr>
                                     <td>{{ $planType->name }}</td>
                                     <td>{{ $planType->duracao }}</td> {{-- Ajuste conforme o formato da sua data --}}
                                     <td>{{ number_format($planType->valor, 2, ',', '.') }}€</td>
-                                    <td>{{ $planType->proximo_pag->format('d/m/Y') }}</td>
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-primary"
                                             href="{{ route('admin.plantypes.show', $planType) }}">Ver</a>

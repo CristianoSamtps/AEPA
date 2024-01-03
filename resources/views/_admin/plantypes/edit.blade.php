@@ -13,18 +13,16 @@
             </div>
             <div class="card-body">
 
-                <form method="POST" action="{{ route('admin.plantypes.update', $event) }}" class="form-group inline">
+                <form method="POST" action="{{ route('admin.plantypes.update', $planType->id) }}" class="form-group inline">
                     @csrf
                     @method('PUT')
-                    @include('_admin.plantypes.partials.add-edit')
+                    @include('_admin.plantypes.partials.add-edit', ['planType' => $planType])
                     <div class="form-group">
                         <button type="submit" class="btn btn-success" name="ok">Guardar</button>
-
                         <a href="{{ route('admin.plantypes.index') }}" class="btn btn-default">Cancelar</a>
-
                     </div>
-
                 </form>
+
 
             </div>
         </div>

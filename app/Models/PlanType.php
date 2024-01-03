@@ -12,9 +12,11 @@ class PlanType extends Model
     protected $fillable = [
         'name',
         'duracao',
-        'valor',
-        'proximo_pag'
+        'valor'
     ];
+
+
+    protected $dates = ['proximo_pag'];
 
     public function plans()
     {
