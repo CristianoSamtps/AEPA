@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name', 100);
             $table->integer('duracao');
             $table->decimal('valor', 10, 2);
-            /* $table->dateTime('proximo_pag'); */
             $table->timestamps();
         });
     }
