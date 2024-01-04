@@ -26,6 +26,6 @@ class ParticipantRequest extends FormRequest
            'email' =>'required|email|unique:users,email,',
         ];
 
-        
+
     }
 }
