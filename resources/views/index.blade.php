@@ -17,7 +17,7 @@
           <h5>Com mais de 12 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa maravilhosa equipa.
           </h5>
           <a><button class="btn green-btn1">Associação</button></a>
-          <a><button class="btn hero-btn2">Doações</button></a>
+          <a href="{{ route('doacoes')}}"><button class="btn hero-btn2">Doações</button></a>
         </div>
         <div class="col-md-6">
           <div id="herosvg">
