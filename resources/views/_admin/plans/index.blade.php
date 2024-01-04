@@ -15,10 +15,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Data</th>
-                                <th>Método de Pagamento</th>
-                                <th>Próximo Pagamento</th>
                                 <th>Membro Doador</th>
+                                <th>ID Membro</th>
                                 <th>Tipo de Plano</th>
                                 <th>Ações</th>
                             </tr>
@@ -26,15 +24,10 @@
                         <tbody>
                             @foreach ($plans as $plan)
                                 <tr>
-                                    <td>{{ $plan->date->format('d/m/Y') }}</td>
-                                    <td>{{ $plan->metodo_pag }}</td>
-                                    <td>{{ $plan->proximo_pag->format('d/m/Y') }}</td>
-                                    <td>{{ $plan->memberDoner->name }}</td> {{-- Asumindo que existe uma coluna 'name' no modelo MemberDoner --}}
+                                    <td>{{ $plan->member_doner ? $plan->member_doner->user->name : 'Membro Não Encontrado' }}</td>
+                                    <td>{{ $plan->member_doner ? $plan->member_doner->id : 'Membro Não Encontrado' }}</td>
                                     <td>{{ $plan->planType->name }}</td>
                                     <td nowrap class="d-flex">
-                                        {{-- Botões de ação, substitua 'admin.plans' pelo nome de rota correto --}}
-                                        <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.plans.show', $plan) }}">Ver</a>
                                         <a class="btn btn-xs btn-warning ml-1"
                                             href="{{ route('admin.plans.edit', $plan) }}">Editar</a>
                                         <form method="POST" action="{{ route('admin.plans.destroy', $plan) }}"

@@ -58,7 +58,7 @@ class PageController extends Controller
 
     public function tornarMembro()
     {
-        $planTypes = PlanType::all();
+        $planTypes = PlanType::paginate(4);
         return view('tornarMembro', compact('planTypes'));
     }
 

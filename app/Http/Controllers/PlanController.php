@@ -24,8 +24,8 @@ class PlanController extends Controller
     public function create()
     {
         $plans = PlanTable::all();
-        $planTypes=PlanType::all();
-        return view('_admin.plans.create', compact('plans','planTypes'));
+        $planTypes = PlanType::all();
+        return view('_admin.plans.create', compact('plans', 'planTypes'));
     }
 
     /**
@@ -48,19 +48,20 @@ class PlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        $plans = PlanTable::all();
-        $planTypes=PlanType::all();
-        return view('_admin.plans.edit', compact('plans', 'planTypes'));
+        $plan = PlanTable::findOrFail($id);
+        $plantypes = PlanType::all();
+        return view('_admin.plans.edit', compact('plan', 'plantypes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $plans = PlanTable::findOrFail($id);
+
     }
 
     /**

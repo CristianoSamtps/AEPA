@@ -13,9 +13,9 @@ Editar Subscrições
         </div>
         <div class="card-body">
 
-			<form method="POST" action="{{ route('admin.plans.update',$event)}}" class="form-group inline">
+			<form method="POST" action="{{ route('admin.plans.update', $plan->id) }}" class="form-group" enctype="multipart/form-data">
                 @csrf
-                @method("PUT")
+                @method('PUT')
 				@include('_admin.plans.partials.add-edit')
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" name="ok">Guardar</button>
