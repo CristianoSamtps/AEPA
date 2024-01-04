@@ -53,7 +53,10 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
-Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
+
+
+
+//Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
 
@@ -67,50 +70,59 @@ Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name
 Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
 
 Route::group([
-    'middleware' => ['admin', 'auth', 'verified'],
-    'as' => 'admin.',
-    'prefix' => 'admin'
+    'middleware' => ['auth', 'verified']
 ], function () {
 
-    // Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
-    // Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
-    // Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
+    Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
-    Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
+    Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
 
-    Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
+    Route::group([
+        'middleware' => ['admin'],
+        'as' => 'admin.',
+        'prefix' => 'admin'
+    ], function () {
 
-    Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
+        // Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
+        // Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
+        // Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
 
-    Route::resource('projeto', ProjetoController::class);
+        Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
-    Route::resource('FotografiaProjeto', FotografiaProjetoController::class);
+        Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-    Route::resource('users', UserController::class);
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])->except(['create', 'store']);
 
-    Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create','store']);
+        Route::resource('projeto', ProjetoController::class);
 
-    Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('FotografiaProjeto', FotografiaProjetoController::class);
 
-    Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('users', UserController::class);
 
-    Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
+
+        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+
+        Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
+
+        Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
 
 
 
 
-    Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
+        Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
-    Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
+        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
-    Route::get(
-        '/users/{user}/send_reactivate_mail',
-        [UserController::class, 'send_reactivate_email']
-    )
-        ->name('users.sendActivationEmail');
+        Route::get(
+            '/users/{user}/send_reactivate_mail',
+            [UserController::class, 'send_reactivate_email']
+        )
+            ->name('users.sendActivationEmail');
 
-    Route::delete(
-        '/users/{user}/destroy_photo',
-        [UserController::class, 'destroy_foto']
-    )->name('users.destroyFoto');
+        Route::delete(
+            '/users/{user}/destroy_photo',
+            [UserController::class, 'destroy_foto']
+        )->name('users.destroyFoto');
+    });
 });
