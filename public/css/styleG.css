@@ -377,6 +377,17 @@
     padding: 30px;
     justify-content: left;
 }
+.sugestoes .adSuges{
+    padding: 20px;
+}
+.sugestoes .adSuges a:link,.sugestoes .adSuges a:active,.sugestoes .adSuges a:visited,.sugestoes .adSuges a:checked{
+    color: #1E1E1E;
+    text-decoration: none;
+}
+.sugestoes .adSuges a:hover{
+    color: #019E59;
+    text-decoration: none;
+}
 .sugestoes .filtros .search-box{
     height: 35px;
     display: flex;
@@ -452,6 +463,58 @@
 }
 .sugestoes .btn img{
     width: 40px;
+}
+#modal-container {
+    display: none;
+    position: fixed;
+    top: 190px;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+h2 {
+    color: #333;
+}
+
+#modal #nova-sugestao {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modal button {
+    background-color: #019E59;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#modal button:hover {
+    background-color: #02894f;
 }
 @media screen and (max-width: 990px) {
     .top-donates .donates .card{
