@@ -119,7 +119,7 @@ class UserController extends Controller
             $membro->save();
         }
 
-        return redirect()->route('users.editperfil', $user)
+        return redirect()->route('editperfil', $user)
             ->with('success', 'Utilizador atualizado com sucesso');
     }
 
