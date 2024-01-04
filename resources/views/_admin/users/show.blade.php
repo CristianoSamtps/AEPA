@@ -1,6 +1,11 @@
 @extends('layouts.admin')
 
-@section('content')
+
+@section('title')
+    Show - {{ $user->name }}
+@endsection
+
+@section('backoffice-content')
     <div class="container-fluid">
 
         <div class="card shadow mb-4">

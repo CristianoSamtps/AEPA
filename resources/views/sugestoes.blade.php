@@ -21,25 +21,53 @@
                         </a>
                     </div>
                 </div>
-                <div class="card-header py-3">
-                    <a class="btn btn-primary" href="">
-                      <i class="fas fa-plus"></i> Nova sugestão
-                    </a>
-                  </div>
+
                 <div class="donates">
-                    @foreach ($sugestoesList as $sugestao)
-                    <div class="card">
-                        @if($sugestao->member_doner->user->foto)
-                        <img src="{{asset('storage/user_fotos/'.$sugestao->member_doner->user->foto)}}" alt="" class="profile-image">
-                        @else
-                        <img src="{{asset('img/default_user.jpg')}}" alt="Foto de perfil" class="profile-image">
-                        @endif
-                        <h6 class="profile-name">{{ $sugestao->member_doner->user->name }}</h6>
-                        <h2 class="name">{{$sugestao->sugestao}}</h2>
-                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}"> {{$sugestao->votos}}</button>
+                    <div class="adSuges">
+                        <a href="#" onclick="openModal()">
+                            <i class="fas fa-plus"></i> Nova sugestão
+                        </a>
                     </div>
+                    @foreach ($sugestoesList as $sugestao)
+                        <div class="card">
+                            @if ($sugestao->member_doner->user->foto)
+                                <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"
+                                    alt="" class="profile-image">
+                            @else
+                                <img src="{{ asset('img/default_user.jpg') }}" alt="Foto de perfil" class="profile-image">
+                            @endif
+                            <h6 class="profile-name">{{ $sugestao->member_doner->user->name }}</h6>
+                            <h2 class="name">{{ $sugestao->sugestao }}</h2>
+                            <button class="btn"><img src="{{ asset('img/logo_black.svg') }}">
+                                {{ $sugestao->votos }}</button>
+                        </div>
                     @endforeach
                 </div>
         </section>
     </main>
+    <div id="modal-container">
+        <div id="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Nova Sugestão</h2>
+            <input type="text" id="nova-sugestao" placeholder="Digite sua sugestão..."></textarea>
+            <button onclick="submitSuggestion()">Enviar Sugestão</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function openModal() {
+            $("#modal-container").fadeIn();
+        }
+
+        function closeModal() {
+            $("#modal-container").fadeOut();
+        }
+
+        function submitSuggestion() {
+            var novaSugestao = $("#nova-sugestao").val();
+            alert('Sugestão enviada: ' + novaSugestao);
+            closeModal();
+        }
+    </script>
 @endsection

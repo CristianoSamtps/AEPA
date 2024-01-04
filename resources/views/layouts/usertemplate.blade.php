@@ -132,7 +132,7 @@
             <div id="sidebar">
                 <ul>
 
-                    <li>
+                    <li class="@if(Route::currentRouteName()=='projectsperfil') active @endif">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 45">
                                 <path
@@ -149,7 +149,7 @@
                         <p>Projetos</p>
                     </li>
 
-                    <li>
+                    <li class="@if(Route::currentRouteName()=='donationperfil') active @endif">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="37" height="36"
                                 viewBox="0 0 37 36" fill="none">
@@ -164,7 +164,7 @@
                         <p>Doações</p>
                     </li>
 
-                    <li class="active">
+                    <li class="@if(Route::currentRouteName()=='indexperfil') active @endif"><a href="{{ route('indexperfil', auth()->user()) }}">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
                                 viewBox="0 0 34 34" fill="none">
@@ -174,9 +174,10 @@
                             </svg>
                         </div>
                         <p>Perfil</p>
+                        </a>
                     </li>
 
-                    <li>
+                    <li class="@if(Route::currentRouteName()=='comunperfil') active @endif">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="35" height="34"
                                 viewBox="0 0 35 34" fill="none">
@@ -188,8 +189,8 @@
                         <p>Comunidade</p>
                     </li>
 
-                    <li>
-                        <div class="icon-container" href=>
+                    <li class="@if(Route::currentRouteName()=='editperfil') active @endif"><a href="{{ route('editperfil', auth()->user()) }}">
+                        <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="33"
                                 viewBox="0 0 32 33" fill="none">
                                 <path
@@ -197,7 +198,8 @@
                                     fill="#A6A6A6" />
                             </svg>
                         </div>
-                        <p>Configurações</p>
+                         <p>Configurações</p>
+                         </a>
                     </li>
 
                     <li id="logout" class="dropdown-item" href="{{ route('logout') }}"

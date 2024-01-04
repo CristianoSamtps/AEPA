@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 
-@section('content')
+@section('title')
+    Criar Novo Utilizador
+@endsection
+
+@section('backoffice-content')
 
 <div class="container-fluid">
 
