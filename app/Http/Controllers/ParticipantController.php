@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Participant;
 use Illuminate\Http\Request;
+use App\Http\Requests\ParticipantRequest;
 
 class ParticipantController extends Controller
 {
@@ -27,17 +29,23 @@ class ParticipantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function registarEvento(Request $request, Event $event)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Participant $participant)
-    {
-        //
+        $participant=Participant::where('member_doner_id',auth()->user()->id)->where('event_id',$event->id)->first();
+        if ($participant){
+            return redirect()->back()
+            ->withErrors(['registado', 'Já está registado evento']);
+        }
+
+        $participant = new Participant();
+        $participant->member_doner_id=auth()->user()->id;
+        $participant->event_id=$event->id;
+        $participant->obs=$request->obs;
+        $participant->save();
+
+         return redirect()->back()
+           ->with('success', 'Registado com sucesso no evento');
     }
 
     /**
