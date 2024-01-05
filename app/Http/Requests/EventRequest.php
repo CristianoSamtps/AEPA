@@ -26,7 +26,7 @@ class EventRequest extends FormRequest
             "name" => 'required|min:3|max:80|unique:events,name,' . $currentId . '|regex:/^[A-ZÀ-úa-z\s]+$/',
             "descricao" => 'required|min:3',
             "localizacao" => 'min:3|max:100|regex:/^[A-ZÀ-úa-z\s\0-9]+$/',
-            "data" => 'date|after_or_equal:now|date_format:"Y-m-d"',
+            "data" => 'date|after_or_equal:now"',
             "vagas" => "integer|min:1"
         ];
     }

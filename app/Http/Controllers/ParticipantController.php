@@ -35,7 +35,7 @@ class ParticipantController extends Controller
         $participant=Participant::where('member_doner_id',auth()->user()->id)->where('event_id',$event->id)->first();
         if ($participant){
             return redirect()->back()
-            ->withErrors(['registado', 'Já está registado evento']);
+            ->withErrors(['Já está registado evento']);
         }
 
         $participant = new Participant();
