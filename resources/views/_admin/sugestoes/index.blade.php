@@ -18,6 +18,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
+            <th>Id</th>
               <th>Nome</th>
               <th>Sugestão</th>
               <th>Votos</th>
@@ -29,6 +30,7 @@
           <tbody>
             @foreach($sugestoes as $sugestao)
             <tr>
+                <td>{{$sugestao->id}}</td>
               <td>{{$sugestao->member_doner->user->name}}</td>
               <td>{{$sugestao->sugestao}}</td>
               <td>{{$sugestao->votos}}</td>

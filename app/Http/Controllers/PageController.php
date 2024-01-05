@@ -32,7 +32,7 @@ class PageController extends Controller
     public function sugestoes()
     {
         $sugestoes = Sugestao::all();
-        $sugestoesList = Sugestao::where('listado', 'L')->get();
+        $sugestoesList = Sugestao::where('listado', 'L')->paginate(8);
         return view('sugestoes', compact('sugestoes','sugestoesList'));
 
     }
