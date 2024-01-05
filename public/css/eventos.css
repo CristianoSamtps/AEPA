@@ -182,6 +182,16 @@ button.newest{
     margin-left: 10px;
     height: 2.3rem;
 }
+
+button.oldest{
+    border: solid 1px #b31200;
+    border-radius: 20px;
+    background-color: #9b0505;
+    color: #ffff;
+    width: 10rem;
+    margin-left: 10px;
+    height: 2.3rem;
+}
 button.newest:hover{
     scale: 1.1;
     transition: 0.5s ease-in-out;
@@ -222,6 +232,12 @@ div#eventform{
     top: 300px;
 }
 
+div#eventform textarea{
+    resize: none;
+    border-radius: 20px;
+    border: solid 1px #019E59;
+}
+
 div#eventform input{
     border-radius: 50px;
     padding: 0.5rem;
@@ -257,6 +273,12 @@ div.socialicons img{
 }div.socialicons img:hover{
     scale: 1.1;
     cursor: pointer;
+}
+
+div.socialicons{
+    position: absolute;
+    bottom:0;
+    margin-bottom:70px;
 }
 
 div.eventinfo{

@@ -31,7 +31,7 @@
         }
 
         #sidebar ul {
-            margin-top: 45px;
+            margin-top: 59px;
             list-style: none;
             padding: 0;
         }
@@ -64,7 +64,9 @@
         }
 
         #sidebar ul li.active p {
+            text-align: center;
             color: white;
+            text-decoration: none;
         }
 
         #sidebar ul li:hover {
@@ -80,6 +82,7 @@
             width: 45px;
             margin: 0;
             position: relative;
+            text-align: center;
         }
 
         #sidebar ul li:hover .icon-container .icon path {
@@ -88,11 +91,14 @@
 
         #sidebar ul li .icon-container {
             margin-top: 10px;
+            text-align: center;
             margin-bottom: 10px;
             /* Espaço entre a imagem e o parágrafo */
         }
 
         #sidebar ul li p {
+            text-align: center;
+            text-decoration: none !important;
             font-size: 12px;
             font-weight: 700;
             color: #6A6A6A;

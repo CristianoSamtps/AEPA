@@ -34,18 +34,21 @@
                 <div class="col-md-6">
                     <form action="{{ route('registarevento',$event)}}" id="eventform" method='POST'>
                         @csrf
-
                         <h4>Participe já</h4>
-                        <input type="text" name="name" placeholder="Nome completo" value="{{auth()->user()->name}}" disabled>
+                        <input type="text" name="name" placeholder=" Nome completo" value="{{auth()->user()->name}}" disabled>
                         <br><br>
-                        <input type="email" name="email" placeholder="Email" value="{{auth()->user()->email}}" disabled>
+                        <input type="email" name="email" placeholder=" Email" value="{{auth()->user()->email}}" disabled>
                         <br><br>
-                        <textarea name="obs" id="obs" cols="30" rows="10" placeholder="Observações"></textarea>
-                        <br><br>
-                        @if ($event->participants()->find(auth()->user()->id))
-                        <button class="newest" style="float: right;width:100%;">Já está registado no evento</button>
+                        @if ($event->participants()->where('member_doner_id',auth()->user()->id)->first())
+                        <textarea disabled cols="55" rows="3" placeholder=" Observações"></textarea>
                         @else
-                        <a href=""><button type="submit" class="newest" style="float: right">Participar</button></a>
+                        <textarea name="obs" id="obs" cols="55" rows="3" placeholder=" Observações"></textarea>
+                        @endif
+                        <br><br>
+                        @if ($event->participants()->where('member_doner_id',auth()->user()->id)->first())
+                        <button class="oldest" style="float: right;width:100%;">Já está registado no evento</button>
+                        @else
+                        <button type="submit" class="newest" style="float: right">Participar</button>
                         @endif
                     </form>
                     <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores dimensões <a href="">aqui</a>.</p>

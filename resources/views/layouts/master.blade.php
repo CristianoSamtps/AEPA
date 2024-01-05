@@ -71,49 +71,48 @@
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->
                             @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                                    </li>
-                                @endif
+                            @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                            </li>
+                            @endif
 
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link registo"
-                                            href="{{ route('register') }}">{{ __('Criar conta') }}</a>
-                                    </li>
-                                @endif
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link registo" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
+                            </li>
+                            @endif
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                        <a class="dropdown-item" href="{{ route('indexperfil', auth()->user()) }}">
+                                        <a class="dropdown-item"
+                                            href="{{ route('indexperfil', auth()->user()) }}">
                                             Perfil
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('editperfil', auth()->user()) }}">
+                                        <a class="dropdown-item"
+                                            href="{{ route('editperfil', auth()->user()) }}">
                                             Editar perfil
                                         </a>
 
-                                        <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
+                                    <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
 
-                                    </div>
-                                </li>
+                                </div>
+                            </li>
 
-                        </div>
+                    </div>
                     @endguest
                     </ul>
                 </div>
@@ -152,8 +151,7 @@
 
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/"
-                        class="nav-link px-2 text-muted">Loja Online</a></li>
+                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja Online</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
                 <li class="nav-item"><a href="{{ route('patrocinadores') }}"
                         class="nav-link px-2 text-muted">Patrocinadores</a></li>
