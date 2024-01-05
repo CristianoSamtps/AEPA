@@ -57,14 +57,6 @@ class ProjetoController extends Controller
 
         $projetos->save();
 
-        // Verificar se o campo voluntariado está marcado como 'Sim'
-        if ($projetos->voluntariado == 1) {
-            // Criar entrada na tabela voluntariado
-            $projetos->voluntariado()->create([
-                'user_id' => Auth::id(),
-            ]);
-        }
-
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto criado com sucesso');
@@ -101,22 +93,6 @@ class ProjetoController extends Controller
 
         // Atualize o campo voluntariado diretamente
         $projeto->voluntariado = $request->input('voluntariado', 0);
-        $projeto->save();
-
-        // Verificar se o campo voluntariado foi alterado para 'Sim'
-        if ($request->input('voluntariado') == 1) {
-            // Se já existe uma entrada na tabela voluntariado, não faça nada
-            if ($projeto->voluntariado()->exists() == false) {
-                // Se não existir, criar uma nova entrada na tabela voluntariado
-                $projeto->voluntariado()->create([
-                    'user_id' => Auth::id(),
-                ]);
-            }
-        } else {
-            // Se o campo voluntariado foi alterado para 'Não', remover qualquer entrada existente na tabela voluntariado
-            $projeto->voluntariado()->delete();
-        }
-
         $projeto->save();
 
         return redirect()
