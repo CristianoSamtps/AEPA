@@ -92,12 +92,10 @@
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                        <a class="dropdown-item"
-                                            href="{{ route('indexperfil', auth()->user()) }}">
+                                        <a class="dropdown-item" href="{{ route('indexperfil', auth()->user()) }}">
                                             Perfil
                                         </a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('editperfil', auth()->user()) }}">
+                                        <a class="dropdown-item" href="{{ route('editperfil', auth()->user()) }}">
                                             Editar perfil
                                         </a>
 
@@ -132,6 +130,7 @@
         </div>
 
     </section><!-- End Hero -->
+
     @yield('main')
 
     <div id="preloader"></div>
@@ -141,7 +140,7 @@
     <!-- ======= Footer ======= -->
     <div class="footerbg">
     </div>
-    
+
     <footer id="footer">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
@@ -153,9 +152,11 @@
 
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja Online</a></li>
+                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/"
+                        class="nav-link px-2 text-muted">Loja Online</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="{{ route('patrocinadores') }}" class="nav-link px-2 text-muted">Patrocinadores</a></li>
+                <li class="nav-item"><a href="{{ route('patrocinadores') }}"
+                        class="nav-link px-2 text-muted">Patrocinadores</a></li>
                 </li>
                 <li class="nav-item"><a href="{{ route('galeria') }}" class="nav-link px-2 text-muted">Galeria</a>
                 </li>
@@ -165,6 +166,7 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
@@ -179,7 +181,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('/js/main.js') }}"></script>
-
+    @yield('moreScripts')
 </body>
 
 </html>

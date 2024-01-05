@@ -29,6 +29,21 @@ class SugestaoController extends Controller
         }
     }
 
+    public function registarSugestao(Request $request)
+    {
+        $fields=$request->validate(['suges'=>'required']);
+        $sugestao = new Sugestao();
+        $sugestao->member_doner_id=auth()->user()->id;
+        $sugestao->sugestao=$request->suges;
+        $sugestao->listado='NL';
+        $sugestao->aprovacao='N';
+        $sugestao->votos=0;
+        $sugestao->save();
+
+         return redirect()->back()
+           ->with('success', 'Sugestão registada com sucesso');
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

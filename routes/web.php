@@ -65,17 +65,19 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 Auth::routes(['verify' => true]);
-Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
-Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
-Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
+
 
 Route::group([
     'middleware' => ['auth', 'verified']
 ], function () {
-
+    Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
+    Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
+    Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
+
+    Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
 
     Route::group([
         'middleware' => ['admin'],
@@ -106,8 +108,6 @@ Route::group([
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
-
-
 
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');

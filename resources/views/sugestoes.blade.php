@@ -10,6 +10,12 @@
     <main id="main">
         <section class="sugestoes">
             <div class="container-sugestoes">
+            @if ($errors->any())
+                @include ('layouts.partials.error_master')
+            @endif
+            @if (!empty(session('success')))
+                @include ('layouts.partials.success_master')
+            @endif
                 <div class="titulo">
                     <h2>Sugestões</h2>
                 </div>
@@ -23,11 +29,13 @@
                 </div>
 
                 <div class="donates">
+                    @if()
                     <div class="adSuges">
                         <a href="#" onclick="openModal()">
                             <i class="fas fa-plus"></i> Nova sugestão
                         </a>
                     </div>
+                    @endif
                     @foreach ($sugestoesList as $sugestao)
                         <div class="card">
                             @if ($sugestao->member_doner->user->foto)
@@ -47,27 +55,28 @@
     </main>
     <div id="modal-container">
         <div id="modal">
+            <form action="{{ route('registarsugestao',$sugestao)}}" id="sugestaoform" method='POST'>
+                @csrf
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Nova Sugestão</h2>
-            <input type="text" id="nova-sugestao" placeholder="Digite sua sugestão..."></textarea>
+            <input type="text" name="suges" id="suges" placeholder="Digite sua sugestão..."></textarea>
             <button onclick="submitSuggestion()">Enviar Sugestão</button>
+            </form>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        function openModal() {
-            $("#modal-container").fadeIn();
-        }
 
-        function closeModal() {
-            $("#modal-container").fadeOut();
-        }
+    @endsection
+@section('moreScripts')
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function openModal() {
+        $("#modal-container").fadeIn();
+    }
 
-        function submitSuggestion() {
-            var novaSugestao = $("#nova-sugestao").val();
-            alert('Sugestão enviada: ' + novaSugestao);
-            closeModal();
-        }
-    </script>
+    function closeModal() {
+        $("#modal-container").fadeOut();
+    }
+
+</script>
 @endsection
