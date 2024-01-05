@@ -9,17 +9,25 @@
 
 @section('main')
     <main id="main">
+        <div class="container col-md-12">
+            @if ($errors->any())
+            @include ('layouts.partials.error_master')
+        @endif
+        @if (!empty(session('success')))
+            @include ('layouts.partials.success_master')
+        @endif
+        </div>
         <section class="container eventosHero"
             style="background-image:url('{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}')"
             id="indexHero">
             <div class="">
                 <div class="col-md-12 eventosinfo">
-                    <div class="eventcontent" style="text-align: center;padding-top:66px;">
-                        {{-- <h1 style="font-weight: 700;font-size:40px;">{{$event->name}}</h1>
-                        <h5 style="font-weight: 400;font-size:30px;">Dia {{ date_format(date_create($event->data), 'd-m-Y') }}</h5> --}}
+                    <div class="eventcontent" style="text-align: center;padding-top:100px;">
+                        <h1 style="font-weight: 700;font-size:40px;">{{$event->name}}</h1>
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid d-flex mt-5 col-md-10" id="eventform">
                 <div class="forminfo col-md-6">
                     <h4>{{ $event->name }}</h4>
@@ -30,7 +38,8 @@
                         </div>
                         <div class="col-md-6">
                             <p class="datatype">Vagas do eventos</p>
-                            <p>{{ $event->vagas }}</p>
+
+                            <p>{{$vagasDisponiveis = $event->vagas - $event->participants->count()}} vagas disponivies</p>
                         </div>
                     </div>
                     <div class="row">
@@ -39,8 +48,8 @@
                             <p>{{ $event->localizacao }}</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="datatype">Horários</p>
-                            <p>Sem horários previstos</p>
+                            <p class="datatype">Horário</p>
+                            <p>{{ date_format(date_create($event->data), 'H:i') }}</p>
                         </div>
                     </div>
                     <div class="socialicons mt-5">
@@ -64,18 +73,18 @@
                             <textarea disabled style="width:100%;" cols="auto" rows="3" placeholder=" Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já está registado no evento</button>
+                                <button class="oldest" style="float: right;width:100%;">Já estás registado no evento</button>
                             @else
-                            <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
+                                <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
                             @endif
                         </div>
                     @else
                         <form action="{{ route('registarevento', $event) }}" id="eventform" method='POST'>
                             @csrf
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                            <h4>Já está inscrito</h4>
+                                <h4>Já estás inscrito</h4>
                             @else
-                            <h4>Participe já</h4>
+                                <h4>Participe já</h4>
                             @endif
                             <input type="text" name="name" placeholder=" Nome completo"
                                 value="{{ auth()->user()->name }}" disabled>
@@ -90,14 +99,15 @@
                             @endif
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já está registado no evento</button>
+                                <button class="oldest" style="float: right;width:100%;">Já estás registado no evento</button>
                             @else
                                 <button type="submit" class="newest" style="float: right">Participar</button>
                             @endif
                         </form>
                     @endif
                     <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores dimensões
-                        <a href="">aqui</a>.</p>
+                        <a href="">aqui</a>.
+                    </p>
                 </div>
             </div>
         </section>
@@ -107,6 +117,13 @@
                 <h4 class="mb-4">Detalhes do evento</h4>
                 <ul>
                     <li>{{ $event->descricao }}</li>
+                    <br>
+                    <li>Vagas do eventos: {{ $event->vagas }}</li>
+                    <br>
+                    <li>Data de criação {{ date_format(date_create($event->created_at), 'd-m-Y') }}</li>
+                    <br>
+                    <li>Número de identificação do evento: {{ $event->id }}</li>
+                    <br>
                 </ul>
             </div>
             <div class="col-md-4 p-4">
@@ -155,7 +172,7 @@
                         <div class="cardInfo text-center">
                             <h5 class="">{{ $event->name }}</h5>
                             <p class="cardDescription">{{ $event->descricao }}</p>
-                            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+                            <a href="{{ route('eventoinfo',['event'=> $event])}}"><button class="btn CardBtn">Saber mais</button></a>
                         </div>
                     </div>
                 @endforeach

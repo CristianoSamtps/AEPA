@@ -32,7 +32,7 @@ div.eventosinfo{
 }
 div.eventcontent{
 	padding: 40px;
-	margin-top: 70px;
+	margin-top: 80px;
 	color: #FFFF;
 	/* max-width: 600px; */
 }
@@ -293,7 +293,7 @@ div.eventinfo h4{
 
 }
 div.eventinfo p,div.eventinfo li{
-    color: #019E59;
+    color: rgb(7, 7, 7);
     font-size: 20px;
     font-style: normal;
     font-weight: 300;

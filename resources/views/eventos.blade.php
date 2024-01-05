@@ -64,7 +64,7 @@
           <div class="cardInfo text-center">
             <h5 class="">{{$event->name}}</h5>
             <p class="cardDescription">{{($event->descricao)}}</p>
-            <a href="{{ route('eventos') }}"><button class="btn CardBtn">Saber mais</button></a>
+            <a href="{{ route('eventoinfo',['event'=> $event])}}"><button class="btn CardBtn">Saber mais</button></a>
           </div>
         </div>
         @endforeach
