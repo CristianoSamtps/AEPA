@@ -89,16 +89,21 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                        <a class="dropdown-item"
-                                            href="{{ route('indexperfil', auth()->user()) }}">
-                                            Perfil
-                                        </a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('editperfil', auth()->user()) }}">
-                                            Editar perfil
-                                        </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->tipo == 'A')
+                                    <!-- Exibir apenas para usuários com tipo 'M' (Moderação/Admin) -->
+                                    <a class="dropdown-item" href="{{ route('admin.dashboard', auth()->user()->tipo == 'A') }}">
+                                        Painel Admin
+                                    </a>
+                                    @else
+                                    <!-- Exibir para outros tipos de usuários -->
+                                    <a class="dropdown-item" href="{{ route('indexperfil', auth()->user()) }}">
+                                        Perfil
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('editperfil', auth()->user()) }}">
+                                        Editar perfil
+                                    </a>
+                                    @endif
 
                                     <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
