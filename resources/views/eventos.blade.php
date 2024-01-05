@@ -47,7 +47,7 @@
        </div>
      </div>
    </section>
-  <section class="container hidden2 eventoslist">
+  <section class="container eventoslist">
     <div class=" d-flex justify-content-between ">
         @foreach($events->take(4) as $event)
         <div class="eventoCard col-md-3">
@@ -92,7 +92,7 @@
   </div>
 </section>
 
-<section class="container hidden2" id="second-section">
+<section class="container" id="second-section">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mt-5">
@@ -116,7 +116,7 @@
   <img src="{{asset ('img/greyvector.svg')}}" alt="efeito de fundo">
 </div>
 
-<section class="container hidden mt-5" id="third-section">
+<section class="container mt-5" id="third-section">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
