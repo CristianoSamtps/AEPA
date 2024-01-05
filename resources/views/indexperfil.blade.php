@@ -36,7 +36,7 @@
                     @endif
                 </p>
 
-                <button href="{{route('tornarMembro')}}">Torne-se Membro</button>
+                <a href="{{route('tornarMembro')}}"><button>Torne-se Membro</button></a>
 
                 <div class="caixa-detalhes">
                     <span>Email</span>

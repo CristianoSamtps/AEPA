@@ -29,7 +29,7 @@
 
             <div id="dados1" class="row">
 
-                <div class="imagemperfil" class="col-lg-4">
+                <div class="imagemperfil" class="col-lg-3">
                     @if ($user->foto)
                         <img src="{{ asset('storage/user_fotos/' . $user->foto) }}" alt="Imagem de perfil">
                     @else
@@ -37,7 +37,7 @@
                     @endif
                 </div>
 
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <h2> {{ $user->name }} </h2>
                     <p class="tipo">
                         @if ($user->tipo == 'M')
@@ -48,9 +48,9 @@
                     </p>
                 </div>
 
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <button class="edit" href="">Editar Perfil</button>
-                    <button class="membro" href="">Torne-se Membro</button>
+                    <a href="{{route('tornarMembro')}}"><button class="membro">Torne-se Membro</button></a>
                 </div>
 
             </div>
@@ -63,19 +63,19 @@
             <div id="dados2" class="row">
 
                 <!-- Nome -->
-                <div class="caixa-detalhes-grande" class="col-lg-12">
+                <div class="caixa-detalhes-grande col-lg-12">
                     <span class="txt">Nome</span>
                     <p> {{ $user->name }} </p></span>
                 </div>
 
                 <!-- Email -->
-                <div class="caixa-detalhes" class="col-lg-3">
+                <div class="caixa-detalhes col-lg-3">
                     <span class="txt">Email</span>
                     <p>{{ $user->email }}</p>
                 </div>
 
                 <!-- GENERO -->
-                <div class="caixa-detalhes" class="col-lg-3">
+                <div class="caixa-detalhes col-lg-2">
                     <span class="txt">Género</span>
                     <p id="genero">
                         @if ($user->genero == 'M')
@@ -91,13 +91,13 @@
                 </div>
 
                 <!-- Telemovel -->
-                <div class="caixa-detalhes" class="col-lg-3">
+                <div class="caixa-detalhes col-lg-3">
                     <span class="txt">Número de Telemóvel</span>
                     <p>{{ $user->telemovel }}</p>
                 </div>
 
                 <!-- Data Nascimento -->
-                <div class="caixa-detalhes" class="col-lg-3">
+                <div class="caixa-detalhes col-lg-3">
                     <span class="txt">Data Nascimento</span>
                     <p>{{ $user->data_nascimento }}</p>
                 </div>
@@ -150,7 +150,7 @@
                 </div>
 
                 <div class="texto col-lg-10">
-                    <h1>Metodo de pagamento</h1>
+                    <h1>Alterar Password</h1>
                 </div>
 
                 <div class="seta col-lg-1">

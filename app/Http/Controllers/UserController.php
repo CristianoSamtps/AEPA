@@ -63,7 +63,7 @@ class UserController extends Controller
         $user->tipo = 'A';
         $user->save();
 
-        $user->sendEmailVerificationNotification();
+        /**$user->sendEmailVerificationNotification();*/
         return redirect()->route('admin.users.index')
             ->with('success', 'Utilizador criado com sucesso');
     }

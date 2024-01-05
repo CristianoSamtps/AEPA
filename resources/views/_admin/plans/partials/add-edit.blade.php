@@ -1,21 +1,27 @@
-<div class="form-group">
-    <label for="inputDate">Data</label>
-    <input type="date" class="form-control" name="date" id="inputDate"
-        value="{{ old('date', isset($planType) ? $planType->date->format('Y-m-d') : '') }}" />
-</div>
-<div class="form-group">
-    <label for="inputProximoPag">Próximo Pagamento</label>
-    <input type="date" class="form-control" name="proximo_pag" id="inputProximoPag"
-        value="{{ old('proximo_pag', isset($planType) ? $planType->proximo_pag->format('Y-m-d') : '') }}" />
-</div>
+<form method="POST" action="{{ route('admin.plans.update', $plan->id) }}" class="form-group">
+    @csrf
+    @method('PUT')
 
-<div class="form-group">
-    <label for="inputPlanType">Tipo de Plano</label>
-    <select class="form-control" name="planType_id" id="inputPlanType">
-        @foreach ($plantypes as $plantypes)
-            <option value="{{ $planType->id }}"
-                {{ (isset($plan) && $plan->plantypes === $plantypes->id) ? 'selected' : '' }}>
-                {{ $plantypes->name }}</option>
-        @endforeach
-    </select>
-</div>
+    {{-- Campo de seleção para Tipo de Plano --}}
+    <div class="form-group">
+        <label for="inputPlanType">Tipo de Plano</label>
+        <select class="form-control" name="planType_id" id="inputPlanType">
+            @foreach ($plantypes as $type)
+                <option value="{{ $type->id }}" {{ $plan->planType_id == $type->id ? 'selected' : '' }}>
+                    {{ $type->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    {{-- Informações sobre o Member Doner --}}
+    <div class="form-group">
+        <label>ID do Membro Doador</label>
+        <input type="text" class="form-control" value="{{ $plan->member_doner->id }}" readonly>
+    </div>
+    <div class="form-group">
+        <label>Nome do Membro Doador</label>
+        <input type="text" class="form-control"
+            value="{{ $plan->member_doner->user->name ?? 'Nome não disponível' }}" readonly>
+    </div>
+</form>
+

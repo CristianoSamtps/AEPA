@@ -18,48 +18,32 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>ID do Projeto</th>
                                 <th>Titulo</th>
-                                <th>Subtitulo</th>
-                                <th>Descrição</th>
-                                <th>Estado</th>
-                                <th>Localidade</th>
-                                <th>Objetivos</th>
-                                <th>Destaque</th>
-                                {{-- <th>Data Final</th> --}}
-                                {{-- <th>Voluntariado</th>
-                                <th>Parceiros</th> --}}
                                 <th>Funções</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($projetos as $projeto)
                                 <tr>
+                                    <td>{{ $projeto->id }}</td>
                                     <td>{{ $projeto->titulo }}</td>
-                                    <td>{{ $projeto->subtitulo }}</td>
-                                    <td>{{ $projeto->descricao }}</td>
-                                    <td>{{ $projeto->estado }}</td>
-                                    <td>{{ $projeto->localidade }}</td>
-                                    <td>{{ $projeto->objetivos }}</td>
-                                    <td>{{ $projeto->fotografias }}</td>
-                                    {{-- <td>{{ $projeto->data_final }}</td> --}}
-                                    {{-- <td>{{ $projeto->voluntariado }}</td> --}}
-                                    {{-- <td>
-                                        @foreach ($projeto->partnerships as $partner)
-                                            {{ $partner->name }}{{ $loop->last ? '' : ',' }}
-                                        @endforeach
-                                    </td> --}}
                                     <td nowrap class="d-flex">
-                                        <a class="btn btn-xs btn-primary btn-p"
+                                        <a class="btn btn-xs btn-primary btn-p ml-1"
                                             href="{{ route('admin.projeto.show', $projeto) }}"><i
                                                 class="fas fa-eye fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-warning btn-p"
+                                        <a class="btn btn-xs btn-warning btn-p ml-1"
                                             href="{{ route('admin.projeto.edit', $projeto) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <form method="POST" action="{{ route('admin.projeto.destroy', $projeto) }}" role="form" class="inline"
+                                        <a class="btn btn-xs btn-success btn-p ml-1"
+                                            href="{{ route('admin.fotografias.index', $projeto) }}"><i
+                                                class="fas fa-image fa-xs"></i></a>
+                                        <form method="POST" action="{{ route('admin.projeto.destroy', $projeto) }}"
+                                            role="form" class="inline"
                                             onsubmit="return confirm('Confirma que pretende eliminar este projeto?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-xs btn-danger btn-p"><i
+                                            <button type="submit" class="btn btn-xs btn-danger btn-p ml-1"><i
                                                     class="fas fa-trash fa-xs"></i></button>
                                         </form>
                                     </td>
