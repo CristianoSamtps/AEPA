@@ -17,9 +17,9 @@
                         <th>Estado</th>
                         <th>Localidade</th>
                         <th>Objetivos</th>
-                        {{-- <th>Data Final</th>
+                        <th>Data Final</th>
                         <th>Voluntariado</th>
-                        <th>Parceiros</th> --}}
+                        {{-- <th>Parceiros</th> --}}
                         <th>Fotografia</th>
                     </tr>
                 </thead>
@@ -31,15 +31,21 @@
                         <td>{{ $projeto->estado }}</td>
                         <td>{{ $projeto->localidade }}</td>
                         <td>{{ $projeto->objetivos }}</td>
-                        <td>{{ $projeto->fotografias }}</td>
-                        {{-- <td>{{ $projeto->data_final }}</td> --}}
-                        {{-- <td>{{ $projeto->voluntariado }}</td>
+                        <td>{{ $projeto->data_final }}</td>
                         <td>
+                            @if ($projeto->voluntariado == 1)
+                                Sim
+                            @else
+                                Não
+                            @endif
+                        </td>
+                        {{-- <td>
                             @foreach ($projeto->partnerships as $partner)
                                 {{ $partner->name }}
                                 <br>
                             @endforeach
                         </td> --}}
+                        <td>{{ $projeto->fotografias }}</td>
                     </tr>
                 </tbody>
             </table>

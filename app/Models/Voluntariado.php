@@ -9,6 +9,8 @@ class Voluntariado extends Model
 {
     protected $fillable = ['user_id', 'projeto_id'];
 
+    protected $table = 'voluntariado';
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,6 +18,6 @@ class Voluntariado extends Model
 
     public function projeto()
     {
-        return $this->belongsTo(Projeto::class);
+        return $this->belongsTo(Projeto::class, 'projeto_id');
     }
 }
