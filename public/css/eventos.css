@@ -224,7 +224,7 @@ div.cardInfo:hover{
 }
 
 div#eventform{
-    transform: translateY(-155px);
+    transform: translateY(-280px);
     border-radius: 20px;
     padding: 50px;
     background-color: #fff;
@@ -282,7 +282,7 @@ div.socialicons{
 }
 
 div.eventinfo{
-    margin-top: 340px;
+    margin-top: 317px;
 }
 div.eventinfo h4{
     color: #263238;
@@ -301,10 +301,24 @@ div.eventinfo p,div.eventinfo li{
 }
 
 div.eventinfo p.infolabel{
-    color: rgba(38, 50, 56, 0.22);
+    color: rgba(59, 65, 67, 0.22);
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+}
+
+p.datatype{
+    color: #5f6b70;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+@media only screen and (max-width: 1279px) {
+    *,h1,p,h2,span{
+        font-size: 90%;
+    }
 }
 
