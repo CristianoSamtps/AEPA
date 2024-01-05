@@ -29,13 +29,13 @@
                 </div>
 
                 <div class="donates">
-                    @if()
+
                     <div class="adSuges">
                         <a href="#" onclick="openModal()">
                             <i class="fas fa-plus"></i> Nova sugestão
                         </a>
                     </div>
-                    @endif
+                
                     @foreach ($sugestoesList as $sugestao)
                         <div class="card">
                             @if ($sugestao->member_doner->user->foto)
