@@ -129,7 +129,10 @@
         <div id="container">
 
 
-            <div id="sidebar">
+            <div id="sidebar" data-aos="fade-right"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="400"
+            data-aos-duration="600">
                 <ul>
 
                     <li class="@if(Route::currentRouteName()=='projectsperfil') active @endif">
