@@ -240,32 +240,29 @@
                                     class="hide-menu">Eventos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
+                                <li class="sidebar-item"><a href="{{route('admin.eventos.index')}}" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os eventos
+                                </span></a></li>
+
                                 <li class="sidebar-item"><a href="{{route('admin.eventos.create')}}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon"></i><span class=""> Adicionar eventos </span></a>
                                 </li>
 
-                                <li class="sidebar-item"><a href=href="{{route('admin.eventos.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Editar eventos
-                                        </span></a></li>
-
-                                <li class="sidebar-item"><a href="{{route('admin.eventos.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os eventos
-                                        </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Projetos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
+
+                                <li class="sidebar-item"><a href="{{route('admin.projeto.index')}}" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os projetos
+                                </span></a></li>
+
                                 <li class="sidebar-item"><a href="{{route('admin.projeto.create')}}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon"></i><span class=""> Adicionar projetos </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="{{route('admin.projeto.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Editar projetos
-                                        </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.projeto.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os projetos
-                                        </span></a></li>
+
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -273,12 +270,10 @@
                                     class="hide-menu">Doações</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.doacoes.create')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Criar doação
-                                        </span></a></li>
                                 <li class="sidebar-item"><a href="{{route('admin.doacoes.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos as doações
-                                        </span></a></li>
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos as doações
+                                </span></a></li>
+
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -287,26 +282,28 @@
                             <ul aria-expanded="false" class="collapse  first-level">
 
                                 <li class="sidebar-item"><a href="{{route('admin.sugestoes.index')}}" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todas as
+                                    sugestões </span></a></li>
+
+                                <li class="sidebar-item"><a href="{{route('admin.sugestoes.index')}}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Criar sugestões
                                         </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.sugestoes.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos as
-                                            sugestões </span></a></li>
+
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Planos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
+
+                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os planos
+                                </span></a></li>
+
                                 <li class="sidebar-item"><a href="{{route('admin.plans.create')}}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon"></i><span class=""> Adicionar planos </span></a>
                                 </li>
-                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Editar planos
-                                        </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os planos
-                                        </span></a></li>
+
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -321,7 +318,7 @@
 
                                 <li class="sidebar-item"><a href="{{route('admin.users.create')}}" class="sidebar-link"><i
                                             class="mdi mdi-emoticon"></i><span class=""> Adicionar utilizador
-                                        </span></a></li>                      
+                                        </span></a></li>
 
                             </ul>
                         </li>
