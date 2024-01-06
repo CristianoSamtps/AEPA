@@ -11,11 +11,11 @@
     <main id="main">
         <div class="container col-md-12">
             @if ($errors->any())
-            @include ('layouts.partials.error_master')
-        @endif
-        @if (!empty(session('success')))
-            @include ('layouts.partials.success_master')
-        @endif
+                @include ('layouts.partials.error_master')
+            @endif
+            @if (!empty(session('success')))
+                @include ('layouts.partials.success_master')
+            @endif
         </div>
         <section class="container eventosHero"
             style="background-image:url('{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}')"
@@ -23,7 +23,7 @@
             <div class="">
                 <div class="col-md-12 eventosinfo">
                     <div class="eventcontent" style="text-align: center;padding-top:100px;">
-                        <h1 style="font-weight: 700;font-size:40px;">{{$event->name}}</h1>
+                        <h1 style="font-weight: 700;font-size:40px;">{{ $event->name }}</h1>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-6">
                             <p class="datatype">Vagas do eventos</p>
 
-                            <p>{{$vagasDisponiveis = $event->vagas - $event->participants->count()}} vagas disponivies</p>
+                            <p>{{ $vagasDisponiveis = $event->vagas - $event->participants->count() }} vagas disponivies</p>
                         </div>
                     </div>
                     <div class="row">
@@ -54,10 +54,25 @@
                     </div>
                     <div class="socialicons mt-5">
                         <h5 class="shortinfo">Compartilhe com os seus amigos e familiares</h5>
-                        <img src="{{ asset('img/Ícones/Twitter.svg') }}">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-facebook-f icon"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-x icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fab fa-instagram icon"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa-brands fa-whatsapp icon"></i></a>
+                            </li>
+                        </ul>
+                        {{-- <img src="{{ asset('img/Ícones/Twitter.svg') }}">
                         <img src="{{ asset('img/Ícones/Whatsapp.svg') }}">
                         <img src="{{ asset('img/Ícones/Facebook.svg') }}">
-                        <img src="{{ asset('img/Ícones/Instagram.svg') }}">
+                        <img src="{{ asset('img/Ícones/Instagram.svg') }}"> --}}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -73,7 +88,8 @@
                             <textarea disabled style="width:100%;" cols="auto" rows="3" placeholder=" Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já estás registado no evento</button>
+                                <button class="oldest" style="float: right;width:100%;">Já estás registado no
+                                    evento</button>
                             @else
                                 <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
                             @endif
@@ -99,9 +115,10 @@
                             @endif
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já estás registado no evento</button>
+                                <button class="oldest" style="float: right;width:100%;">Já estás registado no
+                                    evento</button>
                             @else
-                                <button type="submit" class="newest" style="float: right">Participar</button>
+                                <button type="submit" class="newest">Participar</button>
                             @endif
                         </form>
                     @endif
@@ -141,7 +158,7 @@
 
         <div class="heroBackground">
         </div>
-        <section class="container">
+        <section class="container" data-aos="fade-up">
             <div class="eventoscards row" style="margin-top: 80px">
                 <div class="d-flex col-md-12 eventosfiltersection">
                     <div class="col-md-6">
@@ -155,7 +172,7 @@
             </div>
         </section>
 
-        <section class="container eventoslist" style="margin-bottom: 200px;">
+        <section class="container eventoslist" style="margin-bottom: 200px;" data-aos="fade-up">
             <div class=" d-flex justify-content-between ">
                 @foreach ($events->take(4) as $event)
                     <div class="eventoCard col-md-3">
@@ -172,7 +189,8 @@
                         <div class="cardInfo text-center">
                             <h5 class="">{{ $event->name }}</h5>
                             <p class="cardDescription">{{ $event->descricao }}</p>
-                            <a href="{{ route('eventoinfo',['event'=> $event])}}"><button class="btn CardBtn">Saber mais</button></a>
+                            <a href="{{ route('eventoinfo', ['event' => $event]) }}"><button class="btn CardBtn">Saber
+                                    mais</button></a>
                         </div>
                     </div>
                 @endforeach

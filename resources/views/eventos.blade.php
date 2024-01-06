@@ -6,6 +6,7 @@
 
     <link href="{{ asset('/css/styleIndex.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/eventos.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
 @section('main')
@@ -23,9 +24,7 @@
                 </div>
             </div>
         </section>
-
         @else
-
             @if ($topevent)
                 <section class="container eventosHero"
                     style="background-image:url('{{ asset('storage/event_photos/' .$topevent->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}')"
@@ -67,7 +66,7 @@
                     </div>
                 </div>
             </section>
-            <section class="container eventoslist">
+            <section class="container eventoslist" data-aos="fade-up">
                 <div class=" d-flex justify-content-between ">
                     @foreach ($events->take(4) as $event)
                         <div class="eventoCard col-md-3">
@@ -132,7 +131,6 @@
                 </div>
             </div>
         </section>
-
 
         <div class="background">
             <img src="{{ asset('img/greyvector.svg') }}" alt="efeito de fundo">
