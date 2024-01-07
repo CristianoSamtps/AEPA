@@ -207,9 +207,6 @@
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
-            $(document).ready(function() {
-                var cardDescription = $('.cardDescription');
-                cardDescription.text(cardDescription.text().substring(0, 60));
-            });
+
         </script>
     @endsection

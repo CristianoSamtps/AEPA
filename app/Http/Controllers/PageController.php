@@ -92,7 +92,12 @@ class PageController extends Controller
     {
         $events = Event::all();
         $topevent = Event::orderBy('data', 'desc')->first();
-        return view('eventos', compact('events','topevent'));
+
+        foreach ($events as $eventshort){
+            $eventshort->descricao=str::limit($eventshort->descricao,60);
+        }
+
+        return view('eventos', compact('events','topevent','eventshort'));
     }
     public function eventoinfo(Event $event){
 
@@ -100,8 +105,10 @@ class PageController extends Controller
         $photos_events = PhotoEvent::all();
         $partners = PartnerShip::count();
 
-
-            return view('eventoinfo', compact('event','events','photos_events'));
+        foreach ($events as $eventshort){
+            $eventshort->descricao=str::limit($eventshort->descricao,60);
+        }
+            return view('eventoinfo', compact('event','events','photos_events','eventshort'));
 
     }
     public function galeria()
