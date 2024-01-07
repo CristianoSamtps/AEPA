@@ -30,7 +30,7 @@
 
             <div class="container-fluid d-flex mt-5 col-md-10" id="eventform">
                 <div class="forminfo col-md-6">
-                    <h4>{{ $event->name }}</h4>
+                    <h4>Detalhes do evento</h4>
                     <div class="row">
                         <div class="col-md-6">
                             <p class="datatype">Data do evento</p>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p class="datatype">Descrição do evento</p>
+                            <p class="datatype">Localização</p>
                             <p>{{ $event->localizacao }}</p>
                         </div>
                         <div class="col-md-6">
@@ -131,7 +131,7 @@
 
         <div class="container d-flex col-md-7 text-justify eventinfo">
             <div class="col-md-8 p-4">
-                <h4 class="mb-4">Detalhes do evento</h4>
+                <h4 class="mb-4">Informações adicionais</h4>
                 <ul>
                     <li>{{ $event->descricao }}</li>
                     <br>
@@ -141,6 +141,10 @@
                     <br>
                     <li>Número de identificação do evento: {{ $event->id }}</li>
                     <br>
+                    <li>Parcerias:
+                        @foreach ($event->partnerships as $partner)
+                        {{ $partner->name }}{{ $loop->last ? '' : ',' }}
+                    @endforeach</li>
                 </ul>
             </div>
             <div class="col-md-4 p-4">

@@ -6,18 +6,34 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\Projeto;
 use App\Models\Donation;
+use App\Models\Participant;
 use App\Models\PlanType;
 use App\Models\Sugestao;
 use App\Models\PhotoEvent;
 use App\Models\PartnerShip;
+use App\Models\FotografiaProjeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class PageController extends Controller
 {
     public function index()
     {
-        return view('index');
+
+        $projetos = Projeto::all();
+        $sugestoes = Sugestao::all();
+
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
+        $sugestoesList = Sugestao::where('listado', 'L')->take(4)->get();
+
+        foreach ($projetos as $projeto){
+            $projeto->subtitulo=str::limit($projeto->subtitulo,100);
+            $projeto->localidade = strstr($projeto->localidade, ',', true);
+        }
+
+        return view('index', compact('sugestoes','sugestoesList','projetos','fotografias'));
     }
     public function topDonates()
     {
@@ -82,6 +98,8 @@ class PageController extends Controller
 
         $events = Event::all();
         $photos_events = PhotoEvent::all();
+        $partners = PartnerShip::count();
+
 
             return view('eventoinfo', compact('event','events','photos_events'));
 
@@ -102,7 +120,9 @@ class PageController extends Controller
         $count_partners = PartnerShip::count();
         $count_donations = Donation::count();
         $count_suges = Sugestao::count();
+        $participants = Participant::count();
 
+        $events_with_participant_count = Event::has('participants')->withCount('participants')->orderByDesc('participants_count')->take(3)->get();
 
         $count_users_per_role = User::select('tipo', DB::raw('count(*) as
          count'))->groupBy('tipo')->get();
@@ -110,7 +130,7 @@ class PageController extends Controller
        /*  $count_events_per_user = User::withCount('events')->get(); */
 
         return view('_admin.dashboard', compact('count_events',
-            'count_users','count_users_per_role','count_projects','count_partners','count_donations','count_suges'));
+            'count_users','count_users_per_role','count_projects','count_partners','count_donations','count_suges','events_with_participant_count'));
     }
 
 }

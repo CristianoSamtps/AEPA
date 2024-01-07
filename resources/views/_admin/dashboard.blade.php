@@ -1,13 +1,12 @@
 @extends('layouts.admin')
 
 
-@section("title")
+@section('title')
     Dashboard
 @endsection
 
 @section('backoffice-content')
-
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-4">
                 <div class="card shadow">
@@ -17,7 +16,7 @@
                     </div>
                     <div class="card-body">
                         @foreach ($count_users_per_role as $item)
-                            <p>{{ $item->tipoToStr() }}: {{ $item->count }} utilizadores</p>
+                            <p>{{ $item->tipoToStr() }}: {{ $item->count }} utilizadore(s)</p>
                         @endforeach
                     </div>
                 </div>
@@ -30,9 +29,9 @@
                         <h3 style="display:inline;"> Eventos </h3>
                     </div>
                     <div class="card-body">
-                        {{-- @foreach ($count_events_per_user as $user)
-                            <p>{{ $user->name }}: {{ $user->count_events }} projetos</p>
-                        @endforeach --}}
+                        @foreach ($events_with_participant_count as $event)
+                           <p>{{ $event->name }}: {{ $event->participants_count }} participante(s)</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -96,5 +95,4 @@
 
         </div>
     </div>
-
 @endsection

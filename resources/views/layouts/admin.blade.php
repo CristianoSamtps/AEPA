@@ -235,6 +235,10 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item"> <a class="sidebar-link"
+                            href="{{route('admin.dashboard')}}" ><i class="mdi mdi-face"></i><span
+                                class="hide-menu">Dashboard</span></a>
+                      </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Eventos</span></a>

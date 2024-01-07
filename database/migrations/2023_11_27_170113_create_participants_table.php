@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('participants', function (Blueprint $table) {
 
             $table->id();
-            $table->string('obs', 255);
+            $table->string('obs', 255)->nullable();
             $table->timestamps(); //created_at e updated_at
 
             //chaves estrangeiras

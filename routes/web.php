@@ -54,8 +54,6 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 
-
-
 //Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
 Route::get('/galeria', [PageController::class, 'galeria'])->name('galeria');
