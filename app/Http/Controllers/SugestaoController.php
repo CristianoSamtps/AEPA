@@ -14,7 +14,6 @@ class SugestaoController extends Controller
     public function index()
     {
         $sugestoes = Sugestao::all();
-
         return view('_admin.sugestoes.index', compact('sugestoes'));
     }
 

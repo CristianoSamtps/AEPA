@@ -127,7 +127,10 @@ class PageController extends Controller
         $count_partners = PartnerShip::count();
         $count_donations = Donation::count();
         $count_suges = Sugestao::count();
+        $allsuges = Sugestao::take('3')->get();
         $participants = Participant::count();
+
+
 
         $events_with_participant_count = Event::has('participants')->withCount('participants')->orderByDesc('participants_count')->take(3)->get();
 
@@ -137,7 +140,7 @@ class PageController extends Controller
        /*  $count_events_per_user = User::withCount('events')->get(); */
 
         return view('_admin.dashboard', compact('count_events',
-            'count_users','count_users_per_role','count_projects','count_partners','count_donations','count_suges','events_with_participant_count'));
+            'count_users','count_users_per_role','count_projects','count_partners','count_donations','count_suges','events_with_participant_count','allsuges'));
     }
 
 }

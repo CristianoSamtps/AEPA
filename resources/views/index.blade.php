@@ -22,7 +22,6 @@
                     </div>
                     <div class="col-md-6">
                         <div id="herosvg">
-
                             <object data="{{ asset('img/heroanimation1.svg') }}" type="image/svg+xml"></object>
                         </div>
                     </div>
@@ -196,15 +195,11 @@
             </div>
         </section>
     </div>
-
 </main><!-- End #main -->
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $(document).ready(function() {
-        var cardDescription = $('.cardDescription');
-        cardDescription.text(cardDescription.text().substring(0, 20));
-    });
+
 </script>
 
 @endsection

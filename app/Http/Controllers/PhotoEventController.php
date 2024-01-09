@@ -17,7 +17,6 @@ class PhotoEventController extends Controller
     public function index(Event $event)
     {
         $photos = $event->photos;
-
         return view('_admin.fotografiasEvento.index', compact('event','photos'));
     }
 

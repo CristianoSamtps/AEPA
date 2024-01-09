@@ -12,10 +12,11 @@ class ParticipantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Event $event)
     {
-        $participant = Participant::all();
-        return view ('_admin.participants.index', compact('participant'));
+        $participantsevent = $event->name;
+        $participant = Participant::where('event_id', $event->id)->get();
+        return view ('_admin.participants.index', compact('participant','participantsevent'));
     }
 
     /**

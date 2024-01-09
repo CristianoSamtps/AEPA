@@ -327,11 +327,6 @@
                             </ul>
                         </li>
 
-
-
-
-
-
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -382,6 +377,8 @@
                     @include ('layouts.partials.success')
                     @endif
                 </div>
+
+
 
                 @yield('backoffice-content')
 
@@ -438,6 +435,7 @@
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="https://kit.fontawesome.com/a441b233b6.js" crossorigin="anonymous"></script>
     @yield('moreScripts')
 
 </body>
