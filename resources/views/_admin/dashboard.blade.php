@@ -128,42 +128,66 @@
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-user m-b-5 font-16"></i>
+                                            @if (isset($count_users))
                                             <h5 class="m-b-0 m-t-5">{{ $count_users }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Utilizadores</small>
                                         </div>
                                     </div>
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-thumbtack m-b-5 font-16"></i>
+                                            @if (isset($count_events))
                                             <h5 class="m-b-0 m-t-5">{{ $count_events }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Eventos</small>
                                         </div>
                                     </div>
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-umbrella-beach m-b-5 font-16"></i>
+                                            @if (isset($count_projects))
                                             <h5 class="m-b-0 m-t-5">{{ $count_projects }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Projetos</small>
                                         </div>
                                     </div>
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-message m-b-5 font-16"></i>
+                                            @if (isset($count_suges))
                                             <h5 class="m-b-0 m-t-5">{{ $count_suges }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Sugestões</small>
                                         </div>
                                     </div>
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-table m-b-5 font-16"></i>
+                                            @if (isset($count_donations))
                                             <h5 class="m-b-0 m-t-5">{{ $count_donations }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Doações</small>
                                         </div>
                                     </div>
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-globe m-b-5 font-16"></i>
+                                            @if (isset($count_partners))
                                             <h5 class="m-b-0 m-t-5">{{ $count_partners }}</h5>
+                                            @else
+                                            <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
                                             <small class="font-light">Parceiros</small>
                                         </div>
                                     </div>
@@ -291,6 +315,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title m-b-0">Progresso dos projetos</h4>
+                        @if (isset($proj))
                         @foreach ($proj as $projetos)
                             <div class="m-t-20">
                                 <div class="d-flex no-block align-items-center">
@@ -306,12 +331,16 @@
                                 </div>
                             </div>
                         @endforeach
+                        @else
+                            <p>Não existem projetos.</p>
+                        @endif
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title m-b-0">Participantes em eventos</h4>
+                        @if (isset($events_with_participant_count))
                         @foreach ($events_with_participant_count as $event)
                             <div class="m-t-20">
                                 <div class="d-flex no-block align-items-center">
@@ -327,6 +356,9 @@
                                 </div>
                             </div>
                         @endforeach
+                        @else
+                        <p>Não existem eventos de momento.</p>
+                    @endif
                     </div>
                 </div>
             </div>
