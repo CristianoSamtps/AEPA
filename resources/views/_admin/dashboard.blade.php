@@ -49,7 +49,7 @@
                     <div class="box bg-danger text-center">
                         <a href="{{ route('admin.sugestoes.index') }}">
                             <h1 class="font-light text-white"><i class="fa-solid fa-message"></i></h1>
-                            <h6 class="text-white">Suguestões</h6>
+                            <h6 class="text-white">Sugestões</h6>
                         </a>
                     </div>
                 </div>

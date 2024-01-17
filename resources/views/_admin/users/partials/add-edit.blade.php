@@ -27,6 +27,11 @@
 </div>
 
 <div class="form-group">
+    <label for="inputTL">Password</label>
+    <input type="password" class="form-control" name="password" id="inputTL" value="" />
+</div>
+
+<div class="form-group">
     <label for="inputG">Género</label>
     <select name="genero" id="inputG" class="form-control">
         <option value=""> </option>
