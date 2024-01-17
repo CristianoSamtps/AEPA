@@ -16,10 +16,10 @@
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel=" stylesheet" type="text/css">
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-    <link href="{{asset ('assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{asset ('css/matrix/style.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/matrix/style.min.css') }}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js')}} IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js')}} doesn't work if you view the page via file:// -->
@@ -56,12 +56,13 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="{{route('index')}}">
+                    <a class="navbar-brand" href="{{ route('index') }}">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="{{ asset('img/logo_green.svg') }}" alt="AEPABrandLogo" width="200" height="50">
+                            <img src="{{ asset('img/logo_green.svg') }}" alt="AEPABrandLogo" width="200"
+                                height="50">
 
                         </b>
                         <!--End Logo icon -->
@@ -117,8 +118,9 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                                    class="mdi mdi-bell font-24"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Action</a>
@@ -199,23 +201,29 @@
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="{{asset('assets/images/users/1.jpg')}}" alt="user" class="rounded-circle"
-                                    width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                                href="" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img src="{{ asset('assets/images/users/1.jpg') }}"
+                                    alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> O
+                                <a class="dropdown-item" href="javascript:void(0)"><i
+                                        class="ti-user m-r-5 m-l-5"></i> O
                                     meu perfil</a>
+
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="ti-settings m-r-5 m-l-5"></i> Configurar conta</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"><i
+                                        class="fa fa-power-off m-r-5 m-l-5"></i> {{ __('Logout') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                             </div>
                         </li>
+
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -235,21 +243,22 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link"
-                            href="{{route('admin.dashboard')}}" ><i class="mdi mdi-face"></i><span
-                                class="hide-menu">Dashboard</span></a>
-                      </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('admin.dashboard') }}"><i
+                                    class="mdi mdi-face"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
                                     class="hide-menu">Eventos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.eventos.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os eventos
-                                </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.eventos.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todos os eventos
+                                        </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.eventos.create')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon"></i><span class=""> Adicionar eventos </span></a>
+                                <li class="sidebar-item"><a href="{{ route('admin.eventos.create') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="">
+                                            Adicionar eventos </span></a>
                                 </li>
 
                             </ul>
@@ -259,12 +268,14 @@
                                     class="hide-menu">Projetos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.projeto.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os projetos
-                                </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.projeto.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todos os projetos
+                                        </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.projeto.create')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon"></i><span class=""> Adicionar projetos </span></a>
+                                <li class="sidebar-item"><a href="{{ route('admin.projeto.create') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="">
+                                            Adicionar projetos </span></a>
                                 </li>
 
                             </ul>
@@ -274,9 +285,10 @@
                                     class="hide-menu">Doações</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.doacoes.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos as doações
-                                </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.doacoes.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todos as doações
+                                        </span></a></li>
 
                             </ul>
                         </li>
@@ -285,12 +297,14 @@
                                     class="hide-menu">Sugestões</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.sugestoes.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todas as
-                                    sugestões </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.sugestoes.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todas as
+                                            sugestões </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.sugestoes.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Criar sugestões
+                                <li class="sidebar-item"><a href="{{ route('admin.sugestoes.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Criar sugestões
                                         </span></a></li>
 
                             </ul>
@@ -300,12 +314,14 @@
                                     class="hide-menu">Planos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.plantypes.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Planos
-                                </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.plantypes.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Planos
+                                        </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon"></i><span class=""> Subsrições </span></a>
+                                <li class="sidebar-item"><a href="{{ route('admin.plans.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="">
+                                            Subsrições </span></a>
                                 </li>
 
                             </ul>
@@ -316,12 +332,14 @@
 
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                            <li class="sidebar-item"><a href="{{route('admin.users.index')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os
+                                <li class="sidebar-item"><a href="{{ route('admin.users.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todos os
                                             utilizadores </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.users.create')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon"></i><span class=""> Adicionar utilizador
+                                <li class="sidebar-item"><a href="{{ route('admin.users.create') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="">
+                                            Adicionar utilizador
                                         </span></a></li>
 
                             </ul>
@@ -351,8 +369,8 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="fa fa-house"> <a href="{{ route('admin.dashboard') }}"
+                                            style="text-decoration: none;color:black;"> Dashboard</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -371,14 +389,12 @@
                 <div class="container-fluid">
 
                     @if ($errors->any())
-                    @include ('layouts.partials.error')
+                        @include ('layouts.partials.error')
                     @endif
                     @if (!empty(session('success')))
-                    @include ('layouts.partials.success')
+                        @include ('layouts.partials.success')
                     @endif
                 </div>
-
-
 
                 @yield('backoffice-content')
 
@@ -407,30 +423,30 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
-    <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
-    <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <script src="{{ asset('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/extra-libs/sparkline/sparkline.js') }}"></script>
     <!--Wave Effects -->
-    <script src="{{asset('js/matrix/waves.js')}}"></script>
+    <script src="{{ asset('js/matrix/waves.js') }}"></script>
     <!--Menu sidebar -->
-    <script src="{{asset('js/matrix/sidebarmenu.js')}}"></script>
+    <script src="{{ asset('js/matrix/sidebarmenu.js') }}"></script>
     <!--Custom JavaScript -->
-    <script src="{{asset('js/matrix/custom.min.js')}}"></script>
+    <script src="{{ asset('js/matrix/custom.min.js') }}"></script>
     <!--This page JavaScript -->
-    <!-- <script src="{{('dist/js/pages/dashboards/dashboard1.js')}}"></script> -->
+    <!-- <script src="{{ 'dist/js/pages/dashboards/dashboard1.js' }}"></script> -->
     <!-- Charts js Files -->
 
-    <script src="{{asset('assets/libs/flot/excanvas.js')}}"></script>
-    <script src="{{asset('assets/libs/flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('assets/libs/flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{asset('assets/libs/flot/jquery.flot.time.js')}}"></script>
-    <script src="{{asset('assets/libs/flot/jquery.flot.stack.js')}}"></script>
-    <script src="{{asset('assets/libs/flot/jquery.flot.crosshair.js')}}"></script>
-    <script src="{{asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
-    <script src="{{asset('js/matrix/pages/chart/chart-page-init.js')}}"></script>
+    <script src="{{ asset('assets/libs/flot/excanvas.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
+    <script src="{{ asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
+    <script src="{{ asset('js/matrix/pages/chart/chart-page-init.js') }}"></script>
 
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>

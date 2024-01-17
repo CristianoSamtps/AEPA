@@ -138,7 +138,7 @@ class PageController extends Controller
         $count_users_per_role = User::select('tipo', DB::raw('count(*) as count'))->groupBy('tipo')->get();
 
         /* Limitar a quantidade de dados adquiridos */
-        $suges = Sugestao::where('listado', 'NL')->take(3)->get();
+        $suges = Sugestao::where('listado', 'NL')->orderByDesc('created_at')->take(3)->get();
         $events = Event::take('4')->get();
         $proj = Projeto::take('4')->get();
         $recent_donations = Donation::orderByDesc('created_at')->get();

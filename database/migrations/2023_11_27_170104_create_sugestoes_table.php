@@ -21,8 +21,6 @@ return new class extends Migration
             $table->unsignedBigInteger('member_doner_id');
             $table->foreign('member_doner_id')->references('id')->on('members_doners');
 
-
-
             $table->timestamps();
         });
     }
