@@ -69,11 +69,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            {{-- <div class="col-lg-7">
+                            <div class="col-lg-7">
                                 <div class="">
                                     <div style=""> {!! $chart->container() !!}</div>
                                     <script src="{{ $chart->cdn() }}"></script>
-                                {{ $chart->script() }}
+                                    {{ $chart->script() }}
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -81,49 +81,115 @@
                                     <div class="col-6">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-user m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">2540</h5>
-                                            <small class="font-light">Total Users</small>
+                                            @if (isset($count_users))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_users }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Utilizadores</small>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-plus m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">120</h5>
-                                            <small class="font-light">New Users</small>
+                                            <i class="fa fa-thumbtack m-b-5 font-16"></i>
+                                            @if (isset($count_events))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_events }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Eventos</small>
                                         </div>
                                     </div>
                                     <div class="col-6 m-t-15">
                                         <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-cart-plus m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">656</h5>
-                                            <small class="font-light">Total Shop</small>
+                                            <i class="fa fa-umbrella-beach m-b-5 font-16"></i>
+                                            @if (isset($count_projects))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_projects }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Projetos</small>
                                         </div>
                                     </div>
                                     <div class="col-6 m-t-15">
                                         <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-tag m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">9540</h5>
-                                            <small class="font-light">Total Orders</small>
+                                            <i class="fa fa-message m-b-5 font-16"></i>
+                                            @if (isset($count_suges))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_suges }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Sugestões</small>
                                         </div>
                                     </div>
                                     <div class="col-6 m-t-15">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-table m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">100</h5>
-                                            <small class="font-light">Pending Orders</small>
+                                            @if (isset($count_donations))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_donations }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Doações</small>
                                         </div>
                                     </div>
                                     <div class="col-6 m-t-15">
                                         <div class="bg-dark p-10 text-white text-center">
                                             <i class="fa fa-globe m-b-5 font-16"></i>
-                                            <h5 class="m-b-0 m-t-5">8540</h5>
-                                            <small class="font-light">Online Orders</small>
+                                            @if (isset($count_partners))
+                                                <h5 class="m-b-0 m-t-5">{{ $count_partners }}</h5>
+                                            @else
+                                                <h5 class="m-b-0 m-t-5">0</h5>
+                                            @endif
+                                            <small class="font-light">Parceiros</small>
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">As doações mais recentes</h4>
+                                    </div>
+                                    <div class="comment-widgets scrollable" style="max-height: 130px;">
+                                        <!-- Comment Row -->
+                                        @foreach ($recent_donations as $donation)
+                                            <div class="d-flex flex-row comment-row m-t-0">
 
-                            <div class="col-lg-12">
+                                                @if ($donation->anonimo == 'S')
+                                                    <div class="p-2">
+                                                        <img src="assets/images/users/1.jpg" alt="user" width="50"
+                                                            class="rounded-circle">
+                                                    </div>
+                                                    <div class="comment-text w-100">
+                                                        <h6 class="font-medium">Doação anónima</h6>
+                                                    @else
+                                                        <div class="p-2">
+                                                            @if ($donation->member_doner->user->foto)
+                                                                <img src="{{ asset('storage/user_fotos/' . $donation->member_doner->user->foto) }}"
+                                                                    alt="user" width="50" class="rounded-circle">
+                                                            @else
+                                                                <img src="assets/images/users/1.jpg" alt="user"
+                                                                    width="50" class="rounded-circle">
+                                                            @endif
+                                                        </div>
+                                                        <div class="comment-text w-100">
+                                                            <h6 class="font-medium">
+                                                                {{ $donation->member_doner->user->name }}</h6>
+                                                @endif
+                                                <span class="m-b-15 d-block">{{ $donation->title }}</span>
+                                                <div class="comment-footer">
+                                                    <span
+                                                        class="text-muted float-right">{{ $donation->created_at }}</span>
+                                                    <button type="button" disabled
+                                                        class="btn btn-success">{{ $donation->valor }}€</button>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-4 mt-2">
                                         <div class="bg-dark p-10 text-white text-center">
@@ -192,14 +258,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- column -->
-                        </div>
+                            </div> --}}
+                        <!-- column -->
                     </div>
                 </div>
             </div>
+        </div>
 
-            {{-- <div class="col-md-4">
+        {{-- <div class="col-md-4">
                 <div class="card shadow">
                     <div class="card-header p-4">
                         <h1 style="display:inline;"> {{ $count_users }} </h1>
@@ -272,50 +338,50 @@
             </div> --}}
 
 
-            <div class="col-lg-6 col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Sugestões mais recentes</h4>
-                    </div>
-                    <div class="comment-widgets scrollable">
-                        @if (isset($suges))
-                            @foreach ($suges as $sugestao)
-                                <div class="d-flex flex-row comment-row m-t-0">
-                                    <div class="p-2">
-                                        @if ($sugestao->member_doner->user->foto)
-                                            <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"
-                                                alt="user" width="50" class="rounded-circle">
-                                        @else
-                                            <img src="{{ asset('img/default_user.jpg') }}" alt="Foto de perfil"
-                                                width="50" class="rounded-circle">
-                                        @endif
-                                    </div>
-                                    <div class="comment-text w-100">
-                                        <h6 class="font-medium">
-                                            <td>{{ $sugestao->member_doner->user->name }}</td>
-                                        </h6>
-                                        <span class="m-b-15 d-block">{{ $sugestao->sugestao }}</span>
-                                        <div class="comment-footer">
-                                            <span
-                                                class="text-muted float-right">{{ $sugestao->created_at->format('Y-m-d H:i') }}</span>
-                                            <button type="button" class="btn btn-success btn-sm">Publicar</button>
-                                            <button type="button" class="btn btn-danger btn-sm">Apagar</button>
-                                        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Sugestões mais recentes</h4>
+                </div>
+                <div class="comment-widgets scrollable">
+                    @if (isset($suges))
+                        @foreach ($suges as $sugestao)
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2">
+                                    @if ($sugestao->member_doner->user->foto)
+                                        <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"
+                                            alt="user" width="50" class="rounded-circle">
+                                    @else
+                                        <img src="{{ asset('img/default_user.jpg') }}" alt="Foto de perfil"
+                                            width="50" class="rounded-circle">
+                                    @endif
+                                </div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">
+                                        <td>{{ $sugestao->member_doner->user->name }}</td>
+                                    </h6>
+                                    <span class="m-b-15 d-block">{{ $sugestao->sugestao }}</span>
+                                    <div class="comment-footer">
+                                        <span
+                                            class="text-muted float-right">{{ $sugestao->created_at->format('Y-m-d H:i') }}</span>
+                                        <button type="button" class="btn btn-success btn-sm">Publicar</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Apagar</button>
                                     </div>
                                 </div>
-                            @endforeach
-                        @else
-                            <p>Não existem sugestões novas pendentes.</p>
-                        @endif
-                    </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Não existem sugestões novas pendentes.</p>
+                    @endif
                 </div>
             </div>
+        </div>
 
-            <div class="col-lg-6 col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title m-b-0">Progresso dos projetos</h4>
-                        @if (isset($proj))
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title m-b-0">Progresso dos projetos</h4>
+                    @if (isset($proj))
                         @foreach ($proj as $projetos)
                             <div class="m-t-20">
                                 <div class="d-flex no-block align-items-center">
@@ -331,16 +397,16 @@
                                 </div>
                             </div>
                         @endforeach
-                        @else
-                            <p>Não existem projetos.</p>
-                        @endif
-                    </div>
+                    @else
+                        <p>Não existem projetos.</p>
+                    @endif
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title m-b-0">Participantes em eventos</h4>
-                        @if (isset($events_with_participant_count))
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title m-b-0">Participantes em eventos</h4>
+                    @if (isset($events_with_participant_count))
                         @foreach ($events_with_participant_count as $event)
                             <div class="m-t-20">
                                 <div class="d-flex no-block align-items-center">
@@ -356,15 +422,15 @@
                                 </div>
                             </div>
                         @endforeach
-                        @else
+                    @else
                         <p>Não existem eventos de momento.</p>
                     @endif
-                    </div>
                 </div>
             </div>
-
-
         </div>
+
+
+    </div>
     </div>
 
 

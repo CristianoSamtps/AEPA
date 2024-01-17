@@ -3,6 +3,8 @@ namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use ArielMejiaDev\LarapexCharts\AreaChart;
+use Illuminate\Support\Facades\DB;
+use \app\Models\Donation;
 
 class MonthlyUsersChart
 {
@@ -17,11 +19,21 @@ class MonthlyUsersChart
     {
         $areaChart = new AreaChart();
 
-        return $areaChart
-            ->setTitle('Utilizadores mensais')
-            ->addData('Utilizadores ativos', \App\Models\User::query()->inRandomOrder()->limit(6)->pluck('id')->toArray())
-            ->addData('Inactive users', \App\Models\User::query()->inRandomOrder()->limit(6)->pluck('id')->toArray())
-            ->setXAxis(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'])
+        $donations = Donation::select(
+            DB::raw('SUM(valor) as sums'),
+            DB::raw('DATE_FORMAT(created_at, "%Y %m") as months')
+        )
+            ->orderBy('months')
+            ->groupBy('months')
+            ->get();
+
+            $donationData = $donations->pluck('sums')->toArray(); // Extrai os valores da coluna 'sums'
+            $months = $donations->pluck('months')->toArray(); // Extrai os valores da coluna 'months'
+
+            return $areaChart
+            ->setTitle('Total de doações mensais')
+            ->addData('Doações mensais', $donationData)
+            ->setXAxis($months)
             ->setColors(['#ffc63b', '#ff6384']);
     }
 }
