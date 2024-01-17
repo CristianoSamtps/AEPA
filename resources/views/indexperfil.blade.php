@@ -143,7 +143,7 @@
                         <div class="espacamento"></div>
                         @if ($user->donation && count($user->donation) > 0)
                             {{-- dd($user->donation); --}}
-                            @foreach ($user->donation->sortByDesc('created_at')->take(7) as $doacao)
+                            @foreach ($user->donation->sortByDesc('created_at')->take(6) as $doacao)
                                 <div class="resumo d-flex">
 
                                     <div class="data col-lg-1">

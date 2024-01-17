@@ -18,7 +18,7 @@
 
 <div class="form-group">
     <label for="inputDN">Data de nascimento</label>
-    <input type="date" class="form-control" name="data_nasc" id="inputDN" value="{{old('data_nasc',$user->data_nasc)}}" />
+    <input type="date" class="form-control" name="data_nascimento" id="inputDN" value="{{old('data_nascimento',$user->data_nascimento)}}" />
 </div>
 
 <div class="form-group">
