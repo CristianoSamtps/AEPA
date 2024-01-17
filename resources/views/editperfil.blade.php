@@ -58,7 +58,7 @@
 
                     <a href="{{ route('editperfil', auth()->user()) }}"><button class="cancelar" style="display: none;">Cancelar</button></a>
 
-                    <div class="custom-file-upload" style="display: none;">
+                    <div class="upload-imagem" style="display: none;">
                         <label for="foto">Editar imagem de Perfil</label>
                         <input type="file" id="foto" class="inseririmagem" name="foto" />
                     </div>
@@ -77,7 +77,7 @@
                 document.getElementById('editarPerfilBtn').addEventListener('click', function() {
                     document.querySelector('.edit-guardar').style.display = 'inline-block';
                     document.querySelector('.cancelar').style.display = 'inline-block';
-                    document.querySelector('.custom-file-upload').style.display = 'inline-block';
+                    document.querySelector('.upload-imagem').style.display = 'inline-block';
                     document.querySelector('.edit-email').style.display = 'block';
                     document.getElementById('editarPerfilBtn').style.display = 'none';
                     document.getElementById('membroBtn').style.display = 'none';

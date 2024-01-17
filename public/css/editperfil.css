@@ -100,7 +100,7 @@
     border-radius: 10px;
 }
 
-.custom-file-upload {
+.upload-imagem {
     text-align: center;
     width: 240px;
     height: 45px;
@@ -116,7 +116,7 @@
     cursor: pointer;
 }
 
-.custom-file-upload label {
+.upload-imagem label {
     cursor: pointer;
 }
 
