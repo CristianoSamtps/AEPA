@@ -151,9 +151,9 @@
                                     </div>
                                     <div class="comment-widgets scrollable" style="max-height: 130px;">
                                         <!-- Comment Row -->
+                                        @if($recent_donations)
                                         @foreach ($recent_donations as $donation)
                                             <div class="d-flex flex-row comment-row m-t-0">
-
                                                 @if ($donation->anonimo == 'S')
                                                     <div class="p-2">
                                                         <img src="assets/images/users/1.jpg" alt="user" width="50"
@@ -167,7 +167,7 @@
                                                                 <img src="{{ asset('storage/user_fotos/' . $donation->member_doner->user->foto) }}"
                                                                     alt="user" width="50" class="rounded-circle">
                                                             @else
-                                                                <img src="assets/images/users/1.jpg" alt="user"
+                                                                <img src="{{ asset('img/default_user.jpg') }}" alt="user"
                                                                     width="50" class="rounded-circle">
                                                             @endif
                                                         </div>
@@ -185,158 +185,17 @@
                                             </div>
                                     </div>
                                     @endforeach
+                                    @else
+                                    <p>Não existem doações registadas</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-
-                        {{-- <div class="col-lg-12">
-                                <div class="row">
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-user m-b-5 font-16"></i>
-                                            @if (isset($count_users))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_users }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Utilizadores</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-thumbtack m-b-5 font-16"></i>
-                                            @if (isset($count_events))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_events }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Eventos</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-umbrella-beach m-b-5 font-16"></i>
-                                            @if (isset($count_projects))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_projects }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Projetos</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-message m-b-5 font-16"></i>
-                                            @if (isset($count_suges))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_suges }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Sugestões</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-table m-b-5 font-16"></i>
-                                            @if (isset($count_donations))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_donations }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Doações</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 mt-2">
-                                        <div class="bg-dark p-10 text-white text-center">
-                                            <i class="fa fa-globe m-b-5 font-16"></i>
-                                            @if (isset($count_partners))
-                                            <h5 class="m-b-0 m-t-5">{{ $count_partners }}</h5>
-                                            @else
-                                            <h5 class="m-b-0 m-t-5">0</h5>
-                                            @endif
-                                            <small class="font-light">Parceiros</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
                         <!-- column -->
                     </div>
                 </div>
             </div>
         </div>
-
-        {{-- <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_users }} </h1>
-                        <h3 style="display:inline;"> Utilizadores </h3>
-                    </div>
-                    <div class="card-body">
-                        @foreach ($count_users_per_role as $item)
-                            <p>{{ $item->tipoToStr() }}: {{ $item->count }} utilizadore(s)</p>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_events }} </h1>
-                        <h3 style="display:inline;"> Eventos </h3>
-                    </div>
-                    <div class="card-body">
-                        @foreach ($events_with_participant_count as $event)
-                            <p>{{ $event->name }}: {{ $event->participants_count }} participante(s)</p>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_projects }} </h1>
-                        <h3 style="display:inline;"> Projetos </h3>
-                    </div>
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_partners }} </h1>
-                        <h3 style="display:inline;"> Parceiros </h3>
-                    </div>
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_donations }} </h1>
-                        <h3 style="display:inline;"> Doações </h3>
-                    </div>
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header p-4">
-                        <h1 style="display:inline;"> {{ $count_suges }} </h1>
-                        <h3 style="display:inline;"> Sugestões </h3>
-                    </div>
-                    <div class="card-body">
-                    </div>
-                </div>
-            </div> --}}
-
 
         <div class="col-lg-6 col-md-12">
             <div class="card">
