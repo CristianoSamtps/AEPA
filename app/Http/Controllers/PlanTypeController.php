@@ -43,10 +43,10 @@ class PlanTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PlanType $planType)
+    public function show($id)
     {
-        $plantypes = PlanType::all();
-        return view('_admin.plantypes.show', compact('plantypes'));
+        $planType = PlanType::findOrFail($id);
+        return view('_admin.plantypes.show', compact('planType'));
     }
 
     /**
