@@ -61,6 +61,8 @@ class PlanController extends Controller
     public function update(Request $request, $id)
     {
         $plans = PlanTable::findOrFail($id);
+        return view('_admin.plans.index', compact('plan', 'plantypes'));
+
 
     }
 
@@ -69,6 +71,9 @@ class PlanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $plans = PlanTable::findOrFail($id);
+        $plans->delete();
+
+        return redirect()->route('admin.plans.index');
     }
 }
