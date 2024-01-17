@@ -61,6 +61,7 @@ class PlanController extends Controller
     public function update(Request $request, $id)
     {
         $plans = PlanTable::findOrFail($id);
+
         return view('_admin.plans.index', compact('plan', 'plantypes'));
 
 

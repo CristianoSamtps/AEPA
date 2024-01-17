@@ -300,12 +300,12 @@
                                     class="hide-menu">Planos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
-                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Todos os planos
+                                <li class="sidebar-item"><a href="{{route('admin.plantypes.index')}}" class="sidebar-link"><i
+                                    class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Planos
                                 </span></a></li>
 
-                                <li class="sidebar-item"><a href="{{route('admin.plans.create')}}" class="sidebar-link"><i
-                                            class="mdi mdi-emoticon"></i><span class=""> Adicionar planos </span></a>
+                                <li class="sidebar-item"><a href="{{route('admin.plans.index')}}" class="sidebar-link"><i
+                                            class="mdi mdi-emoticon"></i><span class=""> Subsrições </span></a>
                                 </li>
 
                             </ul>
