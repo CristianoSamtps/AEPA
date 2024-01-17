@@ -39,7 +39,7 @@
                         <div class="col-md-6">
                             <p class="datatype">Vagas do eventos</p>
 
-                            <p>{{ $vagasDisponiveis = $event->vagas - $event->participants->count() }} vagas disponivies</p>
+                            <p>{{ $vagasDisponiveis = $event->vagas - $event->participants->count() }} vagas disponiveis</p>
                         </div>
                     </div>
                     <div class="row">

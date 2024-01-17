@@ -141,11 +141,12 @@ class PageController extends Controller
         $suges = Sugestao::where('listado', 'NL')->take(3)->get();
         $events = Event::take('4')->get();
         $proj = Projeto::take('4')->get();
+        $recent_donations = Donation::orderByDesc('created_at')->get();
 
 
         return view('_admin.dashboard', [
             'chart' => $chart->build(),
-        ])->with(compact('count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
+        ])->with(compact('recent_donations','count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
     }
 
 }
