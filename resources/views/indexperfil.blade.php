@@ -1,12 +1,11 @@
-
 @extends('layouts.master')
 
 @extends('layouts.usertemplate')
 
 @section('title', 'AEPA - Perfil')
 
-@section ('styles')
-<link href="{{ asset ('/css/perfil.css') }}" rel="stylesheet">
+@section('styles')
+    <link href="{{ asset('/css/perfil.css') }}" rel="stylesheet">
 @endsection
 
 @section('main-content')
@@ -14,11 +13,11 @@
 
     <div class="container-fluid">
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
 
             <div id="profileresume" class="col-lg-4">
 
-                <div class="imagemperfil">
+                <div class="imagemperfil" data-aos="zoom-out">
                     @if ($user->foto)
                         <img src="{{ asset('storage/user_fotos/' . $user->foto) }}" alt="Imagem de perfil">
                     @else
@@ -36,7 +35,7 @@
                     @endif
                 </p>
 
-                <a href="{{route('tornarMembro')}}"><button>Torne-se Membro</button></a>
+                <a href="{{ route('tornarMembro') }}"><button>Torne-se Membro</button></a>
 
                 <div class="caixa-detalhes">
                     <span>Email</span>
@@ -65,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
 
                 <div class="row">
 
@@ -137,7 +136,7 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                     <div id="resumedoacoes" class="col-lg-12">
                         <h2>Últimas Doações</h2>
                         <span><span class="x"></span></span>
@@ -173,7 +172,9 @@
                                         <div class="projeto col-lg-1"></div>
                                     @endif
 
-                                    <div class="estado col-lg-2">
+                                    <div class="estado col-lg-2" data-aos="flip-right"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="800">
                                         <button
                                             class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
                                             @if ($doacao->anonimo == 'N')
@@ -201,6 +202,5 @@
         </div>
 
     </div>
-
 
 @endsection

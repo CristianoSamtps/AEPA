@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Eventos
+    Participantes do evento - {{$participantsevent}}
 @endsection
 
 @section('backoffice-content')
@@ -19,28 +19,25 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>Data</th>
+                                <th>Observações</th>
+                                <th>id da inscrição</th>
+                                <th>Data de inscrição</th>
                                 <th>Funções</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($events as $event)
+                            @foreach ($participant as $participant)
                                 <tr>
-                                    <td>{{ $event->name }}</td>
-                                    <td>{{ $event->descricao }}</td>
+                                    <td>{{ $participant->member_doner->user->name }}</td>
+                                    <td>{{ $participant->obs }}</td>
+                                    <td>{{ $participant->id }}</td>
+                                    <td>{{ $participant->created_at }}</td>
 
                                     <td nowrap class="d-flex">
-                                        <a class="btn btn-xs btn-primary btn-p"
-                                            href="{{ route('admin.eventos.show', $event) }}"><i
-                                                class="fas fa-eye fa-xs"></i></a>
                                         <a class="btn btn-xs btn-warning btn-p ml-1"
-                                            href="{{ route('admin.eventos.edit', $event) }}"><i
+                                            href="{{ route('admin.eventos.edit', $participant) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-info btn-p ml-1" href=""><i
-                                                class="fas fa-users fa-xs"></i></a>
-                                        <a class="btn btn-xs btn-success btn-p ml-1" href="{{route('admin.fotografias.index',$event)}}"><i
-                                                class="fas fa-image fa-xs"></i></a>
-                                        <form method="POST" action="{{ route('admin.eventos.destroy', $event) }}"
+                                        <form method="POST" action="{{ route('admin.eventos.destroy', $participant) }}"
                                             role="form" class="inline"
                                             onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                                             @csrf
@@ -65,17 +62,42 @@
 
 @section('scripts')
     <script>
-        $('#dataTable').dataTable({
+      $('#dataTable').dataTable({
+            "lengthMenu": [5, 10, 15, 20],
             destroy: true,
             "order": [
                 [0, 'asc']
             ],
             "columns": [
                 null,
+                null,
+                null,
+                null,
+                {
+                    "orderable": false
+                },
+                {
+                    "orderable": false
+                },
                 {
                     "orderable": false
                 }
-            ]
+            ],
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registos por página",
+                "zeroRecords": "Não existem registos",
+                "info": "Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Sem registos associados",
+                "infoFiltered": "(Pesquisa efetuada em _MAX_  registos)",
+                "search": "Procura:",
+
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+            }
         });
     </script>
 @endsection

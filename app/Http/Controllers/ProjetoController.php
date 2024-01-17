@@ -8,7 +8,8 @@ use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoRequest;
 use App\Models\Donation;
-use App\Models\Volunteer;
+use App\Models\Voluntariado;
+use Illuminate\Support\Facades\Auth;
 
 class ProjetoController extends Controller
 {
@@ -41,7 +42,10 @@ class ProjetoController extends Controller
 
         $projetos = new Projeto();
         $projetos->fill($fields);
+
         $projetos->estado = $request->input('estado');
+        $projetos->voluntariado = $request->input('voluntariado', 0);
+
         if ($request->hasFile('foto')) {
             $imagePath = $request->file('foto')->store('img/Cidades', 'public');
 
@@ -50,6 +54,7 @@ class ProjetoController extends Controller
                 'destaque' => true,
             ]);
         }
+
         $projetos->save();
 
         return redirect()
@@ -70,7 +75,7 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        $partnerships = PartnerShip::all();
+        // $partnerships = PartnerShip::all();
         // $volunteer = Volunteer::all();
         // $donation = Donation::all();
         return view('_admin.projeto.edit', compact('projeto'));
@@ -85,6 +90,9 @@ class ProjetoController extends Controller
         $fields = $request->validated();
         $projeto->estado = $request->input('estado');
         $projeto->fill($fields);
+
+        // Atualize o campo voluntariado diretamente
+        $projeto->voluntariado = $request->input('voluntariado', 0);
         $projeto->save();
 
         return redirect()

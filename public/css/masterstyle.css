@@ -314,3 +314,16 @@ li.nav-item a.registo:hover{
     background: #ffffff;
     color: #019E59;
   }
+
+
+  div.imgtext{
+    background-color: #308b60b6;
+    border: 1px solid #308b60b4;
+    color: #fff;
+    border-radius: 50px;
+    padding: 5px;
+    padding-top: 20px;
+    margin: 0 auto;
+    transform: translateY(-250px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }

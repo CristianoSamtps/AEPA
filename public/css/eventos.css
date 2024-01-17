@@ -32,7 +32,7 @@ div.eventosinfo{
 }
 div.eventcontent{
 	padding: 40px;
-	margin-top: 70px;
+	margin-top: 80px;
 	color: #FFFF;
 	/* max-width: 600px; */
 }
@@ -171,16 +171,17 @@ button.all{
 }
 button.all:hover{
     scale: 1.1;
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in;
 }
 button.newest{
     border: solid 1px #019E59;
     border-radius: 20px;
     background-color: #019E59;
     color: #ffff;
-    width: 10rem;
+    width: 100%;
     margin-left: 10px;
     height: 2.3rem;
+    transition: ease-out;
 }
 
 button.oldest{
@@ -224,7 +225,7 @@ div.cardInfo:hover{
 }
 
 div#eventform{
-    transform: translateY(-155px);
+    transform: translateY(-280px);
     border-radius: 20px;
     padding: 50px;
     background-color: #fff;
@@ -266,23 +267,25 @@ div.socialicons h5.shortinfo{
     font-weight: 300;
     line-height: normal;
 }
-div.socialicons img{
-    transition: ease-in 0.1s;
+
+/* div.socialicons img{
+    transition: ease-in 0.5s;
     width: 50px;
 
 }div.socialicons img:hover{
     scale: 1.1;
     cursor: pointer;
+    transform: rotateY(360deg);
 }
 
 div.socialicons{
     position: absolute;
     bottom:0;
     margin-bottom:70px;
-}
+} */
 
 div.eventinfo{
-    margin-top: 340px;
+    margin-top: 317px;
 }
 div.eventinfo h4{
     color: #263238;
@@ -293,7 +296,7 @@ div.eventinfo h4{
 
 }
 div.eventinfo p,div.eventinfo li{
-    color: #019E59;
+    color: rgb(7, 7, 7);
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -301,10 +304,92 @@ div.eventinfo p,div.eventinfo li{
 }
 
 div.eventinfo p.infolabel{
-    color: rgba(38, 50, 56, 0.22);
+    color: rgba(59, 65, 67, 0.22);
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
 }
 
+p.datatype{
+    color: #5f6b70;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+}
+
+@media only screen and (max-width: 1279px) {
+    *,h1,p,h2,span{
+        font-size: 90%;
+    }
+}
+
+div.socialicons ul{
+    margin: 0px;
+    padding: 0px;
+}
+div.socialicons ul li {
+    display: inline-block;
+    list-style: none;
+  }
+
+  div.socialicons  ul li a {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 55px;
+    font-size: 25px;
+    margin: 0 10px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+  }
+
+  div.socialicons ul li a .icon {
+    position: relative;
+    color: #262626;
+    transition: .5s;
+    z-index: 3;
+  }
+
+  div.socialicons ul li a:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+  }
+
+  div.socialicons ul li a:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: .5s;
+    z-index: 2;
+  }
+
+  div.socialicons ul li a:hover:before {
+    top: 0;
+  }
+
+  div.socialicons ul li:nth-child(1) a:before{
+    background: #3b5999;
+  }
+
+  div.socialicons ul li:nth-child(2) a:before{
+    background: #55acee;
+  }
+
+  div.socialicons ul li:nth-child(3) a:before {
+    background: #aa2f1c;
+  }
+
+  div.socialicons ul li:nth-child(4) a:before {
+    background: #16a74e;
+  }

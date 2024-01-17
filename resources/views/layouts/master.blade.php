@@ -125,7 +125,6 @@
         </nav>
     </header><!-- End Header -->
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
 
@@ -134,9 +133,12 @@
         </div>
 
     </section><!-- End Hero -->
+
     @yield('main')
 
-    <div id="preloader"></div>
+    <div id="preloader">
+    </div>
+
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
@@ -155,8 +157,7 @@
 
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja
-                        Online</a></li>
+                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja Online</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
                 <li class="nav-item"><a href="{{ route('patrocinadores') }}"
                         class="nav-link px-2 text-muted">Patrocinadores</a></li>
@@ -169,6 +170,7 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
@@ -183,7 +185,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('/js/main.js') }}"></script>
-
+    @yield('moreScripts')
 </body>
 
 </html>

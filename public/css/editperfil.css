@@ -109,11 +109,98 @@
     height: 45px;
     border-radius: 50px;
     margin-bottom: 5px;
-    background: #999999;
+    background: #0071db;
     border-color: transparent;
     transition: ease-in all 0.1s;
 }
 
+#dadosconta button.edit:hover {
+    color: #0071db;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    width: 190px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: transparent;
+    border-color: #0071db;
+    transition: ease-in all 0.1s;
+}
+
+#dadosconta button.edit-guardar {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    width: 190px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: #019E59;
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+
+#dadosconta button.edit-guardar:hover {
+    color: #019E59;
+    font-size: 17px;
+    font-weight: 700;
+    width: 190px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: transparent;
+    border-color: #019E59;
+    transition: ease-in all 0.1s;
+}
+#dadosconta button.cancelar {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    width: 90px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: #d60000;
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+#dadosconta a.cancelar:hover {
+    color: #d60000;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    background: transparent;
+    border-color: #d60000;
+    transition: ease-in all 0.1s;
+}
+
+#dadosconta button.edit-email {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    width: 240px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: #0071db;
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+#dadosconta button.edit-email:hover {
+    color: #0071db;
+    font-size: 17px;
+    font-weight: 700;
+    width: 240px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: transparent;
+    border-color: #0071db;
+    transition: ease-in all 0.1s;
+}
 #dadosconta button.membro {
     color: #FFF;
     font-size: 17px;
@@ -150,7 +237,7 @@
     margin: 10px !important;
 }
 
-.caixa-detalhes-grande span.txt {
+.caixa-detalhes-grande label.txt {
     position: absolute;
     color: #9D9D9D;
     font-size: 14px;
@@ -160,7 +247,9 @@
     margin-top: 15px;
 }
 
-.caixa-detalhes-grande p {
+.caixa-detalhes-grande .input {
+    background-color: transparent;
+    border: 0px;
     color: #000;
     font-size: 16px;
     font-style: normal;
@@ -174,12 +263,21 @@
     text-align: left;
     height: 67px;
     border-radius: 25px;
-    background: #E8E8E8;
+    background: #e8e8e8;
     box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
     margin: 10px !important;
 }
 
-#dados2 .caixa-detalhes span.txt {
+#dados2 .editavel {
+    text-align: left;
+    height: 67px;
+    border-radius: 25px;
+    background: #D5DEEF;
+    box-shadow: 4px 4px 9px 0px rgba(38, 57, 70, 0.733);
+    margin: 10px !important;
+}
+
+#dados2 .caixa-detalhes label.txt {
     position: absolute;
     color: #9D9D9D;
     font-size: 14px;
@@ -189,7 +287,13 @@
     margin-top: 15px;
 }
 
-#dados2 .caixa-detalhes p {
+input{
+    outline: none;
+}
+
+#dados2 .caixa-detalhes .input {
+    background-color: transparent;
+    border: 0px transparent !important;
     color: #000;
     font-size: 16px;
     font-style: normal;

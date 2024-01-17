@@ -4,8 +4,8 @@
 </div>
 <div class="form-group">
     <label for="inputdate">Data</label>
-    <input type="date" class="form-control" name="data" id="inputdate"
-        value="{{ old('data', date_format(date_create($event->data), 'Y-m-d')) }}" />
+    <input type="datetime-local" class="form-control" name="data" id="inputdate"
+        value="{{ old('data', ($event->data)) }}" />
 </div>
 <div class="form-group">
     <label for="inputDesc">Descricão</label>

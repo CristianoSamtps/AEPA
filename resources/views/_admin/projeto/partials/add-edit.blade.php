@@ -35,22 +35,19 @@
         value="{{ old('objetivos', isset($projeto) ? $projeto->objetivos : '') }}" />
 </div>
 <div class="form-group">
-    <label for="inputFotografia">Fotografia</label>
-    <input type="file" class="form-control" name="fotografias" id="inputFotografia"/>
-</div>
-
-{{-- <div class="form-group">
     <label for="inputDataFinal">Data Final</label>
-    <input type="date" class="form-control" name="data" id="inputDataFinal"
-        value="{{ old('data', date_format(date_create($projetos->data_final), 'm-d-Y')) }}" />
-</div> --}}
-{{-- <div class="form-group">
+    <input type="date" class="form-control" name="data_final" id="inputDataFinal"
+        value="{{ old('data_final', isset($projeto) ? date('Y-m-d', strtotime($projeto->data_final)) : '') }}" />
+</div>
+<div class="form-group">
     <label for="inputVoluntariado">Voluntariado</label>
     <select class="form-control" name="voluntariado" id="inputVoluntariado">
-        <option value="1" {{ old('voluntariado', $projetos->voluntariado) == 1 ? 'selected' : '' }}>Sim</option>
-        <option value="0" {{ old('voluntariado', $projetos->voluntariado) == 0 ? 'selected' : '' }}>Não</option>
+        <option value="1"
+            {{ old('voluntariado', isset($projeto) && $projeto->voluntariado == 1 ? 'selected' : '') }}>Sim</option>
+        <option value="0"
+            {{ old('voluntariado', isset($projeto) && $projeto->voluntariado == 0 ? 'selected' : '') }}>Não</option>
     </select>
-</div> --}}
+</div>
 {{-- <div class="form-group">
     <label for="inputLoc">Parceiros</label>
     <select name="partnerships[]" multiple>
@@ -58,4 +55,8 @@
             <option value="{{ $p->id }}">{{ $p->name }}</option>
         @endforeach
     </select>
+</div>
+<div class="form-group">
+    <label for="inputFotografia">Fotografia</label>
+    <input type="file" class="form-control" name="fotografias" id="inputFotografia" />
 </div> --}}
