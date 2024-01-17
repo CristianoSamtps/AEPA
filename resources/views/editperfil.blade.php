@@ -118,7 +118,7 @@
                         <option value=""> </option>
                         <option value="F" {{ old('genero', $user->genero) == 'F' ? 'selected' : '' }}>Feminino
                         </option>
-                        <option value="M" {{ old('genero', $user->genero) == 'M' ? 'selected' : '' }}>Maculino
+                        <option value="M" {{ old('genero', $user->genero) == 'M' ? 'selected' : '' }}>Masculino
                         </option>
                         <option value="O" {{ old('genero', $user->genero) == 'O' ? 'selected' : '' }}>Outro
                         </option>
