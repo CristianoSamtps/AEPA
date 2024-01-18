@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Projeto;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProjetoRequest extends FormRequest
 {
@@ -23,17 +24,30 @@ class ProjetoRequest extends FormRequest
     public function rules(): array
     {
         $currentId = $this->projetos ? $this->projetos->id : null;
+
+        $tituloRules = [
+            'required',
+            'min:3',
+            'max:40',
+            'regex:/^[A-ZÀ-úa-z\'\s]+/',
+        ];
+
+        // Adicionamos a regra de unicidade apenas se estivermos criando um novo projeto
+        if ($this->isMethod('post')) {
+            $tituloRules[] = Rule::unique('projetos', 'titulo');
+        }
+
         return [
-            'titulo' => 'required|min:3|max:40|unique:projetos,titulo,' . $currentId . '|regex:/^[A-ZÀ-úa-z\'\s]+$/',
-            'subtitulo' => 'required|string|max:110|regex:/^[A-ZÀ-úa-z\s]+$/',
-            'descricao' => 'required|string|min:25|regex:/^[A-ZÀ-úa-z\s\.,]+$/',
+            'titulo' => $tituloRules,
+            'subtitulo' => 'required|string|max:110|regex:/^[A-ZÀ-úa-z\s]+/',
+            'descricao' => 'required|string|min:25|regex:/^[A-ZÀ-úa-z\s\.,]+/',
             'estado' => 'required|string|in:' . implode(',', array_keys(Projeto::estado_opcoes())),
-            'localidade' => 'required|string|max:50|regex:/^[A-ZÀ-úa-z\s,]+$/',
+            'localidade' => 'required|string|max:50|regex:/^[A-ZÀ-úa-z\s,]+/',
             'objetivos' => 'required|string|max:8|regex:/^\d{1,10}(\.\d{2})?$/',
             'data_final' => 'date|after_or_equal:now',
-            'fotografias' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
+
 
     public function messages()
     {
@@ -59,9 +73,6 @@ class ProjetoRequest extends FormRequest
             'objetivos.regex' => 'Os Objetivos devem conter apenas números (máximo 99999.99).',
             'data_final.date' => 'A Data Final deve ser uma data válida.',
             'data_final.after_or_equal' => 'A Data Final deve ser igual ou posterior à data atual.',
-            'fotografias.image' => 'A Fotografia deve ser uma imagem.',
-            'fotografias.mimes' => 'A Fotografia deve ser do tipo jpeg, png, jpg ou gif.',
-            'fotografias.max' => 'A Fotografia não pode ter mais do que 2048 KB.',
         ];
     }
 }

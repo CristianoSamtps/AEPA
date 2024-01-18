@@ -28,9 +28,10 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        $projetos = new Projeto;
+        $projeto = new Projeto;
         $partnerships = PartnerShip::all();
-        return view('_admin.projeto.create', compact('projetos', 'partnerships'));
+
+        return view('_admin.projeto.create', compact('projeto', 'partnerships'));
     }
 
     /**
@@ -46,16 +47,13 @@ class ProjetoController extends Controller
         $projetos->estado = $request->input('estado');
         $projetos->voluntariado = $request->input('voluntariado', 0);
 
-        if ($request->hasFile('foto')) {
-            $imagePath = $request->file('foto')->store('img/Cidades', 'public');
-
-            $projetos->fotografias()->create([
-                'foto' => $imagePath,
-                'destaque' => true,
-            ]);
-        }
-
         $projetos->save();
+
+        if ($request->has('partnerships')) {
+            foreach ($request->input('partnerships') as $partnershipId) {
+                $projetos->partnerships()->attach($partnershipId);
+            }
+        }
 
         return redirect()
             ->route('admin.projeto.index')
@@ -75,11 +73,9 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
-        // $partnerships = PartnerShip::all();
-        // $volunteer = Volunteer::all();
-        // $donation = Donation::all();
-        return view('_admin.projeto.edit', compact('projeto'));
-        // return view('_admin.projeto.edit', compact('projetos', 'partnerships', 'volunteer', 'donation'));
+        $partnerships = PartnerShip::all();
+        $selectedPartnerships = $projeto->partnerships->pluck('id')->toArray();
+        return view('_admin.projeto.edit', compact('projeto', 'partnerships', 'selectedPartnerships'));
     }
 
     /**
@@ -90,21 +86,28 @@ class ProjetoController extends Controller
         $fields = $request->validated();
         $projeto->estado = $request->input('estado');
         $projeto->fill($fields);
-
-        // Atualize o campo voluntariado diretamente
-        $projeto->voluntariado = $request->input('voluntariado', 0);
         $projeto->save();
-
+    
+        // Sincronize as parcerias associadas ao projeto
+        if ($request->has('partnerships')) {
+            $projeto->partnerships()->sync($request->input('partnerships'));
+        } else {
+            // Se nenhuma parceria for selecionada, remova todas as associações existentes
+            $projeto->partnerships()->detach();
+        }
+    
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto atualizado com sucesso');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Projeto $projeto)
     {
+        $projeto->partnerships()->detach();
         $projeto->delete();
 
         return redirect()

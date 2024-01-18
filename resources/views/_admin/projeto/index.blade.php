@@ -20,6 +20,9 @@
                             <tr>
                                 <th>ID do Projeto</th>
                                 <th>Titulo</th>
+                                <th>Objetivos</th>
+                                <th>Estado</th>
+                                {{-- <th>Fotografia Destaque</th> --}}
                                 <th>Funções</th>
                             </tr>
                         </thead>
@@ -28,6 +31,9 @@
                                 <tr>
                                     <td>{{ $projeto->id }}</td>
                                     <td>{{ $projeto->titulo }}</td>
+                                    <td>{{ $projeto->objetivos }}€</td>
+                                    <td>{{ $projeto->estado }}</td>
+                                    {{-- <td>{{ $projeto->imagem }}</td> --}}
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-primary btn-p ml-1"
                                             href="{{ route('admin.projeto.show', $projeto) }}"><i

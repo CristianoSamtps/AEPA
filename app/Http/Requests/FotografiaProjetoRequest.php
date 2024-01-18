@@ -22,7 +22,16 @@ class FotografiaProjetoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'fotografias' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'fotografias.image' => 'A Fotografia deve ser uma imagem.',
+            'fotografias.mimes' => 'A Fotografia deve ser do tipo jpeg, png, jpg ou gif.',
+            'fotografias.max' => 'A Fotografia não pode ter mais do que 2048 KB.',
         ];
     }
 }

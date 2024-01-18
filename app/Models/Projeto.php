@@ -39,10 +39,10 @@ class Projeto extends Model
         return $this->hasMany(FotografiaProjeto::class, 'projeto_id');
     }
 
-    // public function partnerships()
-    // {
-    //     return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
-    // }
+    public function partnerships()
+    {
+        return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
+    }
 
     public function donations()
     {

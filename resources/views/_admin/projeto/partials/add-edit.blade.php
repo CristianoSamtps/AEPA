@@ -37,7 +37,7 @@
 <div class="form-group">
     <label for="inputDataFinal">Data Final</label>
     <input type="date" class="form-control" name="data_final" id="inputDataFinal"
-        value="{{ old('data_final', isset($projeto) ? date('Y-m-d', strtotime($projeto->data_final)) : '') }}" />
+        value="{{ old('data_final', isset($projeto) ? $projeto->data_final : '') }}" />
 </div>
 <div class="form-group">
     <label for="inputVoluntariado">Voluntariado</label>
@@ -48,15 +48,15 @@
             {{ old('voluntariado', isset($projeto) && $projeto->voluntariado == 0 ? 'selected' : '') }}>Não</option>
     </select>
 </div>
-{{-- <div class="form-group">
-    <label for="inputLoc">Parceiros</label>
-    <select name="partnerships[]" multiple>
-        @foreach ($partnerships as $p)
-            <option value="{{ $p->id }}">{{ $p->name }}</option>
-        @endforeach
-    </select>
-</div>
 <div class="form-group">
-    <label for="inputFotografia">Fotografia</label>
-    <input type="file" class="form-control" name="fotografias" id="inputFotografia" />
-</div> --}}
+    <label for="inputLoc">Parcerias</label>
+    @foreach ($partnerships as $partnership)
+        @php
+            $isChecked = $projeto->partnerships->contains($partnership->id);
+        @endphp
+        <div class="form-check">
+            <input type="checkbox" name="partnerships[]" value="{{ $partnership->id }}" {{ $isChecked ? 'checked' : '' }}>
+            <label class="form-check-label">{{ $partnership->name }}</label>
+        </div>
+    @endforeach
+</div>

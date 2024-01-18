@@ -30,7 +30,7 @@
                             <h3>{{ $projeto->localidade }}</h3>
                             @foreach ($fotografias as $fotografia)
                                 @if ($fotografia->projeto_id === $projeto->id)
-                                    <img src="{{ asset($fotografia->foto) }}" alt="{{ $projeto->titulo }}">
+                                <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}" alt="{{ $projeto->titulo }}">
                                 @break
                             @endif
                         @endforeach
