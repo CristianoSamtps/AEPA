@@ -60,8 +60,8 @@
                             <h2 class="text-left m-2">Outros eventos</h2>
                         </div>
                         <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-                            <a href=""><button class="all">Todos</button></a>
-                            <a href=""><button class="newest">Os mais recentes</button></a>
+                            <a href=""><button class="all green-btn1">Todos</button></a>
+                            <a href=""><button class="newest green-btn1">Os mais recentes</button></a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <h5 class="mb-5 lh-base">Juntar a comunidade que torna este sonho realidade e fazer um evento de
                             recordar, ajudas em projetos de reconstrução ambiental e disciplinate-te para um futuro melhor.
                         </h5>
-                        <a><button class="btn green-btn1">Participar</button></a>
+                        <a><button class="green-btn1">Participar</button></a>
                         <a><button class="btn hero-btn2">Saber mais</button></a>
                     </div>
                     <div class="col-md-6">
@@ -150,7 +150,7 @@
                         <h5 class="mb-5 lh-base">Oferecer a oportunidade única de contribuir ativamente para a preservação
                             do nosso planeta, enquanto nos conectamos com uma comunidade dedicada à sustentabilidade
                         </h5>
-                        <a><button class="btn green-btn1">Saber mais</button></a>
+                        <a><button class="green-btn1">Saber mais</button></a>
                     </div>
                 </div>
             </div>

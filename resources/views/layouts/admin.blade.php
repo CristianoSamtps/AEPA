@@ -243,11 +243,16 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
+                        <style>
+                            i.fa-solid{
+                                font-size: 100% !important;
+                            }
+                        </style>
                         <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('admin.dashboard') }}"><i
-                                    class="mdi mdi-face"></i><span class="hide-menu">Dashboard</span></a>
+                                    class="fa-solid fa-table-columns"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-thumbtack"></i><span
                                     class="hide-menu">Eventos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
@@ -264,7 +269,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-umbrella-beach"></i><span
                                     class="hide-menu">Projetos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
@@ -281,7 +286,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-tree"></i><span
                                     class="hide-menu">Doações</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
@@ -293,7 +298,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-message"></i><span
                                     class="hide-menu">Sugestões</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
@@ -310,7 +315,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-file"></i><span
                                     class="hide-menu">Planos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
@@ -327,7 +332,7 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-user"></i><span
                                     class="hide-menu">Users</span></a>
 
                             <ul aria-expanded="false" class="collapse  first-level">

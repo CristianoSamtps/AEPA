@@ -133,7 +133,7 @@ div.eventoCard:hover .eventoCardImg {
 
 div.eventoCard:not(:hover) .eventoCardImg {
   height: 60%;
-  transition: 0.3s linear;
+  transition:  0.3s linear;
 }
 
 div.cardInfo{
@@ -141,6 +141,7 @@ div.cardInfo{
 	margin-top: 235px;
 	position: relative;
 	z-index: 3;
+    transition: ease-in-out 0.2s;
 }
 
 div.eventosfilter a{
@@ -161,25 +162,13 @@ div.eventosfiltersection h4 {
 }
 
 button.all{
-    border: solid 1px #019E59;
-    border-radius: 20px;
-    background-color: white;
-    color: #019E59;
     width: 7rem;
     margin-left: 10px;
     height: 2.3rem;
 }
-button.all:hover{
-    scale: 1.1;
-    transition: 0.5s ease-in;
-}
+
 button.newest{
-    border: solid 1px #019E59;
-    border-radius: 20px;
-    background-color: #019E59;
-    color: #ffff;
-    width: 100%;
-    margin-left: 10px;
+    width: 11rem;
     height: 2.3rem;
     transition: ease-out;
 }
@@ -193,10 +182,7 @@ button.oldest{
     margin-left: 10px;
     height: 2.3rem;
 }
-button.newest:hover{
-    scale: 1.1;
-    transition: 0.5s ease-in-out;
-}
+
 
 .col-md-3{
 	width: 22% !important;
@@ -220,7 +206,7 @@ button.CardBtn{
 }
 
 div.cardInfo:hover{
-    transition: all 0.2s;
+    transition: ease-in-out 0.2s;
     margin-top: 180px;
 }
 
@@ -268,21 +254,7 @@ div.socialicons h5.shortinfo{
     line-height: normal;
 }
 
-/* div.socialicons img{
-    transition: ease-in 0.5s;
-    width: 50px;
 
-}div.socialicons img:hover{
-    scale: 1.1;
-    cursor: pointer;
-    transform: rotateY(360deg);
-}
-
-div.socialicons{
-    position: absolute;
-    bottom:0;
-    margin-bottom:70px;
-} */
 
 div.eventinfo{
     margin-top: 317px;

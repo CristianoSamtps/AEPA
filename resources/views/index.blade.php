@@ -17,8 +17,8 @@
                         <h5>Com mais de 12 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa
                             maravilhosa equipa.
                         </h5>
-                        <a href="{{ route('sobreNos') }}"><button class="btn green-btn1">Associação</button></a>
-                        <a href="{{ route('doacoes') }}"><button class="btn hero-btn2">Doações</button></a>
+                        <a href="{{ route('sobreNos') }}"><button class="green-btn1">Associação</button></a>
+                        <a href="{{ route('doacoes') }}"><button class="hero-btn2">Doações</button></a>
                     </div>
                     <div class="col-md-6">
                         <div id="herosvg">
@@ -67,7 +67,7 @@
                         <div class="col-md-6 hidden">
                             <p class="sectionIndicator">Projetos em destaque</p>
                             <h1>Estamos a construir um mundo melhor, com um futuro sustentável e duradouro.</h1>
-                            <a class="link-light" href="{{ route('projects') }}"><button class="btn green-btn1">Ver mais
+                            <a class="link-light" href="{{ route('projects') }}"><button class="green-btn1">Ver mais
                                     Projetos</button></a>
                         </div>
                         <div class="col-md-6 hidden2">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
-                    <a href="{{ route('sobreNos') }}"><button class="btn green-btn1">Sobre nós</button></a>
+                    <a href="{{ route('sobreNos') }}"><button class="green-btn1">Sobre nós</button></a>
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
                     <div class="col-md-12 d-flex justify-content-center">
 
                         <a class="link-light" href="{{ route('tornarMembro') }}"><button
-                                class="btn green-btn1">Tornar membro</button></a>
+                                class="green-btn1">Tornar membro</button></a>
                         <a href="{{ route('sugestoes') }}"><button class="btn hero-btn2">Sugestões</button></a>
                     </div>
                 </div>

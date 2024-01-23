@@ -14,7 +14,7 @@
                 @include ('layouts.partials.error_master')
             @endif
             @if (!empty(session('success')))
-                @include ('layouts.partials.success_master')
+                @include ('layouts.partials.modal_master')
             @endif
         </div>
         <section class="container eventosHero"
@@ -69,10 +69,6 @@
                                 <a href="#"><i class="fa-brands fa-whatsapp icon"></i></a>
                             </li>
                         </ul>
-                        {{-- <img src="{{ asset('img/Ícones/Twitter.svg') }}">
-                        <img src="{{ asset('img/Ícones/Whatsapp.svg') }}">
-                        <img src="{{ asset('img/Ícones/Facebook.svg') }}">
-                        <img src="{{ asset('img/Ícones/Instagram.svg') }}"> --}}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -88,7 +84,7 @@
                             <textarea disabled style="width:100%;" cols="auto" rows="3" placeholder=" Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já estás registado no
+                                <button class="oldest" disabled style="float: right;width:100%;">Já estás registado no
                                     evento</button>
                             @else
                                 <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
@@ -115,21 +111,29 @@
                             @endif
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" style="float: right;width:100%;">Já estás registado no
+                                <button class="oldest" disabled style="float: right;width:100%;">Já estás registado no
                                     evento</button>
                             @else
-                                <button type="submit" class="newest">Participar</button>
+                                <!-- Button trigger modal -->
+                                <button type="submit" style="width:100%" class="newest green-btn1" data-toggle="modal" data-target="#exampleModal">
+                                    Participar
+                                </button>
                             @endif
+
                         </form>
                     @endif
-                    <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores dimensões
-                        <a href="">aqui</a>.
+                    <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores
+                        dimensões
+                        <a style="color:black; text-decoration:underline" href="#eventinfo">aqui</a>.
                     </p>
                 </div>
+
+
             </div>
+
         </section>
 
-        <div class="container d-flex col-md-7 text-justify eventinfo">
+        <div class="container d-flex col-md-7 text-justify eventinfo" id="eventinfo">
             <div class="col-md-8 p-4">
                 <h4 class="mb-4">Informações adicionais</h4>
                 <ul>
@@ -143,8 +147,9 @@
                     <br>
                     <li>Parcerias:
                         @foreach ($event->partnerships as $partner)
-                        {{ $partner->name }}{{ $loop->last ? '' : ',' }}
-                    @endforeach</li>
+                            {{ $partner->name }}{{ $loop->last ? '' : ',' }}
+                        @endforeach
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4 p-4">
@@ -169,8 +174,8 @@
                         <h2 class="text-left m-2">Outros eventos</h2>
                     </div>
                     <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-                        <a href=""><button class="all">Todos</button></a>
-                        <a href=""><button class="newest">Os mais recentes</button></a>
+                        <a href=""><button class="all green-btn1">Todos</button></a>
+                        <a href=""><button class="newest green-btn1">Os mais recentes</button></a>
                     </div>
                 </div>
             </div>
@@ -207,6 +212,9 @@
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
-
+            $(document).ready(function() {
+                $('#exampleModal').modal('show');
+            });
         </script>
+
     @endsection

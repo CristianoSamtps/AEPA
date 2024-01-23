@@ -6,7 +6,7 @@
 
 a,a:hover{
     text-decoration: none;
-    color: black;
+    color: #ffff;
 }
 
 main#main{
@@ -46,7 +46,15 @@ button.green-btn1{
   border-radius: 40px;
   background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
   color:#ffff;
+  border: 0px;
+  /* transition: ease-in-out 0.4s; */
 }
+
+button.green-btn1:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 section#indexHero button.hero-btn2{
   width: 238px;
   height: 50px;
@@ -61,7 +69,6 @@ div#herosvg{
 div#herosvg img{
   width: 80%;
 }
-
 
 /*--------------------------------------------------------------
 # Index - Info Sections
@@ -149,12 +156,20 @@ p.projarrow{
     color: white;
     font-size: 15px;
     cursor: pointer;
+
 }
 p.projarrow:hover{
     text-decoration: underline;
     cursor: pointer;
 }
 
+p.projarrow i{
+    transition: transform ease-in 0.2s;
+}
+
+p.projarrow:hover i{
+ transform: translateX(5px);
+}
 
 section#projectssection h1{
   color: #263238;

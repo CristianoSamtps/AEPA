@@ -42,7 +42,7 @@
                                             href="{{ route('admin.projeto.edit', $projeto) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
                                         <a class="btn btn-xs btn-success btn-p ml-1"
-                                            href="{{ route('admin.fotografias.index', $projeto) }}"><i
+                                            href="{{ route('admin.fotografiasp.index', $projeto) }}"><i
                                                 class="fas fa-image fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.projeto.destroy', $projeto) }}"
                                             role="form" class="inline"

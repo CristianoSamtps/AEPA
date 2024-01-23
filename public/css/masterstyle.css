@@ -169,7 +169,7 @@ footer#footer{
 # Top-donates
 --------------------------------------------------------------*/
 
-.top-donates .titulo h2 {
+/* .top-donates .titulo h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 400;
@@ -257,7 +257,7 @@ footer#footer{
 .top-donates .btn:hover {
   background-color: #019E59;
 }
-
+ */
 
 li.nav-item a.login{
   border: 1px solid;
@@ -327,3 +327,7 @@ li.nav-item a.registo:hover{
     transform: translateY(-250px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
+
+  .doacoes .container-doacoes .filtros .botoes #all{
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%) !important;
+}

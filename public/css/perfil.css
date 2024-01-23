@@ -56,7 +56,8 @@
             width: 214px;
             height: 46px;
             border-radius: 50px;
-            background: #019E59;
+            /* background: #019E59; */
+            background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
             margin-bottom: 50px;
             border-color: transparent;
             transition: ease-in all 0.1s;

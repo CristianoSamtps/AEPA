@@ -95,7 +95,7 @@ Route::group([
 
         Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('projeto/{projeto}/fotografias', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasp', FotografiaProjetoController::class);
 
         Route::resource('users', UserController::class);
 
