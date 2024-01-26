@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Charts\MonthlyUsersChart;
 use App\Models\User;
 use App\Models\Event;
@@ -17,6 +18,7 @@ use App\Models\FotografiaProjeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 
 class PageController extends Controller
@@ -73,6 +75,32 @@ class PageController extends Controller
     {
         return view('projects');
     }
+
+    public function voluntariado()
+    {
+        $projetosVoluntariado = Projeto::where('voluntariado', 1)->get();
+        $fotografias = FotografiaProjeto::whereIn('projeto_id', $projetosVoluntariado->pluck('id'))->get();
+
+        return view('voluntariado', compact('projetosVoluntariado', 'fotografias'));
+    }
+
+    public function inscricao($projeto_id)
+    {
+        // Verifica se o usuário está autenticado
+        $user = auth()->user();
+
+        // Se não estiver autenticado, redireciona para a página de login
+        if (!$user) {
+            return redirect()->route('login');
+        }
+
+        // Busca o projeto pelo ID passado como parâmetro
+        $projeto = Projeto::findOrFail($projeto_id); // Usar findOrFail para garantir que o projeto exista
+
+        // Passa o projeto e o usuário para a view
+        return view('inscricao', compact('projeto', 'user'));
+    }
+
 
     public function project_detail1()
     {

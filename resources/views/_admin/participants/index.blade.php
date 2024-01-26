@@ -2,14 +2,17 @@
 
 
 @section('title')
-    Participantes do evento - {{$participantsevent}}
+    Participantes do evento - {{ $participantsevent }}
 @endsection
 
 @section('backoffice-content')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a class="btn btn-primary" href="{{ route('admin.eventos.create') }}">
+            <a class="btn btn-primary" href="{{ route('admin.participantes.create', $event) }}">
                 <i class="fas fa-plus"></i> Novo participante
+            </a>
+            <a class="btn btn-secundary" href="{{ route('admin.eventos.index') }}">
+                <i class="fas fa-fun"></i> Voltar para eventos
             </a>
         </div>
         <div class="card-body">
@@ -34,19 +37,18 @@
                                     <td>{{ $participant->created_at }}</td>
 
                                     <td nowrap class="d-flex">
-                                        <a class="btn btn-xs btn-warning btn-p ml-1"
+                                        {{-- <a class="btn btn-xs btn-warning btn-p ml-1"
                                             href="{{ route('admin.eventos.edit', $participant) }}"><i
-                                                class="fas fa-pen fa-xs"></i></a>
-                                        <form method="POST" action="{{ route('admin.eventos.destroy', $participant) }}"
-                                            role="form" class="inline"
-                                            onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-xs btn-danger btn-p ml-1"><i
-                                                    class="fas fa-trash fa-xs"></i></button>
-                                        </form>
+                                                class="fas fa-pen fa-xs"></i></a> --}}
+                                                <form method="POST" action="{{ route('admin.participantes.destroy', [$event,$participant]) }}"
+                                                role="form" class="inline"
+                                                onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-xs btn-danger btn-p ml-1"><i
+                                                        class="fas fa-trash fa-xs"></i></button>
+                                            </form>
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
@@ -62,7 +64,7 @@
 
 @section('scripts')
     <script>
-      $('#dataTable').dataTable({
+        $('#dataTable').dataTable({
             "lengthMenu": [5, 10, 15, 20],
             destroy: true,
             "order": [

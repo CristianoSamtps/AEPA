@@ -61,8 +61,15 @@ class PlanController extends Controller
     public function update(Request $request, $id)
     {
         $plans = PlanTable::findOrFail($id);
+        $validatedData = $request->validate([
+            'planType_id' => 'required|exists:plantypes,id',
+        ]);
 
-        return view('_admin.plans.index', compact('plan', 'plantypes'));
+        // Atualização dos dados
+        $plans->planType_id = $validatedData['planType_id'];
+        $plans->save();
+
+        return redirect()->route('admin.plans.index')->with('success', 'Tipo de plano atualizado com sucesso.');
 
 
     }

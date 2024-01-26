@@ -81,7 +81,7 @@
                             <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
                                 disabled>
                             <br><br>
-                            <textarea disabled style="width:100%;" cols="auto" rows="3" placeholder=" Observações"></textarea>
+                            <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <button class="oldest" disabled style="float: right;width:100%;">Já estás registado no
@@ -105,9 +105,9 @@
                                 disabled>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <textarea disabled style="width:100%;" cols="auto" rows="3" placeholder=" Observações"></textarea>
+                                <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             @else
-                                <textarea style="width: 100%" name="obs" id="obs" cols="auto" rows="3" placeholder=" Observações"></textarea>
+                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3" placeholder="Observações"></textarea>
                             @endif
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())

@@ -22,8 +22,10 @@ class ParticipantRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'name'=>'required|min:3|max:40|regex:/^[A-ZÀ-úa-z\s]+$/',
-           'email' =>'required|email|unique:users,email,',
+           'obs'=>'required|min:3|regex:/^[A-ZÀ-úa-z0-9\s]+$/',
+           'date'=>'required|after_or_equal:date',
+           'event_id'=>'required',
+           'member_doner_id'=>'required'
         ];
 
 

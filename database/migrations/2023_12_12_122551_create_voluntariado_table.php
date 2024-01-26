@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreign('projeto_id')->references('id')->on('projetos');
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\VoluntarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
+use App\Http\Controllers\FotografiaProjetoController;
 use App\Models\PartnerShip;
 
 /*
@@ -55,6 +57,10 @@ Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
+Route::get('/inscricao/{projeto_id}', [PageController::class, 'inscricao'])->name('inscricao');
+
+Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
+
 Route::get('/pagamentoMembro', [PageController::class, 'pagamentoMembro'])->name('pagamentoMembro');
 
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
@@ -85,6 +91,11 @@ Route::group([
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
 
+    // Essa é a rota para onde o formulário será submetido
+    Route::post('/submit-volunteer-application', [VoluntarioController::class, 'submitApplication'])->name('submit.volunteer.application');
+
+
+
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
 
     Route::group([
@@ -101,7 +112,7 @@ Route::group([
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])->except(['create', 'store']);
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
 
         Route::resource('projeto', ProjetoController::class);
 
@@ -115,7 +126,9 @@ Route::group([
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-        Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update');
+       /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
+
+        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
@@ -124,7 +137,7 @@ Route::group([
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-        
+
 
         Route::get(
             '/users/{user}/send_reactivate_mail',
