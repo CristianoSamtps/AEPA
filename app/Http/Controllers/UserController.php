@@ -95,6 +95,18 @@ class UserController extends Controller
         return view('indexperfil', compact('user', 'donations'));
     }
 
+    public function projetosperfil(User $user)
+    {
+        $projetos = $user->projeto;
+        return view('projetosperfil', compact('user', 'projetos'));
+    }
+
+    public function donationsperfil(User $user)
+    {
+        $donations = $user->donations;
+        return view('donationsperfil', compact('user', 'donations'));
+    }
+
     public function updateperfil(UserRequest $request, User $user)
     {
         $fields = $request->validated();

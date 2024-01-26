@@ -71,6 +71,8 @@ Route::group([
 ], function () {
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
+    Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
+    Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 

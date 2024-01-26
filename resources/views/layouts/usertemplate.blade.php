@@ -135,7 +135,7 @@
             data-aos-duration="600">
                 <ul>
 
-                    <li class="@if(Route::currentRouteName()=='projectsperfil') active @endif">
+                    <li class="@if(Route::currentRouteName()=='projectsperfil') active @endif"><a href="{{ route('projetosperfil', auth()->user()) }}">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 45">
                                 <path
@@ -149,10 +149,10 @@
                                     fill="#CC0000" />
                             </svg>
                         </div>
-                        <p>Projetos</p>
+                        <p>Projetos</p></a>
                     </li>
 
-                    <li class="@if(Route::currentRouteName()=='donationperfil') active @endif">
+                    <li class="@if(Route::currentRouteName()=='donationperfil') active @endif"><a href="{{ route('donationsperfil', auth()->user()) }}">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="37" height="36"
                                 viewBox="0 0 37 36" fill="none">
@@ -165,6 +165,7 @@
                             </svg>
                         </div>
                         <p>Doações</p>
+                        </a>
                     </li>
 
                     <li class="@if(Route::currentRouteName()=='indexperfil') active @endif"><a href="{{ route('indexperfil', auth()->user()) }}">

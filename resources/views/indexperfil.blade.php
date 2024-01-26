@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
 
-        <div class="row justify-content-center" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="bottom-bottom">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
 
             <div id="profileresume" class="col-lg-4">
 
@@ -57,14 +57,13 @@
                         @elseif($user->genero == 'O')
                             Outro
                         @else
-                            <!-- Adicione uma mensagem padrão ou lógica adicional, se necessário -->
                             {{ $user->genero }}
                         @endif
                     </p>
                 </div>
             </div>
 
-            <div class="col-lg-8" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="bottom-bottom">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
 
                 <div class="row">
 
@@ -136,7 +135,7 @@
 
                 </div>
 
-                <div class="row" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="center-bottom">
+                <div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
                     <div id="resumedoacoes" class="col-lg-12">
                         <h2>Últimas Doações</h2>
                         <span><span class="x"></span></span>

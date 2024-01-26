@@ -51,11 +51,12 @@ class PageController extends Controller
         $sugestoes = Sugestao::all();
         $sugestoesList = Sugestao::where('listado', 'L')->paginate(8);
         return view('sugestoes', compact('sugestoes', 'sugestoesList'));
-
     }
     public function patrocinadores()
     {
-        return view('patrocinadores');
+        $patrocinadores = Partnership::all();
+
+        return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
     }
 
     public function projects()
@@ -111,7 +112,6 @@ class PageController extends Controller
             $eventshort->descricao = str::limit($eventshort->descricao, 60);
         }
         return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort'));
-
     }
     public function galeria()
     {
@@ -146,7 +146,6 @@ class PageController extends Controller
 
         return view('_admin.dashboard', [
             'chart' => $chart->build(),
-        ])->with(compact('recent_donations','count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
+        ])->with(compact('recent_donations', 'count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
     }
-
 }
