@@ -181,7 +181,7 @@
                         </a>
                     </li>
 
-                    <li class="@if(Route::currentRouteName()=='comunperfil') active @endif">
+                    <!--<li class="@if(Route::currentRouteName()=='comunperfil') active @endif">
                         <div class="icon-container">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="35" height="34"
                                 viewBox="0 0 35 34" fill="none">
@@ -191,7 +191,7 @@
                             </svg>
                         </div>
                         <p>Comunidade</p>
-                    </li>
+                    </li>-->
 
                     <li class="@if(Route::currentRouteName()=='editperfil') active @endif"><a href="{{ route('editperfil', auth()->user()) }}">
                         <div class="icon-container">

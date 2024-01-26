@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
 
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        <div class="row justify-content-center" data-aos-anchor-placement="bottom-bottom">
 
             <div id="profileresume" class="col-lg-4">
 
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+            <div class="col-lg-8"  data-aos-anchor-placement="bottom-bottom">
 
                 <div class="row">
 
