@@ -9,12 +9,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\FotografiaProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\FotografiaProjetoController;
-/* use App\Models\PartnerShip; */
+use App\Models\PartnerShip;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,13 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonates');
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
+
+Route::get('/teste',function (){
+    return App\Models\Donation::find(2)->member_doner->user;
+
+});
+
+Route::get('/detalheDoacoes', [PageController::class, 'detalheDoacoes'])->name('detalheDoacoes');
 
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
@@ -71,6 +79,8 @@ Route::group([
 ], function () {
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
+    Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
+    Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
@@ -96,13 +106,13 @@ Route::group([
 
         Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('projeto/{projeto}/fotografiasp', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class);
 
         Route::resource('users', UserController::class);
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
-        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 

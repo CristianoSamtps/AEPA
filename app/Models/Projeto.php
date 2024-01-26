@@ -17,6 +17,7 @@ class Projeto extends Model
         'localidade',
         'objetivos',
         'data_final',
+        'voluntariado' => 0,
     ];
 
     public static function estado_opcoes()
@@ -27,11 +28,6 @@ class Projeto extends Model
             'cancelado' => 'Cancelado',
             'indisponivel' => 'Indisponível',
         ];
-    }
-
-    public function voluntariado()
-    {
-        return $this->hasOne(Voluntariado::class, 'projeto_id');
     }
 
     public function fotografias()
@@ -47,5 +43,10 @@ class Projeto extends Model
     public function donations()
     {
         return $this->hasMany(Donation::class, 'projeto_id');
+    }
+
+    public function voluntariado()
+    {
+        return $this->hasOne(Voluntariado::class, 'projeto_id');
     }
 }

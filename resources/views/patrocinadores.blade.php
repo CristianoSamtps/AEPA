@@ -95,28 +95,18 @@
             </p>
         </div>
 
-        <div class="container">
-
-            <div class="row justify-content-center g-4">
-
-                <div class="col-3 m-2">
-
+        <section class="container" id="sponsors">
+            <div class="container">
+                <div class="row justify-content-between flex-md-row flex-sm-column">
+                    @foreach($patrocinadores as $patrocinador)
+                    <div class="col-md-3 sponsercell">
+                        <img src="{{ asset($patrocinador->foto) }}" alt="{{ $patrocinador->name }}">
+                    </div>
+                    @endforeach
                 </div>
-
-                <div class="col-3 m-2">
-
-                </div>
-
-                <div class="col-3 m-2">
-
-                </div>
-
-                <div class="col-3 m-2">
-
-                </div>
-
             </div>
-        </div>
+        </section>
+        
     </div>
 
     <div class="hidden2" id="section4">

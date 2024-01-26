@@ -20,6 +20,7 @@
                         <p>Com a sua ajuda podemos concretizar os nossos projetos e ajudar a nossa casa que é a Terra</p>
                         <a href="{{ route('topDonates') }}">Ver os tops donates</a>
                     </div>
+
                     <div class="image">
                         <img src="{{ asset('img/banner-doacoes.svg') }}" alt="">
                     </div>
@@ -55,13 +56,10 @@
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     @endforeach
                     @foreach ($doacoes as $doacao)
                         <div class="card">
-
                             <div class="esq">
                                 <img src="{{ asset('img/praia.svg') }}" alt="">
                             </div>
@@ -80,31 +78,32 @@
                 </div>
             </div>
             <!--
-                <div class="card">
-                    <div class="esq">
-                        <img src="{{ asset('img/praia.svg') }}" alt="">
-                    </div>
-                    <div class="dir">
-                        <h4>Plantação da mata de Leiria</h4>
-                        <div class="bar">
-                            <div class="per"></div>
-                            <div class="texto-per">
-                                <span>100 € <span id="cinza">angariados<span> </span>
-                                        <span id="cinza" class="perc">20%</span>
+                    <div class="card">
+                        <div class="esq">
+                            <img src="{{ asset('img/praia.svg') }}" alt="">
+                        </div>
+                        <div class="dir">
+                            <h4>Plantação da mata de Leiria</h4>
+                            <div class="bar">
+                                <div class="per"></div>
+                                <div class="texto-per">
+                                    <span>100 € <span id="cinza">angariados<span> </span>
+                                            <span id="cinza" class="perc">20%</span>
+                                </div>
+
                             </div>
 
                         </div>
-
                     </div>
+
+                <div class="paginas">
+                    <ul>
+                        <li class="link" value="1">1</li>
+                        <li class="link" value="2">2</li>
+                        <li class="link" value="3">3</li>
+                    </ul>
                 </div>
-             -->
-            <div class="paginas">
-                <ul>
-                    <li class="link" value="1">1</li>
-                    <li class="link" value="2">2</li>
-                    <li class="link" value="3">3</li>
-                </ul>
-            </div>
+    -->
             </div>
             </div>
         </section>

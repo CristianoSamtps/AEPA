@@ -6,6 +6,7 @@ use App\Charts\MonthlyUsersChart;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Projeto;
+use App\Models\Member_Doner;
 use App\Models\Donation;
 use App\Models\Participant;
 use App\Models\PlanType;
@@ -37,7 +38,18 @@ class PageController extends Controller
     }
     public function topDonates()
     {
-        return view('topDonates');
+
+        $doacoes = Donation::whereNull('projeto_id')->get();
+        $member_doner = Member_Doner::orderByTotalDoado()->get();
+        dd($member_doner->toArray());
+        return view('topDonates',compact('doacoes','$member_doner'));
+    }
+
+    public function detalheDoacoes()
+    {
+        $projetos = Projeto::has('donations')->get();
+        $doacoes = Donation::whereNull('projeto_id')->get();
+        return view('detalheDoacoes',compact('doacoes','doacoes'));
     }
     public function doacoes()
     {
@@ -50,13 +62,13 @@ class PageController extends Controller
         $sugestoes = Sugestao::all();
         $sugestoesList = Sugestao::where('listado', 'L')->paginate(8);
         return view('sugestoes', compact('sugestoes', 'sugestoesList'));
-
     }
     public function patrocinadores()
     {
-        return view('patrocinadores');
-    }
+        $patrocinadores = Partnership::all();
 
+        return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
+    }
     public function projects()
     {
         return view('projects');
@@ -110,7 +122,6 @@ class PageController extends Controller
             $eventshort->descricao = str::limit($eventshort->descricao, 60);
         }
         return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort'));
-
     }
     public function galeria()
     {
@@ -145,7 +156,6 @@ class PageController extends Controller
 
         return view('_admin.dashboard', [
             'chart' => $chart->build(),
-        ])->with(compact('recent_donations','count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
+        ])->with(compact('recent_donations', 'count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));
     }
-
 }
