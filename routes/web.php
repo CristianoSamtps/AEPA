@@ -14,7 +14,7 @@ use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\FotografiaProjetoController;
-use App\Models\PartnerShip;
+/* use App\Models\PartnerShip; */
 
 /*
 |--------------------------------------------------------------------------
@@ -92,7 +92,7 @@ Route::group([
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])->except(['create', 'store']);
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
 
         Route::resource('projeto', ProjetoController::class);
 
@@ -106,7 +106,9 @@ Route::group([
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-        Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update');
+       /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
+
+        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
@@ -115,7 +117,7 @@ Route::group([
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-        
+
 
         Route::get(
             '/users/{user}/send_reactivate_mail',
