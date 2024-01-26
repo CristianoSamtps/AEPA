@@ -26,18 +26,16 @@
 </div>
 
 <div class="form-group">
-    <label for="inputLoc">Parceiros</label>
-    <select name="partnerships[]" multiple>
-        @foreach ($partnerships as $p)
-            <option id="partner" value="{{ $p->id }}" {{$event->partnerships->where('id',$p->id)->first()?'selected':''}}>{{ $p->name }}</option>
+    <label for="inputVag">Parcerias</label>
+        @foreach ($partnerships as $partnership)
+        @php
+            $isChecked = $event->partnerships->contains($partnership->id);
+        @endphp
+        <div class="form-check">
+            <input type="checkbox" name="partnerships[]" value="{{ $partnership->id }}" {{ $isChecked ? 'checked' : '' }}>
+            <label class="form-check-label">{{ $partnership->name }}</label>
+        </div>
         @endforeach
-    </select>
-    <button onclick ="remove()">Remover todos os parceiros</button>
-    <script>
-        function remove(){
-        $("#partner").empty();
-        }
-    </script>
 </div>
 
 

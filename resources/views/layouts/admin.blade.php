@@ -52,7 +52,7 @@
                 <div class="navbar-header" data-logobg="skin5">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
-                            class="ti-menu ti-close"></i></a>
+                            class="fa-solid fa-bars" style="color: #ffffff;"></i></a>
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
@@ -95,7 +95,10 @@
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto">
-
+                        <li class="nav-item d-none d-md-block"><a
+                                class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)"
+                                data-sidebartype="mini-sidebar"><i class="fa-solid fa-bars"
+                                    style="color: #ffffff;"></i></a></li>
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
@@ -218,9 +221,10 @@
                                     onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();"><i
                                         class="fa fa-power-off m-r-5 m-l-5"></i> {{ __('Logout') }}</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
@@ -244,7 +248,7 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <style>
-                            i.fa-solid{
+                            i.fa-solid {
                                 font-size: 100% !important;
                             }
                         </style>
@@ -252,8 +256,8 @@
                                     class="fa-solid fa-table-columns"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-thumbtack"></i><span
-                                    class="hide-menu">Eventos</span></a>
+                                href="javascript:void(0)" aria-expanded="false"><i
+                                    class="fa-solid fa-thumbtack"></i><span class="hide-menu">Eventos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
                                 <li class="sidebar-item"><a href="{{ route('admin.eventos.index') }}"
@@ -269,8 +273,8 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-umbrella-beach"></i><span
-                                    class="hide-menu">Projetos</span></a>
+                                href="javascript:void(0)" aria-expanded="false"><i
+                                    class="fa-solid fa-umbrella-beach"></i><span class="hide-menu">Projetos</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
                                 <li class="sidebar-item"><a href="{{ route('admin.projeto.index') }}"
@@ -298,8 +302,8 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-message"></i><span
-                                    class="hide-menu">Sugestões</span></a>
+                                href="javascript:void(0)" aria-expanded="false"><i
+                                    class="fa-solid fa-message"></i><span class="hide-menu">Sugestões</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
                                 <li class="sidebar-item"><a href="{{ route('admin.sugestoes.index') }}"
@@ -332,7 +336,8 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-users-gear"></i><span
+                                href="javascript:void(0)" aria-expanded="false"><i
+                                    class="fa-solid fa-users-gear"></i><span
                                     class="hide-menu">Patrocinadores</span></a>
 
                             <ul aria-expanded="false" class="collapse  first-level">

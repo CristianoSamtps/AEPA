@@ -7,6 +7,7 @@ use App\Charts\MonthlyUsersChart;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Projeto;
+use App\Models\Member_Doner;
 use App\Models\Donation;
 use App\Models\Participant;
 use App\Models\PlanType;
@@ -39,7 +40,18 @@ class PageController extends Controller
     }
     public function topDonates()
     {
-        return view('topDonates');
+
+        $doacoes = Donation::whereNull('projeto_id')->get();
+        $member_doner = Member_Doner::orderByTotalDoado()->get();
+        dd($member_doner->toArray());
+        return view('topDonates',compact('doacoes','$member_doner'));
+    }
+
+    public function detalheDoacoes()
+    {
+        $projetos = Projeto::has('donations')->get();
+        $doacoes = Donation::whereNull('projeto_id')->get();
+        return view('detalheDoacoes',compact('doacoes','doacoes'));
     }
     public function doacoes()
     {

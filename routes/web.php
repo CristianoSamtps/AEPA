@@ -15,6 +15,7 @@ use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
+use App\Http\Controllers\FotografiaProjetoController;
 use App\Models\PartnerShip;
 
 /*
@@ -34,6 +35,13 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonates');
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
+
+Route::get('/teste',function (){
+    return App\Models\Donation::find(2)->member_doner->user;
+
+});
+
+Route::get('/detalheDoacoes', [PageController::class, 'detalheDoacoes'])->name('detalheDoacoes');
 
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
@@ -104,7 +112,7 @@ Route::group([
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])->except(['create', 'store']);
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
 
         Route::resource('projeto', ProjetoController::class);
 
@@ -114,11 +122,13 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
-        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-        Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update');
+       /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
+
+        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 

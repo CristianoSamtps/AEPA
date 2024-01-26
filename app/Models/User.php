@@ -98,8 +98,8 @@ class User extends Authenticatable implements MustVerifyEmail
            //return $this->hasMany(Project::class,'user_id','id');
        }
        */
-      public function donation()
+      public function donations()
       {
-          return $this->hasMany(Donation::class, 'member_doner_id'); // Usar "Donation" com "D" maiúsculo   
+          return $this->member_doner->donations();
       }
 }
