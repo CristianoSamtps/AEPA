@@ -65,7 +65,7 @@
                     <a class="nav-item nav-link" href="{{ route('index') }}">ÍNICIO</a>
                     <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
                     <a class="nav-item nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
-                    <a class="nav-item nav-link" href="#">VOLUNTARIADO</a>
+                    <a class="nav-item nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
                     <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
                     <div id="login_reg">
                         <ul class="navbar-nav ms-auto">

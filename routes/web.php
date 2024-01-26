@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\VoluntarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -48,6 +49,10 @@ Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
+Route::get('/inscricao/{projeto_id}', [PageController::class, 'inscricao'])->name('inscricao');
+
+Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
+
 Route::get('/pagamentoMembro', [PageController::class, 'pagamentoMembro'])->name('pagamentoMembro');
 
 Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
@@ -77,6 +82,11 @@ Route::group([
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
+
+    // Essa é a rota para onde o formulário será submetido
+    Route::post('/submit-volunteer-application', [VoluntarioController::class, 'submitApplication'])->name('submit.volunteer.application');
+
+
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
 
@@ -117,7 +127,7 @@ Route::group([
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-        
+
 
         Route::get(
             '/users/{user}/send_reactivate_mail',
