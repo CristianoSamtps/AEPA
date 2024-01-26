@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 
-
 @section('title')
     Projetos
 @endsection
@@ -42,7 +41,7 @@
                                             href="{{ route('admin.projeto.edit', $projeto) }}"><i
                                                 class="fas fa-pen fa-xs"></i></a>
                                         <a class="btn btn-xs btn-success btn-p ml-1"
-                                            href="{{ route('admin.fotografiasp.index', $projeto) }}"><i
+                                            href="{{ route('admin.fotografiasprojeto.index', $projeto) }}"><i
                                                 class="fas fa-image fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.projeto.destroy', $projeto) }}"
                                             role="form" class="inline"
@@ -64,21 +63,4 @@
         </div>
     </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script>
-        $('#dataTable').dataTable({
-            destroy: true,
-            "order": [
-                [0, 'asc']
-            ],
-            "columns": [
-                null,
-                {
-                    "orderable": false
-                }
-            ]
-        });
-    </script>
 @endsection

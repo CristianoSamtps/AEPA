@@ -45,9 +45,9 @@ class ProjetoRequest extends FormRequest
             'localidade' => 'required|string|max:50|regex:/^[A-ZÀ-úa-z\s,]+/',
             'objetivos' => 'required|string|max:8|regex:/^\d{1,10}(\.\d{2})?$/',
             'data_final' => 'date|after_or_equal:now',
+            'fotografia' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
-
 
     public function messages()
     {
@@ -73,6 +73,9 @@ class ProjetoRequest extends FormRequest
             'objetivos.regex' => 'Os Objetivos devem conter apenas números (máximo 99999.99).',
             'data_final.date' => 'A Data Final deve ser uma data válida.',
             'data_final.after_or_equal' => 'A Data Final deve ser igual ou posterior à data atual.',
+            'fotografias.image' => 'A Fotografia deve ser uma imagem.',
+            'fotografias.mimes' => 'A Fotografia deve ser do tipo jpeg, png, jpg ou gif.',
+            'fotografias.max' => 'A Fotografia não pode ter mais do que 2048 KB.',
         ];
     }
 }

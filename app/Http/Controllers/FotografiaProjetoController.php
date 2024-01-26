@@ -49,7 +49,7 @@ class FotografiaProjetoController extends Controller
             $projeto->fotografias()->save($foto);
         }
 
-        return redirect()->route('admin.fotografiasp.index', $projeto)->with('success', 'Fotografia adicionada com sucesso');
+        return redirect()->route('admin.fotografiaprojeto.index', $projeto)->with('success', 'Fotografia adicionada com sucesso');
     }
 
     /**
@@ -73,7 +73,7 @@ class FotografiaProjetoController extends Controller
         $fotografiaProjeto->delete();
 
         return redirect()
-            ->route('admin.fotografiasp.index',$projeto)
+            ->route('admin.fotografiaprojeto.index',$projeto)
             ->with('success', 'Fotografia eliminado com sucesso');
     }
 }

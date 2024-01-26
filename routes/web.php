@@ -9,11 +9,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\FotografiaProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
-use App\Http\Controllers\FotografiaProjetoController;
 use App\Models\PartnerShip;
 
 /*
@@ -96,7 +96,7 @@ Route::group([
 
         Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('projeto/{projeto}/fotografiasp', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class);
 
         Route::resource('users', UserController::class);
 
