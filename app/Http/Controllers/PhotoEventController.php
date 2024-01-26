@@ -95,6 +95,7 @@ class PhotoEventController extends Controller
         Storage::disk('public')->delete('event_photos/' .
         $photo->fotografia );
         $photo->delete();
+
         return redirect()->route('admin.fotografias.index',$event)->with(
             'success',
             'Foto eliminada com sucesso'

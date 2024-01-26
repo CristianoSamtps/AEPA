@@ -55,8 +55,15 @@
             $isChecked = $projeto->partnerships->contains($partnership->id);
         @endphp
         <div class="form-check">
-            <input type="checkbox" name="partnerships[]" value="{{ $partnership->id }}" {{ $isChecked ? 'checked' : '' }}>
+            <input type="checkbox" name="partnerships[]" value="{{ $partnership->id }}"
+                {{ $isChecked ? 'checked' : '' }}>
             <label class="form-check-label">{{ $partnership->name }}</label>
         </div>
     @endforeach
+</div>
+<div class="form-group">
+    <label for="inputImage">Fotografia</label>
+    <input type="file" class="form-control-file" name="fotografia" id="inputImage" aria-describedby="fileHelp" />
+    <small id="fileHelp" class="form-text text-muted">
+        Por favor, faça o upload de uma imagem válida. O tamanho da imagem não deve exceder 2MB. </small>
 </div>

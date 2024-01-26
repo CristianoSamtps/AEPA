@@ -22,12 +22,11 @@ class PageController extends Controller
 {
     public function index()
     {
-
         $projetos = Projeto::all();
         $sugestoes = Sugestao::all();
 
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
-        $sugestoesList = Sugestao::where('listado', 'L')->take(4)->get();
+        $sugestoesList = Sugestao::where('listado', 'L')->take(3)->get();
 
         foreach ($projetos as $projeto) {
             $projeto->subtitulo = str::limit($projeto->subtitulo, 100);
