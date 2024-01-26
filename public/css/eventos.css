@@ -40,6 +40,17 @@ div.eventcontent h1,div.eventcontent h5,div.eventcontent p, div.eventcontent a{
 	color: #FFFF !important;
 }
 
+i#participateicon{
+    margin-left: 2px;
+    transition: all 0.2s;
+}
+i#participateicon:hover{
+
+}
+
+section.eventosHero a:hover i{
+    transform: translateX(5px);
+}
 
 section#sponsors{
 	margin-bottom: 180px;
@@ -71,7 +82,7 @@ section#indexHero{
 }
 
 div.eventoscards{
-	margin:100px 0px 0px;
+	margin: 150px 0px 0px;
 }
 
 div.eventoCard {
@@ -115,6 +126,7 @@ div.eventoCardImg {
   position: absolute;
   z-index: -1;
   background: linear-gradient(180deg, rgba(34, 34, 34, 0.00) 0%, rgba(34, 34, 34, 0.61) 51.98%, rgba(34, 34, 34, 0.61) 100%);
+  border-radius: 0px 0px 25px 25px;
 }
 
 div.eventoCardImg img{
@@ -122,6 +134,7 @@ div.eventoCardImg img{
 	height: 100%;
 	object-fit: cover;
 	border-radius: 20px;
+    border-radius: 0px 0px 25px 25px;
 }
 
 
@@ -292,9 +305,10 @@ p.datatype{
 }
 
 @media only screen and (max-width: 1279px) {
-    *,h1,p,h2,span{
+    /* *,h1,p,h2,span{
         font-size: 90%;
-    }
+    } */
+
 }
 
 div.socialicons ul{

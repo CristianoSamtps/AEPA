@@ -332,6 +332,24 @@
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-users-gear"></i><span
+                                    class="hide-menu">Patrocinadores</span></a>
+
+                            <ul aria-expanded="false" class="collapse  first-level">
+
+                                <li class="sidebar-item"><a href="{{ route('admin.patrocinadores.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Todos os
+                                            patrocinadores </span></a></li>
+
+                                <li class="sidebar-item"><a href="{{ route('admin.patrocinadores.create') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="">
+                                            Adicionar patrocinador
+                                        </span></a></li>
+
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-user"></i><span
                                     class="hide-menu">Users</span></a>
 

@@ -19,8 +19,6 @@
         <!-- Listagem de Projetos -->
         <div class="projects-list">
 
-            <!-- Primeira fila de Projetos -->
-            <!-- Primeira fila de Projetos -->
             <div class="project-row project-row-1">
                 @if ($projetos->isEmpty())
                     <p>De momento não temos projetos registados, iremos ter brevemente.</p>
@@ -30,7 +28,8 @@
                             <h3>{{ $projeto->localidade }}</h3>
                             @foreach ($fotografias as $fotografia)
                                 @if ($fotografia->projeto_id === $projeto->id)
-                                <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}" alt="{{ $projeto->titulo }}">
+                                    <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
+                                        alt="{{ $projeto->titulo }}">
                                 @break
                             @endif
                         @endforeach

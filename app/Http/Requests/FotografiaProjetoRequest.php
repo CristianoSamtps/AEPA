@@ -11,7 +11,7 @@ class FotografiaProjetoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,7 @@ class FotografiaProjetoRequest extends FormRequest
     {
         return [
             'fotografias' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'destaque' => 'boolean|nullable',
         ];
     }
 

@@ -7,6 +7,10 @@
 
 <div class="form-group">
     <label for="inputDestaque">Destaque</label>
-    <input type="checkbox" class="form-control-checkbox" name="destaque" id="inputDestaque" value="sim"
-        {{ old('destaque') == 'sim' ? 'checked' : '' }}>
+    <input type="checkbox" class="form-control-checkbox" name="destaque" id="inputDestaque" value="1"
+        {{ old('destaque') == '1' ? 'checked' : '0' }}>
 </div>
+
+
+
+

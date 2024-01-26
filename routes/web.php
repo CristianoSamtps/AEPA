@@ -9,11 +9,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\FotografiaProjetoController;
 use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
+use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
-use App\Http\Controllers\FotografiaProjetoController;
-
+use App\Models\PartnerShip;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,7 +103,7 @@ Route::group([
 
         Route::resource('projeto', ProjetoController::class);
 
-        Route::resource('projeto/{projeto}/fotografiasp', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class);
 
         Route::resource('users', UserController::class);
 
@@ -110,14 +111,18 @@ Route::group([
 
         Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
+        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
+
+        Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update');
+
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
 
-
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
+        
 
         Route::get(
             '/users/{user}/send_reactivate_mail',
