@@ -57,7 +57,6 @@ class PageController extends Controller
 
         return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
     }
-
     public function projects()
     {
         return view('projects');

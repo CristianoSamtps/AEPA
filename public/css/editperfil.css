@@ -336,6 +336,9 @@ input{
     margin-left: 20px;
     text-align: left;
 }
+#dados2 .caixa-detalhes select {
+    border: 0px transparent !important;
+}
 
 .espacamento {
     height: 10px;
