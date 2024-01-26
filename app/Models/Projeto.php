@@ -39,4 +39,14 @@ class Projeto extends Model
     {
         return $this->belongsToMany(Partnership::class, 'projects_partnerships', 'projeto_id', 'partnership_id');
     }
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class, 'projeto_id');
+    }
+
+    public function voluntariado()
+    {
+        return $this->hasOne(Voluntariado::class, 'projeto_id');
+    }
 }

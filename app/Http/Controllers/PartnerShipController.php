@@ -49,15 +49,19 @@ class PartnerShipController extends Controller
     public function store(PartnerShipRequest $request)
     {
         $validatedData = $request->validated();
-        
+
         $partner = PartnerShip::create($validatedData);
-        
+
         if ($request->hasFile('foto')) {
-            $foto_path = $request->file('foto')->store(
-                'public/partner_fotos'
+            $foto_path = $request->file('foto')->storeAs(
+                'public/partner_fotos',
+                'foto_patrocinador.jpg'
             );
+
             $partner->foto = basename($foto_path);
+            $partner->save();
         }
+
         return redirect()->route('admin.patrocinadores.show', $partner)
             ->with('success', 'Parceiro criado com sucesso!');
     }
