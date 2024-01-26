@@ -1,3 +1,5 @@
+//Page loader
+
 (function () {
     "use strict";
 
@@ -18,6 +20,7 @@
     }
 })();
 
+//Fadein from sides animation
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -33,13 +36,30 @@ const hiddenElements2 = document.querySelectorAll('.hidden2');
 hiddenElements.forEach((el) => observer.observe(el));
 hiddenElements2.forEach((el) => observer.observe(el));
 
-//Carrousel index
+//Carrousel index Projects
 
 document.addEventListener("DOMContentLoaded", function () {
     const track = document.querySelector("#carouselTrack");
     const items = document.querySelectorAll(".item");
+    const indexItems = document.querySelectorAll("#itemselect li");
 
     items[0].querySelector(".item-info").classList.add("projactive");
+
+    // Adiciona um evento de clique aos números
+    indexItems.forEach((indexItem, index) => {
+        indexItem.addEventListener("click", function () {
+            // Move o item correspondente para o início do carrossel
+            track.insertBefore(items[index], track.firstChild);
+
+            // Remove a classe 'projactive' de todos os itens
+            items.forEach((item) => {
+                item.querySelector(".item-info").classList.remove("projactive");
+            });
+
+            // Adiciona a classe 'projactive' ao item clicado
+            items[index].querySelector(".item-info").classList.add("projactive");
+        });
+    });
 
     items.forEach((item) => {
         item.addEventListener("click", function () {

@@ -36,8 +36,7 @@
                                 <h5>Dia {{ date_format(date_create($topevent->data), 'd-m-Y') }}</h5>
                                 <p>{{ $topevent->descricao }}</p>
                                 <a href="{{ route('eventoinfo', ['event' => $topevent]) }}"><button
-                                        class="btn section-btn1">Participar</button></a>
-                                <a href="{{ route('eventos') }}"><button class="btn section-btn2">Saber mais</button></a>
+                                        class="btn section-btn1">Participar <i id="participateicon" class="fa-solid fa-person-hiking"></i></button></a>
                             </div>
                         </div>
                     </div>
@@ -66,10 +65,37 @@
                     </div>
                 </div>
             </section>
-            <section class="container eventoslist" data-aos="fade-up">
-                <div class=" d-flex justify-content-between ">
+
+            <!--<section class="container eventoslist" data-aos="fade-up">
+                <div class="d-flex justify-content-between ">
                     @foreach ($events->take(4) as $event)
-                        <div class="eventoCard col-md-3">
+                    <div class="eventoCard col-md-3 col-sm-6 col-xs-12">
+                            <div class="eventoCardImg ">
+                                @if (count($event->photos))
+                                    <img src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
+                                        class="img-post" alt="Event image">
+                                @else
+                                    <img src="{{ asset('storage/event_photos/defaultevent.jpg') }}" class="img-post"
+                                        alt="default image">
+                                @endif
+                                {{-- <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios"> --}}
+                            </div>
+                            <div class="cardInfo text-center">
+                                <h5 class="">{{ $event->name }}</h5>
+                                <p class="cardDescription">{{ $event->descricao }}</p>
+                                <a href="{{ route('eventoinfo', ['event' => $event]) }}"><button class="btn CardBtn">Saber
+                                        mais</button></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </section>-->
+
+            <section class="container eventoslist" data-aos="fade-up">
+                <div class="row"></div>
+                <div class="col-md-12 d-flex justify-content-between">
+                    @foreach ($events->take(4) as $event)
+                    <div class="eventoCard col-md-3 d-flex flex-column justify-content-between">
                             <div class="eventoCardImg ">
                                 @if (count($event->photos))
                                     <img src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
@@ -92,8 +118,7 @@
             </section>
         @endif
 
-        <section class="container " id="sponsors">
-            <div class="container">
+        <section class="container" id="sponsors">
                 <div class="row justify-content-between flex-md-row flex-sm-column">
                     <p class="text-center text-secondary mb-5">Conhece os nossos parceiros</p>
                     <div class="col-md-3 sponsercell">
@@ -109,11 +134,9 @@
                         <img src="{{ asset('img/patrocinios/vestas.png') }}" alt="Logotipo Vestas">
                     </div>
                 </div>
-            </div>
         </section>
 
         <section class="container" id="second-section">
-            <div class="container">
                 <div class="row">
                     <div class="col-md-6 mt-5">
                         <h1 class="mb-3">Queres participar num evento da nossa associação?</h1>
@@ -129,7 +152,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <div class="background">
@@ -137,7 +159,6 @@
         </div>
 
         <section class="container mt-5" id="third-section">
-            <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div id="herosvg">

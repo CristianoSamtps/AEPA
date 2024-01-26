@@ -8,7 +8,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a class="btn btn-primary" href="{{ route('admin.fotografias.create', $projeto) }}">
+            <a class="btn btn-primary" href="{{ route('admin.fotografiasp.create', $projeto) }}">
                 <i class="fas fa-plus"></i> Nova Fotografia
             </a>
             <a class="btn btn-secundary" href="{{ route('admin.projeto.index') }}">
@@ -40,7 +40,7 @@
                                     </td>
                                     <td nowrap class="d-flex">
                                         <form method="POST"
-                                            action="{{ route('admin.fotografias.destroy', [$projeto, $photo]) }}"
+                                            action="{{ route('admin.fotografiasp.destroy', [$projeto, $photo]) }}"
                                             role="form" class="inline"
                                             onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
                                             @csrf
