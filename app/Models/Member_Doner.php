@@ -44,4 +44,11 @@ class Member_Doner extends Model
         return $this->hasOne(Plan::class,'member_doner_id','id');
     }
 
+    public function scopeOrderByTotalDoado($query, $order = 'desc') {
+        return $query->leftJoin('doacoes', 'doacoes.member_doner_id', '=', 'members_doners.id')
+            ->groupBy('doacoes.member_doner_id')
+            ->addSelect(['members_doners.*', \DB::raw('sum(valor) as total')])
+            ->orderBy('total', $order);
+    }
+
 }

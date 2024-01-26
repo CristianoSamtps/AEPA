@@ -33,6 +33,13 @@ Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonat
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
 
+Route::get('/teste',function (){
+    return App\Models\Donation::find(2)->member_doner->user;
+
+});
+
+Route::get('/detalheDoacoes', [PageController::class, 'detalheDoacoes'])->name('detalheDoacoes');
+
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
@@ -101,7 +108,7 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
-        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+        Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
