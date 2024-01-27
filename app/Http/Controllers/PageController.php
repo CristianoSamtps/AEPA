@@ -40,6 +40,14 @@ class PageController extends Controller
 
         return view('index', compact('sugestoes', 'sugestoesList', 'projetos', 'fotografias'));
     }
+
+    public function detalhesDoacoes(Projeto $projeto)
+    {
+        $projetos = Projeto::all();
+        return view('detalheDoacoes', compact('projetos','projeto'));
+    }
+
+
     public function topDonates()
     {
 

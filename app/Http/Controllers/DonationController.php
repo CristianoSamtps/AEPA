@@ -21,45 +21,62 @@ class DonationController extends Controller
 
 
     public function userDonations(Request $request, User $user)
-{
-    $doacoes = $user->doacoes();
+    {
+        $doacoes = $user->doacoes();
 
-    // Aplica os filtros se estiverem presentes nos parâmetros da consulta
-    if ($request->has('data')) {
-        if ($request->data === 'recentes') {
-            $doacoes->orderByDesc('created_at');
-        } elseif ($request->data === 'antigas') {
-            $doacoes->orderBy('created_at');
+        // Aplica os filtros se estiverem presentes nos parâmetros da consulta
+        if ($request->has('data')) {
+            if ($request->data === 'recentes') {
+                $doacoes->orderByDesc('created_at');
+            } elseif ($request->data === 'antigas') {
+                $doacoes->orderBy('created_at');
+            }
+        }
+
+        if ($request->has('preco')) {
+            if ($request->preco === 'desc') {
+                $doacoes->orderByDesc('valor');
+            } elseif ($request->preco === 'asc') {
+                $doacoes->orderBy('valor');
+            }
+        }
+
+        if ($request->has('visibilidade')) {
+            if ($request->visibilidade === 'anonimo') {
+                $doacoes->where('anonimo', 'S');
+            } elseif ($request->visibilidade === 'nao-anonimo') {
+                $doacoes->where('anonimo', 'N');
+            }
+        }
+
+        $doacoes = $doacoes->get();
+
+        if ($doacoes->isNotEmpty()) {
+            return view('donationsperfil', compact('user', 'doacoes'));
+        } else {
+            return view('donationsperfil', compact('user'))->with('error', 'O usuário não possui doações.');
         }
     }
 
-    if ($request->has('preco')) {
-        if ($request->preco === 'desc') {
-            $doacoes->orderByDesc('valor');
-        } elseif ($request->preco === 'asc') {
-            $doacoes->orderBy('valor');
+
+
+    public function registarDoacao(Request $request)
+    {
+        $fields = $request->validate(['valor' => 'required']);
+        $doacao = new Donation();
+        $doacao->doacao = $request->valor;
+        $doacao->doacao = $request->anonimo;
+        if ($doacao = $request->anonimo == 1) {
+            $doacao->member_doner_id = auth()->user()->id;
+            $doacao->anonimo = 'N';
+        } else {
+            $doacao->anonimo = 'S';
         }
+        $doacao->projeto_id = 0;
+        $doacao->save();
+        return redirect()->back()
+            ->with('success', 'Doação registada com sucesso');
     }
-
-    if ($request->has('visibilidade')) {
-        if ($request->visibilidade === 'anonimo') {
-            $doacoes->where('anonimo', 'S');
-        } elseif ($request->visibilidade === 'nao-anonimo') {
-            $doacoes->where('anonimo', 'N');
-        }
-    }
-
-    $doacoes = $doacoes->get();
-
-    if ($doacoes->isNotEmpty()) {
-        return view('donationsperfil', compact('user', 'doacoes'));
-    } else {
-        return view('donationsperfil', compact('user'))->with('error', 'O usuário não possui doações.');
-    }
-}
-
-
-
     /**
      *
      * Show the form for creating a new resource.
@@ -111,4 +128,10 @@ class DonationController extends Controller
             'Doação eliminada com sucesso'
         );
     }
+
+    /* public function doarProjetos(Projeto $projeto)
+    {
+        $projetos = Projeto::all();
+        return view('detalheDoacoes', compact('projetos','projeto'));
+    } */
 }

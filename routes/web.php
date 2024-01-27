@@ -39,7 +39,8 @@ Route::get('/teste',function (){
 
 });
 
-Route::get('/detalheDoacoes', [PageController::class, 'detalheDoacoes'])->name('detalheDoacoes');
+Route::get('detalhesDoacoes/{projeto}', [PageController::class, 'detalhesDoacoes'])->name('detalhesDoacoes');
+
 
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
@@ -104,6 +105,7 @@ Route::group([
     /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
+    Route::post('/doacoes', [DonationController::class, 'registarDoacao'])->name('registardoacao');
 
     Route::group([
         'middleware' => ['admin'],
@@ -129,11 +131,14 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
+        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);;
+
         Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
        /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
+       /*  Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class); */
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
