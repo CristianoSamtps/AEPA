@@ -91,13 +91,16 @@ class UserController extends Controller
 
     public function indexperfil(User $user)
     {
+        $projetos = $user->projetos;
         $donations = $user->donations;
-        return view('indexperfil', compact('user', 'donations'));
+        return view('indexperfil', compact('user', 'donations', 'projetos'));
     }
 
     public function projetosperfil(User $user)
     {
-        $projetos = $user->projeto;
+        // Usando a relação definida no modelo User para acessar os projetos através da tabela de pivot 'voluntariado'
+        $projetos = $user->projetos;
+
         return view('projetosperfil', compact('user', 'projetos'));
     }
 

@@ -20,6 +20,11 @@ class Projeto extends Model
         'voluntariado' => 0,
     ];
 
+    public function voluntariado()
+    {
+        return $this->hasOne(Voluntariado::class, 'projeto_id');
+    }
+    
     public static function estado_opcoes()
     {
         return [
@@ -43,10 +48,5 @@ class Projeto extends Model
     public function donations()
     {
         return $this->hasMany(Donation::class, 'projeto_id');
-    }
-
-    public function voluntariado()
-    {
-        return $this->hasOne(Voluntariado::class, 'projeto_id');
     }
 }
