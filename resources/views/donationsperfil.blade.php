@@ -12,19 +12,21 @@
 
     <div class="row" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
 
-        <a href="{{ route('doacoes') }}"><div id="novadoacao" data-aos="fade-down" class="col-lg-12">
+        <a href="{{ route('doacoes') }}">
+            <div id="novadoacao" data-aos="fade-down" class="col-lg-12">
 
-            <i class="fa-solid fa-circle-plus"></i>
+                <i class="fa-solid fa-circle-plus"></i>
 
-        </div></a>
+            </div>
+        </a>
 
         <div id="resumedoacoes" class="col-lg-12">
             <h2>Últimas Doações</h2>
             <span><span class="x"></span></span>
             <div class="espacamento"></div>
-            @if ($user->donation && count($user->donation) > 0)
+            @if ($user->doacoes && count($user->doacoes) > 0)
                 {{-- dd($user->donation); --}}
-                @foreach ($user->donation->sortByDesc('created_at') as $doacao)
+                @foreach ($doacoes->sortByDesc('created_at')->take(10) as $doacao)
                     <div class="resumo d-flex">
 
                         <div class="data col-lg-1">

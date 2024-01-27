@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PartnerShip;
 use App\Http\Requests\PartnerShipRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class PartnerShipController extends Controller
 {
@@ -54,9 +56,9 @@ class PartnerShipController extends Controller
 
         if ($request->hasFile('foto')) {
             $foto_path = $request->file('foto')->storeAs(
-                'public/partner_fotos'
+                'public/partner_fotos/'
             );
-
+            $partner->foto = basename($foto_path);
             $partner->save();
         }
 
@@ -89,7 +91,15 @@ class PartnerShipController extends Controller
     {
         $fields = $request->validated();
         $partner->fill($fields);
-
+        if ($request->hasFile('foto')) {
+            if (!empty($partner->foto)) {
+                Storage::disk('public')->delete('partner_fotos/' .
+                    $partner->foto);
+            }
+            $foto_path =
+                $request->file('foto')->store('public/partner_fotos');
+            $partner->foto = basename($foto_path);
+        }
 
         $partner->save();
 
@@ -108,6 +118,16 @@ class PartnerShipController extends Controller
         return redirect()->route('admin.patrocinadores.index')->with(
             'success',
             'Patrocinador eliminado com sucesso'
+        );
+    }
+    public function destroy_foto(PartnerShip $partner)
+    {
+        Storage::disk('public')->delete('partner_fotos/' . $partner->foto);
+        $partner->foto = null;
+        $partner->save();
+        return redirect()->route('admin.patrocinadores.edit', $partner)->with(
+            'success',
+            'A foto do Patrocinador foi apagada com sucesso.'
         );
     }
 }

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Models\Donation;
 use App\Models\Member_Doner;
 use Illuminate\Http\Request;
+use App\Models\Donation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -92,8 +92,8 @@ class UserController extends Controller
     public function indexperfil(User $user)
     {
         $projetos = $user->projetos;
-        $donations = $user->donations;
-        return view('indexperfil', compact('user', 'donations', 'projetos'));
+        $doacoes = $user->doacoes;
+        return view('indexperfil', compact('user', 'doacoes', 'projetos'));
     }
 
     public function projetosperfil(User $user)
@@ -106,8 +106,8 @@ class UserController extends Controller
 
     public function donationsperfil(User $user)
     {
-        $donations = $user->donations;
-        return view('donationsperfil', compact('user', 'donations'));
+        $doacoes = $user->doacoes;
+        return view('donationsperfil', compact('user', 'doacoes'));
     }
 
     public function updateperfil(UserRequest $request, User $user)
