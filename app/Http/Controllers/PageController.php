@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\registarvoluntarioRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Charts\MonthlyUsersChart;
 use App\Models\User;
@@ -14,6 +15,7 @@ use App\Models\PlanType;
 use App\Models\Sugestao;
 use App\Models\PhotoEvent;
 use App\Models\PartnerShip;
+use App\Models\Voluntariado;
 use App\Models\FotografiaProjeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,14 +46,14 @@ class PageController extends Controller
         $doacoes = Donation::whereNull('projeto_id')->get();
         $member_doner = Member_Doner::orderByTotalDoado()->get();
         dd($member_doner->toArray());
-        return view('topDonates',compact('doacoes','$member_doner'));
+        return view('topDonates', compact('doacoes', '$member_doner'));
     }
 
     public function detalheDoacoes()
     {
         $projetos = Projeto::has('donations')->get();
         $doacoes = Donation::whereNull('projeto_id')->get();
-        return view('detalheDoacoes',compact('doacoes','doacoes'));
+        return view('detalheDoacoes', compact('doacoes', 'doacoes'));
     }
     public function doacoes()
     {
@@ -75,6 +77,8 @@ class PageController extends Controller
     {
         return view('projects');
     }
+
+    /* Sistema de Voluntariado */
 
     public function voluntariado()
     {
@@ -100,6 +104,8 @@ class PageController extends Controller
         // Passa o projeto e o usuário para a view
         return view('inscricao', compact('projeto', 'user'));
     }
+
+    /* Sistema de Voluntariado - final */
 
 
     public function project_detail1()

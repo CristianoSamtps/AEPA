@@ -32,7 +32,6 @@
                         @endforeach
                         <h2>{{ $projeto->titulo }}</h2>
                         <button class="green-btn1"><a href="{{ route('inscricao', $projeto->id) }}">Voluntariar</a></button>
-
                     </div>
                 @endforeach
             @endif
