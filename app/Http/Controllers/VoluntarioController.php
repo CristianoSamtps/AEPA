@@ -9,25 +9,21 @@ use App\Models\FotografiaProjeto;
 use Illuminate\Http\Request;
 
 
-
-
 class VoluntarioController extends Controller
 {
 
-
-    public function submitApplication(Request $request)
+    public function registarvoluntariado(Request $request, Projeto $projeto_id)
     {
-        $validatedData = $request->validate([
-            'projeto_id' => 'required|exists:projetos,id',
-            // outras validações necessárias
-        ]);
+        $voluntario=Voluntariado::where('member_doner_id',auth()->user()->id);
 
         $voluntario = new Voluntariado();
-        $voluntario->projeto_id = $validatedData['projeto_id'];
-        $voluntario->user_id = auth()->id();
+        $voluntario->user_id=auth()->user()->id;
+
+        $voluntario->projeto_id=$projeto_id->id;
         $voluntario->save();
 
-        return redirect()->route('voluntariado')->with('success', 'Inscrição para voluntariado enviada com sucesso!');
+        return redirect()->route('voluntariado')->with('success', 'Inscrição para voluntariado submetida com sucesso!');
     }
 
 }
+

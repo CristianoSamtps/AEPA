@@ -13,6 +13,14 @@
 @endsection
 
 @section('main')
+    <div class="container col-md-12">
+        @if ($errors->any())
+            @include ('layouts.partials.error_master')
+        @endif
+        @if (!empty(session('success')))
+            @include ('layouts.partials.modal_master')
+        @endif
+    </div>
     <div class="projects-section">
         <h1 id="projects-title">Voluntariado</h1>
         <div class="projects-list" data-aos="fade-right">
@@ -31,8 +39,8 @@
                             @endif
                         @endforeach
                         <h2>{{ $projeto->titulo }}</h2>
-                        <button class="green-btn1"><a href="{{ route('inscricao', $projeto->id) }}">Voluntariar</a></button>
-
+                        <button class="green-btn1"><a href="{{ route('inscricao', $projeto->id) }}"
+                                style="color:#fff">Voluntariar</a></button>
                     </div>
                 @endforeach
             @endif
@@ -44,4 +52,10 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('js/projects.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#exampleModal').modal('show');
+            });
+        </script>
 @endsection

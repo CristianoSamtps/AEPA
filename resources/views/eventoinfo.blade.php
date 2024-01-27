@@ -75,7 +75,7 @@
                     @if ($event->participants()->count() >= $event->vagas)
                         <div class="eventfull">
                             <h4>Evento lotado</h4>
-                            <input type="text" name="name" placeholder=" Nome completo"
+                            <input type="text" name="name" placeholder="Nome completo"
                                 value="{{ auth()->user()->name }}" disabled>
                             <br><br>
                             <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
@@ -119,7 +119,6 @@
                                     Participar
                                 </button>
                             @endif
-
                         </form>
                     @endif
                     <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores
