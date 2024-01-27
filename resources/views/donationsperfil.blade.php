@@ -15,7 +15,7 @@
         <div id="novadoacao" data-aos="fade-down" class="col-lg-12">
 
             <i class="fa-solid fa-circle-plus"></i>
-            
+
         </div>
 
         <div id="resumedoacoes" class="col-lg-12">

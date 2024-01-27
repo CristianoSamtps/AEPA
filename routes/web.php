@@ -15,7 +15,6 @@ use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
-use App\Http\Controllers\FotografiaProjetoController;
 use App\Models\PartnerShip;
 
 /*

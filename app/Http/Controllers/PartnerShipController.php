@@ -54,11 +54,9 @@ class PartnerShipController extends Controller
 
         if ($request->hasFile('foto')) {
             $foto_path = $request->file('foto')->storeAs(
-                'public/partner_fotos',
-                'foto_patrocinador.jpg'
+                'public/partner_fotos'
             );
 
-            $partner->foto = basename($foto_path);
             $partner->save();
         }
 
@@ -98,7 +96,6 @@ class PartnerShipController extends Controller
         return redirect()->route('admin.patrocinadores.index')
             ->with('success', 'Patrocinador atualizado com sucesso');
 
-        return redirect()->route('admin.patrocinadores.show', $partner)->with('success', 'Parceiro atualizado com sucesso!');
     }
 
     /**

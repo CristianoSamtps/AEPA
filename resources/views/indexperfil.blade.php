@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-8"  data-aos-anchor-placement="bottom-bottom">
+            <div class="col-lg-8" data-aos-anchor-placement="bottom-bottom">
 
                 <div class="row">
 
