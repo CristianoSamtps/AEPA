@@ -96,8 +96,53 @@ class UserController extends Controller
         $doacoes = $user->doacoes;
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
 
-        return view('indexperfil', compact('user', 'doacoes', 'projetos','fotografias'));
+        return view('indexperfil', compact('user', 'doacoes', 'projetos', 'fotografias'));
     }
+
+
+    public function atualizarMetodoPagamento(Request $request) {
+        
+        $userId = $request->input('user_id');
+        $metodoPag = $request->input('metodo_pag');
+
+        // Atualize o método de pagamento no banco de dados
+        User::where('id', $userId)->update(['metodo_pag' => $metodoPag]);
+
+        return response()->json(['success' => true]);
+    }
+
+
+    public function updatePassword(Request $request, User $user)
+    {
+        // Validação da senha antiga
+        $request->validate([
+            'old_password' => 'required',
+        ]);
+
+        if ($request->old_password != $user->password) {
+            return redirect()->back()->with('error', 'A senha antiga está incorreta.');
+        }
+
+        // Validação das novas senhas
+        $request->validate([
+            'new_password' => 'required|min:3|max:40',
+            'new_password_confirmation' => 'required|same:new_password',
+        ], [
+            'new_password_confirmation.same' => 'A nova senha e a confirmação de senha não coincidem.',
+        ]);
+
+        // Atualizar a senha
+        $user->update([
+            'password' => bcrypt($request->new_password),
+        ]);
+
+        return redirect()->route('editperfil', $user)->with('success', 'Senha atualizada com sucesso.');
+    }
+
+
+
+
+
 
     public function projetosperfil(User $user)
     {
@@ -105,7 +150,7 @@ class UserController extends Controller
         $projetos = $user->projetos;
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
 
-        return view('projetosperfil', compact('user', 'projetos','fotografias'));
+        return view('projetosperfil', compact('user', 'projetos', 'fotografias'));
     }
 
     public function donationsperfil(User $user)

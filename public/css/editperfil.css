@@ -1,5 +1,5 @@
 #main-content {
-    margin-top: 150px;
+    margin-top: 100px;
     flex: 1;
     padding: 20px;
     margin-left: 20px;
@@ -48,6 +48,7 @@
 }
 
 #dados1 {
+    position: relative;
     margin-left: 0px;
     padding: 20px;
     padding-bottom: 0px;
@@ -100,18 +101,15 @@
 }
 
 .upload-imagem {
-    text-align: center;
-    width: 240px;
-    height: 45px;
-    display: inline-block;
-    position: relative;
+    transform: translate(-350px, 0px);
+    width: 40px;
+    height: 40px;
+    background-color: #d4d4d4;
+    line-height: 40px;
+    position: absolute;
     overflow: hidden;
-    background-color: #b18200;
-    color: #fff;
-    font-size: 17px;
-    font-weight: 700;
+    color: white;
     border-radius: 50px;
-    padding: 8px 12px;
     cursor: pointer;
 }
 
@@ -186,7 +184,7 @@
     color: #FFF;
     font-size: 17px;
     font-weight: 700;
-    width: 90px;
+    width: 190px;
     height: 45px;
     border-radius: 50px;
     margin-bottom: 5px;
@@ -203,31 +201,6 @@
     line-height: normal;
     background: transparent;
     border-color: #d60000;
-    transition: ease-in all 0.1s;
-}
-
-#dadosconta button.edit-email {
-    color: #FFF;
-    font-size: 17px;
-    font-weight: 700;
-    width: 240px;
-    height: 45px;
-    border-radius: 50px;
-    margin-bottom: 5px;
-    background: #0071db;
-    border-color: transparent;
-    transition: ease-in all 0.1s;
-}
-#dadosconta button.edit-email:hover {
-    color: #0071db;
-    font-size: 17px;
-    font-weight: 700;
-    width: 240px;
-    height: 45px;
-    border-radius: 50px;
-    margin-bottom: 5px;
-    background: transparent;
-    border-color: #0071db;
     transition: ease-in all 0.1s;
 }
 #dadosconta button.membro {
@@ -301,7 +274,7 @@
     text-align: left;
     height: 67px;
     border-radius: 25px;
-    background: #D5DEEF;
+    background: #a7dff1;
     box-shadow: 4px 4px 9px 0px rgba(38, 57, 70, 0.733);
     margin: 10px !important;
 }
@@ -476,4 +449,71 @@ input{
 
 .faq{
     text-align: center;
+}
+.field-icon {
+    float: right;
+    margin-right: 15px;
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .container{
+    padding-top:50px;
+    margin: auto;
+  }
+
+  #faq4 button.guardar {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    width: 90px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+
+#faq4 button.guardar:hover {
+    color: #019E59;
+    font-size: 17px;
+    font-weight: 700;
+    width: 90px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: transparent;
+    border-color: #019E59;
+    transition: ease-in all 0.1s;
+}
+#faq4 button.cancelar {
+    margin-left: 5px;
+    margin-top: 15px;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    width: 90px;
+    height: 45px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    background: #d60000;
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+#faq4 a.cancelar:hover {
+    color: #d60000;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    background: transparent;
+    border-color: transparent;
+    transition: ease-in all 0.1s;
+}
+.buttons{
+    text-align: right;
+    margin-right: 20px;
 }

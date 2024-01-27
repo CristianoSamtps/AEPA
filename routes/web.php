@@ -15,6 +15,8 @@ use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
+use App\Http\Controllers\MemberDonerController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +86,10 @@ Route::group([
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
+    Route::put('/perfil/{user}/editar/update', [UserController::class, 'updatePassword'])->name('updatePassword');
+
+    Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
+
 
 
     /* Participantes em eventos */
@@ -159,5 +165,10 @@ Route::group([
             '/users/{user}/destroy_photo',
             [UserController::class, 'destroy_foto']
         )->name('users.destroyFoto');
+
+        Route::delete(
+            '/patrocinadores/{partner}/destroy_photo',
+            [PartnerShipController::class, 'destroy_foto']
+        )->name('patrocinadores.destroyFoto');
     });
 });

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Plano;
-use App\Models\Volunteer;
+use App\Models\PlanTable;
+use App\Models\Voluntariado;
 use App\Models\Participant;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -29,7 +30,7 @@ class Member_Doner extends Model
 
     }
     public function volunteers(){
-        return $this->hasMany(Volunteer::class,'member_doner_id','id');
+        return $this->hasMany(Voluntariado::class,'member_doner_id','id');
 
     }
     public function donations(){
@@ -41,7 +42,7 @@ class Member_Doner extends Model
 
     }
     public function plan(){
-        return $this->hasOne(Plan::class,'member_doner_id','id');
+        return $this->hasOne(PlanTable::class,'member_doner_id','id');
     }
 
     public function scopeOrderByTotalDoado($query, $order = 'desc') {
