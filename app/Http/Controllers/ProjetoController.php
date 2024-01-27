@@ -15,18 +15,6 @@ use Illuminate\Support\Facades\Auth;
 class ProjetoController extends Controller
 {
 
-    public function perfilproject()
-    {
-        $user = auth()->user();
-
-        $projetos = $user->voluntariados()->with('projeto.fotografias')->get()->pluck('projeto')->flatten() ?? [];
-
-        // Obtenha os projetos destacados
-        $fotografias = FotografiaProjeto::where('destaque', true)->get();
-
-        return view('projetosperfil', compact('projetos', 'fotografias'));
-    }
-
     /**
      * Display a listing of the resource.
      */

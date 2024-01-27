@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Projeto;
 use App\Models\Voluntariado;
+use App\Models\FotografiaProjeto;
+use Illuminate\Http\Request;
+
 
 
 
 class VoluntarioController extends Controller
 {
+
 
     public function submitApplication(Request $request)
     {
@@ -26,4 +29,5 @@ class VoluntarioController extends Controller
 
         return redirect()->route('voluntariado')->with('success', 'Inscrição para voluntariado enviada com sucesso!');
     }
+
 }

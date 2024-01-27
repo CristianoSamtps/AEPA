@@ -73,10 +73,6 @@ class User extends Authenticatable implements MustVerifyEmail
                 return 'Prefiro não dizer';
         }
     }
-    public function voluntariados()
-    {
-        return $this->hasMany(Voluntariado::class, 'user_id');
-    }
 
     public function member_doner()
     {
@@ -99,5 +95,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function donations()
     {
         return $this->member_doner->donations();
+    }
+
+    public function projetos()
+    {
+        return $this->belongsToMany(Projeto::class, 'voluntariado', 'user_id', 'projeto_id');
+    }
+
+    public function voluntariados()
+    {
+        return $this->hasMany(Voluntariado::class, 'user_id');
     }
 }
