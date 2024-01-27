@@ -62,8 +62,20 @@ class DonationController extends Controller
 
     public function registarDoacao(Request $request)
     {
-        $fields = $request->validate(['valor' => 'required']);
+        /* $fields = $request->validate(['valor' => 'required']);
         $doacao = new Donation();
+
+        $doacao->valor=$request->valor;
+        $doacao->anonimo=$request->anonimo;
+        if($doacao=$request->anonimo == 1){
+            $doacao->member_doner_id=auth()->user()->id;
+            $doacao->anonimo='N';
+        }else{
+            $doacao->anonimo='S';
+        }
+        $doacao->title=$request->mens
+        $doacao->projeto_id=0;
+
         $doacao->doacao = $request->valor;
         $doacao->doacao = $request->anonimo;
         if ($doacao = $request->anonimo == 1) {
@@ -75,7 +87,7 @@ class DonationController extends Controller
         $doacao->projeto_id = 0;
         $doacao->save();
         return redirect()->back()
-            ->with('success', 'Doação registada com sucesso');
+            ->with('success', 'Doação registada com sucesso'); */
     }
     /**
      *

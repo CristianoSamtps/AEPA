@@ -425,6 +425,7 @@
 }
 
 .detalhesDoacao .bar{
+    width: 400px;
     height: 14px;
     background-color: lightgrey;
     border-radius: 20px;
@@ -600,6 +601,16 @@
     text-align: center;
     position: relative;
 }
+#modalD {
+    background: #fff;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
 
 .close {
     position: absolute;
@@ -619,7 +630,16 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-#modal #valor {
+#modalD #valor{
+    width: 20%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#modalD #mens{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -627,14 +647,54 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-#modal #anonimo {
+#modalD #metodo_pagamento{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modalD #anonimo {
     padding: 5px;
     margin: 10px 0;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-#modal button {
+#modalD #numero_cartao {
+    width: 30%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modalD #data_validade{
+    width: 15%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modalD #cvv{
+    width: 8%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modalD #numero_telemovel{
+    width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modal button,#modalD button {
     background-color: #019E59;
     color: #fff;
     padding: 10px 20px;
@@ -643,7 +703,7 @@ h2 {
     cursor: pointer;
 }
 
-#modal button:hover {
+#modal button:hover,#modalD button:hover {
     background-color: #02894f;
 }
 @media screen and (max-width: 1200px) {

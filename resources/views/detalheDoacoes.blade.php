@@ -33,11 +33,13 @@
             <div class="content">
                 <h4>Descrição</h4>
                 <p>{{ $projeto->descricao }}</p>
+                @auth
                 <button>
                     <a href="#" onclick="openModal()">
                         <h4>Doar agora</h4>
                     </a>
                 </button>
+                @endauth
             </div>
 
 
@@ -75,7 +77,7 @@
         </section>
     </main>
     <div id="modal-container">
-        <div id="modal">
+        <div id="modalD">
             <form action="{{-- {{ route('registardoacao', $doacao) }} --}}" id="doacaoform" method='POST'>
                 @csrf
                 <span class="close" onclick="closeModal()">&times;</span>
@@ -85,8 +87,40 @@
                     <option value="1">Não</option>
                     <option value="0">Sim</option>
                 </select>
-                <input type="integer" name="valor" id="valor" placeholder="Digite o valor a doar..."></textarea>
+                <label for="anonimo">Valor a doar</label>
+                <input type="integer" name="valor" id="valor"></textarea>
 
+                <input type="text" name="mens" id="mens" placeholder="Digite uma mensagem..."></textarea>
+
+                <label for="metodo_pagamento">Método de Pagamento:</label>
+            <select name="metodo_pagamento" id="metodo_pagamento" onchange="showFields()">
+                <option value="nada">Selecione uma opção:</option>
+                <option value="cartao_multibanco">Cartão Multibanco</option>
+                <option value="referencia_multibanco">Referência Multibanco</option>
+                <option value="mbway">MB WAY</option>
+            </select>
+                <div id="cartao_multibanco_fields" style="display: none;">
+                    <label for="numero_cartao">Nº do Cartão:</label>
+                    <input type="text" name="numero_cartao" id="numero_cartao" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+                    <label for="data_validade">Data de Validade:</label>
+                    <input type="text" name="data_validade" id="data_validade" placeholder="MM/AA" required>
+
+                    <label for="cvv">CVV:</label>
+                    <input type="text" name="cvv" id="cvv" placeholder="XXX" required>
+                </div>
+
+                <!-- Campo específico para Referência Multibanco -->
+                <div id="referencia_multibanco_fields" style="display: none;">
+                    <!-- Adicione aqui lógica para gerar a referência automaticamente no backend -->
+                    <p>Referência será gerada automaticamente ao enviar a doação.</p>
+                </div>
+
+                <!-- Campo específico para MB WAY -->
+                <div id="mbway_fields" style="display: none;">
+                    <label for="numero_telemovel">Número de Telemóvel:</label>
+                    <input type="text" name="numero_telemovel" id="numero_telemovel" placeholder="Número de Telemóvel" required>
+                </div>
                 <button onclick="submitSuggestion()">Enviar Doação</button>
             </form>
         </div>
@@ -103,5 +137,24 @@
         function closeModal() {
             $("#modal-container").fadeOut();
         }
+
+        function showFields() {
+        var metodoPagamento = document.getElementById("metodo_pagamento").value;
+
+        // Oculta todos os campos específicos
+        document.getElementById("cartao_multibanco_fields").style.display = "none";
+        document.getElementById("referencia_multibanco_fields").style.display = "none";
+        document.getElementById("mbway_fields").style.display = "none";
+
+        // Exibe os campos específicos do método de pagamento selecionado
+        if (metodoPagamento === "cartao_multibanco") {
+            document.getElementById("cartao_multibanco_fields").style.display = "block";
+        } else if (metodoPagamento === "referencia_multibanco") {
+            document.getElementById("referencia_multibanco_fields").style.display = "block";
+        } else if (metodoPagamento === "mbway") {
+            document.getElementById("mbway_fields").style.display = "block";
+        }
+    }
+
     </script>
 @endsection
