@@ -87,7 +87,7 @@ class ProjetoController extends Controller
         $projeto->estado = $request->input('estado');
         $projeto->fill($fields);
         $projeto->save();
-    
+
         // Sincronize as parcerias associadas ao projeto
         if ($request->has('partnerships')) {
             $projeto->partnerships()->sync($request->input('partnerships'));
@@ -95,12 +95,12 @@ class ProjetoController extends Controller
             // Se nenhuma parceria for selecionada, remova todas as associações existentes
             $projeto->partnerships()->detach();
         }
-    
+
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto atualizado com sucesso');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -122,4 +122,5 @@ class ProjetoController extends Controller
 
         return view('projects', compact('projetos', 'fotografias'));
     }
+
 }

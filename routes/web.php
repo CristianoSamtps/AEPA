@@ -40,7 +40,8 @@ Route::get('/teste',function (){
 
 });
 
-Route::get('/detalheDoacoes', [PageController::class, 'detalheDoacoes'])->name('detalheDoacoes');
+Route::get('detalhesDoacoes/{projeto}', [PageController::class, 'detalhesDoacoes'])->name('detalhesDoacoes');
+
 
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
@@ -112,13 +113,17 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
-        Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
+        /* Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']); */
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
+<<<<<<< Updated upstream
        /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
+=======
+        Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class);
+>>>>>>> Stashed changes
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
