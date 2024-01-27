@@ -15,8 +15,6 @@ class VoluntarioController extends Controller
     {
         $voluntario=Voluntariado::where('member_doner_id',auth()->user()->id);
 
-        $voluntario->user_id=auth()->user()->id;
-
         $voluntario = new Voluntariado();
         $voluntario->user_id=auth()->user()->id;
 
