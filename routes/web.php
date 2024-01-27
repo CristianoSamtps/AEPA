@@ -129,6 +129,8 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
+        Route::resource('doacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);;
+
         Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);

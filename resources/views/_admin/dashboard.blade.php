@@ -14,7 +14,7 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card card-hover">
                     <div class="box bg-cyan text-center">
-                        <a href="">
+                        <a href="{{ route('admin.doacoes.index') }}">
                             <h1 class="font-light text-white"><i class="fa-solid fa-hand-holding-dollar"></i></h1>
                             <h6 class="text-white">Doações</h6>
                         </a>
