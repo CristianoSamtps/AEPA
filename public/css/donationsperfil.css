@@ -5,11 +5,23 @@
     padding: 60px;
     margin-right: 50px;
 }
+@media only screen and (max-width: 1400px){
+    #main-content {
+        margin-top: 160px;
+        flex: 1;
+        padding-top: 0px;
+        padding: 20px;
+        margin-right: 0px;
+        margin-bottom: 200px;
 
+    }
+
+}
 .row {
     padding: 10px;
     height: 100%;
 }
+
 #novadoacao {
     position: relative;
     cursor: pointer;
@@ -23,23 +35,27 @@
     box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
 }
-div#novadoacao .fa-solid{
+
+div#novadoacao .fa-solid {
     padding: 30px;
-    transform:scale(2.6);
+    transform: scale(2.6);
     color: #a6a6a686;
     transition: all 0.3s;
 
 }
+
 #novadoacao:hover {
     border: 2px solid rgb(109, 168, 207);
     box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
 }
-div#novadoacao:hover .fa-solid{
+
+div#novadoacao:hover .fa-solid {
     color: rgb(109, 168, 207);
     transition: all 0.3s;
 
 }
+
 #semdoacao {
     margin-top: 20px;
     position: relative;
@@ -53,7 +69,8 @@ div#novadoacao:hover .fa-solid{
     box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
     transition: all 0.3s;
 }
-div#semdoacao p{
+
+div#semdoacao p {
     font-size: 18px;
     color: #ffffff;
     line-height: 80px;
@@ -204,6 +221,71 @@ div#semdoacao p{
         transform-origin: top left;
     }
 }
+
 .espacamento {
     height: 20px;
+}
+
+#filtro-doacoes {
+    justify-content: right;
+    padding-right: 50px;
+    margin-top: 30px;
+}
+
+#filtro-doacoes .caixa-filtro {
+    text-align: center;
+    width: 140px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 25px;
+    background: #e8e8e8;
+    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+    margin: 10px !important;
+}
+
+#filtro-doacoes .caixa-filtro .input {
+    width: 100px;
+    background-color: transparent;
+    border: 0px transparent !important;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+}
+
+#filtro-doacoes .caixa-filtro select.input {
+    border: 4px  !important;
+    outline: none !important;
+
+}
+
+#filtro-doacoes .caixa-filtro input {
+    outline: none;
+}
+
+#filtro-doacoes .caixa-botao {
+    margin-right: 30PX;
+    text-align: center;
+    width: 140px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 25px;
+    background: transparent;
+    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+}
+
+#filtro-doacoes .caixa-botao button {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.255px;
+    width: 140px;
+    height: 46px;
+    border-radius: 50px;
+    /* background: #019E59; */
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    border-color: transparent;
+    transition: ease-in all 0.1s;
 }

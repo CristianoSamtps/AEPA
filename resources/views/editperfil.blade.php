@@ -227,9 +227,23 @@
                         Alterar Password
                     </li>
                     <div id="faq4" class="faq-answer collapse">
-                        When your trial account meets the free plan's requirements, you can sign up for the free version
-                        during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
-                        version link below the plan options.
+
+                        <div class="caixa-detalhes-grande">
+                            <label class="txt" for="inputFullname">Password Antiga <span style="color: red">*</span></label>
+                            <input type="text" class="input" name="name" id="inputFullname"
+                                value="" />
+                        </div>
+                        <div class="caixa-detalhes-grande">
+                            <label class="txt" for="inputFullname">Password Nova <span style="color: red">*</span></label>
+                            <input type="text" class="input" name="name" id="inputFullname"
+                                value="" />
+                        </div>
+                        <div class="caixa-detalhes-grande">
+                            <label class="txt" for="inputFullname">Confirmar Password <span style="color: red">*</span></label>
+                            <input type="text" class="input" name="name" id="inputFullname"
+                                value="" />
+                        </div>
+
                     </div>
                 </ul>
                 </ul>

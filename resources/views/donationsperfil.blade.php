@@ -6,6 +6,7 @@
 
 @section('styles')
     <link href="{{ asset('/css/donationsperfil.css') }}" rel="stylesheet">
+
 @endsection
 
 @section('main-content')
@@ -20,13 +21,60 @@
             </div>
         </a>
 
+        <!-- Área dos filtros -->
+        <div id="filtro-doacoes" class="col-lg-12">
+
+            <form method="get" action="{{ route('user.doacoes', $user) }}">
+
+                <div class="row" style="justify-content: right">
+
+                    <div class="col-3 caixa-filtro">
+
+                        <select name="data" class="input">
+                            <option value="">Data:</option>
+                            <option value="recentes">Recentes</option>
+                            <option value="antigas">Antigas</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-3 caixa-filtro">
+
+                        <select name="preco" class="input">
+                            <option value="">Preço:</option>
+                            <option value="desc">Descendente</option>
+                            <option value="asc">Ascendente</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3 caixa-filtro">
+
+                        <select name="visibilidade" class="input">
+                            <option value="">Anônimo:</option>
+                            <option value="anonimo">Anônimo</option>
+                            <option value="nao-anonimo">Não Anônimo</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3 caixa-botao">
+
+                        <button type="submit">Filtrar</button>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+
+
         <div id="resumedoacoes" class="col-lg-12">
             <h2>Últimas Doações</h2>
             <span><span class="x"></span></span>
             <div class="espacamento"></div>
             @if ($user->doacoes && count($user->doacoes) > 0)
                 {{-- dd($user->donation); --}}
-                @foreach ($doacoes->sortByDesc('created_at')->take(10) as $doacao)
+                @foreach ($doacoes->take(10) as $doacao)
                     <div class="resumo d-flex">
 
                         <div class="data col-lg-1">

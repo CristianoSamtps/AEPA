@@ -64,7 +64,9 @@
             </div>
 
             <div class="col-lg-8" data-aos-anchor-placement="bottom-bottom">
-                <div class="row">
+
+                <!--SECÇÃO DOS PROJETOS-->
+                <div id="projet" class="row">
                     @if (count($projetos) > 0)
                         @foreach ($projetos->take(3) as $projeto)
                             <div id="exprojeto" class="col-lg-4">
@@ -99,7 +101,9 @@
                     @endif
                 </div>
 
+                <!--SECÇÃO DAS DOAÇÕES-->
                 <div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+
                     <div id="resumedoacoes" class="col-lg-12">
                         <h2>Últimas Doações</h2>
                         <span><span class="x"></span></span>
@@ -161,6 +165,7 @@
                             </div>
                         @endif
                     </div>
+
                 </div>
 
             </div>
