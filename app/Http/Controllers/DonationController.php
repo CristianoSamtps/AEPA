@@ -32,6 +32,24 @@ class DonationController extends Controller
             return view('indexperfil', compact('user'))->with('error', 'O usuário não possui doações.');
         }
     }
+
+    public function registarDoacao(Request $request)
+    {
+        $fields=$request->validate(['valor'=>'required']);
+        $doacao = new Donation();
+        $doacao->doacao=$request->valor;
+        $doacao->doacao=$request->anonimo;
+        if($doacao=$request->anonimo == 1){
+            $doacao->member_doner_id=auth()->user()->id;
+            $doacao->anonimo='N';
+        }else{
+            $doacao->anonimo='S';
+        }
+        $doacao->projeto_id=0;
+        $doacao->save();
+         return redirect()->back()
+           ->with('success', 'Doação registada com sucesso');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -82,4 +100,10 @@ class DonationController extends Controller
         return redirect()->route('admin.doacoes.index')->with('success',
         'Doação eliminada com sucesso');
     }
+
+    /* public function doarProjetos(Projeto $projeto)
+    {
+        $projetos = Projeto::all();
+        return view('detalheDoacoes', compact('projetos','projeto'));
+    } */
 }

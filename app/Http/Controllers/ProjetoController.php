@@ -124,4 +124,5 @@ class ProjetoController extends Controller
 
         return view('projects', compact('projetos', 'fotografias'));
     }
+
 }

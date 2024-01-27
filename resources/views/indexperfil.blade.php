@@ -66,7 +66,7 @@
             <div class="col-lg-8" data-aos-anchor-placement="bottom-bottom">
                 <div class="row">
                     @if (count($projetos) > 0)
-                        @foreach ($projetos as $projeto)
+                        @foreach ($projetos->take(3) as $projeto)
                             <div id="exprojeto" class="col-lg-4">
                                 <div class="fundo-projeto">
                                     @if ($projeto->fotografias)
