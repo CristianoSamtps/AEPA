@@ -22,7 +22,7 @@ class VoluntarioController extends Controller
         $voluntario->projeto_id=$projeto_id->id;
         $voluntario->save();
 
-        return redirect()->route('voluntariado')->with('success', 'Inscrição para voluntariado enviada com sucesso!');
+        return redirect()->route('voluntariado')->with('success', 'Inscrição para voluntariado submetida com sucesso!');
     }
 
 }

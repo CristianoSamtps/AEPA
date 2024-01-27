@@ -8,6 +8,7 @@
 
 @section('styles')
     <link href="{{ asset('/css/styleTornarMembro.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/styleIndex.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -20,9 +21,6 @@
                     <label for="projetoNome">Nome do Projeto</label>
                     <input type="text" class="form-control" id="projetoNome" name="projetoNome"
                         value="{{ $projeto->titulo }}" readonly disabled>
-
-                   {{--  <input type="text" class="form-control" id="projetoNome" name="projeto_id"
-                        value="{{ $projeto->id }}" hidden> --}}
                 </div>
 
                 <div class="form-group">
