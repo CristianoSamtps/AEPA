@@ -82,4 +82,10 @@ class DonationController extends Controller
         return redirect()->route('admin.doacoes.index')->with('success',
         'Doação eliminada com sucesso');
     }
+
+    /* public function doarProjetos(Projeto $projeto)
+    {
+        $projetos = Projeto::all();
+        return view('detalheDoacoes', compact('projetos','projeto'));
+    } */
 }

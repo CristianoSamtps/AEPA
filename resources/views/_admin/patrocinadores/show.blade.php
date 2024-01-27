@@ -20,7 +20,7 @@ Informação do Parceiro
             </thead>
             <tbody>
                 <tr>
-                    <td><img src="{{ $partner->foto_url }}" alt="Foto do Parceiro">
+                    <td><img src="{{ $partner->foto_url }}" alt="Foto do Parceiro" height="50px">
                     </td>
                     <td>{{ $partner->descricao }}</td>
                     <td>{{ $partner->name }}</td>

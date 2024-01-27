@@ -55,12 +55,12 @@ class PartnerShipController extends Controller
         $partner = PartnerShip::create($validatedData);
 
         if ($request->hasFile('foto')) {
-            $foto_path = $request->file('foto')->storeAs(
-                'public/partner_fotos/'
-            );
+            $foto_path =
+                $request->file('foto')->store('public/partner_fotos');
             $partner->foto = basename($foto_path);
-            $partner->save();
         }
+
+        $partner->save();
 
         return redirect()->route('admin.patrocinadores.show', $partner)
             ->with('success', 'Parceiro criado com sucesso!');
@@ -82,6 +82,11 @@ class PartnerShipController extends Controller
     public function edit(PartnerShip $partner)
     {
         return view('_admin.patrocinadores.edit', compact('partner'));
+    }
+    public function patrocinadores(PartnerShip $partner)
+    {
+        $partners = PartnerShip::all();
+        return view('patrocinadores', compact('partners'));
     }
 
     /**

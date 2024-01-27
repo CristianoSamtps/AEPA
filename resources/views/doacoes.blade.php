@@ -25,20 +25,21 @@
                         <img src="{{ asset('img/banner-doacoes.svg') }}" alt="">
                     </div>
                 </div>
-
                 <div class="filtros">
                     <div class="search-box">
                         <img src="{{ asset('img/lupa.svg') }}" alt="">
                         <input type="text" placeholder="Pesquisar doação aqui">
                     </div>
-                    <div class="botoes">
+                    {{-- <div class="botoes">
                         <label id="all">All</label>
                         <label id="localidade">Localidade</label>
                         <label id="doacoes">Doações</label>
-                    </div>
-                    @foreach ($projetos as $projeto)
-                        <div class="card">
+                    </div> --}}
 
+
+                @foreach ($projetos as $projeto)
+                    <a href="{{ route('detalhesDoacoes', ['projeto' => $projeto]) }}">
+                        <div class="card">
                             <div class="esq">
                                 <img src="{{ asset('img/praia.svg') }}" alt="">
                             </div>
@@ -57,53 +58,56 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                    @foreach ($doacoes as $doacao)
-                        <div class="card">
-                            <div class="esq">
-                                <img src="{{ asset('img/praia.svg') }}" alt="">
-                            </div>
-                            <div class="dir">
-                                <h4>{{ $doacao->title }}</h4>
-                                <div class="bar">
-                                    <div class="per"></div>
-                                    <div class="texto-per">
-                                        <span>{{ $doacao->valor }}€ <span id="cinza">angariados<span> </span>
-                                    </div>
-                                </div>
-                            </div>
+                    </a>
+                @endforeach
+                @foreach ($doacoes as $doacao)
 
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <!--
                     <div class="card">
                         <div class="esq">
                             <img src="{{ asset('img/praia.svg') }}" alt="">
                         </div>
                         <div class="dir">
-                            <h4>Plantação da mata de Leiria</h4>
+                            <h4>{{ $doacao->title }}</h4>
                             <div class="bar">
                                 <div class="per"></div>
                                 <div class="texto-per">
-                                    <span>100 € <span id="cinza">angariados<span> </span>
-                                            <span id="cinza" class="perc">20%</span>
+                                    <span>{{ $doacao->valor }}€ <span id="cinza">angariados<span> </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                @endforeach
+
+            </div>
+            </div>
+            <!--
+                        <div class="card">
+                            <div class="esq">
+                                <img src="{{ asset('img/praia.svg') }}" alt="">
+                            </div>
+                            <div class="dir">
+                                <h4>Plantação da mata de Leiria</h4>
+                                <div class="bar">
+                                    <div class="per"></div>
+                                    <div class="texto-per">
+                                        <span>100 € <span id="cinza">angariados<span> </span>
+                                                <span id="cinza" class="perc">20%</span>
+                                    </div>
+
                                 </div>
 
                             </div>
-
                         </div>
-                    </div>
 
-                <div class="paginas">
-                    <ul>
-                        <li class="link" value="1">1</li>
-                        <li class="link" value="2">2</li>
-                        <li class="link" value="3">3</li>
-                    </ul>
-                </div>
-    -->
+                    <div class="paginas">
+                        <ul>
+                            <li class="link" value="1">1</li>
+                            <li class="link" value="2">2</li>
+                            <li class="link" value="3">3</li>
+                        </ul>
+                    </div>
+        -->
             </div>
             </div>
         </section>
