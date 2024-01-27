@@ -129,15 +129,11 @@ Route::group([
 
         Route::resource('sugestoes', SugestaoController::class)->parameters(['sugestoes' => 'sugestao'])->except(['create', 'store']);
 
-        /* Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']); */
+        Route::resource('detalheDoacoes', DonationController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-       /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
-
-        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
-
-        Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class);
+       /*  Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class); */
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
