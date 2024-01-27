@@ -171,7 +171,7 @@
                 <div class="col-md-12 d-flex justify-content-center {{-- {{-- hidden2 --}}2 --}}2 suguecards">
                     @if ($sugestoesList)
                         @foreach ($sugestoesList as $sugestao)
-                            <div class="m-4 col-md-4 sugue-box d-flex flex-column justify-content-between">
+                            <div class="m-4 col-md-4 col-sm-12 sugue-box d-flex flex-column justify-content-between">
                                 <div class="d-flex">
                                     @if ($sugestao->member_doner->user->foto)
                                         <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"

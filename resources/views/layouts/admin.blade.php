@@ -294,10 +294,10 @@
                                     class="hide-menu">Doações</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                <li class="sidebar-item"><a href="{{ route('admin.doacoes.index') }}"
+                               {{--  <li class="sidebar-item"><a href="{{ route('admin.doacoes.index') }}"
                                         class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
                                             class="hide-menu"> Todos as doações
-                                        </span></a></li>
+                                        </span></a></li> --}}
 
                             </ul>
                         </li>

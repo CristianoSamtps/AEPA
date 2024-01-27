@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Projeto;
+use App\Models\Voluntariado;
 use App\Models\FotografiaProjeto;
 use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoRequest;
 use App\Models\Donation;
-use App\Models\Voluntariado;
 use Illuminate\Support\Facades\Auth;
 
 class ProjetoController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */

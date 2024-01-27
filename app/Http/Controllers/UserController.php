@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Models\Donation;
+use App\Models\FotografiaProjeto;
 use App\Models\Member_Doner;
 use Illuminate\Http\Request;
+use App\Models\Donation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -91,20 +92,26 @@ class UserController extends Controller
 
     public function indexperfil(User $user)
     {
-        $donations = $user->donations;
-        return view('indexperfil', compact('user', 'donations'));
+        $projetos = $user->projetos;
+        $doacoes = $user->doacoes;
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
+
+        return view('indexperfil', compact('user', 'doacoes', 'projetos','fotografias'));
     }
 
     public function projetosperfil(User $user)
     {
-        $projetos = $user->projeto;
-        return view('projetosperfil', compact('user', 'projetos'));
+        // Usando a relação definida no modelo User para acessar os projetos através da tabela de pivot 'voluntariado'
+        $projetos = $user->projetos;
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
+
+        return view('projetosperfil', compact('user', 'projetos','fotografias'));
     }
 
     public function donationsperfil(User $user)
     {
-        $donations = $user->donations;
-        return view('donationsperfil', compact('user', 'donations'));
+        $doacoes = $user->doacoes;
+        return view('donationsperfil', compact('user', 'doacoes'));
     }
 
     public function updateperfil(UserRequest $request, User $user)

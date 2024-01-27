@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\VoluntarioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -14,8 +15,6 @@ use App\Http\Controllers\PlanTypeController;
 use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
-use App\Http\Controllers\FotografiaProjetoController;
-use App\Models\PartnerShip;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,14 +77,30 @@ Auth::routes(['verify' => true]);
 Route::group([
     'middleware' => ['auth', 'verified']
 ], function () {
+
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
     Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
+
+    /* Participantes em eventos */
+
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
+
+    /* Participantes em eventos */
+
+    /* voluntariado */
+
+    Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
+
+    Route::get('/inscricao/{projeto_id}', [PageController::class, 'inscricao'])->name('inscricao');
+
+    Route::post('/voluntariar/{projeto_id}', [VoluntarioController::class, 'registarvoluntariado'])->name('voluntariar');
+
+    /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
 

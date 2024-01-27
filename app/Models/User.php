@@ -84,12 +84,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->tipo == 'A';
     }
 
-    public function voluntariados()
-    {
-        return $this->hasMany(Voluntariado::class);
-    }
-
-
     /*CRIAR MÉTODO SIMILAR PARA TODOS OS RELACIONAMENTOS COM A TABELA DOS USERS
        public function projects()
        {
@@ -98,8 +92,23 @@ class User extends Authenticatable implements MustVerifyEmail
            //return $this->hasMany(Project::class,'user_id','id');
        }
        */
-      public function donations()
-      {
-          return $this->member_doner->donations();
-      }
+    public function donations()
+    {
+        return $this->member_doner_id->donations();
+    }
+    // DOAÇÕES NO PERFIL NAO MEXER
+    public function doacoes()
+    {
+        return $this->hasMany(Donation::class, 'member_doner_id');
+    }
+
+    public function projetos()
+    {
+        return $this->belongsToMany(Projeto::class, 'voluntariado', 'user_id', 'projeto_id');
+    }
+
+    public function voluntariados()
+    {
+        return $this->hasMany(Voluntariado::class, 'user_id');
+    }
 }

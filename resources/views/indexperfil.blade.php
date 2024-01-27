@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
 
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+        <div class="row justify-content-center" data-aos-anchor-placement="bottom-bottom">
 
             <div id="profileresume" class="col-lg-4">
 
@@ -63,76 +63,40 @@
                 </div>
             </div>
 
-            <div class="col-lg-8" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-
+            <div class="col-lg-8" data-aos-anchor-placement="bottom-bottom">
                 <div class="row">
-
-                    <div id="exprojeto" class="col-lg-4">
-
-                        <div class="fundo-projeto">
-                            <img src="{{ asset('/img/incendio.jpg') }}" alt="Imagem do projeto">
+                    @if (count($projetos) > 0)
+                        @foreach ($projetos->take(3) as $projeto)
+                            <div id="exprojeto" class="col-lg-4">
+                                <div class="fundo-projeto">
+                                    @if ($projeto->fotografias)
+                                        <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}"
+                                            alt="Imagem do projeto" class="img-post">
+                                    @else
+                                        <img src="{{ asset('storage/event_photos/unnamed.jpg') }}" alt="Imagem do projeto">
+                                    @endif
+                                </div>
+                                <div class="info-projeto">
+                                    <h1>{{ $projeto->titulo }}</h1>
+                                    <!-- Adicione outras informações do projeto conforme necessário -->
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                            viewBox="0 0 19 18" fill="none">
+                                            <path
+                                                d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
+                                                fill="white" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="col-lg-12">
+                            <div class="fundo-projeto text-center">
+                                <p>Projetos Indisponíveis</p>
+                            </div>
                         </div>
-
-                        <div class="info-projeto">
-
-                            <h1>Projeto Amazonia</h1>
-
-                            <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                    viewBox="0 0 19 18" fill="none">
-                                    <path
-                                        d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                        fill="white" />
-                                </svg>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div id="exprojeto" class="col-lg-4">
-
-                        <div class="fundo-projeto">
-                            <img src="{{ asset('/img/pobreza.avif') }}" alt="Imagem do projeto">
-                        </div>
-
-                        <div class="info-projeto">
-
-                            <h1>Evolução</h1>
-
-                            <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                    viewBox="0 0 19 18" fill="none">
-                                    <path
-                                        d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                        fill="white" />
-                                </svg>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div id="exprojeto" class="col-lg-4">
-
-                        <div class="fundo-projeto">
-                            <img src="{{ asset('/img/lixo.jpg') }}" alt="Imagem do projeto">
-                        </div>
-
-                        <div class="info-projeto">
-
-                            <h1>Clean Ocean</h1>
-
-                            <button><svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                    viewBox="0 0 19 18" fill="none">
-                                    <path
-                                        d="M9.79988 17.9359C14.6835 17.9359 18.6418 13.9355 18.6418 8.99998C18.6418 4.06443 14.6835 0.0640373 9.79988 0.0640373C4.91629 0.0640373 0.958008 4.06443 0.958008 8.99998C0.958008 13.9355 4.91629 17.9359 9.79988 17.9359ZM7.12676 5.38552L8.33848 4.16091L13.0311 8.91833L8.33848 13.6758L7.12676 12.4511L10.6297 8.92576L7.12676 5.38552Z"
-                                        fill="white" />
-                                </svg>
-                            </button>
-
-                        </div>
-
-                    </div>
-
+                    @endif
                 </div>
 
                 <div class="row" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
@@ -140,9 +104,9 @@
                         <h2>Últimas Doações</h2>
                         <span><span class="x"></span></span>
                         <div class="espacamento"></div>
-                        @if ($user->donation && count($user->donation) > 0)
+                        @if ($user->doacoes && count($user->doacoes) > 0)
                             {{-- dd($user->donation); --}}
-                            @foreach ($user->donation->sortByDesc('created_at')->take(6) as $doacao)
+                            @foreach ($doacoes->sortByDesc('created_at')->take(6) as $doacao)
                                 <div class="resumo d-flex">
 
                                     <div class="data col-lg-1">
@@ -171,9 +135,8 @@
                                         <div class="projeto col-lg-1"></div>
                                     @endif
 
-                                    <div class="estado col-lg-2" data-aos="flip-right"
-                                    data-aos-easing="ease-out-cubic"
-                                    data-aos-duration="800">
+                                    <div class="estado col-lg-2" data-aos="flip-right" data-aos-easing="ease-out-cubic"
+                                        data-aos-duration="800">
                                         <button
                                             class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
                                             @if ($doacao->anonimo == 'N')
@@ -191,7 +154,11 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>Nenhuma doação encontrada.</p>
+                            <div id="semdoacao" data-aos="fade-down" class="col-lg-12">
+
+                                <p>Nenhuma doação encontrada!</p>
+
+                            </div>
                         @endif
                     </div>
                 </div>

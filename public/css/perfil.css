@@ -165,7 +165,6 @@
             opacity: 30%;
             transition: all ease-in 0.2s;
         }
-
         #exprojeto:hover {
             border-bottom: 6px solid rgb(4, 131, 0);
             transition: all ease-in 0.2s;
@@ -307,7 +306,25 @@
             background: #019E59;
             color: white;
         }
-
+        #semdoacao {
+            margin-top: 20px;
+            position: relative;
+            cursor: pointer;
+            height: 80px;
+            width: 97%;
+            text-align: center;
+            flex-shrink: 0;
+            border-radius: 22px;
+            background-color: #b80e0e;
+            box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s;
+        }
+        div#semdoacao p{
+            font-size: 18px;
+            color: #ffffff;
+            line-height: 80px;
+            text-decoration: none !important;
+        }
         .projeto svg path {
             fill: rgb(214, 214, 214);
         }
