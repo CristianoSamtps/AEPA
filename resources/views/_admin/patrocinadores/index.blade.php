@@ -29,7 +29,7 @@
                                 <tr>
                                 <td class="imagempartner">
                                     @if ($partner->foto)
-                                    <img src="{{ asset('storage/partner_fotos/' . $partner->foto) }}" class="img-post" alt="Foto do Parceiro" height="100px">
+                                    <img src="{{ asset('storage/partner_fotos/' . $partner->foto) }}" class="img-post" alt="Foto do Parceiro" height="60px">
                                     @else
                                     <img src="{{ asset('img/default_user.jpg') }}" class="img-post" alt="Foto pré-definida" height="100px">
                                     @endif

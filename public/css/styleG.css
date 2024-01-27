@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # Top-donates
 --------------------------------------------------------------*/
-.top-donates,.doacoes,.sugestoes {
+.top-donates,.doacoes,.sugestoes,.detalhesDoacao {
     margin-top: 180px;
 }
 
@@ -232,6 +232,14 @@
     color: white;
     text-decoration: none;
 }
+.doacoes .container-doacoes .filtros a:active,
+.doacoes .container-doacoes .filtros a:visited,
+.doacoes .container-doacoes .filtros a:checked,
+.doacoes .container-doacoes .filtros a:link,
+.doacoes .container-doacoes .filtros a:hover{
+    color: #383838;
+    text-decoration: none;
+}
 
 
 .doacoes .container-doacoes .banner .image{
@@ -364,19 +372,75 @@
     background-color: #019E59;
 }
 /* Detalhe Doações */
+.detalhesDoacao .container {
+    text-align: center;
+}
 .detalhesDoacao .bannerD{
-    width: 1000px;
     display: flex;
     position: relative;
     height: 200px;
     align-items: center;
     border-radius: 25px;
     margin: 10px 30px;
-    padding-top: 300px;
     justify-content: center;
+}
+.detalhesDoacao .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+
 }
 .detalhesDoacao .bannerD img{
     width: 400px;
+}
+.detalhesDoacao .content{
+    justify-content: center;
+    text-align: center;
+
+}
+.detalhesDoacao .content h4{
+    font-size: 15px;
+    font-weight: 600;
+
+}
+.detalhesDoacao button{
+    width: 500px;
+    height: 50px;
+    border-radius: 40px;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    color: #ffff;
+    border: 0px;
+}
+.detalhesDoacao button a:hover,.detalhesDoacao button a:active,.detalhesDoacao button a:visited,
+.detalhesDoacao button a:checked,.detalhesDoacao button a:link{
+    color: #ffff;
+    text-decoration: none;
+}
+
+.detalhesDoacao .bar{
+    height: 14px;
+    background-color: lightgrey;
+    border-radius: 20px;
+}
+.detalhesDoacao .per{
+    max-width: 85%;
+    height: 14px;
+    background-color: #019E59;
+    position: relative;
+    border-radius: 20px;
+}
+.detalhesDoacao .texto-per #cinza{
+    color: lightgray;
+}
+.detalhesDoacao .texto-per .perc{
+    text-align: right;
 }
 /* Sugestões */
 .sugestoes .container-sugestoes{
@@ -514,6 +578,7 @@
     padding-top: 20px;
     width: 250px;
 }
+
 #modal-container {
     display: none;
     position: fixed;
@@ -554,6 +619,21 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+#modal #valor {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modal #anonimo {
+    padding: 5px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 #modal button {
     background-color: #019E59;
     color: #fff;
@@ -565,6 +645,14 @@ h2 {
 
 #modal button:hover {
     background-color: #02894f;
+}
+@media screen and (max-width: 1200px) {
+    .sugestoes .container-sugestoes{
+        max-width: 800px;
+    }
+    .sugestoes .filtros .search-box input{
+        width: 300px;
+    }
 }
 @media screen and (max-width: 990px) {
     .top-donates .donates .card{
