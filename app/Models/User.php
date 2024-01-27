@@ -94,7 +94,12 @@ class User extends Authenticatable implements MustVerifyEmail
        */
     public function donations()
     {
-        return $this->member_doner->donations();
+        return $this->member_doner_id->donations();
+    }
+    // DOAÇÕES NO PERFIL NAO MEXER
+    public function doacoes()
+    {
+        return $this->hasMany(Donation::class, 'member_doner_id');
     }
 
     public function projetos()

@@ -103,9 +103,9 @@
                         <h2>Últimas Doações</h2>
                         <span><span class="x"></span></span>
                         <div class="espacamento"></div>
-                        @if ($user->donation && count($user->donation) > 0)
+                        @if ($user->doacoes && count($user->doacoes) > 0)
                             {{-- dd($user->donation); --}}
-                            @foreach ($user->donation->sortByDesc('created_at')->take(6) as $doacao)
+                            @foreach ($doacoes->sortByDesc('created_at')->take(6) as $doacao)
                                 <div class="resumo d-flex">
 
                                     <div class="data col-lg-1">
