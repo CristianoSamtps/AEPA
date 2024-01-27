@@ -37,14 +37,15 @@ class DonationController extends Controller
     {
         $fields=$request->validate(['valor'=>'required']);
         $doacao = new Donation();
-        $doacao->doacao=$request->valor;
-        $doacao->doacao=$request->anonimo;
+        $doacao->valor=$request->valor;
+        $doacao->anonimo=$request->anonimo;
         if($doacao=$request->anonimo == 1){
             $doacao->member_doner_id=auth()->user()->id;
             $doacao->anonimo='N';
         }else{
             $doacao->anonimo='S';
         }
+        $doacao->title=$request->mens
         $doacao->projeto_id=0;
         $doacao->save();
          return redirect()->back()

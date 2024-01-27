@@ -26,10 +26,10 @@
                     </div>
                 </div>
                 <div class="filtros">
-                    <div class="search-box">
+                    {{-- <div class="search-box">
                         <img src="{{ asset('img/lupa.svg') }}" alt="">
                         <input type="text" placeholder="Pesquisar doação aqui">
-                    </div>
+                    </div> --}}
                     {{-- <div class="botoes">
                         <label id="all">All</label>
                         <label id="localidade">Localidade</label>
