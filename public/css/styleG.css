@@ -418,6 +418,12 @@
     color: #ffff;
     border: 0px;
 }
+.detalhesDoacao button a:hover,.detalhesDoacao button a:active,.detalhesDoacao button a:visited,
+.detalhesDoacao button a:checked,.detalhesDoacao button a:link{
+    color: #ffff;
+    text-decoration: none;
+}
+
 .detalhesDoacao .bar{
     height: 14px;
     background-color: lightgrey;
@@ -608,6 +614,21 @@ h2 {
 #modal #suges {
     width: 100%;
     padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modal #valor {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#modal #anonimo {
+    padding: 5px;
     margin: 10px 0;
     box-sizing: border-box;
     border: 1px solid #ccc;

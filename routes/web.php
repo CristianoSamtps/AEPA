@@ -103,6 +103,7 @@ Route::group([
     /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
+    Route::post('/doacoes', [DonationController::class, 'registarDoacao'])->name('registardoacao');
 
     Route::group([
         'middleware' => ['admin'],
@@ -132,13 +133,11 @@ Route::group([
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-<<<<<<< Updated upstream
        /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
-=======
+
         Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class);
->>>>>>> Stashed changes
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
