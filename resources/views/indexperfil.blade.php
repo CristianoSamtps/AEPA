@@ -171,9 +171,8 @@
                                         <div class="projeto col-lg-1"></div>
                                     @endif
 
-                                    <div class="estado col-lg-2" data-aos="flip-right"
-                                    data-aos-easing="ease-out-cubic"
-                                    data-aos-duration="800">
+                                    <div class="estado col-lg-2" data-aos="flip-right" data-aos-easing="ease-out-cubic"
+                                        data-aos-duration="800">
                                         <button
                                             class="info @if ($doacao->anonimo == 'S') anonimo @else nao-anonimo @endif">
                                             @if ($doacao->anonimo == 'N')
@@ -191,7 +190,11 @@
                                 </div>
                             @endforeach
                         @else
-                            <p>Nenhuma doação encontrada.</p>
+                            <div id="semdoacao" data-aos="fade-down" class="col-lg-12">
+
+                                <p>Nenhuma doação encontrada!</p>
+
+                            </div>
                         @endif
                     </div>
                 </div>

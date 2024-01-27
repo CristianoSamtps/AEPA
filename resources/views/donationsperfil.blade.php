@@ -12,11 +12,11 @@
 
     <div class="row" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
 
-        <div id="novadoacao" data-aos="fade-down" class="col-lg-12">
+        <a href="{{ route('doacoes') }}"><div id="novadoacao" data-aos="fade-down" class="col-lg-12">
 
             <i class="fa-solid fa-circle-plus"></i>
 
-        </div>
+        </div></a>
 
         <div id="resumedoacoes" class="col-lg-12">
             <h2>Últimas Doações</h2>
@@ -71,7 +71,11 @@
                     </div>
                 @endforeach
             @else
-                <p>Nenhuma doação encontrada.</p>
+                <div id="semdoacao" data-aos="fade-down" class="col-lg-12">
+
+                    <p>Nenhuma doação encontrada!</p>
+
+                </div>
             @endif
         </div>
     </div>

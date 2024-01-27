@@ -2,17 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Projeto;
+use App\Models\Voluntariado;
 use App\Models\FotografiaProjeto;
 use App\Models\PartnerShip;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoRequest;
 use App\Models\Donation;
-use App\Models\Voluntariado;
 use Illuminate\Support\Facades\Auth;
 
 class ProjetoController extends Controller
 {
+
+    public function perfilproject()
+    {
+        $user = auth()->user();
+
+        $projetos = $user->voluntariados()->with('projeto.fotografias')->get()->pluck('projeto')->flatten() ?? [];
+
+        // Obtenha os projetos destacados
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
+
+        return view('projetosperfil', compact('projetos', 'fotografias'));
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -87,7 +101,7 @@ class ProjetoController extends Controller
         $projeto->estado = $request->input('estado');
         $projeto->fill($fields);
         $projeto->save();
-    
+
         // Sincronize as parcerias associadas ao projeto
         if ($request->has('partnerships')) {
             $projeto->partnerships()->sync($request->input('partnerships'));
@@ -95,12 +109,12 @@ class ProjetoController extends Controller
             // Se nenhuma parceria for selecionada, remova todas as associações existentes
             $projeto->partnerships()->detach();
         }
-    
+
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto atualizado com sucesso');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
