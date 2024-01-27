@@ -82,6 +82,8 @@ Route::group([
     Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
+    Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
+
 
     /* Participantes em eventos */
 
@@ -132,8 +134,6 @@ Route::group([
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
        /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
-
-        Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 

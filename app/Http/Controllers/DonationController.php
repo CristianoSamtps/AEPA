@@ -19,25 +19,53 @@ class DonationController extends Controller
         return view('_admin.doacoes.index', compact('doacoes'));
     }
 
-    public function userDonations(User $user)
-    {
-        // Carrega as doações do usuário
-        $doacoes = $user->doacoes;
 
-        // Verifica se há doações antes de acessar propriedades
-        if ($doacoes->isNotEmpty()) {
-            return view('indexperfil', compact('user', 'doacoes'));
-        } else {
-            // Caso não haja doações, você pode lidar com isso de acordo com seus requisitos
-            return view('indexperfil', compact('user'))->with('error', 'O usuário não possui doações.');
+    public function userDonations(Request $request, User $user)
+{
+    $doacoes = $user->doacoes();
+
+    // Aplica os filtros se estiverem presentes nos parâmetros da consulta
+    if ($request->has('data')) {
+        if ($request->data === 'recentes') {
+            $doacoes->orderByDesc('created_at');
+        } elseif ($request->data === 'antigas') {
+            $doacoes->orderBy('created_at');
         }
     }
+
+    if ($request->has('preco')) {
+        if ($request->preco === 'desc') {
+            $doacoes->orderByDesc('valor');
+        } elseif ($request->preco === 'asc') {
+            $doacoes->orderBy('valor');
+        }
+    }
+
+    if ($request->has('visibilidade')) {
+        if ($request->visibilidade === 'anonimo') {
+            $doacoes->where('anonimo', 'S');
+        } elseif ($request->visibilidade === 'nao-anonimo') {
+            $doacoes->where('anonimo', 'N');
+        }
+    }
+
+    $doacoes = $doacoes->get();
+
+    if ($doacoes->isNotEmpty()) {
+        return view('donationsperfil', compact('user', 'doacoes'));
+    } else {
+        return view('donationsperfil', compact('user'))->with('error', 'O usuário não possui doações.');
+    }
+}
+
+
+
     /**
+     *
      * Show the form for creating a new resource.
      */
     public function create()
     {
-
     }
 
     /**
@@ -53,8 +81,7 @@ class DonationController extends Controller
      */
     public function show(Donation $doacao)
     {
-            return view('_admin.doacoes.show', compact('doacao'));
-
+        return view('_admin.doacoes.show', compact('doacao'));
     }
 
     /**
@@ -79,7 +106,9 @@ class DonationController extends Controller
     public function destroy(Donation $doacao)
     {
         $doacao->delete();
-        return redirect()->route('admin.doacoes.index')->with('success',
-        'Doação eliminada com sucesso');
+        return redirect()->route('admin.doacoes.index')->with(
+            'success',
+            'Doação eliminada com sucesso'
+        );
     }
 }
