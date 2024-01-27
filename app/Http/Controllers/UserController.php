@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\FotografiaProjeto;
 use App\Models\Member_Doner;
 use Illuminate\Http\Request;
 use App\Models\Donation;
@@ -93,15 +94,18 @@ class UserController extends Controller
     {
         $projetos = $user->projetos;
         $doacoes = $user->doacoes;
-        return view('indexperfil', compact('user', 'doacoes', 'projetos'));
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
+
+        return view('indexperfil', compact('user', 'doacoes', 'projetos','fotografias'));
     }
 
     public function projetosperfil(User $user)
     {
         // Usando a relação definida no modelo User para acessar os projetos através da tabela de pivot 'voluntariado'
         $projetos = $user->projetos;
+        $fotografias = FotografiaProjeto::where('destaque', true)->get();
 
-        return view('projetosperfil', compact('user', 'projetos'));
+        return view('projetosperfil', compact('user', 'projetos','fotografias'));
     }
 
     public function donationsperfil(User $user)

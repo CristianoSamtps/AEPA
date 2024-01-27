@@ -69,8 +69,9 @@
                         @foreach ($projetos as $projeto)
                             <div id="exprojeto" class="col-lg-4">
                                 <div class="fundo-projeto">
-                                    @if ($projeto->fotografiaDestaque)
-                                        <img src="{{ asset($projeto->fotografiaDestaque->foto) }}" alt="Imagem do projeto">
+                                    @if ($projeto->fotografias)
+                                        <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}"
+                                            alt="Imagem do projeto" class="img-post">
                                     @else
                                         <img src="{{ asset('storage/event_photos/unnamed.jpg') }}" alt="Imagem do projeto">
                                     @endif

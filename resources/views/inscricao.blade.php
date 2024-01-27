@@ -22,13 +22,11 @@
                     <input type="text" class="form-control" id="projetoNome" name="projetoNome"
                         value="{{ $projeto->titulo }}" readonly disabled>
                 </div>
-
                 <div class="form-group">
                     <label for="projetoNome">ID do Projeto</label>
                     <input type="integer" class="form-control" id="idproj" name="idproj" value="{{ $projeto->id }}"
                         readonly disabled>
                 </div>
-
                 <div class="form-group">
                     <label for="usuarioNome">Nome do Usuário</label>
                     <input type="text" class="form-control" id="usuarioNome" name="member_doner_id"
