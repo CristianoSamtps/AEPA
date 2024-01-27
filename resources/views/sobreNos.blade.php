@@ -89,7 +89,7 @@
       </h4>
     </div>
     <div class="col-md-6 text-center">
-      <object data="{{asset ('img/impacto_social.svg')}}" type="image/svg+xml"></object>
+      <video controls src="{{asset ('img/videos/AEPA.mp4')}}" width="550" height="340" autoplay muted style="margin-top: 100px;"></video>
     </div>
   </div>
 </section>

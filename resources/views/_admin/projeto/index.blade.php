@@ -21,7 +21,6 @@
                                 <th>Titulo</th>
                                 <th>Objetivos</th>
                                 <th>Estado</th>
-                                {{-- <th>Fotografia Destaque</th> --}}
                                 <th>Funções</th>
                             </tr>
                         </thead>
@@ -32,8 +31,7 @@
                                     <td>{{ $projeto->titulo }}</td>
                                     <td>{{ $projeto->objetivos }}€</td>
                                     <td>{{ $projeto->estado }}</td>
-                                    {{-- <td>{{ $projeto->imagem }}</td> --}}
-                                    <td nowrap class="d-flex">
+                                    <td class="d-flex">
                                         <a class="btn btn-xs btn-primary btn-p ml-1"
                                             href="{{ route('admin.projeto.show', $projeto) }}"><i
                                                 class="fas fa-eye fa-xs"></i></a>
@@ -62,5 +60,34 @@
             @endif
         </div>
     </div>
-    </div>
+@endsection
+
+@section('moreScripts')
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable({
+                "lengthMenu": [5, 10, 15, 20],
+                "order": [
+                    [0, 'asc']
+                ],
+                "columnDefs": [
+                    { "orderable": false, "targets": -1 }
+                ],
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ registos por página",
+                    "zeroRecords": "Não existem registos",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Sem registos associados",
+                    "infoFiltered": "(Pesquisa efetuada em _MAX_  registos)",
+                    "search": "Procura:",
+                    "paginate": {
+                        "first": "Primeiro",
+                        "last": "Último",
+                        "next": "Seguinte",
+                        "previous": "Anterior"
+                    },
+                }
+            });
+        });
+    </script>
 @endsection

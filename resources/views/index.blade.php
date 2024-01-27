@@ -119,8 +119,8 @@
                             maravilhosa equipa.
                         </h5>
                     </div>
-                    <div class=" col-md-12 d-flex justify-content-center m-section">
-                        <div class="m-5">
+                    <div class="col-md-12 row d-flex justify-content-center m-section mb-5">
+                        <div class=" col-lg-3 col-sm-6">
                             <div class="d-flex justify-content-center">
                                 <img class="volillustration" src="{{ asset('img/limpeza.svg') }}"
                                     alt="ilustração de limpeza">
@@ -128,7 +128,7 @@
                             <h3 class="text-center font-weight-bold">Limpeza</h3>
                             <p class="text-center">Fazer limpeza das florestas e reciclar materiais</p>
                         </div>
-                        <div class="m-5">
+                        <div class=" col-lg-3 col-sm-6">
                             <div class="d-flex justify-content-center">
                                 <img class="volillustration" src="{{ asset('img/seguranca.svg') }}"
                                     alt="ilustração de seguranca">
@@ -136,7 +136,7 @@
                             <h3 class="text-center font-weight-bold">Segurança</h3>
                             <p class="text-center">Manter as florestas fora de perigo de incêndio</p>
                         </div>
-                        <div class="m-5">
+                        <div class=" col-lg-3 col-sm-6">
                             <div class="d-flex justify-content-center">
                                 <img class="volillustration" src="{{ asset('img/plantacao.svg') }}"
                                     alt="ilustração de plantacao">
@@ -144,7 +144,7 @@
                             <h3 class="text-center font-weight-bold">Plantação</h3>
                             <p class="text-center">Ajudar na reconstrução das florestas e espaços verdes</p>
                         </div>
-                        <div class="m-5">
+                        <div class=" col-lg-3 col-sm-6">
                             <div class="d-flex justify-content-center">
                                 <img class="volillustration" src="{{ asset('img/cuidar.svg') }}"
                                     alt="ilustração de montanhas">
@@ -154,11 +154,35 @@
                         </div>
                     </div>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <a href="{{ route('sobreNos') }}"><button class="green-btn1">Sobre nós</button></a>
+                        <a style="margin-right: 20px;" href="{{ route('sobreNos') }}"><button class="green-btn1">Sobre
+                                nós</button></a>
+                        <button type="button" class="green-btn1 video-btn" style="width: 150px !important" onclick="startvideo()"
+                            data-bs-toggle="modal" data-src="{{ asset('img/videos/AEPA.mp4') }}"
+                            data-bs-target="#myModal">
+                            <span>Ver video</span> <i class="fa-solid fa-play" style="color: #ffffff;"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Video Promocional - AEPA</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="stopModalVideo()"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <video width="100%" height="auto" controls id="modalVideo">
+                            <source src="{{ asset('img/videos/AEPA.mp4') }}" type="video/mp4" id="modalVideoSrc">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="container" id="suguesection">
             <div class="row">
@@ -168,10 +192,10 @@
                         sucesso.
                     </h5>
                 </div>
-                <div class="col-md-12 d-flex justify-content-center {{-- {{-- hidden2 --}}2 --}}2 suguecards">
+                <div class="col-md-12 row d-flex justify-content-center suguecards m-2" style="margin: 0px;padding:0px;">
                     @if ($sugestoesList)
                         @foreach ($sugestoesList as $sugestao)
-                            <div class="m-4 col-md-4 col-sm-12 sugue-box d-flex flex-column justify-content-between">
+                            <div class="sugue-box col-lg-3 col-sm-12 m-3">
                                 <div class="d-flex">
                                     @if ($sugestao->member_doner->user->foto)
                                         <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"
@@ -213,6 +237,16 @@
 </main><!-- End #main -->
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script></script>
+
+<script>
+    function startvideo() {
+        var video = document.getElementById('modalVideo');
+        video.play();
+    }
+function stopModalVideo() {
+        var video = document.getElementById('modalVideo');
+        video.pause();
+    }
+</script>
 
 @endsection
