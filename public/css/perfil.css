@@ -5,27 +5,92 @@
           margin-left: -30px;
       }
 
-      @media only screen and (max-width: 1400px) {
+      @media only screen and (max-width: 500px) {
+          #main-content {
+              margin-left: 0px;
+              padding: 0px;
+          }
 
-        #resumedoacoes .nome {
-            margin-right: 30px;
-            max-width: 221px;
-            border: none;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          .container-fluid {
+              padding: 0px;
+              width: 370px !important;
+              display: flex;
+              justify-content: center !important;
           }
+
+          .container-fluid .row {
+              width: 370px;
+          }
+
+          #exprojeto {
+              width: 100% !important;
+              margin-bottom: 15px !important;
+          }
+
+          #projet {
+              width: 100%;
+          }
+
+          #resumedoacoes {
+              position: relative;
+              height: auto !important;
+              flex-shrink: 0;
+              border-radius: 22px;
+              background: #FFF;
+              box-shadow: 0px 7px 9px 0px rgba(0, 0, 0, 0.25);
+          }
+
+          #resumedoacoes .resumo {
+              margin: 0px 15px 0px 15px !important ;
+          }
+
+          #resumedoacoes .nome{
+            margin-left: 10px;
+          }
+
+          #resumedoacoes button.info {
+              width: 133px;
+              height: 31px;
+              flex-shrink: 0;
+              border-color: transparent;
+              border-radius: 13px;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+          }
+
           #resumedoacoes .estado {
-            margin-right: 80px;
+              display: none;
           }
+          #resumedoacoes .projeto {
+            margin-right: 18px;
+        }
+      }
+
+      @media only screen and (max-width: 1400px) {
+          #resumedoacoes .nome {
+              margin-right: 30px;
+              max-width: 221px;
+              border: none;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+          }
+
+          #resumedoacoes .estado {
+              margin-right: 80px;
+          }
+
           #exprojeto .info-projeto h1 {
-            padding-left: 15px;
-            padding-right: 15px;
-            border: none;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+              padding-left: 15px;
+              padding-right: 15px;
+              border: none;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
           }
+
       }
 
       #profileresume {
@@ -393,10 +458,8 @@
           }
 
           #exprojeto {
-              transform: scale(0.97);
               transform-origin: top left;
               width: 32%;
-
           }
 
           .row {

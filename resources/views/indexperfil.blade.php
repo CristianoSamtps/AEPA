@@ -15,7 +15,7 @@
 
         <div class="row justify-content-center" data-aos-anchor-placement="bottom-bottom">
 
-            <div id="profileresume" class="col-lg-4">
+            <div id="profileresume" class="col-sm-12 col-lg-4">
 
                 <div class="imagemperfil" data-aos="zoom-out">
                     @if ($user->foto)
@@ -63,13 +63,13 @@
                 </div>
             </div>
 
-            <div class="col-lg-8" data-aos-anchor-placement="bottom-bottom">
+            <div id="projetos" class="col-sm-12 col-lg-8" data-aos-anchor-placement="bottom-bottom">
 
                 <!--SECÇÃO DOS PROJETOS-->
                 <div id="projet" class="row">
                     @if (count($projetos) > 0)
                         @foreach ($projetos->take(3) as $projeto)
-                            <div id="exprojeto" class="col-lg-4">
+                            <div id="exprojeto" class="col-sm-12 col-xl-4">
                                 <div class="fundo-projeto">
                                     @if ($projeto->fotografias)
                                         <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}"
