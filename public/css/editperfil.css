@@ -460,7 +460,6 @@ input{
   }
 
   .container{
-    padding-top:50px;
     margin: auto;
   }
 
@@ -517,4 +516,23 @@ input{
 .buttons{
     text-align: right;
     margin-right: 20px;
+}
+@media only screen and (max-width: 500px) {
+    #main-content {
+        margin-top: 150px;
+    }
+    #dados1 h2 {
+        margin-bottom: 50px;
+    }
+    .faq-question .icon{
+        margin-right: 20px;
+    }
+
+    .field-icon {
+        float: right;
+        margin-right: 15px;
+        margin-top: -25px !important;
+        position: relative;
+        z-index: 2;
+      }
 }
