@@ -80,42 +80,50 @@
 
         </section>
 
-        <!-- Gallery -->
+        <!-- Projetos -->
         <div class="row" id="fragma">
-            <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+            @foreach ($fotografias->take(2) as $fotografia)
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
+                        class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
+                </div>
+            @endforeach
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
-            </div>
+            @foreach ($fotografias->take(2) as $fotografia)
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
+                        class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
+                </div>
+            @endforeach
 
-            <div class="col-lg-4 mb-4 mb-lg-0">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
-            </div>
-
-            <div class="col-lg-4 mb-4 mb-lg-0">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-                    class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
-            </div>
+            @foreach ($fotografias->take(2) as $fotografia)
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
+                        class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
+                </div>
+            @endforeach
         </div>
-        <!-- Gallery -->
 
+
+        <!-- Video -->
         <div class="destaque">
             <div class="row">
-                <div class="col-8"></div>
-                <div class="col-4"></div>
+                <div class="col-md-6" id="impactosocialinfo">
+                    <h1>Video Promocional</h1>
+                    <h4 id="infoinfo">
+                        Na AEPA, não só plantamos árvores como cultivamos um impacto social duradouro. Cada ação nossa ecoa
+                        na comunidade, promovendo consciência ambiental e transformando vidas.
+                    </h4>
+                </div>
+                <div class="col-md-6 video">
+                    <video controls src="{{ asset('img/videos/AEPA.mp4') }}" width="550" height="340" autoplay muted
+                        style="margin-top: 100px;"></video>
+                </div>
             </div>
         </div>
 
-        <!-- Gallery -->
+
+        <!-- Eventos -->
         <div class="row" id="fragma">
             <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"

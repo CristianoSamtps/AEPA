@@ -49,6 +49,10 @@
                         @else
                             <img src="{{ asset('img/default_user.jpg') }}" alt="Imagem de perfil padrão">
                         @endif
+                        <div class="upload-imagem" style="display: none;">
+                            <label for="foto"><i class="fa-solid fa-pen"></i></label>
+                            <input type="file" id="foto" class="inseririmagem" name="foto" />
+                        </div>
                     </div>
 
                     <div class="col-lg-6">
@@ -77,10 +81,7 @@
 
                     </div>
 
-                    <div class="upload-imagem" style="display: none;">
-                        <label for="foto"><i class="fa-solid fa-pen"></i></label>
-                        <input type="file" id="foto" class="inseririmagem" name="foto" />
-                    </div>
+
 
                 </div>
 
