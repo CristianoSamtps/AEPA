@@ -45,9 +45,8 @@
                     <p>Descobre as novidades que temos para te oferecer, continua esta jornada conosco.</p>
 
                     @if (Route::has('login'))
-
-                            <a class="nav-link" href="{{ route('login') }}"><button type="submit" class="btn loginRegBtns">Entrar</button></a>
-
+                        <a class="nav-link" href="{{ route('login') }}"><button type="submit"
+                                class="btn loginRegBtns">Entrar</button></a>
                     @endif
 
                 </div>
@@ -92,11 +91,12 @@
                             @enderror
                         </div>
                         <div class="form-group mb-4">
-                            <input id="password-confirm" type="password" class="form-control" placeholder="Confirmar palavra-passe"
-                                name="password_confirmation" required autocomplete="new-password">
+                            <input id="password-confirm" type="password" class="form-control"
+                                placeholder="Confirmar palavra-passe" name="password_confirmation" required
+                                autocomplete="new-password">
                         </div>
                         <button type="submit" class="btn RegBtn mt-2">
-                            {{ __('Register') }}
+                            {{ __('Criar') }}
                         </button>
                     </form>
                 </div>

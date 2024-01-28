@@ -49,7 +49,7 @@
         </form>
       </div>
     </div>
-    
+
     <div class="container p-5">
       <div class="row justify-content-center align-items-center">
         <h1>Criar conta</h1>
@@ -58,7 +58,6 @@
           <div class="form-group mb-2">
             <label for="exampleInputEmail1">Nome completo</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Indique o nome completo">
-
           </div>
           <div class="form-group mb-2">
             <label for="exampleInputPassword1">Email</label>
@@ -73,7 +72,7 @@
           <label for="exampleInputPassword1">Validar palavra-passe</label>
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Valide a palavra-passe">
         </div> -->
-        
+
         <button type="submit" class="btn btn-primary">Registar</button>
       </form>
     </div>

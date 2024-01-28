@@ -66,11 +66,11 @@
                 <div class="navbar-nav text-center">
 
                     <!-- Add the "ml-auto" class to align items to the right -->
-                    <a class="nav-item m-0 nav-link" href="{{ route('index') }}">ÍNICIO</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('eventos') }}">EVENTOS</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('projects') }}">PROJETOS</a>
+                    <a class="nav-item m-0 nav-link" href="{{ route('index') }}">Ínicio</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('eventos') }}">Eventos</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">Doações</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('voluntariado') }}">Voluntariado</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('projects') }}">Projetos</a>
 
                     <div id="login_reg">
                         <ul class="navbar-nav ms-auto">
@@ -122,7 +122,6 @@
                                             class="d-none">
                                             @csrf
                                         </form>
-
                                     </div>
                                 </li>
                         </div>
@@ -139,7 +138,7 @@
                     <img src="{{ asset('img/logo/logo_white.svg') }}" alt="AEPABrandLogo" width="150"
                         height="50">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="margin-right:20px"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -150,19 +149,19 @@
                             <a class="nav-link " href=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('index') }}">ÍNICIO</a>
+                            <a class="nav-link" href="{{ route('index') }}">Ínicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('eventos') }}">EVENTOS</a>
+                            <a class="nav-link" href="{{ route('eventos') }}">Eventos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
+                            <a class="nav-link" href="{{ route('doacoes') }}">Doações</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
+                            <a class="nav-link" href="{{ route('voluntariado') }}">Voluntariado</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('projects') }}">PROJETOS</a>
+                            <a class="nav-link" href="{{ route('projects') }}">Projetos</a>
                         </li>
 
                         @guest
@@ -186,26 +185,58 @@
                                         {{ __('REGISTAR') }} </a>
                                 </li>
                             @endif
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link " href=""></a>
-                            </li>
-
+                        @else
+                            @if (Auth::user()->tipo == 'A')
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a style="color: black" class="dropdown-item"
+                                                href="{{ route('admin.dashboard', auth()->user()->tipo == 'A') }}">Dashboard</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <li><a style="color: black" class="dropdown-item"
+                                                href="{{ route('indexperfil', auth()->user()) }}">Perfil</a></li>
+                                        <li><a style="color: black" class="dropdown-item"
+                                                href="{{ route('editperfil', auth()->user()) }}">Editar perfil</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#"></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="logout"
+                                        style="border: rgb(161, 9, 9) 1px solid;
+                                        background:rgb(161, 9, 9);
+                                    width: 100px;
+                                    border-radius: 8px;
+                                    color:white;
+                                    text-align: center;"
+                                        class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Sair') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                    </form>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#"></a>
+                                </li>
+                            @endif
                         @endguest
                     </ul>
                 </div>
@@ -237,7 +268,7 @@
 
     <footer id="footer">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+            <p class="col-md-4 mb-0 text-muted">© 2023 AEPA</p>
 
             <a href="{{ route('index') }}"
                 class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">

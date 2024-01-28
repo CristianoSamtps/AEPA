@@ -43,8 +43,7 @@ div.login::before {
     background-image: url(../img/regbackground.svg);
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 65%;
-    background-size: 60% auto; /* Adjust the width as needed */
+    background-size: 55% auto; /* Adjust the width as needed */
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
