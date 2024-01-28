@@ -2,141 +2,141 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: 'Lexend Deca', sans-serif;
-  color: #444444;
-  margin: 0 auto;
-  
-  position: relative;
-  overflow-x: hidden;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #444444;
+    margin: 0 auto;
+
+    position: relative;
+    overflow-x: hidden;
 }
 
 .hidden {
-  opacity: 0;
-  transition: all 1s;
-  filter: blur(5px);
-  transform: translateX(-100%);
-  transition-delay: 0.3s;
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition-delay: 0.3s;
 }
 
 .hidden2 {
-  opacity: 0;
-  transition: all 1s;
-  filter: blur(5px);
-  transform: translateX(+100%);
-  transition-delay: 0.3s;
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(+100%);
+    transition-delay: 0.3s;
 }
 
 .showed {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
 
 
 @media(prefers-reduced-motion) {
-  .hidden {
-    transition: none;
-  }
+    .hidden {
+        transition: none;
+    }
 }
 
-p.sectionIndicator{
-  color: #709C82;
-  font-size: 30px;
-  font-weight: 400;
+p.sectionIndicator {
+    color: #709C82;
+    font-size: 30px;
+    font-weight: 400;
 }
 
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-div#login_reg{
-  margin-right: 40px;
+div#login_reg {
+    margin-right: 40px;
 }
 
 header#header {
-  max-width: 1440px;
-  margin: 0 auto;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 header#header svg {
-  position: absolute;
-  right: 0;
+    position: absolute;
+    right: 0;
 }
 
 header#header a {
-  color: #ffff;
-  font-weight: bolder;
+    color: #ffff;
+    /* font-weight: bolder; */
 }
 
 
 div.navbar-nav {
-  position: absolute;
-  right: 0;
+    position: absolute;
+    right: 0;
 }
 
 .navbar-nav button {
-  width: 125px;
-  height: 39px;
-  border-radius: 50px;
-  background: #FFF;
-  color: #208C5B;
+    width: 125px;
+    height: 39px;
+    border-radius: 50px;
+    background: #FFF;
+    color: #208C5B;
 }
 
 nav.navbar {
-  margin-top: 20px
+    margin-top: 20px
 }
 
 header.fixed-top {
-  position: absolute !important;
+    position: absolute !important;
 }
 
 .navbar-nav button {
-  margin-right: 50px
+    margin-right: 50px
 }
 
 header svg {
-  overflow: visible;
+    overflow: visible;
 }
 
 a.nav-item {
-  margin-right: 20px
+    margin-right: 20px
 }
 
 a.nav-item:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
-#login_reg .navbar-nav .nav-item .dropdown-menu a.dropdown-item{
-    color: green ;
+#login_reg .navbar-nav .nav-item .dropdown-menu a.dropdown-item {
+    color: green;
 }
 
-#login_reg .navbar-nav .nav-item .dropdown-menu a#logout{
+#login_reg .navbar-nav .nav-item .dropdown-menu a#logout {
     color: red;
 }
 
 @media only screen and (max-width: 991px) {
-  div.navbar-nav {
-    position: inherit;
-  }
+    div.navbar-nav {
+        position: inherit;
+    }
 
-  div.show {
+    /* div.show {
     background-color: #178351;
     text-align: center;
     padding-bottom: 20px;
     margin: 0px;
-  }
+  } */
 
-  div.navbar-nav .nav-item {
-    background-color: #178351;
+    div.navbar-nav .nav-item {
+        background-color: #178351;
 
-  }
+    }
 
-  .navbar-nav button {
-    margin-right: 0px;
-  }
+    .navbar-nav button {
+        margin-right: 0px;
+    }
 
-  .navbar-toggler {
-    margin-right: 50px;
-  }
+    .navbar-toggler {
+        margin-right: 50px;
+    }
 
 }
 
@@ -144,25 +144,38 @@ a.nav-item:hover {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-footer#footer{
-  max-width: 1440px;
-  margin:0 auto;
-  position: relative;
+footer#footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
 }
 
-div.footerbg{
-  background-image: url(/img/footervector.svg);
-  position: absolute;
-  bottom: 0;
-  height: 200px;
+div.footerbg {
+    background-image: url(/img/footervector.svg);
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+}
+
+nav.mobile {
+    display: none;
 }
 
 @media only screen and (max-width: 1280px) {
-footer#footer{
-  max-width: 1180px;
-  margin:0 auto;
-  position: relative;
+    footer#footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        position: relative;
+    }
 }
+
+@media only screen and (max-width: 991px) {
+    nav.mobile {
+        display: block;
+    }
+    nav.desktop{
+        display: none;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -259,64 +272,67 @@ footer#footer{
 }
  */
 
-li.nav-item a.login{
-  border: 1px solid;
-  border-radius: 2rem;
-  width: 5rem;
-  color: #178351 !important;
-  background-color: #fff;
-  font-size: 0.8rem;
+li.nav-item a.login {
+    border: 1px solid;
+    border-radius: 2rem;
+    width: 5rem;
+    color: #178351 !important;
+    background-color: #fff;
+    font-size: 0.8rem;
 }
-li.nav-item a.login:hover{
+
+li.nav-item a.login:hover {
     width: 5rem;
     color: #ffff !important;
     font-size: 0.8rem;
     background-color: #178351 !important;
-  }
-
-li.nav-item a.registo{
-  margin-left: 10px;
-  border-radius: 2rem;
-  color: #178351 !important;
-  background-color: #fff;
-  font-size: 0.8rem;
 }
 
-li.nav-item a.registo:hover{
+li.nav-item a.registo {
+    margin-left: 10px;
+    border-radius: 2rem;
+    color: #178351 !important;
+    background-color: #fff;
+    font-size: 0.8rem;
+}
+
+li.nav-item a.registo:hover {
     color: #ffff !important;
     background-color: #178351 !important;
     border: 1px solid white;
-  }
+}
 
 
-  .loginRegBtns{
+.loginRegBtns {
     border-radius: 40px;
     background: #029F5A;
     width: 10rem;
-    color:white;
-  }
+    color: white;
+}
 
-  .forgotbtn{
+.forgotbtn {
     color: #029F5A;
-  }
-  .forgotbtn:hover{
-    color: black;
-  }
+}
 
-  .RegBtn{
+.forgotbtn:hover {
+    color: black;
+}
+
+.RegBtn {
     border-radius: 40px;
     background: #FFF;
     width: 10rem;
     color: #019E59;
-  }
-  .RegBtn:hover{
+}
+
+.RegBtn:hover {
     border-radius: 40px;
     background: #ffffff;
     color: #019E59;
-  }
+}
 
 
-  div.imgtext{
+div.imgtext {
     background-color: #308b60b6;
     border: 1px solid #308b60b4;
     color: #fff;
@@ -326,8 +342,8 @@ li.nav-item a.registo:hover{
     margin: 0 auto;
     transform: translateY(-250px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  }
+}
 
-  .doacoes .container-doacoes .filtros .botoes #all{
+.doacoes .container-doacoes .filtros .botoes #all {
     background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%) !important;
 }

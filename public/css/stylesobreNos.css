@@ -92,7 +92,7 @@ div#protecaoAmbientalinfo{
 	margin-top: 20px;
 	text-align: -webkit-right;
 }
-div#protecaoAmbientalinfo h4{ 
+div#protecaoAmbientalinfo h4{
 	line-height: 35px;
 }
 
@@ -110,10 +110,57 @@ div.QAtitle{
 	text-align: -webkit-right;
 	margin-bottom: 15px;
 }
+div#herosvg1 object{
+    display: none;
+}
+section#impactosocial{
+    margin-top: -230px;
+}
 
+div.video{
+    display: flex;
+    justify-content: center;
+}
 
+@media only screen and (max-width: 400px) {
+    section#impactosocial{
+        margin-top: -200px;
+    }
+    video{
+        width: 340px;
+        height: 190px;
+        margin-top: 50px !important;
+    }
+    div#herosvg1 object{
+        display: block !important;
+        width: 350px;
+        text-align: center;
+    }
+    div#herosvg2 object{
+        display: none;
+    }
+    div#sobreCards{
+        display: block !important;
+    }
 
+}
 
+@media only screen and (max-width: 766px) {
+    section#impactosocial{
+        margin-top: -100px;
+    }
+
+    div#herosvg2{
+        display: none;
+    }
+
+    div#herosvg1 object{
+        text-align: center;
+        display: block !important;
+        width: 400px;
+        text-align: center;
+    }
+}
 
 
 

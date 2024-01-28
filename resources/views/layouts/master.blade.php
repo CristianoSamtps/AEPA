@@ -28,6 +28,9 @@
     <link href="{{ asset('/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <!-- Template Main CSS File -->
     <link href="{{ asset('/css/masterstyle.css') }}" rel="stylesheet">
 
@@ -52,7 +55,7 @@
             </defs>
         </svg>
 
-        <nav class="navbar navbar-expand-lg stroke">
+        <nav class="navbar navbar-expand-lg stroke desktop">
             <a href="{{ route('index') }}" class="navbar-brand"><img src="{{ asset('img/logo_green.svg') }}"
                     alt="AEPABrandLogo" width="200" height="50"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -61,68 +64,156 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav text-center">
+
                     <!-- Add the "ml-auto" class to align items to the right -->
-                    <a class="nav-item nav-link" href="{{ route('index') }}">ÍNICIO</a>
-                    <a class="nav-item nav-link" href="{{ route('eventos') }}">EVENTOS</a>
-                    <a class="nav-item nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
-                    <a class="nav-item nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
-                    <a class="nav-item nav-link" href="{{ route('projects') }}">PROJETOS</a>
+                    <a class="nav-item m-0 nav-link" href="{{ route('index') }}">ÍNICIO</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('eventos') }}">EVENTOS</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('projects') }}">PROJETOS</a>
+
                     <div id="login_reg">
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->
                             @guest
-                            @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                            </li>
-                            @endif
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link m-0  login" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                    </li>
+                                @endif
 
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link registo" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
-                            </li>
-                            @endif
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link m-0  registo"
+                                            href="{{ route('register') }}">{{ __('Criar conta') }}</a>
+                                    </li>
+                                @endif
                             @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    @if (Auth::user()->tipo == 'A')
-                                    <!-- Exibir apenas para usuários com tipo 'M' (Moderação/Admin) -->
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard', auth()->user()->tipo == 'A') }}">
-                                        Painel Admin
-                                    </a>
-                                    @else
-                                    <!-- Exibir para outros tipos de usuários -->
-                                    <a class="dropdown-item" href="{{ route('indexperfil', auth()->user()) }}">
-                                        Perfil
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('editperfil', auth()->user()) }}">
-                                        Editar perfil
-                                    </a>
-                                    @endif
-
-                                    <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link m-0  dropdown-toggle" href="#"
+                                        role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        @if (Auth::user()->tipo == 'A')
+                                            <!-- Exibir apenas para usuários com tipo 'M' (Moderação/Admin) -->
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.dashboard', auth()->user()->tipo == 'A') }}">
+                                                Painel Admin
+                                            </a>
+                                        @else
+                                            <!-- Exibir para outros tipos de usuários -->
+                                            <a class="dropdown-item" href="{{ route('indexperfil', auth()->user()) }}">
+                                                Perfil
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('editperfil', auth()->user()) }}">
+                                                Editar perfil
+                                            </a>
+                                        @endif
 
-                                </div>
-                            </li>
+                                        <a id="logout" class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
 
-                    </div>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+
+                                    </div>
+                                </li>
+                        </div>
                     @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mobile"
+            style="background-color: #177F4E !important; margin-top:0px !important">
+            <div class="container">
+                <a class="navbar-brand" href="{{ route('index') }}">
+                    <img src="{{ asset('img/logo/logo_white.svg') }}" alt="AEPABrandLogo" width="150"
+                        height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto" style="margin-left: 27px !important;">
+                        <li class="nav-item">
+                            <a class="nav-link " href=""></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index') }}">ÍNICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('eventos') }}">EVENTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('doacoes') }}">DOAÇÕES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('voluntariado') }}">VOLUNTARIADO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('projects') }}">PROJETOS</a>
+                        </li>
+
+
+                        @guest
+
+                            @if (Route::has('login'))
+                                <li class="nav-item mb-3">
+                                    <a class="nav-link" href="{{ route('login') }}"
+                                        style="border: white 1px solid;
+                                    width: 100px;
+                                    border-radius: 8px;
+                                    text-align: center;">{{ __('ENTRAR') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}"
+                                        style="border: white 1px solid;
+                                width: 100px;
+                                border-radius: 8px;
+                                text-align: center;">
+                                        {{ __('REGISTAR') }} </a>
+                                </li>
+                            @endif
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href=""></a>
+                            </li>
+
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
     </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
@@ -157,7 +248,8 @@
 
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/" class="nav-link px-2 text-muted">Loja Online</a></li>
+                <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/"
+                        class="nav-link px-2 text-muted">Loja Online</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
                 <li class="nav-item"><a href="{{ route('patrocinadores') }}"
                         class="nav-link px-2 text-muted">Patrocinadores</a></li>
@@ -169,9 +261,12 @@
     </footer><!-- End Footer -->
 
     <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
     <script src="{{ asset('/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('/vendor/bootstrap/js/bootstrap.min.js') }}"></script> --}}
+    {{--  <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
     <script src="{{ asset('/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('/vendor/swiper/swiper-bundle.min.js') }}"></script>

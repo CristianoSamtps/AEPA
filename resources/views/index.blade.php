@@ -12,15 +12,15 @@
         <section class="container" id="indexHero">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 heroinfo">
+                    <div class="col-lg-6 col-md-12 heroinfo">
                         <h1>Já conheces a missão da nossa associação?</h1>
                         <h5>Com mais de 12 mil apoiantes já reconstruímos centenas de hectares! Tudo graças à nossa
                             maravilhosa equipa.
                         </h5>
                         <a href="{{ route('sobreNos') }}"><button class="green-btn1 mb-2">Associação</button></a>
-                        <a href="{{ route('doacoes') }}"><button class="hero-btn2 mb-2">Doações</button></a>
+                        <a href="{{ route('doacoes') }}"><button class="hero-btn2">Doações</button></a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div id="herosvg">
                             <object data="{{ asset('img/heroanimation1.svg') }}" type="image/svg+xml"></object>
                         </div>
@@ -31,7 +31,6 @@
         <!-- End #hero -->
 
         <!-- Start #content -->
-
         <div class="indexContentwrapper">
             <section class="container {{-- hidden2 --}}" id="indexContent">
                 <div class="row contentimg">
@@ -55,10 +54,6 @@
         </div>
 
         <!-- Projetos -->
-
-        {{-- <div class="background">
-            <img src="{{ asset('img/greenvector.svg') }}" alt="background-effects">
-        </div> --}}
 
         <div class="indexContentwrapperProj">
             <section class="container" id="projectssection">
@@ -111,7 +106,6 @@
 
         <section class="container {{-- hidden2 --}}" id="volsection">
             <div class="container">
-                <div class="row">
                     <div class="col-md-12 text-center">
                         <p class="">Missão da AEPA</p>
                         <h1>Salvamos o planeta juntos<span class="spanenfase"></span></h1>
@@ -161,10 +155,10 @@
                             data-bs-target="#myModal">
                             <span>Ver video</span> <i class="fa-solid fa-play" style="color: #ffffff;"></i>
                         </button>
-                    </div>
                 </div>
             </div>
         </section>
+
 
         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -185,18 +179,17 @@
         </div>
 
         <section class="container" id="suguesection">
-            <div class="row">
                 <div class="col-md-12 text-center">
                     <h1>A nossa comunidade é muita mais do que imaginas</h1>
                     <h5>Para chegarmos onde queremos precisamos da tua ajuda, a comunidade é o caminho para o
                         sucesso.
                     </h5>
                 </div>
-                <div class="col-md-12 row d-flex justify-content-center suguecards m-2" style="margin: 0px;padding:0px;">
+                <div class="col-md-12 row d-flex justify-content-center suguecards" style="margin: 0px;padding:0px;">
                     @if ($sugestoesList)
                         @foreach ($sugestoesList as $sugestao)
                             <div class="sugue-box col-lg-3 col-sm-12 m-3">
-                                <div class="d-flex">
+                                <div class="d-flex justify-content-center">
                                     @if ($sugestao->member_doner->user->foto)
                                         <img src="{{ asset('storage/user_fotos/' . $sugestao->member_doner->user->foto) }}"
                                             alt="imagem de perfil de utilizador">
@@ -231,7 +224,6 @@
                             membro</button></a>
                     <a href="{{ route('sugestoes') }}"><button class="btn hero-btn2">Sugestões</button></a>
                 </div>
-            </div>
         </section>
     </div>
 </main><!-- End #main -->
