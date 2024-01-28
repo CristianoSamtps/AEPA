@@ -66,6 +66,9 @@
           #resumedoacoes .projeto {
             margin-right: 18px;
         }
+        .projeto span.tooltip {
+            display: none !important;
+        }
       }
 
       @media only screen and (max-width: 1400px) {
@@ -425,6 +428,7 @@
       }
 
       .projeto span.tooltip {
+            display: block;
           visibility: hidden;
           width: 300px !important;
           height: 30px !important;
