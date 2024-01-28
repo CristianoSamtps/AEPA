@@ -71,18 +71,15 @@
                         <a href="{{ route('editperfil', auth()->user()) }}"><button class="cancelar"
                                 style="display: none;">Cancelar</button></a>
 
-                        <div class="upload-imagem" style="display: none;">
-                            <label for="foto">Editar imagem de Perfil</label>
-                            <input type="file" id="foto" class="inseririmagem" name="foto" />
-                        </div>
-
-                        <a href="{{ route('admin.users.sendActivationEmail', $user) }}">
-                            <button type="submit" class="edit-email" name="ok" style="display: none;">Email de
-                                Confirmação</button>
-                        </a>
-
-                        <a href="{{ route('tornarMembro') }}"><button id="membroBtn" class="membro">Torne-se
+                        <a style="text-decoration: none" href="{{ route('tornarMembro') }}"><button id="membroBtn"
+                                class="membro" style="display: block;">Torne-se
                                 Membro</button></a>
+
+                    </div>
+
+                    <div class="upload-imagem" style="display: none;">
+                        <label for="foto"><i class="fa-solid fa-pen"></i></label>
+                        <input type="file" id="foto" class="inseririmagem" name="foto" />
                     </div>
 
                 </div>
@@ -92,7 +89,6 @@
                         document.querySelector('.edit-guardar').style.display = 'inline-block';
                         document.querySelector('.cancelar').style.display = 'inline-block';
                         document.querySelector('.upload-imagem').style.display = 'inline-block';
-                        document.querySelector('.edit-email').style.display = 'block';
                         document.getElementById('editarPerfilBtn').style.display = 'none';
                         document.getElementById('membroBtn').style.display = 'none';
 
@@ -194,22 +190,56 @@
                         Metodo de pagamento
                     </li>
                     <div id="faq1" class="faq-answer collapse">
-                        <div class="form-group">
-                            <select name="metodo_pag" id="inputMP" class="form-control">
-                                <option value="">Indefinido </option>
-                                <option value="CC"
-                                    {{ old('metodo_pag', $user->metodo_pag) == 'CC' ? 'selected' : '' }}>
-                                    Cartão de
-                                    crédito</option>
-                                <option value="TB"
-                                    {{ old('metodo_pag', $user->metodo_pag) == 'TB' ? 'selected' : '' }}>
-                                    Tranferencia Bancária</option>
-                                <option value="RE"
-                                    {{ old('metodo_pag', $user->metodo_pag) == 'RE' ? 'selected' : '' }}>
-                                    Referencia
-                                    Entidade</option>
-                            </select>
-                        </div>
+                        <form id="metodoPagamentoForm">
+                            <div class="form-group">
+                                <select name="metodo_pag" id="inputMP" class="form-control">
+                                    <option value="">Indefinido</option>
+                                    <option value="CC"
+                                        {{ old('metodo_pag', $user->metodo_pag) == 'CC' ? 'selected' : '' }}>Cartão de
+                                        crédito
+                                    </option>
+                                    <option value="TB"
+                                        {{ old('metodo_pag', $user->metodo_pag) == 'TB' ? 'selected' : '' }}>Transferência
+                                        Bancária</option>
+                                    <option value="RE"
+                                        {{ old('metodo_pag', $user->metodo_pag) == 'RE' ? 'selected' : '' }}>Referência
+                                        Entidade</option>
+                                </select>
+                            </div>
+                        </form>
+
+                        <script>
+                            $(document).ready(function() {
+                                $('#inputMP').change(function() {
+                                    var selectedOption = $(this).val();
+                                    var memberId = {{ $user->id }};
+
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '/atualizar-metodo-pagamento',
+                                        data: {
+                                            user_id: memberId,
+                                            metodo_pag: selectedOption
+                                        },
+                                        success: function(response) {
+                                            console.log(response);
+
+                                            if (response.success) {
+                                                alert('Método de pagamento atualizado com sucesso.');
+                                                location.reload();
+                                            } else {
+                                                alert('Ocorreu um erro ao atualizar o método de pagamento.');
+                                            }
+                                        },
+                                        error: function(error) {
+                                            console.error(error);
+                                            alert('Ocorreu um erro ao processar a requisição.');
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+
                     </div>
 
                     <li class="faq-question d-flex" data-target="#faq4">
@@ -227,92 +257,134 @@
                         Alterar Password
                     </li>
                     <div id="faq4" class="faq-answer collapse">
+                        <form method="POST" action="{{ route('updatePassword', $user) }}">
+                            @csrf
+                            @method('PUT')
 
-                        <div class="caixa-detalhes-grande">
-                            <label class="txt" for="inputFullname">Password Antiga <span style="color: red">*</span></label>
-                            <input type="text" class="input" name="name" id="inputFullname"
-                                value="" />
-                        </div>
-                        <div class="caixa-detalhes-grande">
-                            <label class="txt" for="inputFullname">Password Nova <span style="color: red">*</span></label>
-                            <input type="text" class="input" name="name" id="inputFullname"
-                                value="" />
-                        </div>
-                        <div class="caixa-detalhes-grande">
-                            <label class="txt" for="inputFullname">Confirmar Password <span style="color: red">*</span></label>
-                            <input type="text" class="input" name="name" id="inputFullname"
-                                value="" />
-                        </div>
+                            <div class="caixa-detalhes-grande">
+                                <label class="txt" for="inputOldPassword">Password Antiga <span
+                                        style="color: red">*</span></label>
 
+                                <input required type="password" class="input toggle-password" id="inputOldPassword"
+                                    name="old_password" value="" />
+
+                                <span toggle="#inputOldPassword"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+
+                            <div class="caixa-detalhes-grande">
+                                <label class="txt" for="inputNewPassword">Password Nova <span
+                                        style="color: red">*</span></label>
+
+                                <input required type="password" class="input toggle-password" id="inputNewPassword"
+                                    name="new_password" value="" />
+
+                                <span toggle="#inputNewPassword"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+
+                            <div class="caixa-detalhes-grande">
+                                <label class="txt" for="inputConfirmPassword">Confirmar Password <span
+                                        style="color: red">*</span></label>
+
+                                <input required type="password" class="input toggle-password" id="inputConfirmPassword"
+                                    name="new_password_confirmation" value="" />
+
+                                <span toggle="#inputConfirmPassword"
+                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+
+                            <div class="buttons">
+
+                                <button type="submit" class="guardar" name="ok">Guardar</button>
+
+                                <a href="{{ route('editperfil', auth()->user()) }}"><button
+                                        class="cancelar">Cancelar</button></a>
+                            </div>
+
+                        </form>
                     </div>
-                </ul>
-                </ul>
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $(".toggle-password").click(function() {
+                                $(this).toggleClass("fa-eye fa-eye-slash");
+                                var input = $($(this).attr("toggle"));
+                                if (input.attr("type") == "password") {
+                                    input.attr("type", "text");
+                                } else {
+                                    input.attr("type", "password");
+                                }
+                            });
+                        });
+                    </script>
+
+                    <script src="{{ asset('js/member.js') }}"></script>
+
             </div>
-        </div>
-    </div>
 
-    <script src="{{ asset('js/member.js') }}"></script>
+            <!--<div class="card shadow mb-4">
 
-    </div>
+                                                            <div class="card-header py-3">
+                                                                Editar Utilizador
+                                                            </div>
+                                                            <div class="card-body">
 
-    <!--<div class="card shadow mb-4">
-        <div class="card-header py-3">
-            Editar Utilizador
-        </div>
-        <div class="card-body">
-
-            <form method="POST" action="{{ route('updateperfil', $user) }}" class="form-group" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                @if ($user->foto)
+                                                                <form method="POST" action="{{ route('updateperfil', $user) }}" class="form-group" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    @if ($user->foto)
     <img src="{{ asset('storage/user_fotos/' . $user->foto) }}" alt="User foto" width="200" class="mt-1 mb-3">
     @endif
-                @include('_admin.users.partials.add-edit')
+                                                                                @include('_admin.users.partials.add-edit')
 
 
-                <div class="form-group">
-                    <label for="inputMP">Método de pagamento</label>
-                    <select name="metodo_pag" id="inputMP" class="form-control">
-                        <option value=""> </option>
-                        <option value="CC" {{ old('metodo_pag', $user->metodo_pag) == 'CC' ? 'selected' : '' }}>
-                            Cartão de
-                            crédito</option>
-                        <option value="TB" {{ old('metodo_pag', $user->metodo_pag) == 'TB' ? 'selected' : '' }}>
-                            Tranferencia Bancária</option>
-                        <option value="RE" {{ old('metodo_pag', $user->metodo_pag) == 'RE' ? 'selected' : '' }}>
-                            Referencia
-                            Entidade</option>
-                    </select>
-                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="inputMP">Método de pagamento</label>
+                                                                                    <select name="metodo_pag" id="inputMP" class="form-control">
+                                                                                        <option value=""> </option>
+                                                                                        <option value="CC" {{ old('metodo_pag', $user->metodo_pag) == 'CC' ? 'selected' : '' }}>
+                                                                                            Cartão de
+                                                                                            crédito</option>
+                                                                                        <option value="TB" {{ old('metodo_pag', $user->metodo_pag) == 'TB' ? 'selected' : '' }}>
+                                                                                            Tranferencia Bancária</option>
+                                                                                        <option value="RE" {{ old('metodo_pag', $user->metodo_pag) == 'RE' ? 'selected' : '' }}>
+                                                                                            Referencia
+                                                                                            Entidade</option>
+                                                                                    </select>
+                                                                                </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success" name="ok">Guardar</button>
+                                                                                <div class="form-group">
+                                                                                    <button type="submit" class="btn btn-success" name="ok">Guardar</button>
 
-                    <a href="{{ route('admin.users.index') }}" class="btn btn-default">Cancelar</a>
-                </div>
+                                                                                    <a href="{{ route('admin.users.index') }}" class="btn btn-default">Cancelar</a>
+                                                                                </div>
 
-            </form>
+                                                                            </form>
 
-            @if ($user->foto)
+                                                                            @if ($user->foto)
     <form method="POST" action="{{ route('admin.users.destroyFoto', $user) }}" class="inline">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Apagar foto</button>
-            </form>
+                                                                                @csrf
+                                                                                @method('DELETE')
+                                                                                <button type="submit" class="btn btn-danger">Apagar foto</button>
+                                                                            </form>
     @endif
 
-            <a href="{{ route('admin.users.sendActivationEmail', $user) }}" class="btn btn-primary">Enviar
-                email de ativação</a>
-        </div>
-        </div>-->
-        <section id="loading">
-            <div id="loading-content"></div>
-        </section>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#exampleModal').modal('show');
-        });
-    </script>
+                                                                <a href="{{ route('admin.users.sendActivationEmail', $user) }}" class="btn btn-primary">Enviar
+                                                                    email de ativação</a>
+                                                            </div>
+                                                        </div>-->
 
-@endsection
+            <section id="loading">
+                <div id="loading-content"></div>
+            </section>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $('#exampleModal').modal('show');
+                });
+            </script>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        @endsection

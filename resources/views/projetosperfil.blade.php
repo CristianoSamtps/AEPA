@@ -36,7 +36,7 @@
                                         <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}"
                                             alt="Imagem do projeto" class="img-post">
                                     @else
-                                        <img src="{{ asset('storage/event_photos/unnamed.jpg') }}" alt="Imagem do projeto">
+                                        <img src="{{ asset('public/assets/images/project.jpg') }}" alt="Imagem do ilustrativa">
                                     @endif
                                 </div>
                                 <div class="info-projeto">

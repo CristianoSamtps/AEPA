@@ -1,0 +1,11 @@
+#fragma{
+    padding: 80px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+}
+
+.destaque{
+    width: 100%;
+    height: 77vh;
+    background-color: darkgreen;
+}
