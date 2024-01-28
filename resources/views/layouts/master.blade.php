@@ -165,9 +165,7 @@
                             <a class="nav-link" href="{{ route('projects') }}">PROJETOS</a>
                         </li>
 
-
                         @guest
-
                             @if (Route::has('login'))
                                 <li class="nav-item mb-3">
                                     <a class="nav-link" href="{{ route('login') }}"
