@@ -1,21 +1,21 @@
 body{
 	position: relative;
-
+    background: linear-gradient(#009E58, #017979);
+    height: 100vh;
 }
-
-div.wellcomeback{
+div.wellcomeback,div.wellcomeback h1,div.wellcomeback p{
     color: #009E58 !important;
+    padding: 0px !important;
 }
 
 div.newuser{
     color: #ffff !important;
 }
-
 div.loginnow{
     color: #009E58 !important;
 }
 div.reg{
-	position: absolute;
+	position: relative;
 	width: 100%;
 	background-image: url(../img/regbackground.svg);
 	background-repeat: no-repeat;
@@ -25,15 +25,15 @@ div.reg{
     background-size: 60% auto; /* Adjust the width as needed */
 
 }
-
 div.login {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100vh;
     overflow: hidden; /* Ensure that the flipped background doesn't overflow */
 }
 
 div.login::before {
+    height: 100%;
     content: "";
     position: absolute;
     top: 0;
@@ -41,19 +41,133 @@ div.login::before {
     bottom: 0;
     left: 0;
     background-image: url(../img/regbackground.svg);
-    background-repeat: no-repeat;
+    background-repeat:repeat-y;
     background-position: right;
     background-size: 55% auto; /* Adjust the width as needed */
-    -moz-transform: scaleX(-1);
+    /* -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1); */
     transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
+    /* filter: FlipH;
+    -ms-filter: "FlipH"; */
     z-index: -1; /* Ensure that the pseudo-element is rendered behind the content */
 }
-
 
 div.create-ac{
     color: #ffff !important;
 }
+
+img.logomobile{
+    display: none;
+}
+img.logodesktop{
+    display: block;
+}
+a.regmobile{
+    display: none;
+}
+
+section.loginpage{
+    position: relative;
+}
+div.loginformbg{
+    z-index: -2;
+    right: 0;
+    width: 52%;
+    position: absolute;
+    background-color: white;
+    height: 100vh;
+    border-radius: 113px 0px 0px 113px;
+    border: 0px;
+    filter: drop-shadow(-10px 0px 4px #00000033);
+}
+
+div.regformbg{
+    z-index: -2;
+    left: 0;
+    width: 49.5%;
+    position: absolute;
+    background-color:#ffff;
+    height: 100vh;
+    border-radius: 0px 113px 113px 0px;
+    border: 0px;
+    filter: drop-shadow(10px 0px 4px #00000033);
+    transition: ease-in-out 1s;
+}
+
+button.loginRegBtns{
+    border: 0px;
+}
+
+button.loginreg{
+    display: none;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    div.loginformbg{
+        width: 51% !important;
+    }
+    div.regformbg{
+        width: 49.5%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    div.regformbg{
+        width: 50.5%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    button.loginreg{
+        display: inline-block;
+        margin-top: 20px;
+    }
+    div.login{
+        background: linear-gradient(#009E58, #017979);
+    }
+    *{
+        color: #ffff !important;
+    }
+    button.RegBtn{
+        color: #009E58 !important;
+        width: 100%;
+    }
+    button.loginRegBtns{
+        width: 100%;
+    }
+    img.logodesktop{
+        display: none;
+    }
+    img.logomobile{
+        display: block;
+    }
+    button.loginRegBtns{
+        background: white;
+        color: #009E58 !important;
+        border: 0px;
+    }
+    div.newuser{
+        display: none;
+    }
+    div.loginform{
+        order: 1;
+    }
+    a.regmobile{
+        display: block;
+        margin-top: 20px;
+    }
+    div.loginformbg{
+        display: none;
+    }
+    div.wellcomeback{
+        display: none;
+    }
+    div.regformbg{
+        display: none;
+    }
+
+}
+

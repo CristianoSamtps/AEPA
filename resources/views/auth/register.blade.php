@@ -34,75 +34,83 @@
 
 </head>
 
-<body>
+<body style="background: linear-gradient(#009E58, #017979);">
+    <div class="regformbg"></div>
 
-    <div class="reg">
-        <section class="container p-5 mt-5 d-flex">
-            <div class="container p-5 wellcomeback">
-                <img class="" src="{{ asset('img/logo_green.svg') }}" alt="AEPABrandLogo" height="50">
+    <section class="container">
+        <div class="row justify-content-center align-items-center" style="height: 90vh;">
+            <div class="wellcomeback col-md-6">
+                <a href="{{ route('index') }}"><img class="logodesktop" src="{{ asset('img/logo_green.svg') }}"
+                        alt="AEPABrandLogo" height="50"></a>
                 <div class="row justify-content-center align-items-center">
                     <h1>Bem vindo de volta</h1>
                     <p>Descobre as novidades que temos para te oferecer, continua esta jornada conosco.</p>
 
                     @if (Route::has('login'))
                         <a class="nav-link" href="{{ route('login') }}"><button type="submit"
-                                class="btn loginRegBtns">Entrar</button></a>
+                                class="loginRegBtns p-2">Entrar</button></a>
                     @endif
 
                 </div>
             </div>
+            <div class="create-ac col-md-6">
+                <a href="{{ route('index') }}">
+                    <img class="logomobile" src="{{ asset('img/logo/logo_white.svg') }}" alt="AEPABrandLogo"
+                        height="50"></a>
+                <h1>{{ __('Criação de conta') }}</h1>
+                <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group mb-4">
+                        <input id="name" type="text" placeholder="Nome completo"
+                            class="form-control @error('name') is-invalid @enderror" name="name"
+                            value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-4">
+                        <input id="email" type="email" placeholder="Email"
+                            class="form-control @error('email') is-invalid @enderror" name="email"
+                            value="{{ old('email') }}" required autocomplete="email">
 
-            <div class="container p-5 create-ac">
-                <div class="row justify-content-center align-items-center">
-                    <h1>{{ __('Criar conta') }}</h1>
-                    <p>Utiliza um e-mail que não te esqueças, podes sempre recuperar a conta futuramente.</p>
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <div class="form-group mb-4">
-                            <input id="name" type="text" placeholder="Nome completo"
-                                class="form-control @error('name') is-invalid @enderror" name="name"
-                                value="{{ old('name') }}" required autocomplete="name" autofocus>
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-4">
-                            <input id="email" type="email" placeholder="Email"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-4">
+                        <input id="password" type="password" placeholder="Palavra-passe"
+                            class="form-control @error('password') is-invalid @enderror" name="password" required
+                            autocomplete="new-password">
 
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-4">
-                            <input id="password" type="password" placeholder="Palavra-passe"
-                                class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="new-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-4">
+                        <input id="password-confirm" type="password" class="form-control"
+                            placeholder="Confirmar palavra-passe" name="password_confirmation" required
+                            autocomplete="new-password">
+                    </div>
+                    <button type="submit" class="btn RegBtn mt-2">
+                        {{ __('Criar conta') }}
+                    </button>
+                </form>
+                @if (Route::has('login'))
+                    <a class="nav-link" href="{{ route('login') }}"><button type="submit"
+                            class="loginRegBtns loginreg p-2">Entrar</button></a>
+                @endif
 
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-4">
-                            <input id="password-confirm" type="password" class="form-control"
-                                placeholder="Confirmar palavra-passe" name="password_confirmation" required
-                                autocomplete="new-password">
-                        </div>
-                        <button type="submit" class="btn RegBtn mt-2">
-                            {{ __('Criar') }}
-                        </button>
-                    </form>
-                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
 
 
     <!-- Vendor JS Files -->

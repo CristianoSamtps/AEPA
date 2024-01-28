@@ -101,7 +101,7 @@ class UserController extends Controller
 
 
     public function atualizarMetodoPagamento(Request $request) {
-        
+
         $userId = $request->input('user_id');
         $metodoPag = $request->input('metodo_pag');
 
