@@ -518,12 +518,15 @@ input{
     margin-right: 20px;
 }
 @media only screen and (max-width: 500px) {
+    
     #main-content {
         margin-top: 150px;
     }
+
     #dados1 h2 {
         margin-bottom: 50px;
     }
+
     .faq-question .icon{
         margin-right: 20px;
     }
@@ -535,4 +538,5 @@ input{
         position: relative;
         z-index: 2;
       }
+
 }
