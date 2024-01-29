@@ -16,6 +16,7 @@ use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\MemberDonerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
 
@@ -109,6 +110,11 @@ Route::group([
     Route::get('/inscricao/{projeto_id}', [PageController::class, 'inscricao'])->name('inscricao');
 
     Route::post('/voluntariar/{projeto_id}', [VoluntarioController::class, 'registarvoluntariado'])->name('voluntariar');
+
+    Route::post('/submit-payment', [PaymentController::class, 'store'])->name('submit.payment');
+
+    Route::get('/pagamentoMembro/{id}', [PaymentController::class, 'showPaymentForm'])->name('pagamentoMembro');
+
 
     /* voluntariado */
 

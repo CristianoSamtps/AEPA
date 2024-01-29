@@ -23,6 +23,23 @@
                         <h2>Plano Selecionado: {{ $planoSelecionado->name }}</h2>
                         <p>Preço: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                     @endif
+
+                    <form id="payment-form" action="{{ route('submit.payment') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="plano_id" value="{{ $planoSelecionado->id }}">
+                        <input type="hidden" name="member_doner_id" value="{{ $user->id }}">
+
+                        <div class="form-group">
+                            <label>Nome do Usuário</label>
+                            <input type="text" class="form-control" value="{{ $user->name }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nome do Plano</label>
+                            <input type="text" class="form-control" value="{{ $planoSelecionado->name }}" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
+                    </form>
                 </div>
                 <div class="col-md-5">
                     <div class="container my-4">
@@ -66,9 +83,6 @@
                                     <div class="mt-4">
                                         <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
-
-                                    <!-- Checkout Button -->
-                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
                                 </form>
                             </div>
                         </div>
@@ -90,9 +104,6 @@
                                     <div class="mt-4">
                                         <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
-
-                                    <!-- Checkout Button -->
-                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
                                 </form>
                             </div>
                         </div>
@@ -113,9 +124,6 @@
                                     <div class="mt-4">
                                         <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
-
-                                    <!-- Checkout Button -->
-                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
                                 </form>
                             </div>
                         </div>
@@ -137,9 +145,6 @@
                                     <div class="mt-4">
                                         <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
-
-                                    <!-- Checkout Button -->
-                                    <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
                                 </form>
                             </div>
                         </div>
@@ -150,5 +155,14 @@
     </div>
 
     <script src="{{ asset('js/payment.js') }}"></script>
+
+@section('scripts')
+    <script>
+        document.getElementById('confirmar-pagamento').addEventListener('click', function() {
+            var form = document.getElementById('payment-form');
+            form.submit();
+        });
+    </script>
+@endsection
 
 @endsection
