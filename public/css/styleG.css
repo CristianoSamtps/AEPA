@@ -224,6 +224,16 @@
 .doacoes .container-doacoes .banner .text a{
     text-align: center;
 }
+.doacoes .container-doacoes .doar p{
+    width: 120px;
+    height: 30px;
+    border-radius: 40px;
+    border: 2px solid #3A8262;
+    background-color: #ffff;
+    color: #3A8262;
+    margin-top: 10px;
+}
+
 .doacoes .container-doacoes .banner .text a:active,
 .doacoes .container-doacoes .banner .text a:visited,
 .doacoes .container-doacoes .banner .text a:checked,
@@ -232,6 +242,12 @@
     color: white;
     text-decoration: none;
 }
+.doacoes .container-doacoes .banner .text a:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+
 .doacoes .container-doacoes .filtros a:active,
 .doacoes .container-doacoes .filtros a:visited,
 .doacoes .container-doacoes .filtros a:checked,
@@ -432,7 +448,9 @@
 .detalhesDoacao button a:checked,.detalhesDoacao button a:link{
     color: #ffff;
     text-decoration: none;
+
 }
+
 
 .detalhesDoacao .bar{
     width: 400px;
