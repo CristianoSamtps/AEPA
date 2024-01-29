@@ -20,6 +20,16 @@ class Donation extends Model
         return $this->belongsTo(Projeto::class, 'projeto_id');
     }
     protected $fillable = [
-        'title'
+        'title',
+        'valor',
+        'anonimo',
+        'member_doner_id',
+        'projeto_id',
+        'metodo_pag',
+        'num_cartao',
+        'data_cartao',
+        'cvv_cartao',
+        'referencia',
+        'num_tel'
     ];
 }

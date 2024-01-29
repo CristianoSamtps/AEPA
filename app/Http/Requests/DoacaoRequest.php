@@ -22,7 +22,16 @@ class DoacaoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:3'
+            'title' => 'required|min:3',
+            'anonimo'=> 'required|in:S,N',
+            'valor'=> 'required|numeric|min:1',
+            'metodo_pag'=> 'required||in:C,R,M',
+            'num_cartao'=>'nullable|integer|digits:12',
+            'data_cartao'=>'nullable|date',
+            'cvv_cartao'=>'nullable|integer|digits:3',
+            'referencia'=>'nullable|integer|digits:21',
+            'num_tel'=>'nullable|integer|digits:9',
+            'projeto'=>'nullable|exists:projetos,id'
         ];
     }
 }

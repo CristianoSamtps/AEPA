@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Projeto;
 use App\Models\Donation;
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Http\Requests\DoacaoRequest;
 
 
@@ -59,34 +60,33 @@ class DonationController extends Controller
 
 
 
-    public function registarDoacao(Request $request)
+    public function registarDoacao(DoacaoRequest $request, Projeto $projeto = null)
     {
-        /* $fields = $request->validate(['valor' => 'required']);
+
+        $fields = $request->validated();
         $doacao = new Donation();
 
-        $doacao->valor=$request->valor;
-        $doacao->anonimo=$request->anonimo;
-        if($doacao=$request->anonimo == 1){
-            $doacao->member_doner_id=auth()->user()->id;
-            $doacao->anonimo='N';
-        }else{
-            $doacao->anonimo='S';
-        }
-        $doacao->title=$request->mens
-        $doacao->projeto_id=0;
+        $doacao->fill($fields);
 
-        $doacao->doacao = $request->valor;
-        $doacao->doacao = $request->anonimo;
-        if ($doacao = $request->anonimo == 1) {
-            $doacao->member_doner_id = auth()->user()->id;
-            $doacao->anonimo = 'N';
-        } else {
-            $doacao->anonimo = 'S';
+        if($request->anonimo == 'N'){
+
+            $doacao->member_doner_id=auth()->user()->id;
         }
-        $doacao->projeto_id = 0;
+
+        if($projeto){
+            $doacao->projeto_id=$projeto->id;
+        }else{
+            if($request->projeto){
+                $doacao->projeto_id=$request->projeto;
+            }
+            else{
+                $doacao->projeto_id=null;
+            }
+        }
+
         $doacao->save();
         return redirect()->back()
-            ->with('success', 'Doação registada com sucesso'); */
+            ->with('success', 'Doação registada com sucesso');
     }
     /**
      *

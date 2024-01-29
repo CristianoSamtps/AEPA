@@ -110,7 +110,7 @@ Route::group([
     /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
-    Route::post('/doacoes', [DonationController::class, 'registarDoacao'])->name('registardoacao');
+    Route::post('/doacoes/{projeto?}', [DonationController::class, 'registarDoacao'])->name('registardoacao');
 
     Route::group([
         'middleware' => ['admin'],
