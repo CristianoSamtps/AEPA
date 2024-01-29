@@ -67,7 +67,7 @@
                 <div class="navbar-nav text-center">
 
                     <!-- Add the "ml-auto" class to align items to the right -->
-                    <a class="nav-item m-0 nav-link" href="{{ route('index') }}">Ínicio</a>
+                    <a class="nav-item m-0 nav-link" href="{{ route('index') }}">Início</a>
                     <a class="nav-item m-0  nav-link" href="{{ route('eventos') }}">Eventos</a>
                     <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">Doações</a>
                     <a class="nav-item m-0  nav-link" href="{{ route('voluntariado') }}">Voluntariado</a>
@@ -150,7 +150,7 @@
                             <a class="nav-link " href=""></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('index') }}">Ínicio</a>
+                            <a class="nav-link" href="{{ route('index') }}">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('eventos') }}">Eventos</a>
