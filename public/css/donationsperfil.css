@@ -5,7 +5,8 @@
     padding: 60px;
     margin-right: 50px;
 }
-@media only screen and (max-width: 1400px){
+
+@media only screen and (max-width: 1400px) {
     #main-content {
         margin-top: 160px;
         flex: 1;
@@ -13,10 +14,9 @@
         padding: 20px;
         margin-right: 0px;
         margin-bottom: 200px;
-
     }
-
 }
+
 .row {
     padding: 10px;
     height: 100%;
@@ -53,7 +53,6 @@ div#novadoacao .fa-solid {
 div#novadoacao:hover .fa-solid {
     color: #019e5aa6;
     transition: all 0.3s;
-
 }
 
 #semdoacao {
@@ -79,7 +78,7 @@ div#semdoacao p {
 
 #resumedoacoes {
     position: relative;
-    height: 100% !important;
+    height: 100%;
     flex-shrink: 0;
     border-radius: 22px;
     background: #FFF;
@@ -171,7 +170,6 @@ div#semdoacao p {
     color: white;
 }
 
-
 .projeto svg path {
     fill: rgb(214, 214, 214);
 }
@@ -255,7 +253,7 @@ div#semdoacao p {
 }
 
 #filtro-doacoes .caixa-filtro select.input {
-    border: 4px  !important;
+    border: 4px !important;
     outline: none !important;
 
 }
@@ -288,4 +286,78 @@ div#semdoacao p {
     background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
     border-color: transparent;
     transition: ease-in all 0.1s;
+}
+#filtro-doacoes .caixa-botao {
+    margin-right: 0px !important;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+#filtro-doacoes .caixa-botao button {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 50px;
+}
+
+@media only screen and (max-width: 700px) {
+    #filtro-doacoes {
+        justify-content: center;
+        padding-right: 50px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    #resumedoacoes {
+        width: 390px;
+        height: auto;
+        position: relative;
+        overflow-x: auto;
+        /* Adicione esta linha para permitir scroll horizontal */
+    }
+
+    #resumedoacoes .resumo {
+        margin: 10px 20px 0px 20px;
+        white-space: nowrap;
+    }
+
+    #resumedoacoes .data {
+        margin: 0px 20px 10px 0px;
+        /* ou ajuste conforme necessário */
+    }
+
+    #resumedoacoes .nome {
+        margin: 0px 0px 0px 00px;   
+    }
+
+    #resumedoacoes .projeto {
+        margin: 0px 40px 0px 30px;
+        transform: translateX(710px);
+        position: absolute;    
+    }
+
+    #resumedoacoes .estado {
+        transform: translateX(790px);
+        position: absolute;
+        margin: 0px 40px 0px 0px;
+        /* ou ajuste conforme necessário */
+    }
+    #resumedoacoes .valor {
+        transform: translateX(950px);
+        position: absolute;
+        margin: 0px 40px 0px 0px;
+        /* ou ajuste conforme necessário */
+    }
+    #main-content {
+        justify-content: center;
+        align-items: center;
+        margin-top: 160px;
+        flex: 1;
+        padding: 29px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+    .row{
+        justify-content: center;
+    }
 }
