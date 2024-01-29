@@ -19,6 +19,10 @@
                     <h1>
                         Pagamento
                     </h1>
+                    @if (isset($planoSelecionado))
+                        <h2>Plano Selecionado: {{ $planoSelecionado->name }}</h2>
+                        <p>Preço: {{ number_format($planoSelecionado->valor, 2) }}€</p>
+                    @endif
                 </div>
                 <div class="col-md-5">
                     <div class="container my-4">
@@ -60,7 +64,7 @@
 
                                     <!-- Price Details -->
                                     <div class="mt-4">
-                                        <p>Total: 4.99€</p>
+                                        <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
 
                                     <!-- Checkout Button -->
@@ -84,7 +88,7 @@
                                     </div>
                                     <!-- Price Details -->
                                     <div class="mt-4">
-                                        <p>Total: 4.99€</p>
+                                        <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
 
                                     <!-- Checkout Button -->
@@ -103,12 +107,11 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="cardNumber" class="form-label">Nº Telémovel</label>
-                                        <input type="text" class="form-control" id="cardNumber"
-                                            placeholder="999999999">
+                                        <input type="text" class="form-control" id="cardNumber" placeholder="999999999">
                                     </div>
                                     <!-- Price Details -->
                                     <div class="mt-4">
-                                        <p>Total: 4.99€</p>
+                                        <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
 
                                     <!-- Checkout Button -->
@@ -132,7 +135,7 @@
                                     </div>
                                     <!-- Price Details -->
                                     <div class="mt-4">
-                                        <p>Total: 4.99€</p>
+                                        <p>Total: {{ number_format($planoSelecionado->valor, 2) }}€</p>
                                     </div>
 
                                     <!-- Checkout Button -->

@@ -25,7 +25,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center">{{ $planType->name }}</h5>
-                            <p class="price text-center">{{ number_format($planType->valor, 2) }}<span class="currency">€</span></p>
+                            <p class="price text-center">{{ number_format($planType->valor, 2) }}<span
+                                    class="currency">€</span></p>
 
                             @php
                                 $valorPorMes = $planType->duracao > 0 ? $planType->valor / $planType->duracao : $planType->valor;
@@ -33,7 +34,8 @@
 
                             <p class="features text-center">{{ number_format($valorPorMes, 2) }}€/mês<br></p>
                             <div class="d-flex justify-content-center">
-                                <a href="{{route('pagamentoMembro')}}" class="btn btn-success btn-custom">Subscrever</a>
+                                <a href="{{ route('pagamentoMembro', ['id' => $planType->id]) }}"
+                                    class="btn btn-success btn-custom">Subscrever</a>
                             </div>
                             <br>
                         </div>
@@ -87,7 +89,8 @@
                     <div class="col-md-3">
                         <div class="cardTwo row">
                             <div class="col-md-4">
-                                <i class="fa-solid fa-2x fa-money-check-dollar" style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
+                                <i class="fa-solid fa-2x fa-money-check-dollar"
+                                    style="color: #ffffff; padding: 20px; margin-bottom: 20px;"></i>
                             </div>
                             <div class="col-md-8">
                                 <h4 class="hhhh">Angariado</h4>
@@ -162,28 +165,6 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
     <script src="{{ asset('js/member.js') }}"></script>

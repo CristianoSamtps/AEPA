@@ -44,17 +44,17 @@ class PageController extends Controller
     public function detalhesDoacoes(Projeto $projeto)
     {
         $projetos = Projeto::all();
-        return view('detalheDoacoes', compact('projetos','projeto'));
+        return view('detalheDoacoes', compact('projetos', 'projeto'));
     }
 
     public function topDonates()
     {
 
         $doacoes = Donation::whereNull('projeto_id')->get();
-        $member_doners = Member_Doner::whereHas('donations')->with(['user','donations'])->withSum('donations', 'valor')->orderBy('donations_sum_valor','desc')->take(5)->get();
+        $member_doners = Member_Doner::whereHas('donations')->with(['user', 'donations'])->withSum('donations', 'valor')->orderBy('donations_sum_valor', 'desc')->take(5)->get();
 
 
-//        Auth::user()->withSum('products', 'price')->products_sum_price;
+        //        Auth::user()->withSum('products', 'price')->products_sum_price;
 
         return view('topDonates', compact('doacoes', 'member_doners'));
     }
@@ -134,9 +134,15 @@ class PageController extends Controller
         return view('tornarMembro', compact('planTypes'));
     }
 
-    public function pagamentoMembro()
+    public function pagamentoMembro($id)
     {
-        return view('pagamentoMembro');
+        $planoSelecionado = PlanType::find($id);
+        if (!$planoSelecionado) {
+            return redirect()->back()->with('error', 'Plano não encontrado.');
+        }
+
+
+        return view('pagamentoMembro', compact('planoSelecionado'));
     }
 
     public function sobreNos()

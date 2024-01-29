@@ -72,6 +72,9 @@ Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
 Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
+Route::get('/pagamentoMembro/{id}', [PageController::class, 'pagamentoMembro'])->name('pagamentoMembro');
+
+
 Auth::routes(['verify' => true]);
 
 
