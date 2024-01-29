@@ -64,7 +64,6 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
-
 //Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
 Route::get('/galeria', [FotografiaProjetoController::class, 'listarFotografias'])->name('galeria');
@@ -77,7 +76,6 @@ Route::get('/pagamentoMembro/{id}', [PageController::class, 'pagamentoMembro'])-
 
 
 Auth::routes(['verify' => true]);
-
 
 Route::group([
     'middleware' => ['auth', 'verified']
@@ -97,9 +95,9 @@ Route::group([
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
 
+    Route::delete('/eventoinfo/{participant}/cancelarreg', [ParticipantController::class, 'cancelarreg'])->name('cancelarreg');
+
     Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
-
-
 
     /* Participantes em eventos */
 
@@ -163,7 +161,6 @@ Route::group([
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-
 
         Route::get(
             '/users/{user}/send_reactivate_mail',

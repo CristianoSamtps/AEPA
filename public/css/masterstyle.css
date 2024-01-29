@@ -178,6 +178,17 @@ nav.mobile {
     }
 }
 
+section#sponsors img {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+section#sponsors img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+}
+
+
 /*--------------------------------------------------------------
 # Top-donates
 --------------------------------------------------------------*/

@@ -11,7 +11,7 @@
                 <p style="text-align: center">{{ session('success') }}</p>
             </div>
             <div class="modal-footer">
-                 <button type="button" style="width:100%" class="newest green-btn1" data-bs-dismiss="modal">Ok</button>
+                 <button type="button" style="width:100% !important" class="newest green-btn1" data-bs-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>

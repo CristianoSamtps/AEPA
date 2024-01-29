@@ -84,8 +84,7 @@
                             <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" disabled style="float: right;width:100%;">Já estás registado no
-                                    evento</button>
+                                {{-- <button class="oldest" style="float: right;width:100%;">Cancelar registo</button> --}}
                             @else
                                 <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
                             @endif
@@ -107,19 +106,37 @@
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             @else
-                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3" placeholder="Observações"></textarea>
+                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3"
+                                    placeholder="Observações"></textarea>
                             @endif
                             <br><br>
+
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <button class="oldest" disabled style="float: right;width:100%;">Já estás registado no
-                                    evento</button>
+                            @elseif ($event->data < now())
+                                <button class="oldest" disabled style="float: right;width:100%;">O evento está
+                                    terminado</button>
                             @else
                                 <!-- Button trigger modal -->
-                                <button type="submit" style="width:100%" class="newest green-btn1" data-toggle="modal" data-target="#exampleModal">
+                                <button type="submit" style="width:100% !important" class="newest green-btn1"
+                                    data-toggle="modal" data-target="#exampleModal">
                                     Participar
                                 </button>
                             @endif
                         </form>
+
+                        @foreach ($participants as $participant)
+                            @if ($participant->member_doner_id == auth()->id())
+                                {{-- Este participante equivale ao usuário autenticado --}}
+                                <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Confirma que pretende cancelar inscrição?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="oldest" style="float: right; width:100%;">Cancelar registo</button>
+                                </form>
+                            @endif
+                        @endforeach
+
                     @endif
                     <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores
                         dimensões
@@ -136,11 +153,11 @@
             <div class="col-md-8 p-4">
                 <h4 class="mb-4">Informações adicionais</h4>
                 <ul>
-                    <li>{{ $event->descricao }}</li>
+                    <li>Descrição: {{ $event->descricao }}</li>
                     <br>
                     <li>Vagas do eventos: {{ $event->vagas }}</li>
                     <br>
-                    <li>Data de criação {{ date_format(date_create($event->created_at), 'd-m-Y') }}</li>
+                    <li>Data de criação: {{ date_format(date_create($event->created_at), 'd-m-Y') }}</li>
                     <br>
                     <li>Número de identificação do evento: {{ $event->id }}</li>
                     <br>
@@ -166,15 +183,22 @@
 
         <div class="heroBackground">
         </div>
-        <section class="container" data-aos="fade-up">
-            <div class="eventoscards row" style="margin-top: 80px">
-                <div class="d-flex col-md-12 eventosfiltersection">
-                    <div class="col-md-6">
+
+        <section class="container">
+            <div class="eventoscards row">
+                <div class="d-flex col-lg-12 eventosfiltersection">
+                    <div class="col-lg-6">
                         <h2 class="text-left m-2">Outros eventos</h2>
                     </div>
-                    <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-                        <a href=""><button class="all green-btn1">Todos</button></a>
-                        <a href=""><button class="newest green-btn1">Os mais recentes</button></a>
+                    <div class="col-lg-6 d-flex justify-content-end m-2">
+                        <form action="{{ route('eventoinfo', $event) }}" method="GET">
+                            <label for="order_by_date">Ordenar por:</label>
+                            <select name="order_by_date" id="order_by_date" class="m-2">
+                                <option value="asc">Mais antigo</option>
+                                <option value="desc">Mais recente</option>
+                            </select>
+                            <button type="submit" class="green-btn1">Filtrar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -184,6 +208,9 @@
             <div class="row d-flex justify-content-center">
                 @foreach ($events as $event)
                     <div class="eventoCard col-lg-3 col-md-6 col-sm-12 mb-4 m-3 p-0">
+                        @if ($event->data < now())
+                            <button class="eventover m-4 p-2" disabled>Evento terminado</button>
+                        @endif
                         <div class="eventoCardImg">
                             @if (count($event->photos))
                                 <img src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
@@ -204,6 +231,10 @@
             </div>
         </section>
 
+        <div class="text-center mt-4">
+            <button id="seeMoreBtn" class="green-btn1" onclick="toggleEventsVisibility()">Ver mais</button>
+        </div>
+
         <section id="loading">
             <div id="loading-content"></div>
         </section>
@@ -211,8 +242,28 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
             $(document).ready(function() {
+
                 $('#exampleModal').modal('show');
+
+                var eventoCards = $('.eventoCard');
+                var maxVisible = 4;
+
+                eventoCards.slice(maxVisible).addClass('hidden-event');
+
+                if (eventoCards.length > maxVisible) {
+                    $('#seeMoreBtnContainer').show();
+                }
             });
+
+            function toggleEventsVisibility() {
+                var eventoCards = $('.eventoCard');
+                var hiddenEvents = eventoCards.slice(4);
+
+                hiddenEvents.toggleClass('hidden-event');
+
+                var buttonText = hiddenEvents.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
+                $('#seeMoreBtn').text(buttonText);
+            }
         </script>
 
     @endsection

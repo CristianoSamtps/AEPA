@@ -98,7 +98,7 @@
         <section class="container" id="sponsors">
             <div class="container">
                 <div class="row justify-content-between flex-md-row flex-sm-column">
-                    @foreach($patrocinadores as $patrocinador)
+                    @foreach($patrocinadores->take('4') as $patrocinador)
                     <div class="col-md-3 sponsercell">
                         <img src="{{ asset('storage/partner_fotos/' . $patrocinador->foto) }}" alt="{{ $patrocinador->name }}">
                     </div>
@@ -168,7 +168,7 @@
 
             </div>
         </div>
-        
+
     </div>
 
 

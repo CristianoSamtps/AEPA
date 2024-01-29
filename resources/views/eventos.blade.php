@@ -12,7 +12,6 @@
 
     <main id="main">
         @if ($events->isEmpty())
-
             <section class="container" style="margin-bottom: -180px;">
                 <div class="col-md-12">
                     <div id="herosvg">
@@ -57,24 +56,35 @@
             @endif
             <div class="heroBackground">
             </div>
+
             <section class="container">
                 <div class="eventoscards row">
-                    <div class="d-flex col-md-12 eventosfiltersection">
-                        <div class="col-md-6">
+                    <div class="d-flex col-lg-12 eventosfiltersection">
+                        <div class="col-lg-6">
                             <h2 class="text-left m-2">Outros eventos</h2>
                         </div>
-                        <div class="col-md-6 d-flex flex-row-reverse eventosfilter">
-                            <a href=""><button class="all green-btn1">Todos</button></a>
-                            <a href=""><button class="newest green-btn1">Os mais recentes</button></a>
+                        <div class="col-lg-6 d-flex justify-content-end m-2">
+                            <form action="{{ route('eventos') }}" method="GET">
+                                <label for="order_by_date">Ordenar por:</label>
+                                <select name="order_by_date" id="order_by_date" class="m-2">
+                                    <option value="asc">Mais antigo</option>
+                                    <option value="desc">Mais recente</option>
+                                    <option value="all">Todos</option>
+                                </select>
+                                <button type="submit" class="green-btn1">Filtrar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="container eventoslist" data-aos="fade-up">
+            <section class="container eventoslist" data-aos="fade-up" id="eventoslist">
                 <div class="row d-flex justify-content-center">
                     @foreach ($events as $event)
                         <div class="eventoCard col-lg-3 col-md-6 col-sm-12 mb-4 m-4 p-0">
+                            @if($event->data < now())
+                            <button class="eventover m-4 p-2" disabled>Evento terminado</button>
+                            @endif
                             <div class="eventoCardImg">
                                 @if (count($event->photos))
                                     <img src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
@@ -100,27 +110,21 @@
                         </div>
                     @endforeach
                 </div>
-            </div>{{ $events->onEachSide(5)->links() }}
-
+                </div>
             </section>
-
-
+            <div class="text-center mt-4">
+                <button id="seeMoreBtn" class="green-btn1" onclick="toggleEventsVisibility()">Ver mais</button>
+            </div>
         @endif
-
         <section class="container" id="sponsors">
-            <div class="row justify-content-between flex-md-row flex-sm-column">
-                <p class="text-center text-secondary mb-5">Conhece os nossos parceiros</p>
-                <div class="col-md-3 sponsercell">
-                    <img src="{{ asset('img/patrocinios/method.png') }}" alt="Logotipo Method">
-                </div>
-                <div class="col-md-3 sponsercell">
-                    <img src="{{ asset('img/patrocinios/amora.png') }}" alt="Logotipo Amora">
-                </div>
-                <div class="col-md-3 sponsercell">
-                    <img src="{{ asset('img/patrocinios/Ecover.png') }}" alt="Logotipo Ecover">
-                </div>
-                <div class="col-md-3 sponsercell">
-                    <img src="{{ asset('img/patrocinios/vestas.png') }}" alt="Logotipo Vestas">
+            <div class="container">
+                <div class="row justify-content-between flex-md-row flex-sm-column">
+                    @foreach ($patrocinadores->take('4') as $patrocinador)
+                        <div class="col-md-3 sponsercell">
+                            <img src="{{ asset('storage/partner_fotos/' . $patrocinador->foto) }}"
+                                alt="{{ $patrocinador->name }}">
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -132,8 +136,8 @@
                     <h5 class="mb-5 lh-base">Juntar a comunidade que torna este sonho realidade e fazer um evento de
                         recordar, ajudas em projetos de reconstrução ambiental e disciplinate-te para um futuro melhor.
                     </h5>
-                    <a><button class="green-btn1">Participar</button></a>
-                    <a><button class="btn hero-btn2">Saber mais</button></a>
+                    <a href="#indexHero"><button class="green-btn1">Participar</button></a>
+                    <a href="{{ route('sobreNos') }}"><button class="btn hero-btn2">Saber mais</button></a>
                 </div>
                 <div class="col-md-6">
                     <div id="herosvg">
@@ -143,7 +147,7 @@
             </div>
         </section>
 
-        <div class="background">
+           <div class="background">
             <img src="{{ asset('img/greyvector.svg') }}" alt="efeito de fundo">
         </div>
 
@@ -157,9 +161,9 @@
                 <div class="col-md-6 heroinfo">
                     <h1 class="mb-3">Porquê?</h1>
                     <h5 class="mb-5 lh-base">Oferecer a oportunidade única de contribuir ativamente para a preservação
-                        do nosso planeta, enquanto nos conectamos com uma comunidade dedicada à sustentabilidade
+                        do nosso planeta, enquanto nos conectamos com uma comunidade dedicada à sustentabilidade.
                     </h5>
-                    <a><button class="green-btn1">Saber mais</button></a>
+                    <a href="{{ route('index') }}"><button class="green-btn1">Saber mais</button></a>
                 </div>
             </div>
             </div>
@@ -169,6 +173,25 @@
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script>
+            $(document).ready(function() {
+                var eventoCards = $('.eventoCard');
+                var maxVisible = 4;
 
+                eventoCards.slice(maxVisible).addClass('hidden-event');
+
+                if (eventoCards.length > maxVisible) {
+                    $('#seeMoreBtnContainer').show();
+                }
+            });
+
+            function toggleEventsVisibility() {
+                var eventoCards = $('.eventoCard');
+                var hiddenEvents = eventoCards.slice(4);
+
+                hiddenEvents.toggleClass('hidden-event');
+
+                var buttonText = hiddenEvents.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
+                $('#seeMoreBtn').text(buttonText);
+            }
         </script>
     @endsection

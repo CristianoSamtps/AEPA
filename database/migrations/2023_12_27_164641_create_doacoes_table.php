@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 100)->nullable();
             $table->decimal('valor', $precision = 8, $scale = 2);
             $table->enum('anonimo', ['S', 'N'])->default('N');
-            
+
             $table->enum('metodo_pag', ['C', 'R','M'])->default('C');
             $table->unsignedBigInteger('num_cartao')->nullable();
             $table->date('data_cartao')->nullable();

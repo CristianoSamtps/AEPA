@@ -80,9 +80,9 @@ class PageController extends Controller
     public function patrocinadores()
     {
         $patrocinadores = Partnership::all();
-
         return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
     }
+
     public function projects()
     {
         return view('projects');
@@ -150,29 +150,65 @@ class PageController extends Controller
         return view('sobreNos');
     }
 
-    public function eventos()
+    public function eventos(Request $request)
     {
-        $events = Event::paginate(4);
-        $topevent = Event::orderBy('data', 'desc')->first();
+        $topevent = Event::orderBy('data', 'asc')->first();
 
+        if ($request->has('order_by_date')) {
+            $order = $request->input('order_by_date');
+            // Verifica se a ordem é ascendente ou descendente
+            $orderDirection = ($order == 'asc') ? 'asc' : 'desc';
+
+            // Se a opção escolhida for "todos"
+            if ($order == 'all') {
+                // Obtém todos os eventos, independentemente da data
+                $events = Event::orderBy('data', $orderDirection)->get();
+            } else {
+                // Obtém apenas os eventos cuja data seja igual ou superior à atual
+                $events = Event::where('data', '>=', now())->orderBy('created_at', $orderDirection)->get();
+            }
+        } else {
+            // Se não houver filtro, obtém todos os eventos
+            $events = Event::where('data', '>=', now())->get();
+        }
+
+        foreach ($events as $eventshort) {
+            $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
+        }
+
+        // Patrocinadores de eventos
+        $patrocinadores = Partnership::all();
+
+        return view('eventos', compact('events', 'topevent', 'eventshort', 'patrocinadores'));
+    }
+
+    public function eventoinfo(Event $event, Request $request)
+    {
+        $events = Event::all();
+        $photos_events = PhotoEvent::all();
+        $partners = PartnerShip::count();
+        $participants = Participant::all();
+
+        if ($request->has('order_by_date')) {
+            $order = $request->input('order_by_date');
+            // Verifica se a ordem é ascendente ou descendente
+            $orderDirection = ($order == 'asc') ? 'asc' : 'desc';
+            // Ordena os eventos pela data
+            $events = Event::orderBy('created_at', $orderDirection)->get();
+        } else {
+            // Se não houver filtro, obtém todos os eventos
+            $events = Event::all();
+        }
         foreach ($events as $eventshort) {
             $eventshort->descricao = str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
 
-        return view('eventos', compact('events', 'topevent', 'eventshort'));
-    }
-    public function eventoinfo(Event $event)
-    {
-
-        $events = Event::all();
-        $photos_events = PhotoEvent::all();
-        $partners = PartnerShip::count();
-
         foreach ($events as $eventshort) {
             $eventshort->descricao = str::limit($eventshort->descricao, 60);
         }
-        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort'));
+        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort','participants'));
     }
+
     public function galeria()
     {
         return view('galeria');
