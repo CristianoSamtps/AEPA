@@ -149,6 +149,8 @@ Route::group([
 
         Route::resource('plantypes', PlanTypeController::class)->parameters(['doacoes' => 'doacao']);
 
+        Route::resource('voluntario', VoluntarioController::class)->parameters(['doacoes' => 'doacao']);
+
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
