@@ -30,7 +30,7 @@
             <div class="row">
                 @if (count($projetos) > 0)
                 @foreach ($projetos as $projeto)
-                <div id="exprojeto" class="col-lg-4">
+                <div id="exprojeto" class="col-12 col-lg-4">
                     <div class="fundo-projeto">
                         @if ($projeto->fotografias)
                         <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}" alt="Imagem do projeto" class="img-post">

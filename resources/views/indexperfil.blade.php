@@ -146,7 +146,7 @@
                                             @if ($doacao->anonimo == 'N')
                                                 Visivel
                                             @elseif($doacao->anonimo == 'S')
-                                                Anonimo
+                                                Anônimo
                                             @endif
                                         </button>
                                     </div>

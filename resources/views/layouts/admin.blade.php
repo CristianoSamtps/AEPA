@@ -294,10 +294,10 @@
                                     class="hide-menu">Doações</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
 
-                                 <li class="sidebar-item"><a href="{{ route('admin.doacoes.index') }}"
+                                <li class="sidebar-item"><a href="{{ route('admin.doacoes.index') }}"
                                         class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
                                             class="hide-menu"> Todos as doações
-                                        </span></a></li> 
+                                        </span></a></li>
 
                             </ul>
                         </li>
@@ -318,6 +318,21 @@
 
                             </ul>
                         </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-file"></i><span
+                                    class="hide-menu">Voluntariado</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+
+                                <li class="sidebar-item"><a href="{{ route('admin.voluntario.index') }}"
+                                        class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span
+                                            class="hide-menu"> Projetos de Voluntariado
+                                        </span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                                 href="javascript:void(0)" aria-expanded="false"><i class="fa-solid fa-file"></i><span
                                     class="hide-menu">Planos</span></a>

@@ -28,7 +28,7 @@
 
                 <div class="row" style="justify-content: right">
 
-                    <div class="col-3 caixa-filtro">
+                    <div class="col-sm-12 col-lg-3 caixa-filtro">
 
                         <select name="data" class="input">
                             <option value="">Data:</option>
@@ -38,7 +38,7 @@
 
                     </div>
 
-                    <div class="col-3 caixa-filtro">
+                    <div class="col-sm-12 col-lg-3 caixa-filtro">
 
                         <select name="preco" class="input">
                             <option value="">Preço:</option>
@@ -47,7 +47,7 @@
                         </select>
                     </div>
 
-                    <div class="col-3 caixa-filtro">
+                    <div class="col-sm-12 col-lg-3 caixa-filtro">
 
                         <select name="visibilidade" class="input">
                             <option value="">Estado:</option>
@@ -56,7 +56,7 @@
                         </select>
                     </div>
 
-                    <div class="col-3 caixa-botao">
+                    <div class="col-sm-12 col-lg-3 caixa-botao">
 
                         <button type="submit">Filtrar</button>
 
@@ -109,7 +109,7 @@
                                 @if ($doacao->anonimo == 'N')
                                     Visivel
                                 @elseif($doacao->anonimo == 'S')
-                                    Anonimo
+                                    Anônimo
                                 @endif
                             </button>
                         </div>
