@@ -105,13 +105,24 @@
     transform: translate(-33px, 0px);
     width: 40px;
     height: 40px;
+    border: 2px solid transparent;
     background-color: #d4d4d4;
-    line-height: 40px;
+    line-height: 35px;
     position: absolute;
     overflow: hidden;
     color: white;
     border-radius: 50px;
     cursor: pointer;
+    transition: ease-in all 0.1s;
+
+}
+.upload-imagem:hover {
+    transform: translate(-33px, 0px);
+    background-color: transparent;
+    line-height: 35px;
+    color: black;
+    border: 2px solid black;
+    transition: ease-in all 0.1s;
 }
 
 .upload-imagem label {
@@ -275,7 +286,7 @@
     text-align: left;
     height: 67px;
     border-radius: 25px;
-    background: #a7dff1;
+    background: #a1d8bf57;
     box-shadow: 4px 4px 9px 0px rgba(38, 57, 70, 0.733);
     margin: 10px !important;
 }
@@ -383,7 +394,6 @@ input{
 }
 .metodo .seta h1{
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-style: normal;
     font-weight: 500;
@@ -417,7 +427,6 @@ input{
 }
 .password .seta h1{
     color: #000;
-    font-family: Inter;
     font-size: 25px;
     font-style: normal;
     font-weight: 500;
@@ -534,7 +543,7 @@ input{
     .field-icon {
         float: right;
         margin-right: 15px;
-        margin-top: -25px !important;
+        margin-top: 28px !important;
         position: relative;
         z-index: 2;
       }

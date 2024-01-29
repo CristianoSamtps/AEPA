@@ -100,7 +100,8 @@ class UserController extends Controller
     }
 
 
-    public function atualizarMetodoPagamento(Request $request) {
+    public function atualizarMetodoPagamento(Request $request)
+    {
 
         $userId = $request->input('user_id');
         $metodoPag = $request->input('metodo_pag');
@@ -110,39 +111,6 @@ class UserController extends Controller
 
         return response()->json(['success' => true]);
     }
-
-
-    public function updatePassword(Request $request, User $user)
-    {
-        // Validação da senha antiga
-        $request->validate([
-            'old_password' => 'required',
-        ]);
-
-        if ($request->old_password != $user->password) {
-            return redirect()->back()->with('error', 'A senha antiga está incorreta.');
-        }
-
-        // Validação das novas senhas
-        $request->validate([
-            'new_password' => 'required|min:3|max:40',
-            'new_password_confirmation' => 'required|same:new_password',
-        ], [
-            'new_password_confirmation.same' => 'A nova senha e a confirmação de senha não coincidem.',
-        ]);
-
-        // Atualizar a senha
-        $user->update([
-            'password' => bcrypt($request->new_password),
-        ]);
-
-        return redirect()->route('editperfil', $user)->with('success', 'Senha atualizada com sucesso.');
-    }
-
-
-
-
-
 
     public function projetosperfil(User $user)
     {
@@ -187,6 +155,28 @@ class UserController extends Controller
             ->with('success', 'Utilizador atualizado com sucesso');
     }
 
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'old_password' => ['required', function ($attribute, $value, $fail) use ($user) {
+                if (!Hash::check($value, $user->password)) {
+                    return $fail('A senha atual está incorreta.');
+                }
+            }],
+            'new_password' => 'required|min:8',
+            'new_password_confirmation' => 'required|same:new_password',
+        ], [
+            'new_password_confirmation.same' => 'As senhas não coincidem.',
+        ]);
+
+        // Atualiza a senha do usuário
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->route('editperfil', $user)
+            ->with('success', 'Senha atualizada com sucesso.');
+    }
 
 
     /**

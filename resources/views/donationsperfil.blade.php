@@ -50,7 +50,7 @@
                     <div class="col-3 caixa-filtro">
 
                         <select name="visibilidade" class="input">
-                            <option value="">Anônimo:</option>
+                            <option value="">Estado:</option>
                             <option value="anonimo">Anônimo</option>
                             <option value="nao-anonimo">Não Anônimo</option>
                         </select>

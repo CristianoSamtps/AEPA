@@ -93,9 +93,9 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="col-lg-12">
+                        <div id="semprojeto" class="col-lg-12">
                             <div class="fundo-projeto text-center">
-                                <p>Projetos Indisponíveis</p>
+                                <p>Não está a participar em nenhum projeto..</p>
                             </div>
                         </div>
                     @endif

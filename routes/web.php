@@ -16,6 +16,7 @@ use App\Http\Controllers\PhotoEventController;
 use App\Http\Controllers\PartnerShipController;
 use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\MemberDonerController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 
 /*
@@ -36,9 +37,8 @@ Route::get('/topDonates', [PageController::class, 'topDonates'])->name('topDonat
 
 Route::get('/doacoes', [PageController::class, 'doacoes'])->name('doacoes');
 
-Route::get('/teste',function (){
+Route::get('/teste', function () {
     return App\Models\Donation::find(2)->member_doner->user;
-
 });
 
 Route::get('detalhesDoacoes/{projeto}', [PageController::class, 'detalhesDoacoes'])->name('detalhesDoacoes');
@@ -86,17 +86,17 @@ Route::group([
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
-    Route::put('/perfil/{user}/editar/update', [UserController::class, 'updatePassword'])->name('updatePassword');
 
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
 
-
-
     /* Participantes em eventos */
-
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
+
+    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
+
+
 
     /* Participantes em eventos */
 
@@ -143,8 +143,8 @@ Route::group([
 
         Route::resource('patrocinadores', PartnerShipController::class)->parameters(['patrocinadores' => 'partner']);
 
-       /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
-       /*  Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class); */
+        /*  Route::put('/admin/patrocinadores/{partner}', 'PartnerShipController@update')->name('admin.patrocinadores.update'); */
+        /*  Route::resource('/admin/patrocinadores/{partner}', PartnerShipController::class); */
 
         Route::resource('plans', PlanController::class)->parameters(['doacoes' => 'doacao']);
 
