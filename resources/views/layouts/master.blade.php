@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons -->
     <link href="{{ asset('img/favicon.svg') }}" rel="icon">

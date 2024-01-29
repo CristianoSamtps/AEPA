@@ -180,11 +180,11 @@
             </div>
         </section>
 
-        <section class="container eventoslist" style="margin-bottom: 200px;" data-aos="fade-up">
-            <div class=" d-flex justify-content-between ">
-                @foreach ($events->take(4) as $event)
-                    <div class="eventoCard col-md-3">
-                        <div class="eventoCardImg ">
+        <section class="container eventoslist" data-aos="fade-up">
+            <div class="row d-flex justify-content-center">
+                @foreach ($events as $event)
+                    <div class="eventoCard col-lg-3 col-md-6 col-sm-12 mb-4 m-3 p-0">
+                        <div class="eventoCardImg">
                             @if (count($event->photos))
                                 <img src="{{ asset('storage/event_photos/' .$event->photos()->orderBy('destaque', 'asc')->orderBy('created_at', 'desc')->first()->fotografia) }}"
                                     class="img-post" alt="Event image">
@@ -192,10 +192,9 @@
                                 <img src="{{ asset('storage/event_photos/defaultevent.jpg') }}" class="img-post"
                                     alt="default image">
                             @endif
-                            {{-- <img src="{{asset ('img/eventos/projetorios.png')}}" alt="Projeto Rios"> --}}
                         </div>
                         <div class="cardInfo text-center">
-                            <h5 class="">{{ $event->name }}</h5>
+                            <h5>{{ $event->name }}</h5>
                             <p class="cardDescription">{{ $event->descricao }}</p>
                             <a href="{{ route('eventoinfo', ['event' => $event]) }}"><button class="btn CardBtn">Saber
                                     mais</button></a>

@@ -47,7 +47,6 @@ class PageController extends Controller
         return view('detalheDoacoes', compact('projetos','projeto'));
     }
 
-
     public function topDonates()
     {
 
@@ -144,11 +143,11 @@ class PageController extends Controller
 
     public function eventos()
     {
-        $events = Event::all();
+        $events = Event::paginate(4);
         $topevent = Event::orderBy('data', 'desc')->first();
 
         foreach ($events as $eventshort) {
-            $eventshort->descricao = str::limit($eventshort->descricao, 60);
+            $eventshort->descricao = str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
 
         return view('eventos', compact('events', 'topevent', 'eventshort'));

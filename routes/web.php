@@ -43,7 +43,6 @@ Route::get('/teste',function (){
 
 Route::get('detalhesDoacoes/{projeto}', [PageController::class, 'detalhesDoacoes'])->name('detalhesDoacoes');
 
-
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
@@ -89,8 +88,6 @@ Route::group([
     Route::put('/perfil/{user}/editar/update', [UserController::class, 'updatePassword'])->name('updatePassword');
 
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
-
-
 
     /* Participantes em eventos */
 
