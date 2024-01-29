@@ -163,13 +163,37 @@
       }
 
       @media only screen and (max-width: 500px) {
+          #novaprojeto {
+              width: 100%;
+          }
+
+          #exprojeto img {
+              opacity: 30%;
+              transition: all ease-in 0.2s;
+          }
+
           #exprojeto {
-            transform: scale(0.97);
-            transform-origin: top left;
-            width: 100%;
-        }
-        #novaprojeto{
-            width: 100%;
-        }
+              width: 100%;
+              z-index: 0 !important;
+              background-color: #019e5a75;
+              transition: all ease-in 0.2s;
+
+          }
+
+          #exprojeto button {
+              transform: translateY(-120px);
+              opacity: 1 !important;
+              transition: all ease-in 0.2s;
+          }
+
+          #exprojeto .info-projeto h1 {
+              z-index: 0;
+              font-size: 24px;
+              color: white;
+              font-weight: 600;
+              transform: translate(0px, -110px);
+              opacity: 1 !important;
+              transition: all ease-in 0.2s;
+          }
 
       }

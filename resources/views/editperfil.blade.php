@@ -82,8 +82,6 @@
 
                     <a href="{{ route('editperfil', auth()->user()) }}"><button class="cancelar" style="display: none;">Cancelar</button></a>
 
-                    <a style="text-decoration: none" href="{{ route('tornarMembro') }}"><button id="membroBtn" class="membro" style="display: block;">Torne-se
-                            Membro</button></a>
 
                 </div>
 
