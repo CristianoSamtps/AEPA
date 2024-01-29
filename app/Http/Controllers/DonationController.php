@@ -24,7 +24,6 @@ class DonationController extends Controller
     {
         $doacoes = $user->doacoes();
 
-        // Aplica os filtros se estiverem presentes nos parâmetros da consulta
         if ($request->has('data')) {
             if ($request->data === 'recentes') {
                 $doacoes->orderByDesc('created_at');

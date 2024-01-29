@@ -43,7 +43,6 @@ Route::get('/teste', function () {
 
 Route::get('detalhesDoacoes/{projeto}', [PageController::class, 'detalhesDoacoes'])->name('detalhesDoacoes');
 
-
 Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes');
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
