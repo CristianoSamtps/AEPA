@@ -9,11 +9,11 @@
 
 @section('main')
 
-    <main id="main">
-        <section class="detalhesDoacao">
-                @if (!empty(session('success')))
+    <main id="main">@if (!empty(session('success')))
                     @include ('layouts.partials.success_master')
                 @endif
+        <section class="detalhesDoacao">
+
 
             <div class="bannerD">
                 <img src="{{ asset('img/praia.svg') }}" alt="">

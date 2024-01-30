@@ -42,6 +42,14 @@ class SugestaoController extends Controller
          return redirect()->back()
            ->with('success', 'Sugestão registada com sucesso');
     }
+    public function votar(Request $request,MemberDoner $member_doner)
+    {
+        $sugestao->votos+=1;
+        $sugestao->save();
+
+         return redirect()->back()
+           ->with('success', 'Voto registado com sucesso');
+    }
 
     /**
      * Show the form for editing the specified resource.

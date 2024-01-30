@@ -36,34 +36,12 @@
                             @else
                                 <img src="{{ asset('img/default_user.jpg') }}" alt="Foto de perfil" class="profile-image">
                             @endif
-                            <img src="{{ asset('img/default_user.jpg') }}" alt="Foto de perfil" class="profile-image">
-                            <h2 class="name">{{ $member_doner->user->name }}</h2>
-
-
+                           <h2 class="name">{{ $member_doner->user->name }}</h2>
                         <button class="btn">{{ $member_doner->donations_sum_valor }} €</button>
                     </div>
                 @endforeach
 
-                <!--
-                        <div class="card">
-                            <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                            <h2 class="name">Joel Loureiro</h2>
-                            <button class="btn">1361€</button>
-                        </div>
-                        <div class="card">
-                            <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                            <h2 class="name">Joel Loureiro</h2>
-                            <button class="btn">1361€</button>
-                        </div>
-                        <div class="card">
-                            <img src="{{ asset('img/ana.jpg') }}" alt="" class="profile-image">
-                            <h2 class="name">Joel Loureiro</h2>
-                            <button class="btn">1361€</button>
-                        </div </div>
-                        -->
         </section>
-
-
     </main>
 
 @endsection
