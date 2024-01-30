@@ -83,6 +83,10 @@ a {
 .project img {
     margin-top: 25px;
     transition: transform 0.3s ease-in-out;
+    max-width: 420px;
+    max-height: 207px;
+    width: 100%;
+    height: auto;
 }
 
 .project img:hover {
@@ -152,7 +156,10 @@ button#showMoreBtn {
 
     .project img {
         margin-top: 18px;
-        width: 343px;
+        max-width: 343px;
+        max-height: 169px;
+        width: 100%;
+        height: auto;
     }
 
     button#showMoreBtn {

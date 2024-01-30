@@ -48,13 +48,13 @@ Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes'
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
-// Route::get('/projects', [PageController::class, 'projects'])->name('projects');
-
 Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
 
-Route::get('/project_detail1', [PageController::class, 'project_detail1'])->name('project_detail1');
 
-Route::get('/project_detail2', [PageController::class, 'project_detail2'])->name('project_detail2');
+
+Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details');
+
+
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
@@ -64,10 +64,9 @@ Route::get('/sobreNos', [PageController::class, 'sobreNos'])->name('sobreNos');
 
 Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
-
 //Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
-Route::get('/galeria', [FotografiaProjetoController::class, 'listarFotografias'])->name('galeria');
+Route::get('/galeria', [PageController::class, 'listarFotografias'])->name('galeria');
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
@@ -75,19 +74,24 @@ Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
 Route::get('/pagamentoMembro/{id}', [PageController::class, 'pagamentoMembro'])->name('pagamentoMembro');
 
-
 Auth::routes(['verify' => true]);
-
 
 Route::group([
     'middleware' => ['auth', 'verified']
 ], function () {
 
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
+
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
-    Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
+
+    Route::get('/perfil/{user}/projetosevents', [UserController::class, 'showPerfil'])->name('projetosperfil');
+
+    Route::delete('/perfil/{user}/cancelarreg/{event}', [UserController::class, 'deleteregperfil'])->name('cancelarregperfil');
+
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
+
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
+
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
 
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
@@ -97,14 +101,12 @@ Route::group([
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
 
+    Route::delete('/eventoinfo/{participant}/cancelarreg', [ParticipantController::class, 'cancelarreg'])->name('cancelarreg');
+
     Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
-
-
-
     /* Participantes em eventos */
 
     /* voluntariado */
-
     Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
 
     Route::get('/inscricao/{projeto_id}', [PageController::class, 'inscricao'])->name('inscricao');
@@ -114,11 +116,10 @@ Route::group([
     Route::post('/submit-payment', [PaymentController::class, 'store'])->name('submit.payment');
 
     Route::get('/pagamentoMembro/{id}', [PaymentController::class, 'showPaymentForm'])->name('pagamentoMembro');
-
-
     /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
+    Route::post('/sugestoes/{member_doner}', [SugestaoController::class, 'votar'])->name('votar');
     Route::post('/doacoes/{projeto?}', [DonationController::class, 'registarDoacao'])->name('registardoacao');
 
     Route::group([
@@ -163,7 +164,6 @@ Route::group([
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
 
         Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
-
 
         Route::get(
             '/users/{user}/send_reactivate_mail',

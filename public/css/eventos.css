@@ -226,7 +226,7 @@ button.CardBtn {
     color: #579B74;
 }
 
-div.eventoCard:hover div.cardInfo{
+div.eventoCard:hover div.cardInfo {
     transition: ease-in-out 0.2s;
     margin-top: 180px;
 }
@@ -393,16 +393,61 @@ div.socialicons ul li:nth-child(4) a:before {
     background: #16a74e;
 }
 
+button.green-btn1 {
+    width: 120px !important;
+    height: 40px !important;
+    margin-left: 5px;
+}
 
+select {
+    border-radius: 50px;
+    padding: 8.5px;
+    width: 130px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select option {
+    border-radius: 0px;
+}
+
+input#quantity {
+    border-radius: 20px;
+    padding: 8.5px;
+    border: 0.1px solid;
+}
+
+.hidden-event {
+    display: none;
+    transition: ease-in 1s;
+}
+
+button.eventover {
+    position: absolute;
+    width: 150px !important;
+    right: 0;
+    background-color: rgb(168, 34, 34) !important;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 0.9rem;
+    border: 0px;
+    cursor: pointer;
+}
 
 @media only screen and (max-width: 991px) {
     div.eventoCard {
         width: 40%;
     }
 }
+
 @media only screen and (max-width: 551px) {
     div.eventoCard {
         width: 90%;
     }
-}
 
+    object {
+        width: 90%;
+    }
+
+}

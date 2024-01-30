@@ -27,12 +27,11 @@ class ProjetoRequest extends FormRequest
 
         $tituloRules = [
             'required',
-            'min:3',
-            'max:40',
+            'min:5',
+            'max:45',
             'regex:/^[A-ZÀ-úa-z\'\s]+/',
         ];
 
-        // Adicionamos a regra de unicidade apenas se estivermos criando um novo projeto
         if ($this->isMethod('post')) {
             $tituloRules[] = Rule::unique('projetos', 'titulo');
         }
@@ -53,8 +52,8 @@ class ProjetoRequest extends FormRequest
     {
         return [
             'titulo.required' => 'O Título é obrigatório.',
-            'titulo.min' => 'O Título deve ter pelo menos 3 caracteres.',
-            'titulo.max' => 'O Título deve ter no máximo 40 caracteres.',
+            'titulo.min' => 'O Título deve ter pelo menos 5 caracteres.',
+            'titulo.max' => 'O Título deve ter no máximo 45 caracteres.',
             'titulo.unique' => 'O Título já está em uso.',
             'titulo.regex' => 'O Título deve conter apenas letras, espaços e apóstrofos.',
             'subtitulo.required' => 'O Subtítulo é obrigatório.',

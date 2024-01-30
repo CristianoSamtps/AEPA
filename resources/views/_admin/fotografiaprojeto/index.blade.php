@@ -4,6 +4,22 @@
     Projeto: {{ $projeto->titulo }}
 @endsection
 
+@section('stylesAdminFotoProjeto')
+    <style>
+        #ft_admin_projeto {
+            max-width: 420px;
+            max-height: 207px;
+        }
+
+        @media screen and (max-width: 393px) {
+            #ft_admin_projeto {
+                max-width: 343px;
+                max-height: 169px;
+            }
+        }
+    </style>
+@endsection
+
 @section('backoffice-content')
 
     <div class="card shadow mb-4">
@@ -18,7 +34,7 @@
         <div class="card-body">
             @if (count($fotografias))
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Foto</th>
@@ -29,7 +45,8 @@
                         <tbody>
                             @foreach ($fotografias as $photo)
                                 <tr>
-                                    <td><img src="{{ asset('storage/project_photos/' . $photo->foto) }}" alt="Fotografia">
+                                    <td><img src="{{ asset('storage/project_photos/' . $photo->foto) }}" alt="Fotografia"
+                                            id="ft_admin_projeto">
                                     </td>
                                     <td>
                                         @if ($photo->destaque == 1)
@@ -42,13 +59,14 @@
                                         <form method="POST"
                                             action="{{ route('admin.fotografiasprojeto.destroy', [$projeto, $photo]) }}"
                                             role="form" class="inline"
-                                            onsubmit="return confirm('Confirma que pretende eliminar este registo?');">
+                                            onsubmit="return confirm('Confirma que pretende eliminar esta fotografia?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-xs btn-danger btn-p ml-1">
                                                 <i class="fas fa-trash fa-xs"></i>
                                             </button>
                                         </form>
+
                                     </td>
                                 </tr>
                             @endforeach

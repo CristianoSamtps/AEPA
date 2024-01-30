@@ -315,7 +315,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -691,6 +690,15 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+#modalD #referencia_multibanco_fields input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 #modalD #anonimo {
     padding: 5px;
     margin: 10px 0;
@@ -749,10 +757,16 @@ h2 {
     .sugestoes .filtros .search-box input{
         width: 300px;
     }
+    .doacoes .container-doacoes .banner{
+        width: 850px;
+    }
 }
 @media screen and (max-width: 990px) {
     .top-donates .donates .card{
         max-width: 650px;
+    }
+    .doacoes .container-doacoes .banner{
+        width: 700px;
     }
 }
 
@@ -764,6 +778,12 @@ h2 {
     .top-donates .switch{
         margin-right: 150px;
     }
+
+}
+@media screen and  (max-width: 700px){
+    .doacoes .card {
+        width: 500px;
+    }
 }
 
 @media screen and (max-width: 760px) {
@@ -772,6 +792,9 @@ h2 {
     }
     .top-donates .filtros .search-box input{
         width: 300px;
+    }
+    .doacoes .container-doacoes .banner{
+        width: 500px;
     }
 
 }
@@ -782,6 +805,15 @@ h2 {
     }
     .top-donates .filtros .search-box input{
         width: 200px;
+    }
+    .doacoes .container-doacoes .banner{
+        width: 300px;
+    }
+    .doacoes .card {
+        width: 400px;
+    }
+    .sugestoes .container-sugestoes{
+        max-width: 300px;
     }
 
 }

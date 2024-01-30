@@ -29,12 +29,12 @@
                                 <i class="fas fa-plus"></i> Nova sugestão
                             </a>
                         </div>
-                        <div class="filtros">
+                        {{-- <div class="filtros">
                             <div class="search-box">
                                 <input type="text" placeholder="Pesquisar...">
                                     <img src="{{ asset('img/lupa.svg') }}" alt="">
                             </div>
-                        </div>
+                        </div> --}}
 
 
                     </div>
@@ -50,12 +50,13 @@
                         @endif
                         <h6 class="profile-name">{{ $sugestao->member_doner->user->name }}</h6>
                         <h2 class="name">{{ $sugestao->sugestao }}</h2>
-                        <button class="btn"><img src="{{ asset('img/logo_black.svg') }}">
+
+                        {{-- <button class="btn" id="votoButton"><img src="{{ asset('img/logo_black.svg') }}">
                             <b>
-                                {{ $sugestao->votos }}</b></button>
+                                {{ $sugestao->votos }}</b></button> --}}
                     </div>
                 @endforeach
-                {{$sugestoesList->links()}}
+                {{ $sugestoesList->links() }}
             </div>
         </section>
     </main>

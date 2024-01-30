@@ -41,6 +41,14 @@ class PageController extends Controller
         return view('index', compact('sugestoes', 'sugestoesList', 'projetos', 'fotografias'));
     }
 
+
+    public function listarFotografias()
+    {
+        $fotografias = FotografiaProjeto::all();
+        $fotografiaseventos = PhotoEvent::all();
+        return view('galeria', compact('fotografias', 'fotografiaseventos'));
+    }
+
     public function detalhesDoacoes(Projeto $projeto)
     {
         $projetos = Projeto::all();
@@ -51,10 +59,12 @@ class PageController extends Controller
     {
 
         $doacoes = Donation::whereNull('projeto_id')->get();
-        $member_doners = Member_Doner::whereHas('donations')->with(['user', 'donations'])->withSum('donations', 'valor')->orderBy('donations_sum_valor', 'desc')->take(5)->get();
-
-
-        //        Auth::user()->withSum('products', 'price')->products_sum_price;
+        $member_doners = Member_Doner::whereHas('donations')
+        ->with(['user', 'donations'])
+        ->withSum('donations', 'valor')
+        ->orderBy('donations_sum_valor', 'desc')
+        ->take(10)
+        ->get();
 
         return view('topDonates', compact('doacoes', 'member_doners'));
     }
@@ -80,12 +90,7 @@ class PageController extends Controller
     public function patrocinadores()
     {
         $patrocinadores = Partnership::all();
-
         return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
-    }
-    public function projects()
-    {
-        return view('projects');
     }
 
     /* Sistema de Voluntariado */
@@ -117,17 +122,6 @@ class PageController extends Controller
 
     /* Sistema de Voluntariado - final */
 
-
-    public function project_detail1()
-    {
-        return view('project_detail1');
-    }
-
-    public function project_detail2()
-    {
-        return view('project_detail2');
-    }
-
     public function tornarMembro()
     {
         $planTypes = PlanType::paginate(4);
@@ -150,29 +144,93 @@ class PageController extends Controller
         return view('sobreNos');
     }
 
-    public function eventos()
+    public function eventos(Request $request)
     {
-        $events = Event::paginate(4);
-        $topevent = Event::orderBy('data', 'desc')->first();
+        $topevent = Event::where('data', '>=', now())->orderBy('data', 'asc')->first();
 
-        foreach ($events as $eventshort) {
-            $eventshort->descricao = str::limit($eventshort->descricao, $words = 56, $end = '...');
+        if ($request->has('order_by_date')) {
+            $order = $request->input('order_by_date');
+            // Verifica se a ordem é ascendente ou descendente
+            $orderDirection = ($order == 'asc') ? 'asc' : 'desc';
+
+            // Se a opção escolhida for "todos"
+            if ($order == 'all') {
+                // Obtém todos os eventos, independentemente da data
+                $events = Event::orderBy('data', $orderDirection)->get();
+            } else {
+                // Obtém apenas os eventos cuja data seja igual ou superior à atual
+                $events = Event::where('data', '>=', now())->orderBy('created_at', $orderDirection)->get();
+            }
+        } else {
+            // Se não houver filtro, obtém todos os eventos
+            $events = Event::where('data', '>=', now())->get();
         }
 
-        return view('eventos', compact('events', 'topevent', 'eventshort'));
-    }
-    public function eventoinfo(Event $event)
-    {
+        foreach ($events as $eventshort) {
+            $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
+        }
 
+        // Patrocinadores de eventos
+        $patrocinadores = Partnership::all();
+
+        return view('eventos', compact('events', 'topevent', 'eventshort', 'patrocinadores'));
+    }
+
+    public function eventoinfo(Event $event, Request $request)
+    {
         $events = Event::all();
         $photos_events = PhotoEvent::all();
         $partners = PartnerShip::count();
+        $participants = Participant::all();
+
+        if ($request->has('order_by_date')) {
+            $order = $request->input('order_by_date');
+            // Verifica se a ordem é ascendente ou descendente
+            $orderDirection = ($order == 'asc') ? 'asc' : 'desc';
+
+            // Se a opção escolhida for "todos"
+            if ($order == 'all') {
+                // Obtém todos os eventos, independentemente da data
+                $events = Event::orderBy('data', $orderDirection)->get();
+            } else {
+                // Obtém apenas os eventos cuja data seja igual ou superior à atual
+                $events = Event::where('data', '>=', now())->orderBy('created_at', $orderDirection)->get();
+            }
+        } else {
+            // Se não houver filtro, obtém todos os eventos
+            $events = Event::where('data', '>=', now())->get();
+        }
 
         foreach ($events as $eventshort) {
-            $eventshort->descricao = str::limit($eventshort->descricao, 60);
+            $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
-        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort'));
+
+        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort', 'participants'));
     }
+
+    public function project_details(Projeto $projeto)
+    {
+        // Busca as doações relacionadas ao projeto
+        $doacoes = Donation::where('projeto_id', $projeto->id)->get();
+
+        // Calcula o valor total arrecadado
+        $valorArrecadado = $doacoes->sum('valor');
+
+        // Monta uma coleção de dados para cada doação com as informações necessárias
+        $doadores = $doacoes->map(function ($doacao) {
+            $doadorNome = ($doacao->anonimo == 'S') ? 'Doador Anônimo' : ($doacao->doador ? $doacao->doador->name : 'Doador Não Encontrado');
+
+            return [
+                'doador' => $doadorNome,
+                'valor' => $doacao->valor,
+                'mensagem' => $doacao->title,
+                'data' => $doacao->created_at->format('d/m/Y'),
+            ];
+        });
+
+        return view('project_details', compact('projeto', 'doadores', 'valorArrecadado'));
+    }
+
     public function galeria()
     {
         return view('galeria');

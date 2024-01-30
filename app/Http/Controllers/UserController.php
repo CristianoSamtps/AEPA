@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\FotografiaProjeto;
+use App\Models\PhotoEvent;
 use App\Models\Member_Doner;
+use App\Models\Participant;
 use Illuminate\Http\Request;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Hash;
@@ -84,6 +86,59 @@ class UserController extends Controller
     {
         return view('_admin.users.edit', compact('user'));
     }
+    /**
+     * Update the specified resource in storage.
+     */
+
+    public function update(UserRequest $request, User $user)
+    {
+        $fields = $request->validated();
+
+        if (!empty($fields['password'])) {
+            $fields['password'] = Hash::make($fields['password']);
+        } else {
+            unset($fields['password']);
+        }
+
+        $user->fill($fields);
+
+        if ($request->hasFile('foto')) {
+        }
+
+        $user->save();
+
+        return redirect()->route('admin.users.index')
+            ->with('success', 'Utilizador atualizado com sucesso');
+    }
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('admin.users.index')->with(
+            'success',
+            'Utilizador eliminado com sucesso'
+        );
+    }
+    public function destroy_foto(User $user)
+    {
+        Storage::disk('public')->delete('user_fotos/' . $user->foto);
+        $user->foto = null;
+        $user->save();
+        return redirect()->route('admin.users.edit', $user)->with(
+            'success',
+            'A foto do utilizador foi apagada com sucesso.'
+        );
+    }
+    public function send_reactivate_email(User $user)
+    {
+        $user->sendEmailVerificationNotification();
+        return redirect()->route('admin.users.edit', $user)->with(
+            'success',
+            'O email foi enviado com sucesso para o utilizador'
+        );
+    }
+
+    // TUDO O QUE TEM HAVER COM O PERFIL FRONT OFFICE
+
 
     public function editperfil(User $user)
     {
@@ -106,20 +161,32 @@ class UserController extends Controller
         $userId = $request->input('user_id');
         $metodoPag = $request->input('metodo_pag');
 
-        // Atualize o método de pagamento no banco de dados
         User::where('id', $userId)->update(['metodo_pag' => $metodoPag]);
 
         return response()->json(['success' => true]);
     }
 
-    public function projetosperfil(User $user)
+    public function showPerfil(User $user)
     {
-        // Usando a relação definida no modelo User para acessar os projetos através da tabela de pivot 'voluntariado'
         $projetos = $user->projetos;
+        $events = $user->events;
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
+        $photos_events = PhotoEvent::all();
 
-        return view('projetosperfil', compact('user', 'projetos', 'fotografias'));
+        return view('projetosperfil', compact('user', 'projetos', 'events', 'fotografias', 'photos_events'));
     }
+
+
+    public function deleteregperfil(User $user, $event)
+    {
+        $participant = $user->participant()->where('event_id', $event)->first();
+
+        $participant->delete();
+
+        return redirect()->route('projetosperfil', ['user' => $user])
+            ->with('success', 'Participante removido com sucesso do evento ID: ' . $event);
+    }
+
 
     public function donationsperfil(User $user)
     {
@@ -176,59 +243,5 @@ class UserController extends Controller
 
         return redirect()->route('editperfil', $user)
             ->with('success', 'Senha atualizada com sucesso.');
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UserRequest $request, User $user)
-    {
-        $fields = $request->validated();
-        $user->fill($fields);
-        if ($request->hasFile('foto')) {
-            if (!empty($user->foto)) {
-                Storage::disk('public')->delete('user_fotos/' .
-                    $user->foto);
-            }
-            $foto_path =
-                $request->file('foto')->store('public/user_fotos');
-            $user->foto = basename($foto_path);
-        }
-
-        $user->save();
-
-        return redirect()->route('admin.users.index')
-            ->with('success', 'Utilizador atualizado com sucesso');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        $user->delete();
-        return redirect()->route('admin.users.index')->with(
-            'success',
-            'Utilizador eliminado com sucesso'
-        );
-    }
-    public function destroy_foto(User $user)
-    {
-        Storage::disk('public')->delete('user_fotos/' . $user->foto);
-        $user->foto = null;
-        $user->save();
-        return redirect()->route('admin.users.edit', $user)->with(
-            'success',
-            'A foto do utilizador foi apagada com sucesso.'
-        );
-    }
-    public function send_reactivate_email(User $user)
-    {
-        $user->sendEmailVerificationNotification();
-        return redirect()->route('admin.users.edit', $user)->with(
-            'success',
-            'O email foi enviado com sucesso para o utilizador'
-        );
     }
 }

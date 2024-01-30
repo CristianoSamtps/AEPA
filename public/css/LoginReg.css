@@ -96,13 +96,15 @@ div.regformbg{
 }
 
 button.loginRegBtns{
+    border-radius: 40px;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    color: #ffff;
     border: 0px;
 }
 
 button.loginreg{
     display: none;
 }
-
 
 @media only screen and (max-width: 1400px) {
     div.loginformbg{
@@ -130,6 +132,9 @@ button.loginreg{
     }
     *{
         color: #ffff !important;
+    }
+    input{
+        color: black !important;
     }
     button.RegBtn{
         color: #009E58 !important;

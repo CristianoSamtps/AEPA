@@ -4,18 +4,15 @@
             @csrf
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Nova Doação</h2>
-
             @if (($projeto ?? null) == null)
                 <div>
                     <label for="projeto">Projeto a doar</label>
-
                     <select name="projeto" id="projeto">
                         <option value="">Não quero doar para um projeto em específico</option>
                         @foreach ($projetos as $projeto)
                             <option value="{{ $projeto->id }}" {{ old('projeto') == $projeto->id ? 'selected' : '' }}>
                                 {{ $projeto->titulo }}</option>
                         @endforeach
-
                     </select>
                     @error('projeto')
                         <div class="text-danger"> {{ $message }}</div>
@@ -78,6 +75,12 @@
                 <input type="text" name="num_tel" id="numero_telemovel" placeholder="Número de Telemóvel"
                     value="{{ old('num_tel') }}">
             </div>
+            @error('num_cartao')
+                <div class="text-danger"> {{ $message }}</div>
+            @enderror
+            @error('cvv_cartao')
+                <div class="text-danger"> {{ $message }}</div>
+            @enderror
             <button type="submit">Enviar Doação</button>
         </form>
     </div>
