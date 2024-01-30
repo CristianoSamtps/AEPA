@@ -99,7 +99,7 @@ class ParticipantController extends Controller
         $participant->delete();
 
         return redirect()->back()->with('success',
-        'Participante removido com sucesso');
+        'Registo cancelado com sucesso.');
     }
 
 }
