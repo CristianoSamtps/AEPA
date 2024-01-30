@@ -62,7 +62,7 @@
                             <button class="btn">MBWay</button>
                             <button class="btn">PayPal</button>
                         </div>
-                        <div class="card" id="cartao"  action="{{ route('submit.payment') }}" method="POST" data-aos="fade-up">
+                        <div class="card" id="cartao" data-aos="fade-up">
                             <div class="card-body">
                                 <!-- Form -->
                                 <form>
