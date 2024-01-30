@@ -81,7 +81,7 @@
                                 <div class="info-projeto">
                                     <h1>{{ $projeto->titulo }}</h1>
                                     <!-- Adicione outras informações do projeto conforme necessário -->
-                                    <button>
+                                    <button class="buttonjoin">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
                                             viewBox="0 0 19 18" fill="none">
                                             <path

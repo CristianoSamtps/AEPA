@@ -57,7 +57,7 @@
 
     </section>
 
-    <div class="hidden2" id="section2">
+    <div data-aos="fade-right" id="section2">
 
         <h1>Torne-se nosso parceiro</h1>
 
@@ -85,7 +85,7 @@
 
     </section>
 
-    <div class="hidden" id="section3">
+    <div data-aos="fade-bottom" id="section3">
 
         <div class="texto">
             <h1>Nossos Parceiros</h1>
@@ -109,7 +109,7 @@
 
     </div>
 
-    <div class="hidden2" id="section4">
+    <div data-aos="fade-up" id="section4">
 
         <div class="texto">
             <h1>Interessado em se juntar a nós?</h1>
@@ -123,39 +123,39 @@
         <div class="container" id="form">
             <div class="row input-container">
                 <div class="col-md-6 col-sm-12">
-                    <div class="styled-input wide">
+                    <div data-aos="fade-right" class="styled-input wide">
                         <input type="text" required />
                         <label>*Nome</label>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-sm-12">
-                    <div class="styled-input wide">
+                    <div data-aos="fade-left" class="styled-input wide">
                         <input type="text" required />
                         <label>*Email</label>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-sm-12">
-                    <div class="styled-input wide">
+                    <div data-aos="fade-right" class="styled-input wide">
                         <input type="text" required />
                         <label>Telemóvel</label>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <div class="styled-input wide">
+                    <div data-aos="fade-left" class="styled-input wide">
                         <input type="text" required />
                         <label>Titulo</label>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <div class="styled-input wide">
+                    <div data-aos="fade-right" class="styled-input wide">
                         <input type="text" required />
                         <label>Nome da Empresa</label>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-12">
+                <div data-aos="fade-left" class="col-md-6 col-sm-12">
                     <div class="styled-input wide" style="float:right;">
                         <textarea required></textarea>
                         <label>*Mensagem</label>
@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="col-xs-12 text-center">
-                    <div class="btn-lrg submit-btn">Enviar</div>
+                    <div class="btn-lrg submit-btn" disabled>Inscrições índisponiveis</div>
                 </div>
 
             </div>

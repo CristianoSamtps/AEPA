@@ -159,6 +159,7 @@
       }
 
       div.deletebutton {
+          display: block;
           z-index: 1;
           position: absolute;
           transform: translate(425px, -140px);
@@ -220,6 +221,10 @@
               width: 100%;
           }
 
+          div.deletebutton {
+              display: none;
+          }
+
           #exprojeto img {
               opacity: 30%;
               transition: all ease-in 0.2s;
@@ -250,16 +255,17 @@
           }
 
       }
-      .titulo{
-        font-weight: 600;
-        font-size: 28px;
-        margin-top: 0px;
-        margin-bottom: 10px;
+
+      .titulo {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 0px;
+          margin-bottom: 10px;
       }
 
-      .titulos{
-        font-weight: 600;
-        font-size: 28px;
-        margin-top: 30px;
-        margin-bottom: 10px;
+      .titulos {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 30px;
+          margin-bottom: 10px;
       }
