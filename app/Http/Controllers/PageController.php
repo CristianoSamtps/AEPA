@@ -41,6 +41,14 @@ class PageController extends Controller
         return view('index', compact('sugestoes', 'sugestoesList', 'projetos', 'fotografias'));
     }
 
+
+    public function listarFotografias()
+    {
+        $fotografias = FotografiaProjeto::all();
+        $fotografiaseventos = PhotoEvent::all();
+        return view('galeria', compact('fotografias', 'fotografiaseventos'));
+    }
+
     public function detalhesDoacoes(Projeto $projeto)
     {
         $projetos = Projeto::all();
@@ -195,7 +203,7 @@ class PageController extends Controller
             $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
 
-        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort','participants'));
+        return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort', 'participants'));
     }
 
     public function project_details(Projeto $projeto)

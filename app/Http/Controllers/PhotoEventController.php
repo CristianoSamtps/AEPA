@@ -17,7 +17,13 @@ class PhotoEventController extends Controller
     public function index(Event $event)
     {
         $photos = $event->photos;
-        return view('_admin.fotografiasEvento.index', compact('event','photos'));
+        return view('_admin.fotografiasEvento.index', compact('event', 'photos'));
+    }
+
+    public function fotografiaseventos()
+    {
+        $fotografiaseventos = PhotoEvent::all();
+        return view('galeria', compact('fotografiaseventos'));
     }
 
     /**
@@ -26,7 +32,7 @@ class PhotoEventController extends Controller
     public function create(Event $event)
     {
         $photo = new PhotoEvent;
-        return view('_admin.fotografiasEvento.create', compact('event','photo'));
+        return view('_admin.fotografiasEvento.create', compact('event', 'photo'));
     }
 
     /**
@@ -45,10 +51,10 @@ class PhotoEventController extends Controller
             );
             $photo->fotografia = basename($foto_path);
         }
-        $photo->event_id=$event->id;
+        $photo->event_id = $event->id;
         $photo->save();
 
-        return redirect()->route('admin.fotografias.index',$event)
+        return redirect()->route('admin.fotografias.index', $event)
             ->with('success', 'Foto criada com sucesso');
     }
 
@@ -58,13 +64,13 @@ class PhotoEventController extends Controller
      */
     public function edit(Event $event, PhotoEvent $photo)
     {
-        return view('_admin.fotografiasEvento.edit', compact('event','photo'));
+        return view('_admin.fotografiasEvento.edit', compact('event', 'photo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PhotoEventRequest $request,Event $event, PhotoEvent $photo)
+    public function update(PhotoEventRequest $request, Event $event, PhotoEvent $photo)
     {
         $fields = $request->validated();
 
@@ -73,7 +79,7 @@ class PhotoEventController extends Controller
         if ($request->hasFile('fotografia')) {
             if (!empty($photo->fotografia)) {
                 Storage::disk('public')->delete('event_photos/' .
-                $photo->fotografia );
+                    $photo->fotografia);
             }
             $foto_path = $request->file('fotografia')->store(
                 'public/event_photos'
@@ -83,7 +89,7 @@ class PhotoEventController extends Controller
 
         $photo->save();
 
-        return redirect()->route('admin.fotografias.index',$event)
+        return redirect()->route('admin.fotografias.index', $event)
             ->with('success', 'Foto atualizada com sucesso');
     }
 
@@ -93,10 +99,10 @@ class PhotoEventController extends Controller
     public function destroy(Event $event, PhotoEvent $photo)
     {
         Storage::disk('public')->delete('event_photos/' .
-        $photo->fotografia );
+            $photo->fotografia);
         $photo->delete();
 
-        return redirect()->route('admin.fotografias.index',$event)->with(
+        return redirect()->route('admin.fotografias.index', $event)->with(
             'success',
             'Foto eliminada com sucesso'
         );

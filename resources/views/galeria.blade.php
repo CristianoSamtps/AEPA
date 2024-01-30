@@ -32,7 +32,7 @@
                         Um novo mundo connosco!
                     </h5>
                     <a href="{{ route('index') }}" class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button">Página Inicial</a>
-                    <a href="#destaque" class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" role="button">Video</a>
+                    <a href="#destaque" class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" role="button">Video <i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -77,23 +77,23 @@
 
     <!-- Eventos -->
     <div class="row" id="fragma">
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
-
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp" class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
-        </div>
-
+        @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
-
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
+        @endforeach
 
+        @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
-
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp" class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
+        @endforeach
+
+        @foreach ($fotografias->take(2) as $fotografia)
+        <div class="col-lg-4 mb-4 mb-lg-0">
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
+        </div>
+        @endforeach
     </div>
 
 </main>
