@@ -15,6 +15,7 @@
 
         <!-- Título "Projetos" -->
         <h1 id="projects-title">Projetos</h1>
+        <button class="volunt"><a href="{{ route('voluntariado') }}">Ver Projetos para Voluntariar</a></button>
 
         <!-- Listagem de Projetos -->
         <div class="projects-list">

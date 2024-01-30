@@ -21,6 +21,7 @@
     </div>
     <div class="projects-section">
         <h1 id="projects-title">Voluntariado</h1>
+        <button class="volunt"><a href="{{ route('projects') }}">Ver todos os Projetos</a></button>
         <div class="projects-list" data-aos="fade-right">
             <div class="project-row project-row-1">
                 @if ($projetosVoluntariado->isEmpty())
@@ -28,6 +29,7 @@
                 @else
                     @foreach ($projetosVoluntariado as $projeto)
                         <div class="project">
+                            <a href="{{ route('project_details', ['projeto' => $projeto]) }}">
                             <h3>{{ $projeto->localidade }}</h3>
                             @foreach ($fotografias as $fotografia)
                                 @if ($fotografia->projeto_id === $projeto->id)

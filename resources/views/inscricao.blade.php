@@ -7,6 +7,7 @@
 
 
 @section('styles')
+    <link href="{{ asset('/css/styleInscricao.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/styleTornarMembro.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/styleIndex.css') }}" rel="stylesheet">
 @endsection
@@ -32,7 +33,7 @@
                     <input type="text" class="form-control" id="usuarioNome" name="member_doner_id"
                         value="{{ $user->name }}" readonly disabled>
                 </div>
-                <button type="submit">Enviar Inscrição</button>
+                <button class="green-btn3" type="submit">Enviar Inscrição</button>
             </form>
         @else
             <p>Não foram encontrados dados para a inscrição.</p>

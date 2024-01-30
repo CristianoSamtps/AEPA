@@ -120,6 +120,7 @@
             <div class="row">
                 <div class="col-md-6 faq">
                     <h2>Perguntas Frequentes</h2>
+                    <img class="imagem" src="{{ asset('img/Questions-bro.png') }}" width="300" alt="Questions">
                 </div>
                 <div class="col-md-6">
                     <ul class="list-unstyled">
