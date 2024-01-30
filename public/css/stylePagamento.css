@@ -17,12 +17,9 @@ body {
 }
 
 .form-control::placeholder {
-    color: #ccc; /* Placeholder text color */
+    color: #ccc;
 }
 
-.form-label {
-    color: #ffffff; /* Label text color */
-}
 
 .btn-primary {
     background-color: #208c5b; /* Adjust button color based on your theme */
@@ -31,5 +28,39 @@ body {
 
 .btn-primary:hover {
     background-color: #175e3e; /* A darker shade for the hover state */
+}
+
+.form-group{
+    display: none;
+}
+
+.caixa{
+    padding: 40px 10px 20px 30px;
+    border-radius: 25px;
+    background-color: #fafafa;
+    box-shadow: 2px 2px 2px 2px rgb(224, 224, 224);
+    margin-top: 80px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.fechar-caixa {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.fechar-caixa:hover{
+    color: #7c7c7c;
+}
+
+h4{
+    font-weight: bold;
 }
 

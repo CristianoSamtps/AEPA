@@ -1,6 +1,7 @@
 body {
     max-width: 1440px;
     font-family: 'Lexend Deca', sans-serif;
+    background-image: url(../img/backgroundeffect1.svg);
     padding-top: 155px;
 }
 
