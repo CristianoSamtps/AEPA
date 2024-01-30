@@ -40,24 +40,17 @@
 
     <!-- Projetos -->
     <div class="row" id="fragma">
-        @foreach ($fotografias->take(2) as $fotografia)
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
-        </div>
-        @endforeach
+        @php
+        $fotosEmbaralhadas = $fotografias->shuffle()->take(6);
+        @endphp
 
-        @foreach ($fotografias->take(2) as $fotografia)
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
-        </div>
-        @endforeach
-
-        @foreach ($fotografias->take(2) as $fotografia)
+        @foreach ($fotosEmbaralhadas as $fotografia)
         <div class="col-lg-4 mb-4 mb-lg-0">
             <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografia->descricao }}" />
         </div>
         @endforeach
     </div>
+
 
     <!-- Video -->
     <div class="destaque" id="destaque">
@@ -77,23 +70,14 @@
 
     <!-- Eventos -->
     <div class="row" id="fragma">
-        @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
-        </div>
-        @endforeach
+        @php
+        $fotosEmbaralhadas = $fotografiaseventos->shuffle()->take(6);
+        @endphp
 
-        @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
-        <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
-        </div>
-        @endforeach
-
-        @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
+        @foreach ($fotosEmbaralhadas as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
             <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
         @endforeach
     </div>
-
 </main>
