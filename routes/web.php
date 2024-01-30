@@ -62,7 +62,13 @@ Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 //Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
-Route::get('/galeria', [FotografiaProjetoController::class, 'listarFotografias'])->name('galeria');
+
+
+
+Route::get('/galeria', [PageController::class, 'listarFotografias'])->name('galeria');
+
+
+
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 

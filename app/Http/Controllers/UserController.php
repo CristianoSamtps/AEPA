@@ -89,18 +89,20 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(UserRequest $request, User $user)
     {
         $fields = $request->validated();
+
+        if (!empty($fields['password'])) {
+            $fields['password'] = Hash::make($fields['password']);
+        } else {
+            unset($fields['password']);
+        }
+
         $user->fill($fields);
+
         if ($request->hasFile('foto')) {
-            if (!empty($user->foto)) {
-                Storage::disk('public')->delete('user_fotos/' .
-                    $user->foto);
-            }
-            $foto_path =
-                $request->file('foto')->store('public/user_fotos');
-            $user->foto = basename($foto_path);
         }
 
         $user->save();
@@ -108,10 +110,6 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')
             ->with('success', 'Utilizador atualizado com sucesso');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $user)
     {
         $user->delete();
@@ -139,8 +137,6 @@ class UserController extends Controller
         );
     }
 
-
-
     // TUDO O QUE TEM HAVER COM O PERFIL FRONT OFFICE
 
 
@@ -165,7 +161,6 @@ class UserController extends Controller
         $userId = $request->input('user_id');
         $metodoPag = $request->input('metodo_pag');
 
-        // Atualize o método de pagamento no banco de dados
         User::where('id', $userId)->update(['metodo_pag' => $metodoPag]);
 
         return response()->json(['success' => true]);
@@ -184,25 +179,13 @@ class UserController extends Controller
 
     public function deleteregperfil(User $user, $event)
     {
-        // Obtém o participante associado ao usuário e ao evento
         $participant = $user->participant()->where('event_id', $event)->first();
 
-        if ($participant) {
-            // Se o participante for encontrado, remove-o
-            $participant->delete();
+        $participant->delete();
 
-            return redirect()->route('projetosperfil', ['user' => $user])
-                ->with('success', 'Participante removido com sucesso do evento ID: ' . $event);
-        } else {
-            // Se o participante não for encontrado, redireciona com uma mensagem de erro
-            return redirect()->route('projetosperfil', ['user' => $user])
-                ->with('error', 'Erro ao remover participante: participante não encontrado para o evento ID: ' . $event);
-        }
+        return redirect()->route('projetosperfil', ['user' => $user])
+            ->with('success', 'Participante removido com sucesso do evento ID: ' . $event);
     }
-
-
-
-
 
 
     public function donationsperfil(User $user)

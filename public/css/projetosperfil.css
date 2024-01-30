@@ -158,47 +158,50 @@
           position: relative !important;
       }
 
-      div.deletebutton {
-          z-index: 1;
-          position: absolute;
-          transform: translate(425px, -140px);
-          color: transparent;
-      }
-
-      #exprojeto form button.apagar {
-          width: 0;
-          height: 0;
-          color: transparent;
-          border: 0px transparent;
-
-      }
-
-      #exprojeto form button.apagar i {
-          z-index: 1;
-          transform: scale(2.1) !important;
-          color: white;
-          transition: all ease-in 0.2s;
-          border: 2px solid white;
-          border-radius: 100px;
-
-      }
-
-      #exprojeto form button.apagar:hover i {
-          z-index: 1;
-          transform: scale(2.0) !important;
-          color: red;
-          border: 1px solid white;
-          border-radius: 100px;
-          transition: all ease-in 0.2s;
-
-      }
-
       .row {
           padding: 10px;
       }
 
       .espacamento {
           height: 20px;
+      }
+
+      @media only screen and (max-width: 1370px) {
+          #exprojeto form button.apagar {
+              width: 0;
+              height: 0;
+              color: transparent;
+              border: 0px transparent;
+
+          }
+
+          div.deletebutton {
+              display: block;
+              z-index: 1;
+              position: absolute;
+              transform: translate(275px, -140px) !important;
+              color: transparent;
+          }
+      }
+
+      @media only screen and (max-width: 1450px) {
+          div.deletebutton {
+              display: block;
+              z-index: 1;
+              position: absolute;
+              transform: translate(295px, -140px) !important;
+              color: transparent;
+          }
+      }
+
+      @media only screen and (max-width: 1610px) {
+          div.deletebutton {
+              display: block;
+              z-index: 1;
+              position: absolute;
+              transform: translate(345px, -140px) !important;
+              color: transparent;
+          }
       }
 
       @media only screen and (max-width: 1920px) {
@@ -213,11 +216,51 @@
               padding: 0px;
           }
 
+          div.deletebutton {
+              display: block;
+              z-index: 1;
+              position: absolute;
+              transform: translate(425px, -140px);
+              color: transparent;
+          }
+
+          #exprojeto form button.apagar {
+              width: 0;
+              height: 0;
+              color: transparent;
+              border: 0px transparent;
+
+          }
+
+          #exprojeto form button.apagar i {
+              z-index: 1;
+              transform: scale(2.1) !important;
+              color: white;
+              transition: all ease-in 0.2s;
+              border: 2px solid white;
+              border-radius: 100px;
+
+          }
+
+          #exprojeto form button.apagar:hover i {
+              z-index: 1;
+              transform: scale(2.0) !important;
+              color: red;
+              border: 1px solid white;
+              border-radius: 100px;
+              transition: all ease-in 0.2s;
+
+          }
+
       }
 
       @media only screen and (max-width: 500px) {
           #novaprojeto {
               width: 100%;
+          }
+
+          div.deletebutton {
+              display: none;
           }
 
           #exprojeto img {
@@ -250,16 +293,17 @@
           }
 
       }
-      .titulo{
-        font-weight: 600;
-        font-size: 28px;
-        margin-top: 0px;
-        margin-bottom: 10px;
+
+      .titulo {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 0px;
+          margin-bottom: 10px;
       }
 
-      .titulos{
-        font-weight: 600;
-        font-size: 28px;
-        margin-top: 30px;
-        margin-bottom: 10px;
+      .titulos {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 30px;
+          margin-bottom: 10px;
       }

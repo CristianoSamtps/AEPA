@@ -28,7 +28,7 @@ class FotografiaProjetoController extends Controller
         return view('_admin.fotografiaprojeto.create', compact('projeto', 'fotografias'));
     }
 
-    public function listarFotografias()
+    public function fotografiasprojeto()
     {
         $fotografias = FotografiaProjeto::all();
         return view('galeria', compact('fotografias'));
