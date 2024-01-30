@@ -25,6 +25,8 @@
         </div>
     </div>
 
+    <h2 class="titulos">Projetos</h2>
+
     <!-- Projetos -->
     <div class="row" id="fragma">
         @php
@@ -54,6 +56,9 @@
             </div>
         </div>
     </div>
+
+
+    <h2 class="titulos">Eventos</h2>
 
     <!-- Eventos -->
     <div class="row" id="fragma">

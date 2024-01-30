@@ -10,6 +10,8 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 800px;
+    box-shadow: 10px 5px 20px 10px rgba(0, 0, 0, 0.493);
+
     /* ou qualquer altura desejada */
 }
 
@@ -24,6 +26,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.titulos{
+    text-align: center;
+    font-weight: 600;
+    font-size: 36px;
+    margin-top: 70px;    
 }
 
 #intro-example .text-white {
