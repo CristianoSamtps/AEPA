@@ -778,6 +778,7 @@ h2 {
     .top-donates .switch{
         margin-right: 150px;
     }
+
 }
 @media screen and  (max-width: 700px){
     .doacoes .card {
@@ -810,6 +811,9 @@ h2 {
     }
     .doacoes .card {
         width: 400px;
+    }
+    .sugestoes .container-sugestoes{
+        max-width: 300px;
     }
 
 }

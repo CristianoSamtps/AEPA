@@ -32,7 +32,6 @@
                     <input type="text" class="form-control" id="usuarioNome" name="member_doner_id"
                         value="{{ $user->name }}" readonly disabled>
                 </div>
-                <!-- Outros campos do formulário -->
                 <button type="submit">Enviar Inscrição</button>
             </form>
         @else

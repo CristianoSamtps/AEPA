@@ -8,6 +8,7 @@
 
 @section('styles')
     <link href="{{ asset('/css/stylePagamento.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/styleIndex.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -15,16 +16,24 @@
     <div class="pagamento">
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <h1>
                         Pagamento
                     </h1>
                     @if (isset($planoSelecionado))
-                        <h2>Plano Selecionado: {{ $planoSelecionado->name }}</h2>
-                        <p>Preço: {{ number_format($planoSelecionado->valor, 2) }}€</p>
+                        <div class="caixa">
+                            <a href="{{ route('tornarMembro') }}" class="fechar-caixa">&times;</a>
+                            <div class="container">
+                                <h4>Detalhes do Pagamento</h4>
+                                <br>
+                                <p><span> Plano Selecionado: </span>{{ $planoSelecionado->name }}</p>
+                                <p><span> Preço: </span>{{ number_format($planoSelecionado->valor, 2) }}€</p>
+                                <p><span> Nome: </span> {{ $user->name }}</p>
+                            </div>
+                        </div>
                     @endif
 
-                    <form id="payment-form" action="{{ route('submit.payment') }}" method="POST">
+                    <form type="hidden" id="payment-form"  action="{{ route('submit.payment') }}" method="POST">
                         @csrf
                         <input type="hidden" name="plano_id" value="{{ $planoSelecionado->id }}">
                         <input type="hidden" name="member_doner_id" value="{{ $user->id }}">
@@ -38,10 +47,10 @@
                             <label>Nome do Plano</label>
                             <input type="text" class="form-control" value="{{ $planoSelecionado->name }}" readonly>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar</button>
+                        <button type="submit" class="btn btn-primary w-50 mt-2">Confirmar</button>
                     </form>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="container my-4">
                         <h5 class="card-title text-center">Selecionar Metodo de Pagamento</h5>
                         <br>

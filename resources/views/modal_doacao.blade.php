@@ -4,18 +4,15 @@
             @csrf
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Nova Doação</h2>
-
             @if (($projeto ?? null) == null)
                 <div>
                     <label for="projeto">Projeto a doar</label>
-
                     <select name="projeto" id="projeto">
                         <option value="">Não quero doar para um projeto em específico</option>
                         @foreach ($projetos as $projeto)
                             <option value="{{ $projeto->id }}" {{ old('projeto') == $projeto->id ? 'selected' : '' }}>
                                 {{ $projeto->titulo }}</option>
                         @endforeach
-
                     </select>
                     @error('projeto')
                         <div class="text-danger"> {{ $message }}</div>
