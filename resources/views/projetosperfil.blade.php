@@ -52,7 +52,7 @@
                 </div>
                 @endforeach
                 @else
-                <div id="semprojeto" class="col-lg-12">
+                <div id="semprojeto" data-aos="fade-left" class="col-lg-12">
                     <div class="fundo-projeto text-center">
                         <p>Não está a participar em nenhum projeto..</p>
                     </div>
@@ -119,7 +119,7 @@
 
         @endforeach
         @else
-        <div id="semprojeto" class="col-lg-12">
+        <div id="semprojeto" data-aos="fade-left" class="col-lg-12">
             <div class="fundo-projeto text-center">
                 <p>Não está a participar em nenhum Evento...</p>
             </div>
