@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProjetoRequest;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProjetoController extends Controller
 {
@@ -51,6 +52,19 @@ class ProjetoController extends Controller
 
         $projetos->save();
 
+        if ($request->hasFile('fotografia')) {
+            $imagem = $request->file('fotografia');
+            $path = $imagem->store('project_photos', 'public');
+
+            $foto = new FotografiaProjeto;
+
+            $foto->foto = basename($path);
+
+            $foto->destaque = 1; // Definir imagem automaticamente como destaque
+
+            $projetos->fotografias()->save($foto);
+        }
+
         if ($request->has('partnerships')) {
             foreach ($request->input('partnerships') as $partnershipId) {
                 $projetos->partnerships()->attach($partnershipId);
@@ -88,7 +102,9 @@ class ProjetoController extends Controller
         $fields = $request->validated();
         $projeto->estado = $request->input('estado');
         $projeto->fill($fields);
-        $projeto->save();
+
+        // Obter a foto de destaque atual
+        $fotoAtual = $projeto->fotografias()->where('destaque', 1)->first();
 
         // Sincronize as parcerias associadas ao projeto
         if ($request->has('partnerships')) {
@@ -98,18 +114,47 @@ class ProjetoController extends Controller
             $projeto->partnerships()->detach();
         }
 
+        // Se uma nova imagem for enviada, adicione-a automaticamente como destaque
+        if ($request->hasFile('fotografia')) {
+            // Eliminar a foto de destaque anterior do armazenamento
+            if ($fotoAtual) {
+                Storage::disk('public')->delete('project_photos/' . $fotoAtual->foto);
+            }
+
+            $imagem = $request->file('fotografia');
+            $path = $imagem->store('project_photos', 'public');
+
+            $foto = new FotografiaProjeto;
+            $foto->foto = basename($path);
+            $foto->destaque = 1; // Definir automaticamente como destaque
+
+            $projeto->fotografias()->update(['foto' => $foto->foto, 'destaque' => $foto->destaque]);
+        }
+
+        $projeto->save();
+
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto atualizado com sucesso');
     }
-
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Projeto $projeto)
     {
+        // Remover todas as imagens associadas ao projeto do armazenamento
+        $projeto->fotografias->each(function ($foto) {
+            Storage::disk('public')->delete('project_photos/' . $foto->foto);
+        });
+
+        // Remover todas as entradas de imagens associadas ao projeto da base de dados
+        $projeto->fotografias()->delete();
+
+        // Remover as parcerias associadas ao projeto
         $projeto->partnerships()->detach();
+
+        // Remover o projeto
         $projeto->delete();
 
         return redirect()
@@ -124,5 +169,4 @@ class ProjetoController extends Controller
 
         return view('projects', compact('projetos', 'fotografias'));
     }
-
 }

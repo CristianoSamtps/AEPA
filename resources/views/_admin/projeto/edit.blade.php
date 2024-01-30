@@ -7,11 +7,9 @@
 @section('backoffice-content')
     <div class="container-fluid">
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                Editar Projeto
-            </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.projeto.update', $projeto) }}" class="form-group inline">
+                <form method="POST" action="{{ route('admin.projeto.update', $projeto) }}" class="form-group"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     @include('_admin.projeto.partials.add-edit')
