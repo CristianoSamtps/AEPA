@@ -40,6 +40,7 @@ a:hover{
 .project {
     border-top: 1px solid #b9b6ac;
     width: calc(33.33% - 19.28px);
+    margin-bottom: 65px;
 }
 
 .project:hover {
