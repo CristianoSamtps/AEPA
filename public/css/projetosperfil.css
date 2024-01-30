@@ -77,11 +77,8 @@
           height: 100%;
           border-radius: 25px;
           background-size: cover;
-          /* Ajusta o tamanho da imagem para cobrir completamente o fundo */
           background-position: center;
-          /* Centraliza a imagem no plano de fundo */
           background-repeat: no-repeat;
-          /* Evita a repetição da imagem no plano de fundo */
       }
 
       #exprojeto img {
@@ -105,13 +102,13 @@
           box-shadow: 0px 2px 7px 4px rgba(0, 0, 0, 0.267);
       }
 
-      #exprojeto:hover button {
-          transform: translateY(-120px);
+      #exprojeto:hover .buttonjoin {
+          transform: translateY(-20px);
           opacity: 1;
           transition: all ease-in 0.2s;
       }
 
-      #exprojeto button {
+      #exprojeto .buttonjoin {
           height: 50px;
           width: 50px;
           border-radius: 100%;
@@ -126,11 +123,28 @@
           transform: scale(1.3);
       }
 
+      #exprojeto {
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+      }
+
+      #exprojeto .info-projeto {
+          justify-content: center;
+          width: 100% !important;
+          align-items: center;
+          text-align: center;
+          position: absolute;
+          transform: translate(00px, -100px);
+
+      }
+
+
       #exprojeto .info-projeto h1 {
           font-size: 24px;
           color: white;
           font-weight: 600;
-          transform: translate(0px, -110px);
+          transform: translate(0px, -10px);
           opacity: 0;
           transition: all ease-in 0.2s;
       }
@@ -138,6 +152,46 @@
       #exprojeto:hover .info-projeto h1 {
           opacity: 1;
           transition: all ease-in 0.2s;
+      }
+
+      #exprojeto a {
+          position: relative !important;
+      }
+
+      div.deletebutton {
+          display: block;
+          z-index: 1;
+          position: absolute;
+          transform: translate(425px, -140px);
+          color: transparent;
+      }
+
+      #exprojeto form button.apagar {
+          width: 0;
+          height: 0;
+          color: transparent;
+          border: 0px transparent;
+
+      }
+
+      #exprojeto form button.apagar i {
+          z-index: 1;
+          transform: scale(2.1) !important;
+          color: white;
+          transition: all ease-in 0.2s;
+          border: 2px solid white;
+          border-radius: 100px;
+
+      }
+
+      #exprojeto form button.apagar:hover i {
+          z-index: 1;
+          transform: scale(2.0) !important;
+          color: red;
+          border: 1px solid white;
+          border-radius: 100px;
+          transition: all ease-in 0.2s;
+
       }
 
       .row {
@@ -167,6 +221,10 @@
               width: 100%;
           }
 
+          div.deletebutton {
+              display: none;
+          }
+
           #exprojeto img {
               opacity: 30%;
               transition: all ease-in 0.2s;
@@ -180,8 +238,8 @@
 
           }
 
-          #exprojeto button {
-              transform: translateY(-120px);
+          #exprojeto .buttonjoin {
+              transform: translateY(-20px);
               opacity: 1 !important;
               transition: all ease-in 0.2s;
           }
@@ -191,9 +249,23 @@
               font-size: 24px;
               color: white;
               font-weight: 600;
-              transform: translate(0px, -110px);
+              transform: translate(0px, -10px);
               opacity: 1 !important;
               transition: all ease-in 0.2s;
           }
 
+      }
+
+      .titulo {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 0px;
+          margin-bottom: 10px;
+      }
+
+      .titulos {
+          font-weight: 600;
+          font-size: 28px;
+          margin-top: 30px;
+          margin-bottom: 10px;
       }

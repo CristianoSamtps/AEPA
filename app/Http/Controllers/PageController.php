@@ -83,11 +83,6 @@ class PageController extends Controller
         return view('patrocinadores', ['patrocinadores' => $patrocinadores]);
     }
 
-    public function projects()
-    {
-        return view('projects');
-    }
-
     /* Sistema de Voluntariado */
 
     public function voluntariado()
@@ -116,17 +111,6 @@ class PageController extends Controller
     }
 
     /* Sistema de Voluntariado - final */
-
-
-    public function project_detail1()
-    {
-        return view('project_detail1');
-    }
-
-    public function project_detail2()
-    {
-        return view('project_detail2');
-    }
 
     public function tornarMembro()
     {
@@ -212,6 +196,29 @@ class PageController extends Controller
         }
 
         return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort','participants'));
+    }
+
+    public function project_details(Projeto $projeto)
+    {
+        // Busca as doações relacionadas ao projeto
+        $doacoes = Donation::where('projeto_id', $projeto->id)->get();
+
+        // Calcula o valor total arrecadado
+        $valorArrecadado = $doacoes->sum('valor');
+
+        // Monta uma coleção de dados para cada doação com as informações necessárias
+        $doadores = $doacoes->map(function ($doacao) {
+            $doadorNome = ($doacao->anonimo == 'S') ? 'Doador Anônimo' : ($doacao->doador ? $doacao->doador->name : 'Doador Não Encontrado');
+
+            return [
+                'doador' => $doadorNome,
+                'valor' => $doacao->valor,
+                'mensagem' => $doacao->title,
+                'data' => $doacao->created_at->format('d/m/Y'),
+            ];
+        });
+
+        return view('project_details', compact('projeto', 'doadores', 'valorArrecadado'));
     }
 
     public function galeria()

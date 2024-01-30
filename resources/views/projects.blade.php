@@ -24,22 +24,23 @@
                     <p>De momento não temos projetos registados, iremos ter brevemente.</p>
                 @else
                     @foreach ($projetos as $projeto)
-                        <div class="project">
-                            <h3>{{ $projeto->localidade }}</h3>
-                            @foreach ($fotografias as $fotografia)
-                                @if ($fotografia->projeto_id === $projeto->id)
-                                    <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
-                                        alt="{{ $projeto->titulo }}">
-                                @break
-                            @endif
-                        @endforeach
-                        <h2>{{ $projeto->titulo }}</h2>
-                        <p>{{ $projeto->subtitulo }}</p>
-                    </div>
+                            <div class="project">
+                                <a href="{{ route('project_details', ['projeto' => $projeto]) }}">
+                                <h3>{{ $projeto->localidade }}</h3>
+                                @foreach ($fotografias as $fotografia)
+                                    @if ($fotografia->projeto_id === $projeto->id)
+                                        <img src="{{ asset('storage/project_photos/' . $fotografia->foto) }}"
+                                            alt="{{ $projeto->titulo }}">
+                                    @break
+                                @endif
+                            @endforeach
+                            <h2>{{ $projeto->titulo }}</h2>
+                            <p>{{ $projeto->subtitulo }}</p>
+                        </a>
+                        </div>
                 @endforeach
             @endif
         </div>
-
     </div>
 </div>
 

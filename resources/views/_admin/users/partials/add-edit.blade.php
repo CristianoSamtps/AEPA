@@ -1,4 +1,3 @@
-
 <div class="form-group">
     <label for="inputFullname">Nome</label>
     <input type="text" class="form-control" name="name" id="inputFullname" value="{{old('name',$user->name)}}" />
@@ -6,8 +5,7 @@
 
 <div class="form-group">
     <label for="inputEmail">E-mail</label>
-    <input type="text" class="form-control" name="email" id="inputEmail" placeholder="exemplo@gmail.com"
-        value="{{old('email',$user->email)}}" />
+    <input type="text" class="form-control" name="email" id="inputEmail" placeholder="exemplo@gmail.com" value="{{old('email',$user->email)}}" />
 </div>
 
 <div class="form-group">
@@ -32,6 +30,11 @@
 </div>
 
 <div class="form-group">
+    <label for="inputTL">Confirmar Password</label>
+    <input type="password" class="form-control" name="password_confirmation" id="inputTL" value="" />
+</div>
+
+<div class="form-group">
     <label for="inputG">Género</label>
     <select name="genero" id="inputG" class="form-control">
         <option value=""> </option>
@@ -41,5 +44,3 @@
         <option value="N" {{old('genero',$user->genero)=='N'?'selected':''}}>Prefiro não dizer</option>
     </select>
 </div>
-
-

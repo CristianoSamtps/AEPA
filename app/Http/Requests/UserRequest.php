@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
            'genero' => 'nullable|in:F,M,O,N',
            'data_nascimento' => 'nullable|date|date_format:Y-m-d',
            'telemovel' => 'nullable|string|max:13',
-           'password'=>'min:3|max:40',
+           'password' => 'nullable|string|min:3|max:30|confirmed',
            'subscrito' => 'nullable|in:S,N',
            'metodo_pag' => 'nullable|in:CC,TB,RE',
         ];
