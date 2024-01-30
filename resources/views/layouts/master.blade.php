@@ -280,7 +280,6 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
                 <li class="nav-item"><a href="https://wordpress.g1.dwm2023.fun/"
                         class="nav-link px-2 text-muted">Loja Online</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
                 <li class="nav-item"><a href="{{ route('patrocinadores') }}"
                         class="nav-link px-2 text-muted">Patrocinadores</a></li>
                 </li>

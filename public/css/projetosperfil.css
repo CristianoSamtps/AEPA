@@ -170,6 +170,10 @@
           display: none;
           transition: ease-in 1s;
       }
+      .hidden-proj {
+        display: none;
+        transition: ease-in 1s;
+    }
 
       button.green-btn1 {
         width: 238px;

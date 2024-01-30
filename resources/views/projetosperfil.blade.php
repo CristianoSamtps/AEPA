@@ -32,7 +32,7 @@
                 <div class="row">
                     @if (count($projetos) > 0)
                         @foreach ($projetos as $projeto)
-                            <div id="exprojeto" class="col-12 col-lg-4">
+                            <div id="exprojeto" class="col-12 col-lg-4 projCards">
                                 <a style="text-decoration: none; display: contents; width: 100%;"
                                     href="{{ route('project_details', ['projeto' => $projeto]) }}">
 
@@ -63,6 +63,10 @@
                                 </a>
                             </div>
                         @endforeach
+                        <div class="text-center mt-4" id="seeMoreBtnContainerProj">
+                            <button id="seeMoreBtnProj" class="green-btn1" style="width:150px;" onclick="toggleProjVisibility()">Ver
+                                mais</button>
+                        </div>
                     @else
                         <div id="semprojeto" data-aos="fade-left" class="col-lg-12">
                             <div class="fundo-projeto text-center">
@@ -79,12 +83,12 @@
         <h2 class="titulos">Eventos</h2>
 
         <div class="row" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="bottom-bottom">
-            <div class="col-lg-12" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
+            <div class="col-lg-12" {{-- data-aos="fade-left" --}} data-aos-anchor-placement="bottom-bottom">
 
                 <div class="row">
 
                     <a href="{{ route('eventos') }}">
-                        <div id="novaprojeto" data-aos="fade-down" class="col-lg-12">
+                        <div id="novaprojeto" {{-- data-aos="fade-down" --}} class="col-lg-12">
                             <i class="fa-solid fa-circle-plus"></i>
                         </div>
                     </a>
@@ -150,29 +154,52 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
-            var projetoCards = $('.projCard');
+
+            var projetoCards = $('.projCards');
+
             var eventoCards = $('.eventoCard');
 
             var maxVisible = 6;
 
             eventoCards.slice(maxVisible).addClass('hidden-event');
 
+            projetoCards.slice(maxVisible).addClass('hidden-proj');
+
             if (eventoCards.length > maxVisible) {
                 $('#seeMoreBtnContainer').show();
             } else {
                 $('#seeMoreBtnContainer').hide();
             }
+
+            if (projetoCards.length > maxVisible) {
+                $('#seeMoreBtnContainerProj').show();
+            } else {
+                $('#seeMoreBtnContainerProj').hide();
+            }
+
         });
 
         function toggleEventsVisibility() {
             var eventoCards = $('.eventoCard');
             var hiddenEvents = eventoCards.slice(6);
-            console.log(hiddenEvents);
-            hiddenEvents.toggleClass('hidden-event');
 
             var buttonText = hiddenEvents.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
             $('#seeMoreBtn').text(buttonText);
+
+            hiddenEvents.toggleClass('hidden-event');
         }
+
+        function toggleProjVisibility() {
+
+            var projetoCards = $('.projCards');
+            var hiddenProj = projetoCards.slice(6);
+
+            var buttonText = hiddenProj.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
+            $('#seeMoreBtnProj').text(buttonText);
+
+            hiddenProj.toggleClass('hidden-proj');
+        }
+
     </script>
 
 @endsection
