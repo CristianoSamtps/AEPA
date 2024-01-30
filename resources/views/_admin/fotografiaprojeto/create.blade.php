@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Adicionar Nova Fotografia
+    Adicionar Fotografia (Galeria)
 @endsection
 
 @section('backoffice-content')

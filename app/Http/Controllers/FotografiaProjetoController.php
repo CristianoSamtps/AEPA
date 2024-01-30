@@ -48,14 +48,12 @@ class FotografiaProjetoController extends Controller
 
             $foto->foto = basename($path);
 
-            /* $foto->destaque = $request->input('destaque', 'não'); */
-
-            $foto->destaque = $request->has('destaque') ? 1 : 0;
+            $foto->destaque = 0;
 
             $projeto->fotografias()->save($foto);
         }
 
-        return redirect()->route('admin.fotografiaprojeto.index', $projeto)->with('success', 'Fotografia adicionada com sucesso');
+        return redirect()->route('admin.fotografiasprojeto.index', $projeto)->with('success', 'Fotografia adicionada com sucesso');
     }
 
     /**
@@ -66,20 +64,19 @@ class FotografiaProjetoController extends Controller
         return view('_admin.fotografiaprojeto.show', compact('projeto', 'fotografiaProjeto'));
     }
 
-    public function destroy(FotografiaProjeto $fotografiaProjeto, $projeto)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Projeto $projeto, FotografiaProjeto $fotografiaProjeto)
     {
-        /* Storage::disk('public')->delete('project_photos/' .
-        $fotografiaProjeto->foto );
+        // Remover a imagem da pasta
+        Storage::disk('public')->delete('project_photos/' . $fotografiaProjeto->foto);
+ 
+        // Remover a fotografia da base de dados
         $fotografiaProjeto->delete();
 
         return redirect()
-            ->route('admin.fotografiasp.index',$projeto)
-            ->with('success', 'Fotografia eliminado com sucesso'); */
-
-        $fotografiaProjeto->delete();
-
-        return redirect()
-            ->route('admin.fotografiaprojeto.index',$projeto)
-            ->with('success', 'Fotografia eliminado com sucesso');
+            ->route('admin.fotografiasprojeto.index', $projeto)
+            ->with('success', 'Fotografia eliminada com sucesso');
     }
 }
