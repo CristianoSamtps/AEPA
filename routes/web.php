@@ -50,7 +50,11 @@ Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('
 
 Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
 
+
+
 Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details');
+
+
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
@@ -62,13 +66,7 @@ Route::get('/eventos', [PageController::class, 'eventos'])->name('eventos');
 
 //Route::resource('participant', ParticipantController::class)->except(['create','store']);
 
-
-
-
 Route::get('/galeria', [PageController::class, 'listarFotografias'])->name('galeria');
-
-
-
 
 Route::get('/Registo', [PageController::class, 'LoginReg'])->name('LoginReg');
 
@@ -91,7 +89,9 @@ Route::group([
     Route::delete('/perfil/{user}/cancelarreg/{event}', [UserController::class, 'deleteregperfil'])->name('cancelarregperfil');
 
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
+
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
+
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
 
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
