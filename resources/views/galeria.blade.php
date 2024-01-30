@@ -79,19 +79,19 @@
     <div class="row" id="fragma">
         @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
         @endforeach
 
         @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
         @endforeach
 
         @foreach ($fotografiaseventos->take(2) as $fotografiaevent)
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->foto) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
+            <img src="{{ asset('storage/event_photos/' . $fotografiaevent->fotografia) }}" class="w-100 shadow-1-strong rounded mb-4" alt="{{ $fotografiaevent->descricao }}" />
         </div>
         @endforeach
     </div>
