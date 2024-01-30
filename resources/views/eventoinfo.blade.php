@@ -28,11 +28,11 @@
                 </div>
             </div>
 
-            <div class="container-fluid d-flex mt-5 col-md-10" id="eventform">
-                <div class="forminfo col-md-6">
+            <div class="container-fluid d-flex mt-5 col-md-10 col-12" id="eventform">
+                <div class="forminfo col-md-6 col-12">
                     <h4>Detalhes do evento</h4>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 ">
                             <p class="datatype">Data do evento</p>
                             <p>{{ date_format(date_create($event->data), 'd-m-Y') }}</p>
                         </div>
@@ -71,19 +71,19 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-12" id="formform">
                     <!-- Evento lotado -->
                     @if ($event->participants()->count() >= $event->vagas)
                         <div class="eventfull">
                             <h4>Evento lotado</h4>
-                            <input type="text" name="name" placeholder="Nome completo"
+                            <input type="text" name="name" placeholder="Nome completo" class="mb-3"
                                 value="{{ auth()->user()->name }}" disabled>
-                            <br><br>
-                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
+                           {{--  <br><br> --}}
+                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}" class="mb-3"
                                 disabled>
-                            <br><br>
-                            <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
-                            <br><br>
+                            {{-- <br><br> --}}
+                            <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
+                            {{-- <br><br> --}}
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <button class="oldest" style="float: right;width:100%;">Cancelar registo</button>
                             @else
@@ -106,24 +106,23 @@
                             @endif
 
                             <!-- Formulário da participacao -->
-                            <input type="text" name="name" placeholder=" Nome completo"
+                            <input type="text" name="name" placeholder=" Nome completo" class="mb-3"
                                 value="{{ auth()->user()->name }}" disabled>
-                            <br><br>
+                            {{-- <br><br> --}}
 
-                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
+                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}" class="mb-3"
                                 disabled>
-                            <br><br>
+                            {{-- <br><br> --}}
                             @if ($event->data < now())
-                                <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
+                                <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                                 <!-- Participante já inscrito -->
                             @elseif ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             @else
-                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3"
+                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3" class="mb-3"
                                     placeholder="Observações"></textarea>
                             @endif
-                            <br><br>
-
+                            {{-- <br><br> --}}
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                             @elseif ($event->data < now())
                                 <button class="oldest" disabled style="float: right;width:100%;">O evento está
@@ -136,7 +135,6 @@
                                 </button>
                             @endif
                         </form>
-
                         @if ($participant = $event->participants()->where('member_doner_id', auth()->user()->id)->first())
                         {{-- Usuário inscrito --}}
                         <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}" method="POST"
@@ -156,33 +154,35 @@
             </div>
         </section>
 
-        <div class="container d-flex col-md-7 text-justify eventinfo" id="eventinfo">
-            <div class="col-md-8 p-4">
+        <div class="container d-flex col-md-7 col-12 text-justify eventinfo" id="eventinfo">
+            <style>
+                @media only screen and (max-width: 562px) {
+                    div#eventinfo{
+                        margin-top: 0px !important;
+                    }
+                }
+
+            </style>
+            <div class="col-md-8 col-12 p-4">
                 <h4 class="mb-4">Informações adicionais</h4>
                 <ul>
-                    <li>Descrição: {{ $event->descricao }}</li>
-                    <br>
-                    <li>Vagas do eventos: {{ $event->vagas }}</li>
-                    <br>
-                    <li>Data de criação: {{ date_format(date_create($event->created_at), 'd-m-Y') }}</li>
-                    <br>
-                    <li>Número de identificação do evento: {{ $event->id }}</li>
-                    <br>
-                    <li>Parcerias:
+                    <li class="mb-3">Descrição: {{ $event->descricao }}</li>
+                    <li class="mb-3">Vagas do eventos: {{ $event->vagas }}</li>
+                    <li class="mb-3">Data de criação: {{ date_format(date_create($event->created_at), 'd-m-Y') }}</li>
+                    <li class="mb-3">Número de identificação do evento: {{ $event->id }}</li>
+                    <li class="mb-3">Parcerias:
                         @foreach ($event->partnerships as $partner)
                             {{ $partner->name }}{{ $loop->last ? '' : ',' }}
                         @endforeach
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4 p-4">
+            <div class="col-md-4 col-12 p-4">
                 <h4 class="mb-4">Contactos</h4>
                 <p class="infolabel">Telemóvel</p>
                 <p>+351 961235123</p>
-
                 <p class="infolabel">Email</p>
                 <p>aepa.eventos@aepa.pt</p>
-
                 <p class="infolabel">Organizador</p>
                 <p>Cristiano Miguel Gomes dos Santos</p>
             </div>
@@ -267,10 +267,10 @@
                 var eventoCards = $('.eventoCard');
                 var hiddenEvents = eventoCards.slice(4);
 
-                hiddenEvents.toggleClass('hidden-event');
-
                 var buttonText = hiddenEvents.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
                 $('#seeMoreBtn').text(buttonText);
+
+                hiddenEvents.toggleClass('hidden-event');
             }
         </script>
 

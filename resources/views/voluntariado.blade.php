@@ -8,8 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    {{-- Adicionando Bootstrap para suportar os modais --}}
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 @endsection
 
 @section('main')
@@ -39,6 +37,7 @@
                             @endif
                         @endforeach
                         <h2>{{ $projeto->titulo }}</h2>
+                        <p>{{ $projeto->subtitulo }}</p>
                         <button class="green-btn1"><a href="{{ route('inscricao', $projeto->id) }}"
                                 style="color:#fff">Voluntariar</a></button>
                     </div>
@@ -48,14 +47,5 @@
     </div>
 </div>
 
-{{-- Incluindo jQuery e Bootstrap JS para suportar os modais --}}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('js/projects.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#exampleModal').modal('show');
-            });
-        </script>
 @endsection

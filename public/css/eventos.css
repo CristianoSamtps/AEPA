@@ -24,6 +24,19 @@ div.heroBackground {
     background-size: 100%;
 }
 
+
+div.heroBackground2 {
+    background-image: url("/img/greyvector.svg");
+    background-position: left;
+    transform: scaleY(-1);
+    height: 900px;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 div.eventosinfo {
     height: 100%;
     border-radius: 20px 0px 0px 20px;
@@ -439,15 +452,67 @@ button.eventover {
     div.eventoCard {
         width: 40%;
     }
+
+    div.eventinfo {
+        margin-top: 432px !important;
+    }
+
 }
 
-@media only screen and (max-width: 551px) {
+@media only screen and (max-width: 562px) {
     div.eventoCard {
         width: 90%;
     }
 
     object {
         width: 90%;
+    }
+
+    div#eventform {
+        display: block !important;
+    }
+
+    div#eventinfo {
+        display: block !important;
+    }
+
+    div.eventinfo {
+        margin-top: 871px !important;
+    }
+
+    div.sponsercell {
+        margin-bottom: 100px;
+    }
+    div.eventosinfo {
+        height: 100% !important;
+        border-radius: 20px 0px 0px 20px;
+        background: linear-gradient(100deg, #15241D -7.1%, rgba(55, 85, 70, 0.42) 69.58%, rgba(255, 255, 255, 0.00) 93.37%);
+        color: #FFFF;
+    }
+
+    section.eventosHero {
+        height: auto;
+    }
+
+
+
+}
+
+@media only screen and (max-width: 767px) {
+    div#eventform {
+        display: block !important;
+    }
+
+    div#eventform {
+        padding-bottom: 123px;
+    }
+
+    div#eventinfo {
+        display: block !important;
+    }
+
+    div.eventinfo {
+        margin-top: 846px !important;
     }
 
 }

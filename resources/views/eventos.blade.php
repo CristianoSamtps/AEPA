@@ -82,8 +82,8 @@
                 <div class="row d-flex justify-content-center">
                     @foreach ($events as $event)
                         <div class="eventoCard col-lg-3 col-md-6 col-sm-12 mb-4 m-4 p-0">
-                            @if($event->data < now())
-                            <button class="eventover m-4 p-2" disabled>Evento terminado</button>
+                            @if ($event->data < now())
+                                <button class="eventover m-4 p-2" disabled>Evento terminado</button>
                             @endif
                             <div class="eventoCardImg">
                                 @if (count($event->photos))
@@ -120,7 +120,7 @@
             <div class="container">
                 <div class="row justify-content-between flex-md-row flex-sm-column">
                     @foreach ($patrocinadores->take('4') as $patrocinador)
-                        <div class="col-md-3 sponsercell">
+                        <div class="col-lg-3 col-12 sponsercell">
                             <img src="{{ asset('storage/partner_fotos/' . $patrocinador->foto) }}"
                                 alt="{{ $patrocinador->name }}">
                         </div>
@@ -128,6 +128,9 @@
                 </div>
             </div>
         </section>
+
+        <div class="heroBackground2">
+        </div>
 
         <section class="container" id="second-section">
             <div class="row">
@@ -147,9 +150,11 @@
             </div>
         </section>
 
-           <div class="background">
+        {{-- <div class="background">
             <img src="{{ asset('img/greyvector.svg') }}" alt="efeito de fundo">
-        </div>
+        </div> --}}
+
+
 
         <section class="container mt-5" id="third-section">
             <div class="row">
@@ -188,10 +193,12 @@
                 var eventoCards = $('.eventoCard');
                 var hiddenEvents = eventoCards.slice(4);
 
-                hiddenEvents.toggleClass('hidden-event');
-
                 var buttonText = hiddenEvents.filter(':visible').length > 0 ? 'Ver mais' : 'Ver menos';
                 $('#seeMoreBtn').text(buttonText);
+
+                hiddenEvents.toggleClass('hidden-event');
             }
+
+
         </script>
     @endsection

@@ -59,10 +59,12 @@ class PageController extends Controller
     {
 
         $doacoes = Donation::whereNull('projeto_id')->get();
-        $member_doners = Member_Doner::whereHas('donations')->with(['user', 'donations'])->withSum('donations', 'valor')->orderBy('donations_sum_valor', 'desc')->take(10)->get();
-
-
-        //        Auth::user()->withSum('products', 'price')->products_sum_price;
+        $member_doners = Member_Doner::whereHas('donations')
+        ->with(['user', 'donations'])
+        ->withSum('donations', 'valor')
+        ->orderBy('donations_sum_valor', 'desc')
+        ->take(10)
+        ->get();
 
         return view('topDonates', compact('doacoes', 'member_doners'));
     }

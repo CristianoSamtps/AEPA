@@ -51,9 +51,9 @@
                         <h6 class="profile-name">{{ $sugestao->member_doner->user->name }}</h6>
                         <h2 class="name">{{ $sugestao->sugestao }}</h2>
 
-                        <button class="btn" id="votoButton"><img src="{{ asset('img/logo_black.svg') }}">
+                        {{-- <button class="btn" id="votoButton"><img src="{{ asset('img/logo_black.svg') }}">
                             <b>
-                                {{ $sugestao->votos }}</b></button>
+                                {{ $sugestao->votos }}</b></button> --}}
                     </div>
                 @endforeach
                 {{ $sugestoesList->links() }}
@@ -84,7 +84,5 @@
         function closeModal() {
             $("#modal-container").fadeOut();
         }
-
-        
     </script>
 @endsection
