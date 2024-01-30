@@ -67,11 +67,11 @@ class DonationController extends Controller
         $doacao = new Donation();
 
         $doacao->fill($fields);
-
+        /* $doacao->anonimo=$request->anonimo; */
         if($request->anonimo == 'N'){
 
             $doacao->member_doner_id=auth()->user()->id;
-        }
+        } 
 
         if($projeto){
             $doacao->projeto_id=$projeto->id;
