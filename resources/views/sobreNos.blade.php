@@ -80,7 +80,7 @@
                         <span>Atualizado a 12-11-2023</span>
                         <h1>Proteção Ambiental</h1>
                         <h4>Os projetos da associação estão destinados aos mais necessitados, as maiores tragédias de
-                            deflorestação é o ponto mais importante para nós. Temos objetivos definidos para que estes
+                            desflorestação é o ponto mais importante para nós. Temos objetivos definidos para que estes
                             acontecimentos sejam cada vez menos frequentes.
                         </h4>
                     </div>
@@ -116,7 +116,7 @@
                 <div class="col-md-6">
                     <div class="QAtitle">
                         <span>Atualizado a 21-11-2023</span>
-                        <h1>Q&A Preguntas Frequentes</h1>
+                        <h1>Q&A Perguntas Frequentes</h1>
                     </div>
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">

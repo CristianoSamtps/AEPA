@@ -128,9 +128,7 @@ Route::group([
         'prefix' => 'admin'
     ], function () {
 
-        // Route::get('/users/{user}/index', [UserController::class, 'indexperfil'])->name('users.indexperfil');
-        // Route::get('/users/{user}/edit', [UserController::class, 'editperfil'])->name('users.editperfil');
-        // Route::put('/users/{user}', [UserController::class, 'updateperfil'])->name('users.updateperfil');
+        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
         Route::resource('eventos', EventController::class)->parameters(['eventos' => 'event']);
 
@@ -162,8 +160,6 @@ Route::group([
         Route::resource('voluntario', VoluntarioController::class)->parameters(['doacoes' => 'doacao']);
 
         Route::get('/perfil', [PageController::class, 'perfil'])->name('perfil');
-
-        Route::get('/', [PageController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
         Route::get(
             '/users/{user}/send_reactivate_mail',

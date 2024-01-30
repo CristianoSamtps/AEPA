@@ -69,9 +69,9 @@
                     <!-- Add the "ml-auto" class to align items to the right -->
                     <a class="nav-item m-0 nav-link" href="{{ route('index') }}">Início</a>
                     <a class="nav-item m-0  nav-link" href="{{ route('eventos') }}">Eventos</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">Doações</a>
-                    <a class="nav-item m-0  nav-link" href="{{ route('voluntariado') }}">Voluntariado</a>
                     <a class="nav-item m-0  nav-link" href="{{ route('projects') }}">Projetos</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('doacoes') }}">Doações</a>
+                    <a class="nav-item m-0  nav-link" href="{{ route('sobreNos') }}">Sobre Nós</a>
 
                     <div id="login_reg">
                         <ul class="navbar-nav ms-auto">
@@ -156,13 +156,13 @@
                             <a class="nav-link" href="{{ route('eventos') }}">Eventos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('projects') }}">Projetos</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('doacoes') }}">Doações</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('voluntariado') }}">Voluntariado</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('projects') }}">Projetos</a>
+                            <a class="nav-link" href="{{ route('sobreNos') }}">Sobre Nós</a>
                         </li>
 
                         @guest
