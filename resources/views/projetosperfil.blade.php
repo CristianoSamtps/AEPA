@@ -13,7 +13,7 @@
 
 <div class="container-fluid">
 
-    <h2 class="titulo">- Projetos</h2>
+    <h2 class="titulo">Projetos</h2>
 
     <div class="row" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="bottom-bottom">
         <div class="col-lg-12" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
@@ -64,7 +64,7 @@
 
     </div>
 
-    <h2 class="titulos">- Eventos</h2>
+    <h2 class="titulos">Eventos</h2>
 
     <div class="row" {{-- data-aos="fade-up" --}} data-aos-anchor-placement="bottom-bottom">
         <div class="col-lg-12" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
