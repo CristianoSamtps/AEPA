@@ -78,6 +78,12 @@
                 <input type="text" name="num_tel" id="numero_telemovel" placeholder="Número de Telemóvel"
                     value="{{ old('num_tel') }}">
             </div>
+            @error('num_cartao')
+                <div class="text-danger"> {{ $message }}</div>
+            @enderror
+            @error('cvv_cartao')
+                <div class="text-danger"> {{ $message }}</div>
+            @enderror
             <button type="submit">Enviar Doação</button>
         </form>
     </div>

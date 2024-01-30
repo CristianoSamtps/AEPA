@@ -119,6 +119,7 @@ Route::group([
     /* voluntariado */
 
     Route::post('/sugestoes', [SugestaoController::class, 'registarSugestao'])->name('registarsugestao');
+    Route::post('/sugestoes/{member_doner}', [SugestaoController::class, 'votar'])->name('votar');
     Route::post('/doacoes/{projeto?}', [DonationController::class, 'registarDoacao'])->name('registardoacao');
 
     Route::group([
