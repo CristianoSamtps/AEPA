@@ -72,6 +72,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+                    <!-- Evento lotado -->
                     @if ($event->participants()->count() >= $event->vagas)
                         <div class="eventfull">
                             <h4>Evento lotado</h4>
@@ -84,58 +85,73 @@
                             <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             <br><br>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                {{-- <button class="oldest" style="float: right;width:100%;">Cancelar registo</button> --}}
+                                <button class="oldest" style="float: right;width:100%;">Cancelar registo</button>
                             @else
                                 <button class="oldest" style="float: right;width:100%;">O evento encontra-se lotado</button>
                             @endif
                         </div>
                     @else
+                        <!-- Evento com vagas disponiveis -->
                         <form action="{{ route('registarevento', $event) }}" id="eventform" method='POST'>
                             @csrf
-                            @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <h4>Já estás inscrito</h4>
-                            @else
-                                <h4>Participe já</h4>
-                            @endif
-                            <input type="text" name="name" placeholder=" Nome completo"
-                                value="{{ auth()->user()->name }}" disabled>
-                            <br><br>
-                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
-                                disabled>
-                            <br><br>
-                            @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                                <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
-                            @else
-                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3"
-                                    placeholder="Observações"></textarea>
-                            @endif
-                            <br><br>
+                            <!-- Participante já inscrito -->
+                            @if ($event->data < now())
+                                <h4>O evento está
+                                    terminado</h4>
+                                @elseif ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
+                                    <h4>Já estás inscrito</h4>
+                                @else
+                                    <!-- Participante não inscrito -->
+                                    <h4>Participe já</h4>
+                                @endif
 
-                            @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                            @elseif ($event->data < now())
-                                <button class="oldest" disabled style="float: right;width:100%;">O evento está
-                                    terminado</button>
-                            @else
-                                <!-- Button trigger modal -->
-                                <button type="submit" style="width:100% !important" class="newest green-btn1"
-                                    data-toggle="modal" data-target="#exampleModal">
-                                    Participar
-                                </button>
-                            @endif
+                                <!-- Formulário da participacao -->
+                                <input type="text" name="name" placeholder=" Nome completo"
+                                    value="{{ auth()->user()->name }}" disabled>
+                                <br><br>
+
+                                <input type="email" name="email" placeholder=" Email"
+                                    value="{{ auth()->user()->email }}" disabled>
+                                <br><br>
+                                @if ($event->data < now())
+                                  <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
+                                <!-- Participante já inscrito -->
+                                @elseif ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
+                                    <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
+                                @else
+                                    <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3"
+                                        placeholder="Observações"></textarea>
+                                @endif
+                                <br><br>
+
+                                @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
+                                @elseif ($event->data < now())
+                                    <button class="oldest" disabled style="float: right;width:100%;">O evento está
+                                        terminado</button>
+                                @else
+                                    <!-- Button trigger modal -->
+                                    <button type="submit" style="width:100% !important" class="newest green-btn1"
+                                        data-toggle="modal" data-target="#exampleModal">
+                                        Participar
+                                    </button>
+                                @endif
                         </form>
 
-                        @foreach ($participants as $participant)
-                            @if ($participant->member_doner_id == auth()->id())
-                                {{-- Este participante equivale ao usuário autenticado --}}
-                                <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}"
-                                    method="POST"
-                                    onsubmit="return confirm('Confirma que pretende cancelar inscrição?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="oldest" style="float: right; width:100%;">Cancelar registo</button>
-                                </form>
-                            @endif
-                        @endforeach
+                        @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
+                            {{-- Usuário inscrito --}}
+                            @foreach ($participants as $participant)
+                                @if ($participant->member_doner_id == auth()->id())
+                                    {{-- Este participante equivale ao usuário autenticado --}}
+                                    <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}"
+                                        method="POST"
+                                        onsubmit="return confirm('Confirma que pretende cancelar inscrição?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="oldest" style="float: right; width:100%;">Cancelar registo</button>
+                                    </form>
+                                @endif
+                            @endforeach
+                        @endif
 
                     @endif
                     <p class="formmin mt-4">Entre em contacto para realizar visita de estudo, ou grupos de maiores
@@ -143,10 +159,7 @@
                         <a style="color:black; text-decoration:underline" href="#eventinfo">aqui</a>.
                     </p>
                 </div>
-
-
             </div>
-
         </section>
 
         <div class="container d-flex col-md-7 text-justify eventinfo" id="eventinfo">
@@ -196,6 +209,7 @@
                             <select name="order_by_date" id="order_by_date" class="m-2">
                                 <option value="asc">Mais antigo</option>
                                 <option value="desc">Mais recente</option>
+                                <option value="all">Todos</option>
                             </select>
                             <button type="submit" class="green-btn1">Filtrar</button>
                         </form>

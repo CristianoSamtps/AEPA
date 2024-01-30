@@ -152,7 +152,7 @@ class PageController extends Controller
 
     public function eventos(Request $request)
     {
-        $topevent = Event::orderBy('data', 'asc')->first();
+        $topevent = Event::where('data', '>=', now())->orderBy('data', 'asc')->first();
 
         if ($request->has('order_by_date')) {
             $order = $request->input('order_by_date');
@@ -193,19 +193,24 @@ class PageController extends Controller
             $order = $request->input('order_by_date');
             // Verifica se a ordem é ascendente ou descendente
             $orderDirection = ($order == 'asc') ? 'asc' : 'desc';
-            // Ordena os eventos pela data
-            $events = Event::orderBy('created_at', $orderDirection)->get();
+
+            // Se a opção escolhida for "todos"
+            if ($order == 'all') {
+                // Obtém todos os eventos, independentemente da data
+                $events = Event::orderBy('data', $orderDirection)->get();
+            } else {
+                // Obtém apenas os eventos cuja data seja igual ou superior à atual
+                $events = Event::where('data', '>=', now())->orderBy('created_at', $orderDirection)->get();
+            }
         } else {
             // Se não houver filtro, obtém todos os eventos
-            $events = Event::all();
-        }
-        foreach ($events as $eventshort) {
-            $eventshort->descricao = str::limit($eventshort->descricao, $words = 56, $end = '...');
+            $events = Event::where('data', '>=', now())->get();
         }
 
         foreach ($events as $eventshort) {
-            $eventshort->descricao = str::limit($eventshort->descricao, 60);
+            $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
+
         return view('eventoinfo', compact('event', 'events', 'photos_events', 'eventshort','participants'));
     }
 

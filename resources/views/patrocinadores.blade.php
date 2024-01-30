@@ -18,7 +18,7 @@
                 <div class="col-md-6 col-sm-12 hidden">
 
                     <div id="imgsecion1">
-                        <img src="{{asset ('img/planetpatroc.svg')}}" alt="index_animation">
+                        <img src="{{asset ('img/parceiros.svg')}}" alt="index_animation">
                     </div>
 
                 </div>
@@ -35,7 +35,7 @@
                         Ao colaborar conosco, você faz parte de uma jornada para criar impacto positivo e duradouro.
                     </p>
 
-                    <a><button class="btn green-btnpatroc">Aderir</button></a>
+                    <a href="#form" style="color: #fff;"><button class="btn green-btnpatroc">Aderir</button></a>
 
                 </div>
             </div>
@@ -120,7 +120,7 @@
 
         </div>
 
-        <div class="container">
+        <div class="container" id="form">
             <div class="row input-container">
                 <div class="col-md-6 col-sm-12">
                     <div class="styled-input wide">
