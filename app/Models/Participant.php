@@ -8,12 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Participant extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'event_id','member_doner_id','obs' ];
+    protected $fillable = ['event_id', 'member_doner_id', 'obs'];
 
-    public function member_doner(){
-        return $this->belongsTo(Member_Doner::class,'member_doner_id','id');
+    public function member_doner()
+    {
+        return $this->belongsTo(Member_Doner::class, 'member_doner_id', 'id');
     }
-    public function event(){
+    public function event()
+    {
         return $this->belongsTo(Event::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'member_doner_id');
     }
 }

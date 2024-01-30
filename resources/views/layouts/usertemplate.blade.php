@@ -168,7 +168,8 @@
                                             fill="#CC0000" />
                                     </svg>
                                 </div>
-                                <p>Projetos</p>
+                                <p>Proj/Event</p>
+                                    
                             </a>
                         </li>
 

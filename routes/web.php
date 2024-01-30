@@ -82,8 +82,18 @@ Route::group([
 ], function () {
 
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
+
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
-    Route::get('/perfil/{user}/projetos', [UserController::class, 'projetosperfil'])->name('projetosperfil');
+
+
+    Route::get('/perfil/{user}/projetosevents', [UserController::class, 'showPerfil'])->name('projetosperfil');
+
+
+    Route::delete('/perfil/{user}/cancelarreg/{event}', [UserController::class, 'deleteregperfil'])->name('cancelarregperfil');
+
+
+
+
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
     Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
