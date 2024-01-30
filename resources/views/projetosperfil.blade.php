@@ -82,9 +82,9 @@
         @if (count($events) > 0)
         @foreach ($events as $event)
 
-        <a style="text-decoration: none;" href="{{ route('eventoinfo', ['event' => $event]) }}">
 
-            <div id="exprojeto" class="col-12 col-lg-4">
+        <div id="exprojeto" class="col-12 col-lg-4">
+            <a style="text-decoration: none; display: contents; width: 100%;" href="{{ route('eventoinfo', ['event' => $event]) }}">
 
                 <div class="fundo-projeto">
                     @if ($event->photos)
@@ -112,10 +112,10 @@
                     </form>
                 </div>
 
+            </a>
 
-            </div>
+        </div>
 
-        </a>
 
         @endforeach
         @else
