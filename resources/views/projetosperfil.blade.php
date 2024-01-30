@@ -41,7 +41,7 @@
                             @if ($projeto->fotografias)
                             <img src="{{ asset('storage/project_photos/' . $projeto->fotografias->first()->foto) }}" alt="Imagem do projeto" class="img-post">
                             @else
-                            <img src="{{ asset('public/assets/images/project.jpg') }}" alt="Imagem do ilustrativa">
+                            <img src="{{ asset('public/assets/images/project.jpg') }}" alt="Imagem do ilustrativaa">
                             @endif
                         </div>
 
