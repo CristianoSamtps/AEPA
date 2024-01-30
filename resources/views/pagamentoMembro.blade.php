@@ -69,24 +69,25 @@
                                     <div class="mb-3">
                                         <label for="nameOnCard" class="form-label">Nome do Cartão</label>
                                         <input type="text" class="form-control" id="nameOnCard"
-                                            placeholder="Nome Apelido">
+                                            placeholder="Nome Apelido" pattern="^[a-zA-Z\s-]+$" required title="Insira o nome como aparece no cartão.">
                                     </div>
                                     <div class="mb-3">
                                         <label for="cardNumber" class="form-label">Numero do Cartão</label>
                                         <input type="text" class="form-control" id="cardNumber"
-                                            placeholder="1111 2222 3333 4444">
+                                            placeholder="1111 2222 3333 4444" pattern="\d{4}\s?\d{4}\s?\d{4}\s?\d{4}" required title="Insira um número de cartão de crédito válido.">
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <label for="expirationDate" class="form-label">Data Expiração</label>
                                             <input type="text" class="form-control" id="expirationDate"
-                                                placeholder="10/2020">
+                                                placeholder="10/2020" pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" required title="Insira a data de expiração no formato MM/AA.">
                                         </div>
                                         <div class="col">
                                             <label for="cvv" class="form-label">CVV</label>
-                                            <input type="text" class="form-control" id="cvv" placeholder="123">
+                                            <input type="text" class="form-control" id="cvv" placeholder="123" pattern="\d{3,4}" required title="Insira um CVV válido.">
                                         </div>
                                     </div>
+
 
                                     <!-- Price Details -->
                                     <div class="mt-4">
@@ -102,12 +103,12 @@
                                     <div class="mb-3">
                                         <label for="nameOnCard" class="form-label">Nome</label>
                                         <input type="text" class="form-control" id="nameOnCard"
-                                            placeholder="Nome Apelido">
+                                            placeholder="Nome Apelido" pattern="^[a-zA-Z\s-]+$" required title="Insira seu nome e sobrenome.">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="cardNumber" class="form-label">Apple ID</label>
-                                        <input type="text" class="form-control" id="cardNumber"
-                                            placeholder="exemplo@email.com">
+                                        <label for="appleID" class="form-label">Apple ID</label>
+                                        <input type="email" class="form-control" id="cardNumber"
+                                        required placeholder="exemplo@email.com" title="Insira um endereço de e-mail válido.">
                                     </div>
                                     <!-- Price Details -->
                                     <div class="mt-4">

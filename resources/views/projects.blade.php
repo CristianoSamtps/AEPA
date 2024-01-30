@@ -15,9 +15,10 @@
 
         <!-- Título "Projetos" -->
         <h1 id="projects-title">Projetos</h1>
+        <button class="volunt"><a href="{{ route('voluntariado') }}">Ver Projetos para Voluntariar</a></button>
 
         <!-- Listagem de Projetos -->
-        <div class="projects-list">
+        <div class="projects-list" data-aos="fade-right">
 
             <div class="project-row project-row-1">
                 @if ($projetos->isEmpty())

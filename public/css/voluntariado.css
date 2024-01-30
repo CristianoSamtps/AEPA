@@ -33,6 +33,7 @@ a {
 .project {
     border-top: 1px solid #b9b6ac;
     width: calc(33.33% - 19.28px);
+    margin-bottom: 65px;
 }
 
 .project:hover {
@@ -141,6 +142,25 @@ button#showMoreBtn {
     border: 0;
     background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%);
     color: #ffff;
+}
+
+.volunt{
+    padding: 5px 20px;
+    border-radius: 40px;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    color: #ffff;
+    border: 0px;
+    margin: 40px;
+    margin-left: 60px;
+    margin-top: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.volunt:hover{
+    cursor: pointer;
+    background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
+    text-decoration: underline;
 }
 
 /* Versão Desktop (393px)*/
