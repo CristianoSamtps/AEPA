@@ -270,7 +270,6 @@ div#semdoacao p {
     padding: 10px;
     border-radius: 25px;
     background: transparent;
-    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
 }
 
 #filtro-doacoes .caixa-botao button {
@@ -286,6 +285,8 @@ div#semdoacao p {
     background: linear-gradient(91deg, #019E59 24.15%, #4C7864 103.74%, rgba(1, 158, 89, 0.00) 160.58%);
     border-color: transparent;
     transition: ease-in all 0.1s;
+    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.25);
+
 }
 #filtro-doacoes .caixa-botao {
     margin-right: 0px !important;
