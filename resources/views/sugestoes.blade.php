@@ -10,12 +10,14 @@
     <main id="main">
         <section class="sugestoes">
             <div class="container-sugestoes">
+
                 @if ($errors->any())
                     @include ('layouts.partials.error_master')
                 @endif
                 @if (!empty(session('success')))
                     @include ('layouts.partials.success_master')
                 @endif
+
                 <div class="containerED">
                     <div class="esq">
                         <img src="{{ asset('img/suggestBanner.svg') }}" alt="">
@@ -60,6 +62,7 @@
             </div>
         </section>
     </main>
+
     <div id="modal-container">
         <div id="modal">
             <form action="{{ route('registarsugestao', $sugestao) }}" id="sugestaoform" method='POST'>

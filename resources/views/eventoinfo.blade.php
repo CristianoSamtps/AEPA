@@ -78,12 +78,10 @@
                             <h4>Evento lotado</h4>
                             <input type="text" name="name" placeholder="Nome completo" class="mb-3"
                                 value="{{ auth()->user()->name }}" disabled>
-                           {{--  <br><br> --}}
-                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}" class="mb-3"
-                                disabled>
-                            {{-- <br><br> --}}
-                            <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
-                            {{-- <br><br> --}}
+                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
+                                class="mb-3" disabled>
+                            <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3"
+                                placeholder="Observações"></textarea>
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <button class="oldest" style="float: right;width:100%;">Cancelar registo</button>
                             @else
@@ -110,17 +108,18 @@
                                 value="{{ auth()->user()->name }}" disabled>
                             {{-- <br><br> --}}
 
-                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}" class="mb-3"
-                                disabled>
+                            <input type="email" name="email" placeholder=" Email" value="{{ auth()->user()->email }}"
+                                class="mb-3" disabled>
                             {{-- <br><br> --}}
                             @if ($event->data < now())
-                                <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
+                                <textarea class="mb-3" disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3"
+                                    placeholder="Observações"></textarea>
                                 <!-- Participante já inscrito -->
                             @elseif ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
                                 <textarea disabled style="width:100%; padding:0.5rem;" cols="auto" rows="3" placeholder="Observações"></textarea>
                             @else
-                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3" class="mb-3"
-                                    placeholder="Observações"></textarea>
+                                <textarea style="width: 100%; padding:0.5rem;" name="obs" id="obs" cols="auto" rows="3"
+                                    class="mb-3" placeholder="Observações"></textarea>
                             @endif
                             {{-- <br><br> --}}
                             @if ($event->participants()->where('member_doner_id', auth()->user()->id)->first())
@@ -136,13 +135,13 @@
                             @endif
                         </form>
                         @if ($participant = $event->participants()->where('member_doner_id', auth()->user()->id)->first())
-                        {{-- Usuário inscrito --}}
-                        <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}" method="POST"
-                              onsubmit="return confirm('Confirma que pretende cancelar inscrição?');">
-                            @csrf
-                            @method('DELETE')
-                            <button class="oldest" style="float: right; width:100%;">Cancelar registo</button>
-                        </form>
+                            {{-- Usuário inscrito /  fomulário para cancelar registo --}}
+                            <form action="{{ route('cancelarreg', ['participant' => $participant->id]) }}" method="POST"
+                                onsubmit="return confirm('Confirma que pretende cancelar inscrição?');">
+                                @csrf
+                                @method('DELETE')
+                                <button class="oldest" style="float: right; width:100%;">Cancelar registo</button>
+                            </form>
                         @endif
 
                     @endif
@@ -157,11 +156,10 @@
         <div class="container d-flex col-md-7 col-12 text-justify eventinfo" id="eventinfo">
             <style>
                 @media only screen and (max-width: 562px) {
-                    div#eventinfo{
+                    div#eventinfo {
                         margin-top: 0px !important;
                     }
                 }
-
             </style>
             <div class="col-md-8 col-12 p-4">
                 <h4 class="mb-4">Informações adicionais</h4>
@@ -199,6 +197,7 @@
                     </div>
                     <div class="col-lg-6 d-flex justify-content-end m-2">
                         <form action="{{ route('eventoinfo', $event) }}" method="GET">
+                            @csrf
                             <label for="order_by_date">Ordenar por:</label>
                             <select name="order_by_date" id="order_by_date" class="m-2">
                                 <option value="asc">Mais antigo</option>

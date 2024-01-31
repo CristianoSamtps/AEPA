@@ -27,17 +27,20 @@ class PageController extends Controller
 {
     public function index()
     {
+        /*Pegar todas as informações necessárias dos projetos e doações*/
         $projetos = Projeto::all();
         $sugestoes = Sugestao::all();
 
+        /* Filtrar as fotografias e sugestões por destaque e listagem*/
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
         $sugestoesList = Sugestao::where('listado', 'L')->take(3)->get();
 
+        /* Limitar a quantidade de informação armazenada na variável e limitar a localidade até aparecer uma virguala */
         foreach ($projetos as $projeto) {
             $projeto->subtitulo = str::limit($projeto->subtitulo, 100);
             $projeto->localidade = strstr($projeto->localidade, ',', true);
         }
-
+        /* Retorna a view com as variáveis necessárias */
         return view('index', compact('sugestoes', 'sugestoesList', 'projetos', 'fotografias'));
     }
 
@@ -150,10 +153,15 @@ class PageController extends Controller
         return view('sobreNos');
     }
 
+
+    /* Página de todos os eventos com top event*/
+
     public function eventos(Request $request)
     {
+        //Vai buscar o evento com data mais perto da atual.
         $topevent = Event::where('data', '>=', now())->orderBy('data', 'asc')->first();
 
+        //Ordenar os dados obtidos adquiridos do formulário de filtragem
         if ($request->has('order_by_date')) {
             $order = $request->input('order_by_date');
             // Verifica se a ordem é ascendente ou descendente
@@ -171,7 +179,7 @@ class PageController extends Controller
             // Se não houver filtro, obtém todos os eventos
             $events = Event::where('data', '>=', now())->get();
         }
-
+        /* Limitar a quantidade de informação armazenada na variável e limitar*/
         foreach ($events as $eventshort) {
             $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
@@ -182,13 +190,17 @@ class PageController extends Controller
         return view('eventos', compact('events', 'topevent', 'eventshort', 'patrocinadores'));
     }
 
+    /* Página de detalhe dos evento, contém tambem todos os eventos*/
+
     public function eventoinfo(Event $event, Request $request)
     {
+        /*Obter todos os dados e contar patricionadores */
         $events = Event::all();
         $photos_events = PhotoEvent::all();
-        $partners = PartnerShip::count();
+        $partners = PartnerShip::count(); //Obsoleto count não está a ser usado
         $participants = Participant::all();
 
+        //Ordenar os dados obtidos adquiridos do formulário de filtragem
         if ($request->has('order_by_date')) {
             $order = $request->input('order_by_date');
             // Verifica se a ordem é ascendente ou descendente
@@ -206,7 +218,7 @@ class PageController extends Controller
             // Se não houver filtro, obtém todos os eventos
             $events = Event::where('data', '>=', now())->get();
         }
-
+        /* Limitar a quantidade de informação armazenada na variável e limitar*/
         foreach ($events as $eventshort) {
             $eventshort->descricao = Str::limit($eventshort->descricao, $words = 56, $end = '...');
         }
@@ -242,6 +254,7 @@ class PageController extends Controller
     {
         return view('loginReg');
     }
+
     public function dashboard(MonthlyUsersChart $chart)
     {
         /* Listar cards com contagens */
@@ -264,7 +277,7 @@ class PageController extends Controller
         $proj = Projeto::take('4')->get();
         $recent_donations = Donation::orderByDesc('created_at')->get();
 
-
+        /* Retorar view com as variáveis necessárias e gráfico com dados*/
         return view('_admin.dashboard', [
             'chart' => $chart->build(),
         ])->with(compact('recent_donations', 'count_events', 'count_users', 'count_users_per_role', 'count_projects', 'count_partners', 'count_donations', 'count_suges', 'events_with_participant_count', 'suges', 'proj', 'donations', 'events'));

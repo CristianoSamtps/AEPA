@@ -13,6 +13,7 @@
 
 @section('main')
 
+    <!-- Área de Carregamento Inicial -->
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -20,9 +21,12 @@
         </div>
     </div>
 
+    <!-- Seção de detalhes do projeto -->
     <section id="project-details" class="container">
         <div class="row">
             <div class="col-lg-8">
+
+                <!-- Título do Projeto e Estado -->
                 <h2>{{ $projeto->titulo }}
                     <span class="state-badge">
                         @if ($projeto->estado == 'concluido')
@@ -36,6 +40,8 @@
                         @endif
                     </span>
                 </h2>
+
+                <!-- Descrição do Projeto -->
                 <p>{{ $projeto->descricao }}</p>
 
                 <!-- Galeria de Imagens do Projeto -->
@@ -54,6 +60,7 @@
                     @endif
                 </div>
 
+                <!-- Parcerias do Projeto -->
                 @if (count($projeto->partnerships) > 0)
                     <h3>Conheça as parcerias deste projeto</h3>
                     <div class="project-partners">
@@ -68,9 +75,12 @@
                 <!-- Informações Adicionais do Projeto -->
                 <div class="project-info">
                     <h3>Detalhes Adicionais</h3>
+
+                    <!-- Barra de Progresso de Doações -->
                     <div class="donation-bar-container">
                         <div class="progress-bar-container">
-                            <div class="progress-bar over-100" style="width: {{ ($valorArrecadado / $projeto->objetivos) * 100 }}%;">
+                            <div class="progress-bar over-100"
+                                style="width: {{ ($valorArrecadado / $projeto->objetivos) * 100 }}%;">
                                 <span
                                     class="progress-text">{{ round(($valorArrecadado / $projeto->objetivos) * 100) }}%</span>
                             </div>
@@ -87,10 +97,14 @@
                         </div>
                     </div>
                     <br>
+
+                    <!-- Data Final do Projeto -->
                     <strong>Data Final:</strong>
                     {{ \Carbon\Carbon::parse($projeto->data_final)->format('d \d\e F \d\e Y') }}
                 </div>
                 <br>
+
+                <!-- Secção Como Contribuir -->
                 <strong>Como contribuir:</strong>
                 <div class="grid-container">
                     <a href="{{ route('doacoes') }}" class="grid-item">Doações</a>

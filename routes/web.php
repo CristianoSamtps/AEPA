@@ -48,13 +48,9 @@ Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes'
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
-Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
+Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects'); /* Projetos */
 
-
-
-Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details');
-
-
+Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details'); /* Detalhes Projeto */
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
@@ -105,6 +101,7 @@ Route::group([
 
 
     /* Participantes em eventos */
+
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
 
@@ -115,6 +112,8 @@ Route::group([
 
 
     /* Participantes em eventos */
+
+    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
 
     /* voluntariado */
     Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
@@ -144,11 +143,11 @@ Route::group([
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
 
-        Route::resource('projeto', ProjetoController::class);
+        Route::resource('projeto', ProjetoController::class); /* Projetos */
 
-        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class); /* Fotografias dos Projeto */
 
         Route::resource('users', UserController::class);
 

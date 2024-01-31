@@ -21,8 +21,11 @@ class ProjetoController extends Controller
      */
     public function index()
     {
+        // Obtém todas as fotografias de projetos e todos os projetos
         $fotografias_projetos = FotografiaProjeto::all();
         $projetos = Projeto::all();
+
+        // Retorna a vista index com os projetos e fotografias
         return view('_admin.projeto.index', compact('projetos', 'fotografias_projetos'));
     }
 
@@ -31,9 +34,11 @@ class ProjetoController extends Controller
      */
     public function create()
     {
+        // Cria uma nova instância de Projeto e obtém todas as parcerias
         $projeto = new Projeto;
         $partnerships = PartnerShip::all();
 
+        // Retorna a vista create com o projeto e as parcerias
         return view('_admin.projeto.create', compact('projeto', 'partnerships'));
     }
 
@@ -42,16 +47,21 @@ class ProjetoController extends Controller
      */
     public function store(ProjetoRequest $request)
     {
+        // Valida os campos do pedido
         $fields = $request->validated();
 
+        // Cria uma nova instância de Projeto e preenche os campos
         $projetos = new Projeto();
         $projetos->fill($fields);
 
+        // Define o estado e voluntariado com base no pedido
         $projetos->estado = $request->input('estado');
         $projetos->voluntariado = $request->input('voluntariado', 0);
 
+        // Salva o projeto no armazenamento
         $projetos->save();
 
+        // Se uma imagem for enviada, armazena-a como destaque
         if ($request->hasFile('fotografia')) {
             $imagem = $request->file('fotografia');
             $path = $imagem->store('project_photos', 'public');
@@ -65,12 +75,14 @@ class ProjetoController extends Controller
             $projetos->fotografias()->save($foto);
         }
 
+        // Se parcerias foram selecionadas, associa-as ao projeto
         if ($request->has('partnerships')) {
             foreach ($request->input('partnerships') as $partnershipId) {
                 $projetos->partnerships()->attach($partnershipId);
             }
         }
 
+        // Redireciona para a página de index com uma mensagem de sucesso
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto criado com sucesso');
@@ -81,6 +93,7 @@ class ProjetoController extends Controller
      */
     public function show(Projeto $projeto)
     {
+        // Retorna a vista show com o projeto
         return view('_admin.projeto.show', compact('projeto'));
     }
 
@@ -89,8 +102,11 @@ class ProjetoController extends Controller
      */
     public function edit(Projeto $projeto)
     {
+        // Obtém todas as parcerias e as parcerias associadas ao projeto
         $partnerships = PartnerShip::all();
         $selectedPartnerships = $projeto->partnerships->pluck('id')->toArray();
+
+        // Retorna a vista edit com o projeto, parcerias e parcerias selecionadas
         return view('_admin.projeto.edit', compact('projeto', 'partnerships', 'selectedPartnerships'));
     }
 
@@ -99,24 +115,30 @@ class ProjetoController extends Controller
      */
     public function update(ProjetoRequest $request, Projeto $projeto)
     {
+        // Valida os campos do pedido
         $fields = $request->validated();
+
+        // Define o estado do projeto com base no pedido
         $projeto->estado = $request->input('estado');
+
+        // Preenche os campos do projeto
         $projeto->fill($fields);
 
-        // Obter a foto de destaque atual
+        // Obtém a fotografia de destaque atual
         $fotoAtual = $projeto->fotografias()->where('destaque', 1)->first();
 
-        // Sincronize as parcerias associadas ao projeto
+        // Sincroniza as parcerias associadas ao projeto
         if ($request->has('partnerships')) {
             $projeto->partnerships()->sync($request->input('partnerships'));
         } else {
-            // Se nenhuma parceria for selecionada, remova todas as associações existentes
+            // Se nenhuma parceria for selecionada, remove todas as associações existentes
             $projeto->partnerships()->detach();
         }
 
-        // Se uma nova imagem for enviada, adicione-a automaticamente como destaque
+        // Se uma nova imagem for enviada, adiciona-a automaticamente como destaque
         if ($request->hasFile('fotografia')) {
-            // Eliminar a foto de destaque anterior do armazenamento
+
+            // Elimina a fotografia de destaque anterior do armazenamento
             if ($fotoAtual) {
                 Storage::disk('public')->delete('project_photos/' . $fotoAtual->foto);
             }
@@ -131,8 +153,10 @@ class ProjetoController extends Controller
             $projeto->fotografias()->update(['foto' => $foto->foto, 'destaque' => $foto->destaque]);
         }
 
+        // Salva as alterações no projeto
         $projeto->save();
 
+        // Redireciona para a página de index com uma mensagem de sucesso
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto atualizado com sucesso');
@@ -143,20 +167,21 @@ class ProjetoController extends Controller
      */
     public function destroy(Projeto $projeto)
     {
-        // Remover todas as imagens associadas ao projeto do armazenamento
+        // Remove todas as imagens associadas ao projeto do armazenamento
         $projeto->fotografias->each(function ($foto) {
             Storage::disk('public')->delete('project_photos/' . $foto->foto);
         });
 
-        // Remover todas as entradas de imagens associadas ao projeto da base de dados
+        // Remove todas as entradas de imagens associadas ao projeto da base de dados
         $projeto->fotografias()->delete();
 
-        // Remover as parcerias associadas ao projeto
+        // Remove as parcerias associadas ao projeto
         $projeto->partnerships()->detach();
 
         // Remover o projeto
         $projeto->delete();
 
+        // Redireciona para a página de index com uma mensagem de sucesso
         return redirect()
             ->route('admin.projeto.index')
             ->with('success', 'Projeto eliminado com sucesso');
@@ -164,9 +189,11 @@ class ProjetoController extends Controller
 
     public function indexFrontOffice()
     {
+        // Obtém todos os projetos e as fotografias em destaque
         $projetos = Projeto::all();
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
 
+        // Retorna a vista projects com os projetos e fotografias
         return view('projects', compact('projetos', 'fotografias'));
     }
 }
