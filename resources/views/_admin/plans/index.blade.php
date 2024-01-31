@@ -29,12 +29,14 @@
                                     <td>{{ $plan->planType->name }}</td>
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-warning ml-1"
-                                            href="{{ route('admin.plans.edit', $plan) }}">Editar</a>
+                                            href="{{ route('admin.plans.edit', $plan) }}"><i
+                                            class="fas fa-pen fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.plans.destroy', $plan) }}"
                                             onsubmit="return confirm('Tem certeza que deseja excluir este plano?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-xs btn-danger ml-1">Excluir</button>
+                                            <button type="submit" class="btn btn-xs btn-danger ml-1"><i
+                                                class="fas fa-trash fa-xs"></i></button>
                                         </form>
                                     </td>
                                 </tr>

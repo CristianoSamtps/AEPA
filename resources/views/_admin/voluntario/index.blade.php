@@ -28,7 +28,8 @@
                                     <td>
                                         <!-- Aqui você pode adicionar botões de ação como editar ou excluir -->
                                         <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.voluntario.show', $projeto) }}">Ver</a>
+                                            href="{{ route('admin.voluntario.show', $projeto) }}"><i
+                                            class="fas fa-eye fa-xs"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

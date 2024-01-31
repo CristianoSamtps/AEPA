@@ -32,14 +32,17 @@
                                     <td>{{ number_format($planType->valor, 2, ',', '.') }}€</td>
                                     <td nowrap class="d-flex">
                                         <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.plantypes.show', $planType) }}">Ver</a>
+                                            href="{{ route('admin.plantypes.show', $planType) }}"><i
+                                            class="fas fa-eye fa-xs"></i></a>
                                         <a class="btn btn-xs btn-warning ml-1"
-                                            href="{{ route('admin.plantypes.edit', $planType) }}">Editar</a>
+                                            href="{{ route('admin.plantypes.edit', $planType) }}"><i
+                                            class="fas fa-pen fa-xs"></i></a>
                                         <form method="POST" action="{{ route('admin.plantypes.destroy', $planType) }}"
                                             onsubmit="return confirm('Tem certeza que deseja excluir este tipo de plano?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-xs btn-danger ml-1">Excluir</button>
+                                            <button type="submit" class="btn btn-xs btn-danger ml-1"><i
+                                                class="fas fa-trash fa-xs"></i></button>
                                         </form>
                                     </td>
                                 </tr>
