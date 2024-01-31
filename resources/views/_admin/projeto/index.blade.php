@@ -33,7 +33,6 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Nº do Projeto</th>
                                 <th>Titulo</th>
                                 <th>Objetivos</th>
                                 <th>Estado</th>
@@ -44,7 +43,6 @@
                         <tbody>
                             @foreach ($projetos as $projeto)
                                 <tr>
-                                    <td>{{ $projeto->id }}</td>
                                     <td>{{ $projeto->titulo }}</td>
                                     <td>{{ $projeto->objetivos }}€</td>
                                     <td>{{ $projeto->estado }}</td>

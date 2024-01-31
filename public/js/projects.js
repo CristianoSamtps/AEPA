@@ -1,18 +1,44 @@
 $(document).ready(function () {
-    // Esconder inicialmente a quarta linha de projetos
-    $('.project-row-4').hide();
+    // Projetos Visíveis Inicialmente
+    var projetosVisiveis = 9;
 
-    // Adicionar evento de clique ao botão "Mostrar Mais"
+    // Esconder projetos além dos projetos iniciais
+    $('.project:gt(' + (projetosVisiveis - 1) + ')').hide();
+
+    // Verificar se há menos de 10 projetos inicialmente
+    if ($('.project').length < 10) {
+        // Se não, esconder o botão "Mostrar Mais"
+        $('#showMoreBtn').hide();
+    }
+
+    // Evento de clique ao botão "Mostrar Mais"
     $('#showMoreBtn').click(function () {
-        // Mostrar a quarta linha de projetos
-        $('.project-row-4').slideToggle();
+        // Mostrar mais 3 em 3 projetos
+        projetosVisiveis += 3;
 
-        // Esconder o botão quando a .project-row-4 é mostrada
-        $(this).toggle();
+        // Mostra os próximos 3 projetos
+        $('.project:lt(' + projetosVisiveis + ')').slideDown();
 
-        // Fazer deslizar a página para a .project-row-4
+        // Verificar se todos os projetos estão listados
+        if (projetosVisiveis >= $('.project').length) {
+            // Se todos os projetos estiverem listados, esconder o botão "Mostrar Mais"
+            $(this).hide();
+        }
+
+        // Fazer deslizar a página para baixo
         $('html, body').animate({
-            scrollTop: $('.project-row-4').offset().top
-        }, 400);
+            scrollTop: $(this).offset().top
+        }, 300);
     });
 });
+
+// Seleciona o elemento com o id 'preloader'
+let preloader = select('#preloader');
+
+if (preloader) {
+    // Adiciona um ouvinte de evento que é acionado quando a página é completamente carregada
+    window.addEventListener('load', () => {
+        // Remove o elemento 'preloader'
+        preloader.remove();
+    });
+}

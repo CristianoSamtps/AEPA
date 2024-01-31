@@ -8,13 +8,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 @endsection
 
 @section('main')
+
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
     <section id="project-details" class="container">
         <div class="row">
             <div class="col-lg-8">
-                <h2>{{ $projeto->titulo }} <span class="state-badge">{{ $projeto->estado }}</span></h2>
+                <h2>{{ $projeto->titulo }}
+                    <span class="state-badge">
+                        @if ($projeto->estado == 'concluido')
+                            <span class="badge badge-success">Concluído</span>
+                        @elseif ($projeto->estado == 'em andamento')
+                            <span class="badge badge-warning">Em Andamento</span>
+                        @elseif ($projeto->estado == 'cancelado')
+                            <span class="badge badge-danger">Cancelado</span>
+                        @elseif ($projeto->estado == 'indisponivel')
+                            <span class="badge badge-dark">Indisponível</span>
+                        @endif
+                    </span>
+                </h2>
                 <p>{{ $projeto->descricao }}</p>
 
                 <!-- Galeria de Imagens do Projeto -->
@@ -23,7 +44,7 @@
                     @if (count($projeto->fotografias) > 0)
                         <div class="row">
                             @foreach ($projeto->fotografias as $foto)
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <img src="{{ asset('storage/project_photos/' . $foto->foto) }}" alt="Fotografia">
                                 </div>
                             @endforeach
@@ -36,8 +57,8 @@
                 @if (count($projeto->partnerships) > 0)
                     <h3>Conheça as parcerias deste projeto</h3>
                     <div class="project-partners">
-                        @foreach ($projeto->partnerships as $partner)
-                            {{ $partner->name }}
+                        @foreach ($projeto->partnerships as $foto)
+                            <img src="{{ asset('storage/partner_fotos/' . $foto->foto) }}" alt="Fotografia">
                         @endforeach
                     </div>
                 @endif
@@ -47,42 +68,69 @@
                 <!-- Informações Adicionais do Projeto -->
                 <div class="project-info">
                     <h3>Detalhes Adicionais</h3>
-                    <ul>
-                        <li><strong>Objetivo de Financiamento: </strong>{{ $projeto->objetivos }}€</li>
-                        <li><strong>Valor Atualmente Arrecadado:</strong>{{ $valorArrecadado }}€</li>
-                        <li><strong>Data de Expiração:</strong>{{ $projeto->data_final }}</li>
-                        <!-- Adicione mais detalhes conforme necessário -->
-                    </ul>
+                    <div class="donation-bar-container">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: {{ ($valorArrecadado / $projeto->objetivos) * 100 }}%;">
+                                <span
+                                    class="progress-text">{{ round(($valorArrecadado / $projeto->objetivos) * 100) }}%</span>
+                            </div>
+                        </div>
+                        <div class="donation-info">
+                            <div class="left-info">
+                                <strong>Valor Doado:</strong><br>
+                                {{ $valorArrecadado }}€
+                            </div>
+                            <div class="right-info">
+                                <strong>Objetivo Financiamento:</strong><br>
+                                {{ $projeto->objetivos }}€
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <strong>Data Final:</strong>
+                    {{ \Carbon\Carbon::parse($projeto->data_final)->format('d \d\e F \d\e Y') }}
+                </div>
+                <br>
+                <strong>Como contribuir:</strong>
+                <div class="grid-container">
+                    <a href="{{ route('doacoes') }}" class="grid-item">Doações</a>
+                    <a href="{{ route('inscricao', ['projeto_id' => $projeto->id]) }}" class="grid-item">Voluntariado</a>
+                    <a href="{{ route('eventos') }}" class="grid-item">Eventos</a>
+                    <a href="{{ route('patrocinadores') }}" class="grid-item">Parcerias</a>
+                    <a href="https://www.instagram.com/aepa_portugal/" class="grid-item">Compartilhar</a>
+                    <a href="https://wordpress.g1.dwm2023.fun/" class="grid-item">Loja AEPA</a>
                 </div>
 
-                <div>
-                    <h3>Como contribuir</h3>
-                    <ul>
-                        <li>Doações</li>
-                        <li>Voluntariado</li>
-                        <li>Eventos</li>
-                        <li>Parcerias</li>
-                        <li>Compartilhar</li>
-                        <li>Loja AEPA</li>
-                    </ul>
-                </div>
-
+                <br>
                 <!-- Doações por Projeto -->
                 @if (count($doadores) > 0)
-                    <div>
-                        <h2>Doadores do Projeto</h2>
-                        @foreach ($doadores as $doador)
-                            <div>
-                                <strong>Doador:</strong> {{ $doador['doador'] }}<br>
-                                <strong>Valor doado:</strong> {{ $doador['valor'] }}€<br>
-                                <strong>Mensagem:</strong> {{ $doador['mensagem'] }}<br>
-                                <strong>Data:</strong> {{ $doador['data'] }}<br>
-                                <hr>
+                    <h2>Doações do Projeto</h2>
+                    @foreach ($doadores as $doador)
+                        <div class="d-flex flex-row comment-row m-t-0">
+                            <div class="p-2">
+                                <img src="/storage/user_fotos/default_user.jpg" alt="user" width="50"
+                                    class="rounded-circle">
                             </div>
-                        @endforeach
-                    </div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">
+                                    {{ $doador['doador'] }}</h6>
+                                <span class="m-b-15 d-block">{{ $doador['mensagem'] }}</span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-right">{{ $doador['data'] }}</span>
+                                    <button type="button" disabled=""
+                                        class="btn btn-success">{{ $doador['valor'] }}€</button>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    @endforeach
                 @endif
             </div>
         </div>
     </section>
+
+    <!-- Ficheiros JavaScript !-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/projects.js') }}"></script>
+
 @endsection

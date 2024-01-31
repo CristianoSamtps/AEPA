@@ -11,8 +11,15 @@
 @endsection
 
 @section('main')
-    <div class="projects-section">
 
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div class="projects-section">
         <!-- Título "Projetos" -->
         <h1 id="projects-title">Projetos</h1>
         <button class="volunt"><a href="{{ route('voluntariado') }}">Ver Projetos para Voluntariar</a></button>
@@ -20,13 +27,13 @@
         <!-- Listagem de Projetos -->
         <div class="projects-list" data-aos="fade-right">
 
-            <div class="project-row project-row-1">
+            <div class="project-row">
                 @if ($projetos->isEmpty())
                     <p>De momento não temos projetos registados, iremos ter brevemente.</p>
                 @else
                     @foreach ($projetos as $projeto)
-                            <div class="project">
-                                <a href="{{ route('project_details', ['projeto' => $projeto]) }}">
+                        <div class="project">
+                            <a href="{{ route('project_details', ['projeto' => $projeto]) }}">
                                 <h3>{{ $projeto->localidade }}</h3>
                                 @foreach ($fotografias as $fotografia)
                                     @if ($fotografia->projeto_id === $projeto->id)
@@ -38,9 +45,14 @@
                             <h2>{{ $projeto->titulo }}</h2>
                             <p>{{ $projeto->subtitulo }}</p>
                         </a>
-                        </div>
+                    </div>
                 @endforeach
             @endif
+        </div>
+
+        <!-- Botão Mostrar Mais Projetos -->
+        <div id="MoreBtn">
+            <button id="showMoreBtn">Mostrar Mais</button>
         </div>
     </div>
 </div>

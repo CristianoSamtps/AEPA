@@ -27,7 +27,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
 
 .project {
@@ -71,17 +70,13 @@ a {
     height: 60px;
 }
 
-.project-row-2 h2 {
-    height: 30px;
-}
-
-.project-row-4 h2 {
-    height: 30px;
-}
-
 .project img {
     margin-top: 25px;
     transition: transform 0.3s ease-in-out;
+    max-width: 420px;
+    max-height: 207px;
+    width: 100%;
+    height: auto;
 }
 
 .project img:hover {

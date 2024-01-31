@@ -60,11 +60,11 @@ class PageController extends Controller
 
         $doacoes = Donation::whereNull('projeto_id')->get();
         $member_doners = Member_Doner::whereHas('donations')
-        ->with(['user', 'donations'])
-        ->withSum('donations', 'valor')
-        ->orderBy('donations_sum_valor', 'desc')
-        ->take(10)
-        ->get();
+            ->with(['user', 'donations'])
+            ->withSum('donations', 'valor')
+            ->orderBy('donations_sum_valor', 'desc')
+            ->take(10)
+            ->get();
 
         return view('topDonates', compact('doacoes', 'member_doners'));
     }
@@ -210,13 +210,10 @@ class PageController extends Controller
 
     public function project_details(Projeto $projeto)
     {
-        // Busca as doações relacionadas ao projeto
         $doacoes = Donation::where('projeto_id', $projeto->id)->get();
 
-        // Calcula o valor total arrecadado
         $valorArrecadado = $doacoes->sum('valor');
 
-        // Monta uma coleção de dados para cada doação com as informações necessárias
         $doadores = $doacoes->map(function ($doacao) {
             $doadorNome = ($doacao->anonimo == 'S') ? 'Doador Anônimo' : ($doacao->doador ? $doacao->doador->name : 'Doador Não Encontrado');
 
