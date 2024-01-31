@@ -65,6 +65,7 @@
                         </div>
                         <div class="col-lg-6 d-flex justify-content-end m-2">
                             <form action="{{ route('eventos') }}" method="GET">
+                                @csrf
                                 <label for="order_by_date">Ordenar por:</label>
                                 <select name="order_by_date" id="order_by_date" class="m-2">
                                     <option value="asc">Mais antigo</option>

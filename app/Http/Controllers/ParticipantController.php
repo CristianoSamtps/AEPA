@@ -94,6 +94,9 @@ class ParticipantController extends Controller
         'Participante removido com sucesso');
     }
 
+
+
+
     public function cancelarreg(Participant $participant)
     {
         $participant->delete();
@@ -101,6 +104,10 @@ class ParticipantController extends Controller
         return redirect()->back()->with('success',
         'Registo cancelado com sucesso.');
     }
+
+
+
+
     public function deleteregperfil(Participant $participant)
     {
         $participant->delete();

@@ -55,7 +55,7 @@ class PhotoEventController extends Controller
         $photo->save();
 
         return redirect()->route('admin.fotografias.index', $event)
-            ->with('success', 'Foto criada com sucesso');
+            ->with('success', 'Fotografia adicionada com sucesso');
     }
 
 
