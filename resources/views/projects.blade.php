@@ -12,6 +12,7 @@
 
 @section('main')
 
+    <!-- Área de carregamento inicial -->
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -19,6 +20,7 @@
         </div>
     </div>
 
+    <!-- Seção de Projetos -->
     <div class="projects-section">
         <!-- Título "Projetos" -->
         <h1 id="projects-title">Projetos</h1>

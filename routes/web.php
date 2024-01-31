@@ -48,13 +48,9 @@ Route::get('/sugestoes', [PageController::class, 'sugestoes'])->name('sugestoes'
 
 Route::get('/patrocinadores', [PageController::class, 'patrocinadores'])->name('patrocinadores');
 
-Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects');
+Route::get('/projects', [ProjetoController::class, 'indexFrontOffice'])->name('projects'); /* Projetos */
 
-
-
-Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details');
-
-
+Route::get('/project_details/{projeto}', [PageController::class, 'project_details'])->name('project_details'); /* Detalhes Projeto */
 
 Route::get('/tornarMembro', [PageController::class, 'tornarMembro'])->name('tornarMembro');
 
@@ -136,9 +132,9 @@ Route::group([
 
         Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
 
-        Route::resource('projeto', ProjetoController::class);
+        Route::resource('projeto', ProjetoController::class); /* Projetos */
 
-        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class);
+        Route::resource('projeto/{projeto}/fotografiasprojeto', FotografiaProjetoController::class); /* Fotografias dos Projeto */
 
         Route::resource('users', UserController::class);
 
