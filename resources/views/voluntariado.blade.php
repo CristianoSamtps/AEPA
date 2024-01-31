@@ -50,4 +50,10 @@
 </div>
 
 <script src="{{ asset('js/projects.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#exampleModal').modal('show');
+            });
+        </script>
 @endsection
