@@ -122,7 +122,7 @@
                     @foreach ($doadores as $doador)
                         <div class="d-flex flex-row comment-row m-t-0">
                             <div class="p-2">
-                                <img src="/storage/user_fotos/default_user.jpg" alt="user" width="50"
+                                <img src="/img/default_user.jpg" alt="user" width="50"
                                     class="rounded-circle">
                             </div>
                             <div class="comment-text w-100">
