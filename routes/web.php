@@ -93,14 +93,16 @@ Route::group([
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
 
     /* Participantes em eventos */
+
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
 
     Route::delete('/eventoinfo/{participant}/cancelarreg', [ParticipantController::class, 'cancelarreg'])->name('cancelarreg');
 
-    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
     /* Participantes em eventos */
+
+    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
 
     /* voluntariado */
     Route::get('/voluntariado', [PageController::class, 'voluntariado'])->name('voluntariado');
@@ -130,7 +132,7 @@ Route::group([
 
         Route::resource('eventos/{event}/fotografias', PhotoEventController::class)->parameters(['fotografias' => 'photo']);
 
-        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants'])/* ->except(['create', 'store']) */;
+        Route::resource('eventos/{event}/participantes', ParticipantController::class)->parameters(['participantes' => 'participants']);
 
         Route::resource('projeto', ProjetoController::class); /* Projetos */
 
