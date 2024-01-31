@@ -215,3 +215,86 @@ button#showMoreBtn {
         height: 30px;
     }
 }
+
+@media screen and (max-width: 1300px) {
+    .projects-list .project {
+        width: 48%;
+        margin: 2%;
+    }
+
+    .projects-section {
+        max-width: 1000px !important;
+        margin: 0 auto;
+    }
+
+    .project-row{
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .projects-list .project {
+        width: 100%;
+        margin: 2%;
+    }
+}
+
+@media screen and (max-width: 393px) {
+    body {
+        max-width: 393px;
+        padding-top: 155px;
+    }
+
+    .projects-section h1 {
+        font-size: 35px;
+        padding: 50px 0;
+        height: 144px;
+    }
+
+    .projects-list {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .project-row {
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+
+    .project {
+        width: 100%;
+        margin-bottom: 33px;
+    }
+
+    .project h3 {
+        margin-top: 7px;
+        font-size: 10px;
+        height: 13px;
+    }
+
+    .project p {
+        margin-top: 4px;
+    }
+
+    .project h2 {
+        margin-top: 7px;
+        font-size: 16px;
+        height: 20px;
+    }
+
+    .project img {
+        margin-top: 18px;
+        max-width: 343px;
+        max-height: 169px;
+        width: 100%;
+        height: auto;
+    }
+
+    button#showMoreBtn {
+        font-size: 12px;
+        margin-bottom: 50px;
+        width: 140px;
+        height: 30px;
+    }
+}
