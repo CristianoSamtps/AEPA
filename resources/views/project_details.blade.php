@@ -70,7 +70,7 @@
                     <h3>Detalhes Adicionais</h3>
                     <div class="donation-bar-container">
                         <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: {{ ($valorArrecadado / $projeto->objetivos) * 100 }}%;">
+                            <div class="progress-bar over-100" style="width: {{ ($valorArrecadado / $projeto->objetivos) * 100 }}%;">
                                 <span
                                     class="progress-text">{{ round(($valorArrecadado / $projeto->objetivos) * 100) }}%</span>
                             </div>

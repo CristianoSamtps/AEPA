@@ -58,6 +58,10 @@ h2 {
     border-radius: 10px;
 }
 
+.progress-bar.over-100 {
+    max-width: 360px;
+}
+
 .progress-text {
     font-size: 14px;
 }
@@ -235,7 +239,7 @@ i.bi-arrow-up-short:hover {
         font-size: smaller !important;
     }
 
-    h3{
+    h3 {
         font-size: 1.25rem !important;
     }
 
