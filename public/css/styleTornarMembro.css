@@ -182,3 +182,15 @@ body {
 .imagem{
     margin-top: 20px;
 }
+
+@media only screen and (max-width: 769){
+    .imagem{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480){
+    .stats{
+        display: none;
+    }
+}

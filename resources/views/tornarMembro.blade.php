@@ -125,40 +125,40 @@
                 <div class="col-md-6">
                     <ul class="list-unstyled">
                         <li class="faq-question" data-target="#faq1">
-                            How do I sign up for the free plan?
+                            Como subscrever?
                             <i class="fas fa-chevron-down"></i>
                         </li>
                         <div id="faq1" class="faq-answer collapse">
-                            When your trial account meets the free plan's requirements, you can sign up for the free version
-                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
-                            version link below the plan options.
+                            Selecionar o Plano que pertende subscrever e realizar o pagamento.
                         </div>
                         <li class="faq-question" data-target="#faq2">
-                            How do I sign up for the free plan?
+                            Como Cancelar a minha subscrição?
                             <i class="fas fa-chevron-down"></i>
                         </li>
                         <div id="faq2" class="faq-answer collapse">
-                            When your trial account meets the free plan's requirements, you can sign up for the free version
-                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
-                            version link below the plan options.
+                            De momento a unica forma de cancelar a subscrição é enviar um email a explicar que quer cancelar
+                            sua subscrição e ela irá ser cancelada no máximo em 2 dias uteis.
                         </div>
                         <li class="faq-question" data-target="#faq3">
-                            How do I sign up for the free plan?
+                            Como editar a minha subscrição?
                             <i class="fas fa-chevron-down"></i>
                         </li>
                         <div id="faq3" class="faq-answer collapse">
-                            When your trial account meets the free plan's requirements, you can sign up for the free version
-                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
-                            version link below the plan options.
+                            De momento a unica forma de editar a subscrição é enviar um email a explicar que quer editar
+                            sua subscrição e ela irá ser editada no máximo em 2 dias uteis.
                         </div>
                         <li class="faq-question" data-target="#faq4">
-                            How do I sign up for the free plan?
+                            Quais são as vantagens de ser membro AEPA?
                             <i class="fas fa-chevron-down"></i>
                         </li>
                         <div id="faq4" class="faq-answer collapse">
-                            When your trial account meets the free plan's requirements, you can sign up for the free version
-                            during the upgrade process. On the Upgrade Your Harvest Plan page, click the switch to the free
-                            version link below the plan options.
+                            <ul>
+                                <li>
+                                    Faz comentários e sugestões na nossa comunidade.
+                                </li>
+                                <li>Recebe notificações antecipadas sobre eventos e projetos.</li>
+                                <li>Recebe um Cupão Mensal na Loja Online da AEPA.</li>
+                            </ul>
                         </div>
                     </ul>
                     </ul>
