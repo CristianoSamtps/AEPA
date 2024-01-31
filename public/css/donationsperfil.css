@@ -214,7 +214,7 @@ div#semdoacao p {
 
     #resumedoacoes {
         margin-top: 10px;
-        height: 508px;
+        height: auto;
         transform: scale(0.97);
         transform-origin: top left;
     }

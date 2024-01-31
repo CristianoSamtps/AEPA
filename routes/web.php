@@ -82,28 +82,38 @@ Route::group([
 
     Route::get('/perfil/{user}', [UserController::class, 'indexperfil'])->name('indexperfil');
 
+
     Route::get('/perfil/{user}/editar', [UserController::class, 'editperfil'])->name('editperfil');
+
+    Route::put('/perfil/{user}/editar/update', [UserController::class, 'updateperfil'])->name('updateperfil');
+
+    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
+
 
     Route::get('/perfil/{user}/projetosevents', [UserController::class, 'showPerfil'])->name('projetosperfil');
 
-    Route::delete('/perfil/{user}/cancelarreg/{event}', [UserController::class, 'deleteregperfil'])->name('cancelarregperfil');
+    Route::delete('/perfil/{user}/cancelar/{event}', [UserController::class, 'deleteregperfil'])->name('cancelarregperfil');
+
 
     Route::get('/perfil/{user}/doações', [UserController::class, 'donationsperfil'])->name('donationsperfil');
 
-    Route::put('/perfil/{user}', [UserController::class, 'updateperfil'])->name('updateperfil');
-
     Route::get('/perfil/{user}/doações/filtrado', [DonationController::class, 'userDonations'])->name('user.doacoes');
 
+
+
     Route::post('/atualizar-metodo-pagamento', [MemberDonerController::class, 'atualizarMetodoPagamento']);
+
 
     /* Participantes em eventos */
     Route::get('/eventoinfo/{event}', [PageController::class, 'eventoinfo'])->name('eventoinfo');
 
+
     Route::post('/eventoinfo/{event}', [ParticipantController::class, 'registarEvento'])->name('registarevento');
+
 
     Route::delete('/eventoinfo/{participant}/cancelarreg', [ParticipantController::class, 'cancelarreg'])->name('cancelarreg');
 
-    Route::put('/updatePassword/{user}', [UserController::class, 'updatePassword'])->name('updatePassword');
+
     /* Participantes em eventos */
 
     /* voluntariado */

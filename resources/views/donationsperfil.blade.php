@@ -99,6 +99,7 @@
                     
                 </a>
             </div>
+            
             @else
             <div class="projeto col-lg-1"></div>
             @endif

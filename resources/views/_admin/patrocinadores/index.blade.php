@@ -18,10 +18,10 @@
                         <thead>
                             <tr>
                                 <th>Foto do Patrocinador</th>
+                                <th>ID</th>
                                 <th>Nome</th>
-                                <th>Descrição</th>
                                 {{-- Adicione outros cabeçalhos conforme necessário --}}
-                                <th>Funções</th>
+                                <th>Descrição</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -90,17 +90,28 @@
             </div>
 
             <script>
+                // Ao clicar no botão 'editarPerfilBtn'...
                 document.getElementById('editarPerfilBtn').addEventListener('click', function() {
+
+                    // Torna visíveis os botões com as classes 'edit-guardar', 'cancelar' e 'upload-imagem'
                     document.querySelector('.edit-guardar').style.display = 'inline-block';
                     document.querySelector('.cancelar').style.display = 'inline-block';
                     document.querySelector('.upload-imagem').style.display = 'inline-block';
+
+                    // Esconde o botão 'editarPerfilBtn'
                     document.getElementById('editarPerfilBtn').style.display = 'none';
 
+                    // Para cada elemento com a classe 'input'...
                     document.querySelectorAll('.input').forEach(function(input) {
+
+                        // Remove o atributo 'disabled', podendo assim ser editados
                         input.removeAttribute('disabled');
                     });
 
+                    // Para cada elemento com as classes 'caixa-detalhes' e 'caixa-detalhes-grande'...
                     document.querySelectorAll('.caixa-detalhes, .caixa-detalhes-grande').forEach(function(caixa) {
+
+                        // Adiciona a classe 'editavel', assim indica que essas caixas podem ser editadas
                         caixa.classList.add('editavel');
                     });
                 });
@@ -291,16 +302,26 @@
                 </div>
 
             </ul>
-            
+
             <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
             <script>
                 $(document).ready(function() {
+
+                    // Adiciona um evento de clique a todos os icons com a classe "toggle-password"
                     $(".toggle-password").click(function() {
+
+                        // Alterna entre as classes "fa-eye" e "fa-eye-slash" para alterar o visual do icon
                         $(this).toggleClass("fa-eye fa-eye-slash");
+
+                        // Obtém o elemento associado ao atributo "toggle" do elemento clicado
                         var input = $($(this).attr("toggle"));
+
+                        // Verifica se o tipo do campo de entrada é "password"
                         if (input.attr("type") == "password") {
+                            // Se for, altera para "text" para revelar a password
                             input.attr("type", "text");
                         } else {
+                            // Se não for, altera de volta para "password" para ocultar a senha
                             input.attr("type", "password");
                         }
                     });

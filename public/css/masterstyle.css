@@ -18,6 +18,24 @@ body {
     transition-delay: 0.3s;
 }
 
+i.bi-arrow-up-short {
+    order: 1px solid white;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #3A8262;
+    font-size: 110%;
+    color: white;
+    transition: ease-in-out 0.1s;
+    margin-top: 30px;
+}
+
+i.bi-arrow-up-short:hover {
+    transform: scale(1.2);
+}
+
 .hidden2 {
     opacity: 0;
     transition: all 1s;
@@ -173,7 +191,8 @@ nav.mobile {
     nav.mobile {
         display: block;
     }
-    nav.desktop{
+
+    nav.desktop {
         display: none;
     }
 }

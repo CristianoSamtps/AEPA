@@ -44,8 +44,11 @@ class PageController extends Controller
 
     public function listarFotografias()
     {
+        
         $fotografias = FotografiaProjeto::all();
+        
         $fotografiaseventos = PhotoEvent::all();
+        
         return view('galeria', compact('fotografias', 'fotografiaseventos'));
     }
 
@@ -75,18 +78,21 @@ class PageController extends Controller
         $doacoes = Donation::whereNull('projeto_id')->get();
         return view('detalheDoacoes', compact('doacoes', 'doacoes'));
     }
+
     public function doacoes()
     {
         $projetos = Projeto::all();
         $doacoes = Donation::whereNull('projeto_id')->get();
         return view('doacoes', compact('projetos', 'doacoes'));
     }
+
     public function sugestoes()
     {
         $sugestoes = Sugestao::all();
         $sugestoesList = Sugestao::where('listado', 'L')->paginate(8);
         return view('sugestoes', compact('sugestoes', 'sugestoesList'));
     }
+    
     public function patrocinadores()
     {
         $patrocinadores = Partnership::all();

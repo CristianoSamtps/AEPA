@@ -168,21 +168,32 @@ class UserController extends Controller
 
     public function showPerfil(User $user)
     {
+        // Obtém os projetos associados ao utilizador
         $projetos = $user->projetos;
+
+        // Obtém os eventos associados ao utilizador
         $events = $user->events;
+
+        // Obtém as fotografias dos projetos que são marcadas como destaque
         $fotografias = FotografiaProjeto::where('destaque', true)->get();
+
+        // Obtém todas as fotos dos eventos
         $photos_events = PhotoEvent::all();
 
+        // Retorna a view 'projetosperfil' passando as variáveis necessárias
         return view('projetosperfil', compact('user', 'projetos', 'events', 'fotografias', 'photos_events'));
     }
 
 
     public function deleteregperfil(User $user, $event)
     {
+        // Define o participante associado ao utilizador e ao evento 
         $participant = $user->participant()->where('event_id', $event)->first();
 
+        // Deleta o participante
         $participant->delete();
 
+        // Redireciona de volta para a rota 'projetosperfil'
         return redirect()->route('projetosperfil', ['user' => $user])
             ->with('success', 'Participante removido com sucesso do evento ID: ' . $event);
     }
@@ -196,6 +207,8 @@ class UserController extends Controller
 
     public function updateperfil(UserRequest $request, User $user)
     {
+
+        // Valida todos os campos do formulario enviado
         $fields = $request->validated();
         $user->fill($fields);
 
@@ -212,12 +225,6 @@ class UserController extends Controller
 
         $user->save();
 
-        if ($user->tipo == 'M') {
-            $membro = Member_Doner::findOrFail($user->id);
-            $membro->fill($fields);
-            $membro->save();
-        }
-
         return redirect()->route('editperfil', $user)
             ->with('success', 'Utilizador atualizado com sucesso');
     }
@@ -225,20 +232,28 @@ class UserController extends Controller
 
     public function updatePassword(Request $request, User $user)
     {
+        // Validação dos campos 
         $request->validate([
             'old_password' => ['required', function ($attribute, $value, $fail) use ($user) {
                 if (!Hash::check($value, $user->password)) {
                     return $fail('A senha atual está incorreta.');
                 }
             }],
-            'new_password' => 'required|min:8',
+
+            // Campo 'new_password' deve ser obrigatório e ter no mínimo 8 caracteres
+            'new_password' => 'required|min:4',
+
+            // Campo 'new_password_confirmation' deve ser obrigatório e igual ao campo 'new_password'
             'new_password_confirmation' => 'required|same:new_password',
         ], [
+            // Mensagem personalizada caso que 'new_password_confirmation' não é igual a 'new_password'
             'new_password_confirmation.same' => 'As senhas não coincidem.',
         ]);
 
-        // Atualiza a senha do usuário
+        // Atualiza a password do user com a nova password fornecida no Request
         $user->password = Hash::make($request->new_password);
+
+        // Salva as alterações na base de dados
         $user->save();
 
         return redirect()->route('editperfil', $user)
